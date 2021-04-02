@@ -1,0 +1,25 @@
+
+.search-box {
+  min-width: 19rem;
+  .mui-form--inline {
+    @extend .mui--divider-bottom;
+    display: flex;
+    padding: 0.25rem 1rem 0.75rem;
+    .mui-textfield {
+      flex: 1;
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+    .search-btn {
+      @extend .mui-btn, .mui-btn--flat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      margin: 0;
+      color: $mui-primary-color;
+    }
+  }
+}

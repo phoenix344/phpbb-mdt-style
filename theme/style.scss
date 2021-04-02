@@ -1,6 +1,98 @@
-@import "../mui/src/sass/mui.scss";
+@import "../mui/src/sass/mui-rem.scss";
+@import "../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
+@import "./scss/iconmoon";
 
-body {
-  background-color: #000;
-  color: #fff;
+@import "./assets/drawer/drawer.scss";
+@import "./assets/profile/profile.scss";
+@import "./assets/search/search.scss";
+
+label {
+  cursor: pointer;
+}
+
+.mui-appbar {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  [class^="appbar-"] {
+    display: flex;
+    align-items: center;
+  }
+  .appbar-left {
+    justify-content: flex-start;
+  }
+  .appbar-middle {
+    justify-content: center;
+  }
+  .appbar-right {
+    justify-content: flex-end;
+  }
+
+  .menu-btn {
+    @extend .mui-btn,
+            .mui-btn--primary,
+            .mui-btn--flat;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .more-btn {
+    @extend .mui-btn,
+            .mui-btn--primary,
+            .mui-btn--flat;
+    border-radius: 1rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  .menu-btn, .more-btn {
+    &.menu-show,
+    &.more-show {
+      @extend .mui--visible-xs-inline-block,
+              .mui--visible-sm-inline-block;
+    }
+    &.menu-hide,
+    &.more-hide {
+      @extend .mui--hidden-xs,
+              .mui--hidden-sm;
+    }
+
+    color: #fff;
+    padding: 0;
+    height: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: $x-mobile-breakpoint) {
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  @media (min-width: $mui-screen-sm-min) {
+    .logo {
+      display: flex;
+      justify-content: center;
+      width: 8rem;
+      margin: 0 2rem 0 1rem;
+    }
+  }
+
+  .material-icons {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    @extend .mui--text-title;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    margin: 0;
+    align-self: center;
+  }
+  p {
+    @extend .mui--text-subhead,
+            .mui--hidden-xs,
+            .mui--hidden-sm;
+    margin: 0;
+  }
 }

@@ -1,138 +1,264 @@
 <!DOCTYPE html>
 <html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-{META}
-<title><!-- IF UNREAD_NOTIFICATIONS_COUNT -->({UNREAD_NOTIFICATIONS_COUNT}) <!-- ENDIF --><!-- IF not S_VIEWTOPIC and not S_VIEWFORUM -->{SITENAME} - <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} - <!-- ELSEIF S_IN_UCP -->{L_UCP} - <!-- ENDIF -->{PAGE_TITLE}<!-- IF S_VIEWTOPIC or S_VIEWFORUM --> - {SITENAME}<!-- ENDIF --></title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	{META}
+	<title>
+		<!-- IF UNREAD_NOTIFICATIONS_COUNT -->({UNREAD_NOTIFICATIONS_COUNT})
+		<!-- ENDIF -->
+		<!-- IF not S_VIEWTOPIC and not S_VIEWFORUM -->{SITENAME} -
+		<!-- ENDIF -->
+		<!-- IF S_IN_MCP -->{L_MCP} -
+		<!-- ELSEIF S_IN_UCP -->{L_UCP} -
+		<!-- ENDIF -->{PAGE_TITLE}
+		<!-- IF S_VIEWTOPIC or S_VIEWFORUM --> - {SITENAME}
+		<!-- ENDIF -->
+	</title>
 
-<!-- IF S_ENABLE_FEEDS -->
-	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{{ path('phpbb_feed_index') }}"><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{{ path('phpbb_feed_news') }}"><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{{ path('phpbb_feed_forums') }}"><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{{ path('phpbb_feed_topics') }}"><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{{ path('phpbb_feed_topics_active') }}"><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{{ path('phpbb_feed_forum', { forum_id : S_FORUM_ID } ) }}"><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{{ path('phpbb_feed_topic', { topic_id : S_TOPIC_ID } ) }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS -->
+	<!-- IF S_ENABLE_FEEDS_OVERALL -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{{ path('phpbb_feed_index') }}">
+	<!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_NEWS -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}"
+		href="{{ path('phpbb_feed_news') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}"
+		href="{{ path('phpbb_feed_forums') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}"
+		href="{{ path('phpbb_feed_topics') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}"
+		href="{{ path('phpbb_feed_topics_active') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}"
+		href="{{ path('phpbb_feed_forum', { forum_id : S_FORUM_ID } ) }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}"
+		href="{{ path('phpbb_feed_topic', { topic_id : S_TOPIC_ID } ) }}"><!-- ENDIF -->
 	<!-- EVENT overall_header_feeds -->
-<!-- ENDIF -->
+	<!-- ENDIF -->
 
-<!-- IF U_CANONICAL -->
+	<!-- IF U_CANONICAL -->
 	<link rel="canonical" href="{U_CANONICAL}">
-<!-- ENDIF -->
+	<!-- ENDIF -->
 
-<!--
-	phpBB style name: prosilver
-	Based on style:   prosilver (this is the default phpBB3 style)
-	Original author:  Tom Beddard ( http://www.subBlue.com/ )
-	Modified by:
--->
+	<!-- IF S_ALLOW_CDN -->
+	<script>
+		WebFontConfig = {
+			google: {
+				families: ['Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese']
+			}
+		};
 
-<!-- IF S_ALLOW_CDN -->
-<script>
-	WebFontConfig = {
-		google: {
-			families: ['Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese']
-		}
-	};
+		(function (d) {
+			var wf = d.createElement('script'), s = d.scripts[0];
+			wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+			wf.async = true;
+			s.parentNode.insertBefore(wf, s);
+		})(document);
+	</script>
+	<!-- ENDIF -->
+	<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+	<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
+	<link href="{T_STYLESHEET_LANG_LINK}" rel="stylesheet">
 
-	(function(d) {
-		var wf = d.createElement('script'), s = d.scripts[0];
-		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-		wf.async = true;
-		s.parentNode.insertBefore(wf, s);
-	})(document);
-</script>
-<!-- ENDIF -->
-<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
-<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
-<link href="{T_STYLESHEET_LANG_LINK}" rel="stylesheet">
-
-<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+	<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
 	<link href="{T_THEME_PATH}/bidi.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<!-- ENDIF -->
+	<!-- ENDIF -->
 
-<!-- IF S_PLUPLOAD -->
+	<!-- IF S_PLUPLOAD -->
 	<link href="{T_THEME_PATH}/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<!-- ENDIF -->
+	<!-- ENDIF -->
 
-<!-- IF S_COOKIE_NOTICE -->
+	<!-- IF S_COOKIE_NOTICE -->
 	<link href="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<!-- ENDIF -->
+	<!-- ENDIF -->
 
-<!--[if lte IE 9]>
-	<link href="{T_THEME_PATH}/tweaks.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<![endif]-->
+	<!-- EVENT overall_header_head_append -->
 
-<!-- EVENT overall_header_head_append -->
+	{$STYLESHEETS}
 
-{$STYLESHEETS}
-
-<!-- EVENT overall_header_stylesheets_after -->
+	<!-- EVENT overall_header_stylesheets_after -->
 
 </head>
+
 <body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS}">
 
-<!-- EVENT overall_header_body_before -->
+	<!-- EVENT overall_header_body_before -->
 
-<div id="wrap" class="wrap">
-	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="wrap" class="wrap">
+		<a id="top" class="top-anchor" accesskey="t"></a>
 
-	<header class="mui-appbar">
-		hello, world!
-	</header>
-
-	<div id="page-header">
-		<div class="headerbar" role="banner">
-		<!-- EVENT overall_header_headerbar_before -->
-			<div class="inner">
-
-			<div id="site-description" class="site-description">
-		<a id="logo" class="logo" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
-					<span class="site_logo"></span>
+		<header class="mui-appbar">
+			<!-- EVENT overall_header_headerbar_before -->
+			<section class="appbar-left">
+				<button id="appbar-sidenav-show" class="menu-btn menu-show" data-target="#sidebar-drawer" data-toggle="drawer">
+					<i class="material-icons">menu</i>
+				</button>
+				<button id="appbar-sidenav-show" class="menu-btn menu-hide" data-target="#sidebar-drawer" data-toggle="drawer">
+					<i class="material-icons">menu</i>
+				</button>
+				<a id="logo" class="logo" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}"
+					title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
+					<img src="{T_THEME_PATH}/images/site_logo.svg" alt="">
 				</a>
-				<h1>{SITENAME}</h1>
-				<p>{SITE_DESCRIPTION}</p>
-				<p class="skiplink"><a href="#start_here">{L_SKIP}</a></p>
-			</div>
-
-			<!-- EVENT overall_header_searchbox_before -->
-			<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
-			<div id="search-box" class="search-box search-header" role="search">
-				<form action="{U_SEARCH}" method="get" id="search">
-				<fieldset>
-					<input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
-					<button class="button button-search" type="submit" title="{L_SEARCH}">
-						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">{L_SEARCH}</span>
-					</button>
-					<a href="{U_SEARCH}" class="button button-search-end" title="{L_SEARCH_ADV}">
-						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">{L_SEARCH_ADV}</span>
+				<section>
+					<h1>{SITENAME}</h1>
+					<p>{SITE_DESCRIPTION}</p>
+				</section>
+			</section>
+			<section class="appbar-middle">
+			</section>
+			<section class="appbar-right">
+				<div id="profile-dropdown" class="profile-dropdown mui-dropdown">
+					<!-- IF S_REGISTERED_USER -->
+					<a href="{U_PROFILE}" title="{S_USERNAME}" class="more-btn" data-mui-toggle="dropdown">
+						<!-- IF CURRENT_USER_AVATAR -->
+						{CURRENT_USER_AVATAR}
+						<!-- ELSE -->
+						<i class="material-icons">account_circle</i>
+						<!-- ENDIF -->
 					</a>
-					{S_SEARCH_HIDDEN_FIELDS}
-				</fieldset>
-				</form>
+					<ul class="mui-dropdown__menu mui-dropdown__menu--right">
+						<!-- IF S_REGISTERED_USER -->
+						<li>
+							<!-- EVENT navbar_header_username_prepend -->
+
+							<!-- EVENT navbar_header_profile_list_before -->
+							<!-- EVENT navbar_header_profile_list_after -->
+
+							<!-- EVENT navbar_header_username_append -->
+						</li>
+						<!-- ENDIF -->
+
+						<!-- IF S_USER_LOGGED_IN -->
+						<li>
+							
+						</li>
+						<!-- ENDIF -->
+						<li><a href="#">Option 2</a></li>
+						<li><a href="#">Option 3</a></li>
+						<li><a href="#">Option 4</a></li>
+					</ul>
+
+					<!-- ELSE IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+					<a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" class="more-btn" data-mui-toggle="dropdown" accesskey="x" role="menuitem">
+						<i class="material-icons">account_circle</i>
+					</a>
+					<ul class="mui-dropdown__menu mui-dropdown__menu--right">
+						<li>
+							<form method="post" action="{S_LOGIN_ACTION}" class="loginform mui-form">
+								<h3>{L_LOGIN}</h3>
+								<div class="mui-textfield mui-textfield--float-label">
+									<input type="text" tabindex="1" name="username">
+									<label>{L_USERNAME}</label>
+								</div>
+								<div class="mui-textfield mui-textfield--float-label">
+									<input type="password" tabindex="2" name="password" autocomplete="off">
+									<label>{L_PASSWORD}</label>
+									<!-- IF U_SEND_PASSWORD -->
+									<a href="{U_SEND_PASSWORD}" tabindex="3">{L_FORGOT_PASS}</a>
+									<!-- ENDIF -->
+								</div>
+								<!-- IF S_AUTOLOGIN_ENABLED -->
+								<div class="mui-checkbox">
+									<label>
+										<input type="checkbox" name="autologin">
+										{L_LOG_ME_IN}
+									</label>
+								</div>
+								<!-- ENDIF -->
+								<button type="submit" name="login" tabindex="5">{L_LOGIN}</button>
+								<p>
+									<a href="{U_LOGIN_LOGOUT}" tabindex="6">{L_LOGIN_LOGOUT}</a>
+									<!-- IF S_REGISTER_ENABLED -->
+									&bull;
+									<a href="{U_REGISTER}" tabindex="7">{L_REGISTER}</a>
+									<!-- ENDIF -->
+								</p>
+								{S_LOGIN_REDIRECT}
+								{S_FORM_TOKEN_LOGIN}
+							</form>
+						</li>
+					</ul>
+					<!-- ENDIF -->
+				</div>
+				<div id="more-dropdown" class="mui-dropdown">
+					<button class="more-btn" data-mui-toggle="dropdown">
+						<i class="material-icons">more_vert</i>
+					</button>
+					<ul class="mui-dropdown__menu mui-dropdown__menu--right">
+						<!-- EVENT overall_header_searchbox_before -->
+						<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+						<li id="search-box" class="search-box search-header" role="search">
+							<form action="{U_SEARCH}" method="get" id="search" class="mui-form--inline">
+								<div class="mui-textfield">
+									<input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}"
+									class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
+									<a href="{U_SEARCH}" title="{L_SEARCH_ADV}">
+										{L_SEARCH_ADV}
+									</a>
+								</div>
+								<button class="search-btn" type="submit" title="{L_SEARCH}">
+									<i class="material-icons">search</i>
+								</button>
+								{S_SEARCH_HIDDEN_FIELDS}
+							</form>
+						</li>
+						<!-- ENDIF -->
+						<!-- EVENT overall_header_searchbox_after -->
+						<li><a href="#">Option 3</a></li>
+						<li><a href="#">Option 4</a></li>
+					</ul>
+				</div>
+			</section>
+			<!-- EVENT overall_header_headerbar_after -->
+		</header>
+
+		<div id="sidebar-drawer" class="drawer">
+			<div class="drawer-content">
+				<!-- EVENT overall_header_navbar_before -->
+				<!-- INCLUDE navbar_header.html -->
+				<!-- EVENT overall_header_page_body_before -->
+			</div>
+		</div>
+	
+		<div id="page-header">
+			<div class="headerbar" role="banner">
+				<!-- EVENT overall_header_headerbar_before -->
+				<div class="inner">
+
+					<div id="site-description" class="site-description">
+						<a id="logo" class="logo" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}"
+							title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
+							<span class="site_logo"></span>
+						</a>
+						<h1>{SITENAME}</h1>
+						<p>{SITE_DESCRIPTION}</p>
+						<p class="skiplink"><a href="#start_here">{L_SKIP}</a></p>
+					</div>
+				</div>
+				<!-- EVENT overall_header_headerbar_after -->
+			</div>
+			<!-- EVENT overall_header_navbar_before -->
+			<!-- INCLUDE navbar_header.html -->
+		</div>
+
+		<!-- EVENT overall_header_page_body_before -->
+
+		<a id="start_here" class="anchor"></a>
+		<div id="page-body" class="page-body" role="main">
+			<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+			<div id="information" class="rules">
+				<div class="inner">
+					<strong>{L_INFORMATION}{L_COLON}</strong> {L_BOARD_DISABLED}
+				</div>
 			</div>
 			<!-- ENDIF -->
-			<!-- EVENT overall_header_searchbox_after -->
 
-			</div>
-			<!-- EVENT overall_header_headerbar_after -->
-		</div>
-		<!-- EVENT overall_header_navbar_before -->
-		<!-- INCLUDE navbar_header.html -->
-	</div>
-
-	<!-- EVENT overall_header_page_body_before -->
-
-	<a id="start_here" class="anchor"></a>
-	<div id="page-body" class="page-body" role="main">
-		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
-		<div id="information" class="rules">
-			<div class="inner">
-				<strong>{L_INFORMATION}{L_COLON}</strong> {L_BOARD_DISABLED}
-			</div>
-		</div>
-		<!-- ENDIF -->
-
-		<!-- EVENT overall_header_content_before -->
+			<!-- EVENT overall_header_content_before -->

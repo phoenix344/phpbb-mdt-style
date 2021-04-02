@@ -1,0 +1,35 @@
+.profile-dropdown {
+  .more-btn {
+    box-sizing: border-box;
+    border: 3px solid rgba($mui-appbar-font-color, 0.5);
+    width: 1.5rem;
+    height: 1.5rem;
+    > img {
+      width: inherit;
+      height: inherit;
+    }
+    > .material-icons {
+      margin-top: -3px;
+      margin-left: -3px;
+    }
+  }
+  .loginform {
+    min-width: 11rem;
+    padding: 0.5rem 1rem;
+    color: $mui-text-dark;
+    h3 {
+      @extend .mui--text-title;
+      color: $mui-form-legend-font-color;
+      margin: 0;
+    }
+    p {
+      @extend .mui--text-caption;
+      color: $mui-link-font-color;
+      margin: 1rem 0 0;
+      text-align: right;
+    }
+    button {
+      @extend .mui-btn, .mui-btn--primary;
+    }
+  }
+}
