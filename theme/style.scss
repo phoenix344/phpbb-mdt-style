@@ -1,7 +1,7 @@
 
 // material UI styles
 // @import "../mui/src/sass/mui-rem.scss";
-@import "./assets/material";
+@import "../mdl/material-design-lite.scss";
 
 // material UI icons
 @import "../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
@@ -17,6 +17,51 @@
 // @import "./assets/profile/profile.scss";
 // @import "./assets/search/search.scss";
 // @import "./assets/forums/forums.scss";
+
+@media (max-width: $grid-tablet-breakpoint) {
+  .mdl-layout-title {
+    display: none;
+  }
+}
+
+.pbb-menu__headline {
+  @extend .mdl-menu__item, .mdl-menu__item--full-bleed-divider;
+  font-weight: 700;
+  cursor: default;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.mdl-menu__item .material-icons {
+  vertical-align: middle;
+}
+
+.pbb-profile-btn {
+  @extend .mdl-button, .mdl-button--icon;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.pbb-modal-links {
+  margin-top: 1rem;
+  text-align: right;
+  a {
+    font-size: 1em;
+  }
+}
 
 // label {
 //   cursor: pointer;
