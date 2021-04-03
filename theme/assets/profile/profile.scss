@@ -57,7 +57,7 @@
   }
 
   h3, h4 {
-    @extend .media-headline;
+    @extend .media-headline, .mui--text-button;
   }
   .badge {
     align-self: flex-start;

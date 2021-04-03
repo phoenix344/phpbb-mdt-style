@@ -1,0 +1,27 @@
+<!-- BEGIN forumrow -->
+
+<!-- IF forumrow.S_IS_CAT -->
+<section class="media forum-category">
+  <h2>
+    <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+  </h2>
+</section>
+<!-- ELSEIF not forumrow.S_IS_CAT -->
+<section class="media forum">
+  <h2>
+    <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+  </h2>
+  <!-- IF forumrow.FORUM_DESC -->
+  <p>
+    {forumrow.FORUM_DESC}
+  </p>
+  <!-- ENDIF -->
+  <!-- INCLUDE forums/forums_info.html -->
+</section>
+<!-- ENDIF -->
+
+<!-- BEGINELSE -->
+<section class="forums-empty">
+  <p><strong>{L_NO_FORUMS}</strong></p>
+</section>
+<!-- END forumrow -->

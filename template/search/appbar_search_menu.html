@@ -1,0 +1,19 @@
+<!-- IF S_DISPLAY_SEARCH -->
+<!-- EVENT overall_header_searchbox_before -->
+<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+            mdl-textfield--floating-label mdl-textfield--align-right">
+  <form action="{U_SEARCH}" method="get">
+    <label class="mdl-button mdl-js-button mdl-button--icon"
+            for="fixed-header-drawer-exp">
+      <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+    </div>
+    {S_SEARCH_HIDDEN_FIELDS}
+  </form>
+</div>
+<!-- ENDIF -->
+<!-- EVENT overall_header_searchbox_after -->
+<!-- ENDIF -->

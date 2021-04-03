@@ -10,7 +10,7 @@
 }
 
 .media-headline {
-  @extend .mui--text-button, .mui--divider-bottom;
+  @extend .mui--divider-bottom;
   font-weight: 700;
   display: flex;
 }

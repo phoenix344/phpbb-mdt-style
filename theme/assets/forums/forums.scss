@@ -1,0 +1,57 @@
+.forum-category {
+  @extend .media;
+  flex-direction: column;
+  margin-top: 1rem;
+  &:first-child {
+    margin-top: 0;
+  }
+
+  h2 {
+    @extend .media-headline, .mui--text-title;
+    margin: 0;
+    flex: 1;
+    a {
+      color: $mui-text-dark;
+    }
+  }
+}
+
+.forum {
+  @extend .media, .mui-panel;
+  flex-direction: column;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+
+  h2 {
+    @extend .media-headline, .mui--text-title;
+    margin: 0;
+    flex: 1;
+    margin-left: 0.5rem;
+    a {
+      color: $mui-text-dark;
+    }
+  }
+
+  dl, dt, dd {
+    margin: 0;
+  }
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  dt {
+    font-weight: 700;
+  }
+  dd {
+    margin-right: 0.5rem;
+  }
+  dt, dd {
+    @extend .mui--text-button;
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+    color: $mui-text-dark-hint;
+  }
+  p {
+    margin: 0 0.5rem;
+  }
+}
