@@ -50,12 +50,13 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0.25rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
   .profile-content {
     h3, dt, dd {
       padding-left: 0.5rem;
     }
     flex: 1;
+    margin-right: 0.75rem;
   }
 }
 
@@ -63,8 +64,13 @@
   h3 {
     @extend .mui--text-button, .mui--divider-bottom;
     font-weight: 700;
+    display: flex;
+    .badge {
+      align-self: flex-start;
+      margin-left: 0.5rem;
+    }
   }
-  h3, dl {
+  h3, h4, dl {
     margin: 0;
   }
 
@@ -75,12 +81,51 @@
       font-size: 0.6rem;
     }
     dt {
-      @extend .mui--text-button, .mui--divider-bottom;
+      @extend .mui--text-button;
       color: $mui-text-dark-hint;
       margin-top: 0.25rem;
     }
   }
-  .profile-pm {
-    @extend .mui--text-caption;
+}
+
+.profile-notifications {
+  @extend .mui-panel;
+  padding: 0.25rem;
+  margin: 0;
+
+  .profile-content {
+    margin-right: 0.75rem;
   }
+
+  .profile-notification {
+    @extend .mui--z1, .mui--divider-top;
+    &:hover {
+      background-color: $mui-btn-flat-bg-color-hover;
+    }
+  }
+
+  .profile-overview {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    color: $mui-text-dark;
+    background-color: transparent;
+    &:hover, &:active {
+      text-decoration: none;
+    }
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+    .profile-content {
+      h4, p {
+        @extend .mui--text-caption;
+        font-size: 0.7rem;
+        padding-left: 0.5rem;
+        margin: 0;
+      }
+      flex: 1;
+    }
+  }
+
 }

@@ -20,6 +20,7 @@ label {
 }
 
 .mui-appbar {
+  @extend .mui--z3;
   display: grid;
   grid-template-columns: auto auto auto;
 

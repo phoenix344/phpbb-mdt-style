@@ -706,10 +706,10 @@ h4, h5, h6 {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.mui--divider-top {
+.mui--divider-top, .profile-notifications .profile-notification {
   border-top: 1px solid rgba(0, 0, 0, 0.12); }
 
-.mui--divider-bottom, .profile-content h3, .profile-content dl dt, .mui-dropdown__menu li > strong {
+.mui--divider-bottom, .profile-content h3, .mui-dropdown__menu li > strong {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
 
 .mui--divider-left {
@@ -1145,22 +1145,22 @@ h4, h5, h6 {
 /**
  * MUI Panel module
  */
-.mui-panel, .drawer, .profile-overview {
+.mui-panel, .drawer, .profile-overview, .profile-notifications {
   padding: 15px;
   margin-bottom: 1.25rem;
   border-radius: 0;
   background-color: #FFF;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12); }
-  .mui-panel:before, .drawer:before, .profile-overview:before, .mui-panel:after, .drawer:after, .profile-overview:after {
+  .mui-panel:before, .drawer:before, .profile-overview:before, .profile-notifications:before, .mui-panel:after, .drawer:after, .profile-overview:after, .profile-notifications:after {
     content: " ";
     display: table; }
-  .mui-panel:after, .drawer:after, .profile-overview:after {
+  .mui-panel:after, .drawer:after, .profile-overview:after, .profile-notifications:after {
     clear: both; }
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .mui-panel, .drawer, .profile-overview {
+    .mui-panel, .drawer, .profile-overview, .profile-notifications {
       box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.12), -1px 0px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12); } }
   @supports (-ms-ime-align: auto) {
-    .mui-panel, .drawer, .profile-overview {
+    .mui-panel, .drawer, .profile-overview, .profile-notifications {
       box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.12), -1px 0px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12); } }
 
 /**
@@ -1642,13 +1642,13 @@ h4, h5, h6 {
     padding-left: 0.313rem;
     padding-right: 0.313rem; }
 
-.mui--z1, .mui-dropdown__menu, .mui-select__menu {
+.mui--z1, .mui-dropdown__menu, .mui-select__menu, .profile-notifications .profile-notification {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
 .mui--z2 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
-.mui--z3 {
+.mui--z3, .drawer, .mui-appbar {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .mui--z4 {
@@ -1941,7 +1941,7 @@ h4, h5, h6 {
   font-size: 0.875rem;
   line-height: 1.25rem; }
 
-.mui--text-caption, .profile-dropdown .loginform p, .profile-content .profile-pm {
+.mui--text-caption, .profile-dropdown .loginform p, .profile-notifications .profile-overview .profile-content h4, .profile-notifications .profile-overview .profile-content p {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1rem; }
@@ -6951,16 +6951,21 @@ h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0.25rem; }
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem; }
   .profile-overview .profile-content {
-    flex: 1; }
+    flex: 1;
+    margin-right: 0.75rem; }
     .profile-overview .profile-content h3, .profile-overview .profile-content dt, .profile-overview .profile-content dd {
       padding-left: 0.5rem; }
 
 .profile-content h3 {
-  font-weight: 700; }
+  font-weight: 700;
+  display: flex; }
+  .profile-content h3 .badge {
+    align-self: flex-start;
+    margin-left: 0.5rem; }
 
-.profile-content h3, .profile-content dl {
+.profile-content h3, .profile-content h4, .profile-content dl {
   margin: 0; }
 
 .profile-content dl dt, .profile-content dl dd {
@@ -6970,6 +6975,31 @@ h4, h5, h6 {
 .profile-content dl dt {
   color: rgba(0, 0, 0, 0.38);
   margin-top: 0.25rem; }
+
+.profile-notifications {
+  padding: 0.25rem;
+  margin: 0; }
+  .profile-notifications .profile-content {
+    margin-right: 0.75rem; }
+  .profile-notifications .profile-notification:hover {
+    background-color: #f2f2f2; }
+  .profile-notifications .profile-overview {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: transparent; }
+    .profile-notifications .profile-overview:hover, .profile-notifications .profile-overview:active {
+      text-decoration: none; }
+    .profile-notifications .profile-overview img {
+      width: 2rem;
+      height: 2rem; }
+    .profile-notifications .profile-overview .profile-content {
+      flex: 1; }
+      .profile-notifications .profile-overview .profile-content h4, .profile-notifications .profile-overview .profile-content p {
+        font-size: 0.7rem;
+        padding-left: 0.5rem;
+        margin: 0; }
 
 .search-box {
   min-width: 19rem; }

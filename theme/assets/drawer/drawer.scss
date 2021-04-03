@@ -1,5 +1,5 @@
 .drawer {
-  @extend .mui-panel;
+  @extend .mui-panel, .mui--z3;
   margin-bottom: 0;
   padding: 0;
   $drawer-width: 15rem;
