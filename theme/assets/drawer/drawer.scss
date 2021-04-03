@@ -1,4 +1,7 @@
 .drawer {
+  @extend .mui-panel;
+  margin-bottom: 0;
+  padding: 0;
   $drawer-width: 15rem;
   position: fixed;
   top: 0;
@@ -6,6 +9,7 @@
   left: 0;
   background-color: #fff;
   display: none;
+  overflow: auto;
   transition: 0.25s ease-in-out;
   &.drawer-active {
     margin-left: 0;

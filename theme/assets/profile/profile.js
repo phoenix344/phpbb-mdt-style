@@ -1,7 +1,8 @@
-const dropdownTrigger = document.querySelector("#profile-dropdown");
-if (dropdownTrigger) {
-  dropdownTrigger.addEventListener("click", (event) => {
+const moreBtn = document.querySelector("#profile-dropdown > .more-btn");
+if (moreBtn) {
+  moreBtn.addEventListener("click", (event) => {
     event.preventDefault();
+    console.log('prevented');
   });
 }
 

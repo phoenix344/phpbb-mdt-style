@@ -1,4 +1,4 @@
-import { timeout } from '../utils/utils.js';
+import { timeout } from '../utils/timeout.js';
 
 document.addEventListener('keyup', (ev) => {
   const overlay = document.querySelector('#mui-overlay');

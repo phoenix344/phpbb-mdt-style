@@ -2,7 +2,6 @@
 .search-box {
   min-width: 19rem;
   .mui-form--inline {
-    @extend .mui--divider-bottom;
     display: flex;
     padding: 0.25rem 1rem 0.75rem;
     .mui-textfield {

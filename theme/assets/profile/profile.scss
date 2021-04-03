@@ -4,6 +4,14 @@
     border: 3px solid rgba($mui-appbar-font-color, 0.5);
     width: 1.5rem;
     height: 1.5rem;
+    &.no-avatar {
+      @extend .mui--bg-accent-dark;
+      color: $mui-appbar-bg-color;
+      &:hover, &:active {
+        background-color: $mui-appbar-bg-color;
+        color: $mui-appbar-font-color;
+      }
+    }
     > img {
       width: inherit;
       height: inherit;
@@ -31,5 +39,48 @@
     button {
       @extend .mui-btn, .mui-btn--primary;
     }
+  }
+  .logout-item {
+    margin-top: 0.35rem;
+  }
+}
+
+.profile-overview {
+  @extend .mui-panel;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.25rem;
+  .profile-content {
+    h3, dt, dd {
+      padding-left: 0.5rem;
+    }
+    flex: 1;
+  }
+}
+
+.profile-content {
+  h3 {
+    @extend .mui--text-button, .mui--divider-bottom;
+    font-weight: 700;
+  }
+  h3, dl {
+    margin: 0;
+  }
+
+  dl {
+    @extend .mui-list--unstyled;
+    dt, dd {
+      margin: 0;
+      font-size: 0.6rem;
+    }
+    dt {
+      @extend .mui--text-button, .mui--divider-bottom;
+      color: $mui-text-dark-hint;
+      margin-top: 0.25rem;
+    }
+  }
+  .profile-pm {
+    @extend .mui--text-caption;
   }
 }

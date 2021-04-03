@@ -116,36 +116,68 @@
 			</section>
 			<section class="appbar-right">
 				<div id="profile-dropdown" class="profile-dropdown mui-dropdown">
-					<!-- IF S_REGISTERED_USER -->
+					<!-- IF S_USER_LOGGED_IN and S_REGISTERED_USER -->
+					<!-- EVENT navbar_header_username_prepend -->
+					<!-- IF CURRENT_USER_AVATAR -->
 					<a href="{U_PROFILE}" title="{S_USERNAME}" class="more-btn" data-mui-toggle="dropdown">
-						<!-- IF CURRENT_USER_AVATAR -->
 						{CURRENT_USER_AVATAR}
-						<!-- ELSE -->
-						<i class="material-icons">account_circle</i>
-						<!-- ENDIF -->
 					</a>
+					<!-- ELSE -->
+					<a href="{U_PROFILE}" title="{S_USERNAME}" class="more-btn no-avatar" data-mui-toggle="dropdown">
+						<i class="material-icons">account_circle</i>
+					</a>
+					<!-- ENDIF -->
 					<ul class="mui-dropdown__menu mui-dropdown__menu--right">
-						<!-- IF S_REGISTERED_USER -->
+						<li><strong>{S_USERNAME}</strong></li>
+						<!-- IF U_RESTORE_PERMISSIONS -->
 						<li>
-							<!-- EVENT navbar_header_username_prepend -->
-
-							<!-- EVENT navbar_header_profile_list_before -->
-							<!-- EVENT navbar_header_profile_list_after -->
-
-							<!-- EVENT navbar_header_username_append -->
+							<a href="{U_RESTORE_PERMISSIONS}">
+								<i class="icon fa-refresh fa-fw" aria-hidden="true"></i><span>{L_RESTORE_PERMISSIONS}</span>
+							</a>
 						</li>
 						<!-- ENDIF -->
-
+						<!-- EVENT navbar_header_profile_list_before -->
+						<li>
+							<a href="{U_PROFILE}" title="{L_PROFILE}" role="menuitem">
+								<i class="material-icons">miscellaneous_services</i>
+								{L_PROFILE}
+							</a>
+						</li>
+						<!-- IF U_USER_PROFILE -->
+						<li>
+							<a href="{U_USER_PROFILE}" title="{L_READ_PROFILE}" role="menuitem">
+								<i class="material-icons">person</i>
+								{L_READ_PROFILE}
+							</a>
+						</li>
+						<!-- ENDIF -->
+						<!-- EVENT navbar_header_profile_list_after -->
+						<!-- IF U_ACP -->
+						<li class="mui--divider-top">
+							<a href="{U_ACP}" title="{L_ACP}" role="menuitem">
+								<i class="material-icons">admin_panel_settings</i>
+								{L_ACP}
+							</a>
+						</li>
+						<!-- ENDIF -->
+						<!-- IF U_MCP -->
+						<li class="mui--divider-top">
+							<a href="{U_MCP}" title="{L_MCP}" role="menuitem">
+								<i class="material-icons">local_police</i>
+								{L_MCP}
+							</a>
+						</li>
+						<!-- ENDIF -->
 						<!-- IF S_USER_LOGGED_IN -->
-						<li>
-							
+						<li class="mui--divider-top">
+							<a href="{U_LOGIN_LOGOUT}" class="logout-item" accesskey="x" role="menuitem">
+								<i class="material-icons">logout</i>
+								{L_LOGIN_LOGOUT}
+							</a>
 						</li>
 						<!-- ENDIF -->
-						<li><a href="#">Option 2</a></li>
-						<li><a href="#">Option 3</a></li>
-						<li><a href="#">Option 4</a></li>
 					</ul>
-
+					<!-- EVENT navbar_header_username_append -->
 					<!-- ELSE IF not S_USER_LOGGED_IN and not S_IS_BOT -->
 					<a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" class="more-btn" data-mui-toggle="dropdown" accesskey="x" role="menuitem">
 						<i class="material-icons">account_circle</i>
@@ -185,9 +217,11 @@
 								{S_FORM_TOKEN_LOGIN}
 							</form>
 						</li>
+						<!-- EVENT navbar_header_logged_out_content -->
 					</ul>
 					<!-- ENDIF -->
 				</div>
+				<!-- IF S_DISPLAY_SEARCH -->
 				<div id="more-dropdown" class="mui-dropdown">
 					<button class="more-btn" data-mui-toggle="dropdown">
 						<i class="material-icons">more_vert</i>
@@ -212,10 +246,41 @@
 						</li>
 						<!-- ENDIF -->
 						<!-- EVENT overall_header_searchbox_after -->
-						<li><a href="#">Option 3</a></li>
-						<li><a href="#">Option 4</a></li>
+						<li><strong>{L_QUICK_LINKS}</strong></li>
+						<!-- IF S_REGISTERED_USER -->
+						<li>
+							<a href="{U_SEARCH_SELF}" role="menuitem">
+								{L_SEARCH_SELF}
+							</a>
+						</li>
+						<!-- ENDIF -->
+						<!-- IF S_USER_LOGGED_IN -->
+						<li>
+							<a href="{U_SEARCH_NEW}" role="menuitem">
+								{L_SEARCH_NEW}
+							</a>
+						</li>
+						<!-- ENDIF -->
+						<!-- IF S_LOAD_UNREADS -->
+						<li>
+							<a href="{U_SEARCH_UNREAD}" role="menuitem">
+								{L_SEARCH_UNREAD}
+							</a>
+						</li>
+						<!-- ENDIF -->
+						<li>
+							<a href="{U_SEARCH_UNANSWERED}" role="menuitem">
+								{L_SEARCH_UNANSWERED}
+							</a>
+						</li>
+						<li>
+							<a href="{U_SEARCH_ACTIVE_TOPICS}" role="menuitem">
+								{L_SEARCH_ACTIVE_TOPICS}
+							</a>
+						</li>
 					</ul>
 				</div>
+				<!-- ENDIF -->
 			</section>
 			<!-- EVENT overall_header_headerbar_after -->
 		</header>
@@ -227,31 +292,11 @@
 				<!-- EVENT overall_header_page_body_before -->
 			</div>
 		</div>
-	
-		<div id="page-header">
-			<div class="headerbar" role="banner">
-				<!-- EVENT overall_header_headerbar_before -->
-				<div class="inner">
-
-					<div id="site-description" class="site-description">
-						<a id="logo" class="logo" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}"
-							title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
-							<span class="site_logo"></span>
-						</a>
-						<h1>{SITENAME}</h1>
-						<p>{SITE_DESCRIPTION}</p>
-						<p class="skiplink"><a href="#start_here">{L_SKIP}</a></p>
-					</div>
-				</div>
-				<!-- EVENT overall_header_headerbar_after -->
-			</div>
-			<!-- EVENT overall_header_navbar_before -->
-			<!-- INCLUDE navbar_header.html -->
-		</div>
 
 		<!-- EVENT overall_header_page_body_before -->
 
 		<a id="start_here" class="anchor"></a>
+		
 		<div id="page-body" class="page-body" role="main">
 			<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
 			<div id="information" class="rules">

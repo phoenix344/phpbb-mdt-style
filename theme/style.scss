@@ -1,7 +1,16 @@
-@import "../mui/src/sass/mui-rem.scss";
-@import "../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
-@import "./scss/iconmoon";
 
+// material UI styles
+@import "../mui/src/sass/mui-rem.scss";
+
+// material UI icons
+@import "../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
+
+// generic styles
+@import "./assets/variables";
+@import "./assets/mixins";
+@import "./assets/iconmoon";
+
+// component styles
 @import "./assets/drawer/drawer.scss";
 @import "./assets/profile/profile.scss";
 @import "./assets/search/search.scss";
@@ -20,20 +29,24 @@ label {
   }
   .appbar-left {
     justify-content: flex-start;
+    padding-left: 1rem;
   }
   .appbar-middle {
     justify-content: center;
   }
   .appbar-right {
     justify-content: flex-end;
+    padding-right: 1rem;
   }
 
   .menu-btn {
     @extend .mui-btn,
             .mui-btn--primary,
             .mui-btn--flat;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: 0;
+    + .menu-btn {
+      margin-left: 0;
+    }
   }
 
   .more-btn {
@@ -57,7 +70,7 @@ label {
               .mui--hidden-sm;
     }
 
-    color: #fff;
+    color: $mui-appbar-font-color;
     padding: 0;
     height: 1.5rem;
     margin-top: 1rem;
@@ -95,4 +108,47 @@ label {
             .mui--hidden-sm;
     margin: 0;
   }
+}
+
+.mui-dropdown__menu {
+  li {
+    > span, > strong {
+      @include list-item();
+    }
+    > strong {
+      @extend .mui--text-button, .mui--divider-bottom;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding-bottom: 0.35rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      cursor: default;
+    }
+    > a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      .material-icons {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.badge {
+  background-color: $mui-accent-color-dark;
+  color: $mui-text-light;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }

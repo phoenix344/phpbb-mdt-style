@@ -1,3 +1,34 @@
+<ul class="mui-list--unstyled">
+	<!-- IF S_USER_LOGGED_IN -->
+	<li class="profile-overview">
+		<!-- IF CURRENT_USER_AVATAR -->
+		{CURRENT_USER_AVATAR}
+		<!-- ELSE -->
+		
+		<!-- ENDIF -->
+		<div class="profile-content">
+			<h3>{S_USERNAME}</h3>
+			<dl>
+				<dt>{L_LAST_VISIT}</dt>
+				<dd>{LAST_VISIT_YOU}</dd>
+			</dl>
+		</div>
+	</li>
+	<!-- IF S_NOTIFICATIONS_DISPLAY -->
+	<li class="dropdown-container dropdown-{S_CONTENT_FLOW_END}">
+		<a href="{U_VIEW_ALL_NOTIFICATIONS}" id="notification_list_button" class="dropdown-trigger">
+			<i class="icon fa-bell fa-fw" aria-hidden="true"></i><span>{L_NOTIFICATIONS} </span><strong class="badge<!-- IF not NOTIFICATIONS_COUNT --> hidden<!-- ENDIF -->">{NOTIFICATIONS_COUNT}</strong>
+		</a>
+		<!-- INCLUDE notification_dropdown.html -->
+	</li>
+	<!-- ENDIF -->
+	<!-- EVENT navbar_header_user_profile_append -->
+	<!-- ELSE -->
+	<!-- EVENT navbar_header_logged_out_content -->
+	<!-- ENDIF -->
+</ul>
+
+
 <div class="navbar" role="navigation">
 	<div class="inner">
 
