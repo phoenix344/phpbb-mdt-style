@@ -1,0 +1,21 @@
+.media {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+}
+
+.media-avatar {
+
+}
+
+.media-content {
+  flex: 1;
+}
+
+.media-headline {
+  @extend .mui--text-button, .mui--divider-bottom;
+  font-weight: 700;
+  display: flex;
+}
+
