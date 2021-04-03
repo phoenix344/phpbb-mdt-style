@@ -1,3 +1,3 @@
-import './drawer/drawer.js';
+// import './drawer/drawer.js';
 import './profile/profile.js';
-import './search/search.js';
+// import './search/search.js';
