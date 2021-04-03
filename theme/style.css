@@ -706,10 +706,10 @@ h4, h5, h6 {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.mui--divider-top, .profile-notifications .profile-notification {
+.mui--divider-top, .profile-notifications .profile-notification, .profile-notifications .profile-notification .actionbar {
   border-top: 1px solid rgba(0, 0, 0, 0.12); }
 
-.mui--divider-bottom, .profile-content h3, .mui-dropdown__menu li > strong {
+.mui--divider-bottom, .media-headline, .profile-content h3, .profile-content h4, .mui-dropdown__menu li > strong {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
 
 .mui--divider-left {
@@ -1545,7 +1545,7 @@ h4, h5, h6 {
 .mui--text-left {
   text-align: left !important; }
 
-.mui--text-right {
+.mui--text-right, .profile-notifications .profile-notification .actionbar {
   text-align: right !important; }
 
 .mui--text-center {
@@ -1809,7 +1809,7 @@ h4, h5, h6 {
     display: inline-block !important; } }
 
 @media (max-width: 543px) {
-  .mui--hidden-xs, .mui-appbar .menu-btn.menu-hide, .mui-appbar .menu-btn.more-hide, .mui-appbar .more-btn.menu-hide, .mui-appbar .more-btn.more-hide, .mui-appbar p {
+  .mui--hidden-xs, .mui-appbar .menu-btn.menu-hide, .mui-appbar .menu-btn.more-hide, .mui-appbar .more-btn.menu-hide, .mui-appbar .more-btn.more-hide, .mui-appbar h1, .mui-appbar p {
     display: none !important; } }
 
 @media (min-width: 544px) and (max-width: 767px) {
@@ -1926,12 +1926,12 @@ h4, h5, h6 {
   font-size: 1.25rem;
   line-height: 1.75rem; }
 
-.mui--text-subhead, h4, .mui-appbar p {
+.mui--text-subhead, h4 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem; }
 
-.mui--text-body2, h5 {
+.mui--text-body2, h5, .mui-appbar p {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.5rem; }
@@ -1941,7 +1941,7 @@ h4, h5, h6 {
   font-size: 0.875rem;
   line-height: 1.25rem; }
 
-.mui--text-caption, .profile-dropdown .loginform p, .profile-notifications .profile-overview .profile-content h4, .profile-notifications .profile-overview .profile-content p {
+.mui--text-caption, .media-text, .profile-dropdown .loginform p, .profile-notifications .profile-notification .actionbar, .profile-notifications .profile-overview .profile-content h4, .profile-notifications .profile-overview .profile-content p {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1rem; }
@@ -1951,7 +1951,7 @@ h4, h5, h6 {
   font-size: 0.813rem;
   line-height: 1.063rem; }
 
-.mui--text-button, .profile-content h3, .profile-content dl dt, .mui-dropdown__menu li > strong {
+.mui--text-button, .media-headline, .profile-content h3, .profile-content h4, .profile-content dl dt, .mui-dropdown__menu li > strong {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.125rem;
@@ -6892,6 +6892,19 @@ h4, h5, h6 {
 .icon-uniA9:before {
   content: "\a9"; }
 
+.media, .profile-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.25rem; }
+
+.media-content, .profile-content {
+  flex: 1; }
+
+.media-headline, .profile-content h3, .profile-content h4 {
+  font-weight: 700;
+  display: flex; }
+
 .drawer {
   margin-bottom: 0;
   padding: 0;
@@ -6903,12 +6916,12 @@ h4, h5, h6 {
   display: none;
   overflow: auto;
   transition: 0.25s ease-in-out;
-  max-width: 15rem;
-  margin-left: -15rem; }
+  max-width: 14rem;
+  margin-left: -14rem; }
   .drawer.drawer-active {
     margin-left: 0; }
   .drawer .drawer-content {
-    width: 15rem; }
+    width: 14rem; }
 
 #mui-overlay {
   transition: background-color 0.25s ease-in-out; }
@@ -6947,23 +6960,12 @@ h4, h5, h6 {
 .profile-dropdown .logout-item {
   margin-top: 0.35rem; }
 
-.profile-overview {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 0.25rem 0.75rem 0.25rem 0.25rem; }
-  .profile-overview .profile-content {
-    flex: 1;
-    margin-right: 0.75rem; }
-    .profile-overview .profile-content h3, .profile-overview .profile-content dt, .profile-overview .profile-content dd {
-      padding-left: 0.5rem; }
+.profile-content h3, .profile-content h4, .profile-content dt, .profile-content dd, .profile-content p {
+  padding-left: 0.5rem; }
 
-.profile-content h3 {
-  font-weight: 700;
-  display: flex; }
-  .profile-content h3 .badge {
-    align-self: flex-start;
-    margin-left: 0.5rem; }
+.profile-content .badge {
+  align-self: flex-start;
+  margin-left: 0.5rem; }
 
 .profile-content h3, .profile-content h4, .profile-content dl {
   margin: 0; }
@@ -6979,10 +6981,12 @@ h4, h5, h6 {
 .profile-notifications {
   padding: 0.25rem;
   margin: 0; }
-  .profile-notifications .profile-content {
-    margin-right: 0.75rem; }
-  .profile-notifications .profile-notification:hover {
-    background-color: #f2f2f2; }
+  .profile-notifications .profile-notification {
+    margin: 0.5rem; }
+    .profile-notifications .profile-notification:hover {
+      background-color: #f2f2f2; }
+    .profile-notifications .profile-notification .actionbar {
+      padding: 0.125rem 0.5rem; }
   .profile-notifications .profile-overview {
     box-shadow: none;
     padding: 0;
@@ -6992,17 +6996,16 @@ h4, h5, h6 {
     .profile-notifications .profile-overview:hover, .profile-notifications .profile-overview:active {
       text-decoration: none; }
     .profile-notifications .profile-overview img {
+      margin: 0.125rem;
       width: 2rem;
       height: 2rem; }
-    .profile-notifications .profile-overview .profile-content {
-      flex: 1; }
-      .profile-notifications .profile-overview .profile-content h4, .profile-notifications .profile-overview .profile-content p {
-        font-size: 0.7rem;
-        padding-left: 0.5rem;
-        margin: 0; }
+    .profile-notifications .profile-overview .profile-content h4, .profile-notifications .profile-overview .profile-content p {
+      font-size: 0.7rem;
+      margin: 0;
+      padding-right: 0.5rem; }
 
 .search-box {
-  min-width: 19rem; }
+  min-width: 15rem; }
   .search-box .mui-form--inline {
     display: flex;
     padding: 0.25rem 1rem 0.75rem; }
@@ -7023,6 +7026,9 @@ h4, h5, h6 {
 label {
   cursor: pointer; }
 
+main {
+  margin-top: 1rem; }
+
 .mui-appbar {
   display: grid;
   grid-template-columns: auto auto auto; }
@@ -7031,12 +7037,18 @@ label {
     align-items: center; }
   .mui-appbar .appbar-left {
     justify-content: flex-start;
-    padding-left: 1rem; }
+    padding-left: 0.25rem; }
+    @media (min-width: 544px) {
+      .mui-appbar .appbar-left {
+        padding-left: 1rem; } }
   .mui-appbar .appbar-middle {
     justify-content: center; }
   .mui-appbar .appbar-right {
     justify-content: flex-end;
-    padding-right: 1rem; }
+    padding-right: 0.25rem; }
+    @media (min-width: 544px) {
+      .mui-appbar .appbar-right {
+        padding-right: 1rem; } }
   .mui-appbar .menu-btn {
     margin-left: 0; }
     .mui-appbar .menu-btn + .menu-btn {
@@ -7055,12 +7067,20 @@ label {
       .mui-appbar .menu-btn, .mui-appbar .more-btn {
         margin-top: 1.25rem;
         margin-bottom: 1.25rem; } }
-  @media (min-width: 544px) {
-    .mui-appbar .logo {
-      display: flex;
-      justify-content: center;
-      width: 8rem;
-      margin: 0 2rem 0 1rem; } }
+  .mui-appbar .badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 1rem; }
+  .mui-appbar .appbar-content {
+    position: relative; }
+  .mui-appbar .logo {
+    display: flex;
+    justify-content: center;
+    width: 8rem;
+    margin-left: 1rem; }
+    @media (min-width: 544px) {
+      .mui-appbar .logo {
+        margin: 0 2rem 0 1rem; } }
   .mui-appbar .material-icons {
     font-size: 1.5rem; }
   .mui-appbar h1 {

@@ -2,11 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
-}
-
-.media-avatar {
-
+  padding: 0.25rem;
 }
 
 .media-content {
@@ -19,3 +15,6 @@
   display: flex;
 }
 
+.media-text {
+  @extend .mui--text-caption;
+}

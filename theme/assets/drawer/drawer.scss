@@ -1,8 +1,9 @@
+$drawer-width: 14rem;
+
 .drawer {
   @extend .mui-panel, .mui--z3;
   margin-bottom: 0;
   padding: 0;
-  $drawer-width: 15rem;
   position: fixed;
   top: 0;
   bottom: 0;

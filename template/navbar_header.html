@@ -1,19 +1,6 @@
 <ul class="mui-list--unstyled">
 	<!-- IF S_USER_LOGGED_IN -->
-	<li class="profile-overview">
-		<!-- IF CURRENT_USER_AVATAR -->
-		{CURRENT_USER_AVATAR}
-		<!-- ELSE -->
-		<img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
-		<!-- ENDIF -->
-		<div class="profile-content">
-			<h3>{S_USERNAME}</h3>
-			<dl>
-				<dt>{L_LAST_VISIT}</dt>
-				<dd>{LAST_VISIT_YOU}</dd>
-			</dl>
-		</div>
-	</li>
+	<!-- INCLUDE profile/drawer_profile.html -->
 	<!-- IF S_NOTIFICATIONS_DISPLAY -->
 	<li class="profile-notifications">
 		<div class="profile-content">
@@ -23,11 +10,13 @@
 				<strong class="badge">{NOTIFICATIONS_COUNT}</strong>
 				<!-- ENDIF -->
 			</h3>
+			<!-- IF NOTIFICATIONS_COUNT -->
 			<p class="mui--text-caption">
 				<a href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read">
 					{L_MARK_ALL_READ}
 				</a>
 			</p>
+			<!-- ENDIF -->
 			
 			<ul class="mui-list--unstyled">
 				<!-- IF not .notifications -->
@@ -37,50 +26,8 @@
 				<!-- ENDIF -->
 
 				<!-- BEGIN notifications -->
-
-				<!-- IF notifications.UNREAD -->
-				<li class="profile-notification">
-					<!-- IF notifications.URL -->
-					<a href="{notifications.URL}" class="profile-overview">
-					<!-- ELSE -->
-					<div class="profile-overview">
-					<!-- ENDIF -->
-						<!-- IF notifications.AVATAR -->
-						{notifications.AVATAR}
-						<!-- ELSE -->
-						<img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
-						<!-- ENDIF -->
-						<!-- IF notifications.STYLING -->
-						<div class="profile-content {notifications.STYLING}">
-							<h4 class="mui--text-caption">{notifications.TIME}</h4>
-							<p>{notifications.FORMATTED_TITLE}</p>
-							<!-- IF notifications.REFERENCE --><p>{notifications.REFERENCE}</p><!-- ENDIF -->
-							<!-- IF notifications.FORUM --><p>{notifications.FORUM}</p><!-- ENDIF -->
-							<!-- IF notifications.REASON --><p>{notifications.REASON}</p><!-- ENDIF -->
-						</div>
-						<!-- ELSE -->
-						<div class="profile-content">
-							<h4 class="mui--text-caption">{notifications.TIME}</h4>
-							<p>{notifications.FORMATTED_TITLE}</p>
-							<!-- IF notifications.REFERENCE --><p>{notifications.REFERENCE}</p><!-- ENDIF -->
-							<!-- IF notifications.FORUM --><p>{notifications.FORUM}</p><!-- ENDIF -->
-							<!-- IF notifications.REASON --><p>{notifications.REASON}</p><!-- ENDIF -->
-						</div>
-						<!-- ENDIF -->
-					<!-- IF not notifications.URL -->
-					</div>
-					<!-- ELSE -->
-					</a>
-					<!-- ENDIF -->
-					<p class="mui--text-right mui--text-caption">
-						<a href="{notifications.U_MARK_READ}">
-							<i class="material-icons mui--align-middle">mark_email_read</i>
-							{L_MARK_READ}
-						</a>
-					</p>
-				</li>
-				<!-- ENDIF -->
-			<!-- END notifications -->
+				<!-- INCLUDE notification/drawer_notify_frame.html -->
+				<!-- END notifications -->
 			</ul>
 
 			<p class="mui--text-center">
