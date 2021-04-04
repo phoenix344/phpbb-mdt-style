@@ -2,12 +2,17 @@
 
 // Overwrite color scheme from MDL
 // ===============================
-// I was massively inspired by the fact that you can change CSS variables
-// on runtime. The big issue with color variables in SCSS is that it spits
-// out CSS color codes at the end of the day. There is no way to to make
-// them dynamic, except converting the output in variable calls itself.
-// What a mindblowing idea, I thought! What a big clusterfuck when I saw
-// what I have done. And... it's kinda messy, but it works!
+// I was massively inspired by the fact that you can change CSS variable
+// values on runtime. The big issue with color variables in SCSS is that it
+// spits out a plain stupid CSS string. Maybe I put the color codes from the
+// SCSS in CSS variables and rewrite the SCSS variables with CSS variable
+// calls? Sounds good enough to me. What a mindblowing idea, I thought!
+// What a big clusterfuck when I saw what I have done.
+// And... it's kinda messy, but to my surprise it works! IT FUCKING WORKS!!!
+//
+// Fortunately MDL is not messing around with the color codes. They are using
+// them, but they are not mutating them somewhere in the preprocessing phase.
+// - Thanks Google! :-)
 //
 // The concept is straight forward and looks
 // much more complicated as it actually is:
@@ -502,7 +507,7 @@
   
   &[color-mode="light"] {
     @include color-scheme-light();
-  }  
+  }
 }
 
 // Use color primarily for emphasis. Choose colors that fit with

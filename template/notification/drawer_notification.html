@@ -1,0 +1,40 @@
+<!-- IF notifications.UNREAD -->
+<li class="pbb-notification mdl-shadow--2dp">
+<!-- ELSE -->
+<li class="pbb-notification">
+<!-- ENDIF -->
+  <!-- IF notifications.URL -->
+  <a href="{notifications.URL}" class="pbb-notification-content">
+  <!-- ELSE -->
+  <span class="pbb-notification-content">
+  <!-- ENDIF -->
+    <!-- IF notifications.AVATAR -->
+    <span class="mdl-list__item-avatar">{notifications.AVATAR}</span>
+    <!-- ELSE -->
+    <i class="material-icons mdl-list__item-avatar">person</i>
+    <!-- ENDIF -->
+    
+    {notifications.FORMATTED_TITLE}
+    
+    <span class="mdl-list__item-text-body">
+      <!-- IF notifications.UNREAD -->
+      <b>
+      <!-- ENDIF -->
+      <!-- IF notifications.REFERENCE -->{notifications.REFERENCE}<!-- ENDIF -->
+      <!-- IF notifications.FORUM -->{notifications.FORUM}<!-- ENDIF -->
+      <!-- IF notifications.REASON -->{notifications.REASON}<!-- ENDIF -->
+      <!-- IF notifications.UNREAD -->
+      </b>
+      <!-- ENDIF -->
+    </span>
+  <!-- IF not notifications.URL -->
+  </span>
+  <!-- ELSE -->
+  </a>
+  <!-- ENDIF -->
+  <!-- IF notifications.UNREAD -->
+  <a class="dl-list__item-secondary-content" href="{notifications.U_MARK_READ}" title="{L_MARK_READ}">
+    <i class="material-icons mui--align-middle">mark_email_read</i>
+  </a>
+  <!-- ENDIF -->
+</li>
