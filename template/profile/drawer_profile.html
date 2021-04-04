@@ -1,25 +1,15 @@
-<div class="mdl-card mdl-shadow--2dp">
-  <!-- IF CURRENT_USER_AVATAR -->
-  {CURRENT_USER_AVATAR}
-  <!-- ELSE -->
-  <img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
-  <!-- ENDIF -->
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">{S_USERNAME}</h2>
-  </div>
-  <div class="mdl-card__supporting-text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Mauris sagittis pellentesque lacus eleifend lacinia...
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      Get Started
-    </a>
-  </div>
-  <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-      <i class="material-icons">share</i>
-    </button>
+<div class="pbb-drawer-profile mdl-shadow--2dp">
+  <div class="pbb-drawer-profile-image">
+    <!-- IF CURRENT_USER_AVATAR -->
+    {CURRENT_USER_AVATAR}
+    <!-- ELSE -->
+    <img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
+    <!-- ENDIF -->
+    <div class="pbb-drawer-profile-title">{S_USERNAME}</div>
+    <div class="pbb-drawer-profile-text">
+      <b>{L_LAST_VISIT}</b><br>
+      {LAST_VISIT_YOU}
+    </div>
   </div>
 </div>
 
