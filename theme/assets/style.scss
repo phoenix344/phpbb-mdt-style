@@ -1,0 +1,90 @@
+// Override for Material Design Color Theme
+@import "./theme-colors";
+
+// Material Design Styles
+@import "../../mdl/material-design-lite.scss";
+
+// Material UI Icons
+@import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
+
+.mdl-layout-title {
+  > a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: $grid-tablet-breakpoint) {
+  header .mdl-layout-title {
+    display: none;
+  }
+}
+
+.pbb-menu__headline {
+  @extend .mdl-menu__item, .mdl-menu__item--full-bleed-divider;
+  font-weight: 700;
+  cursor: default;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.mdl-menu__item .material-icons {
+  vertical-align: middle;
+}
+
+.pbb-profile-btn {
+  @extend .mdl-button, .mdl-button--icon;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.pbb-drawer-profile {
+  @extend .mdl-card;
+  width: 100%;
+}
+.pbb-drawer-profile-image {
+  @extend .mdl-card__actions,
+          .mdl-card__media,
+          .mdl-card--expand,
+          .mdl-card--border;
+  > img {
+    @extend .mdl-shadow--3dp;
+    border-radius: 10%;
+    margin-bottom: $card-vertical-padding;
+  }
+  padding: $card-vertical-padding $card-horizontal-padding;
+}
+.pbb-drawer-profile-action {
+  @extend .mdl-card__actions;
+  padding: 0;
+}
+.pbb-drawer-profile-title {
+  @extend .mdl-card__title-text;
+  border-bottom: 1px solid $default-item-divider-color;
+  margin-bottom: ($card-vertical-padding / 2);
+}
+.pbb-drawer-profile-text {
+  @extend .mdl-card__subtitle-text;
+  font-size: $card-supporting-text-font-size;
+}
+
+.pbb-modal-links {
+  margin-top: 1rem;
+  text-align: right;
+  a {
+    font-size: 1em;
+  }
+}

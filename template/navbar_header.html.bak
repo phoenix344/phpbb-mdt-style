@@ -1,0 +1,50 @@
+<ul class="mui-list--unstyled">
+	<!-- IF S_USER_LOGGED_IN -->
+	<!-- INCLUDE profile/drawer_profile.html -->
+	<!-- IF S_NOTIFICATIONS_DISPLAY -->
+	<li class="profile-notifications">
+		<div class="profile-content">
+			<h3>
+				{L_NOTIFICATIONS}
+				<!-- IF NOTIFICATIONS_COUNT -->
+				<strong class="badge">{NOTIFICATIONS_COUNT}</strong>
+				<!-- ENDIF -->
+			</h3>
+			<!-- IF NOTIFICATIONS_COUNT -->
+			<p class="mui--text-caption">
+				<a href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read">
+					{L_MARK_ALL_READ}
+				</a>
+			</p>
+			<!-- ENDIF -->
+			
+			<ul class="mui-list--unstyled">
+				<!-- IF not .notifications -->
+				<li class="no_notifications">
+					{L_NO_NOTIFICATIONS}
+				</li>
+				<!-- ENDIF -->
+
+				<!-- BEGIN notifications -->
+				<!-- INCLUDE notification/drawer_notify_frame.html -->
+				<!-- END notifications -->
+			</ul>
+
+			<p class="mui--text-center">
+				<a class="mui-btn mui-btn--small mui-btn--raised" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a>
+			</p>
+
+		</div>
+	</li>
+	<!-- ENDIF -->
+	<!-- EVENT navbar_header_user_profile_append -->
+	<!-- ELSE -->
+	<!-- EVENT navbar_header_logged_out_content -->
+	<!-- ENDIF -->
+	<li class="mui-panel">
+		<a href="{U_FAQ}" rel="help" role="menuitem">
+			<i class="material-icons mui--align-middle">question_answer</i>
+			{L_FAQ}
+		</a>
+	</li>
+</ul>

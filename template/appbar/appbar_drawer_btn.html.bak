@@ -1,0 +1,11 @@
+<div class="appbar-content">
+  <button id="appbar-sidenav-show" class="menu-btn menu-show" data-target="#sidebar-drawer" data-toggle="drawer">
+    <i class="material-icons">menu</i>
+  </button>
+  <button id="appbar-sidenav-show" class="menu-btn menu-hide" data-target="#sidebar-drawer" data-toggle="drawer">
+    <i class="material-icons">menu</i>
+  </button>
+  <!-- IF NOTIFICATIONS_COUNT -->
+  <strong class="badge">{NOTIFICATIONS_COUNT}</strong>
+  <!-- ENDIF -->  
+</div>

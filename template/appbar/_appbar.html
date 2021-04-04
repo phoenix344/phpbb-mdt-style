@@ -1,14 +1,21 @@
-<header class="mui-appbar">
-  <section class="appbar-left">
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
+      <!-- IF NOTIFICATIONS_COUNT -->
+      <i class="material-icons mdl-badge mdl-badge--overlap" data-badge="{NOTIFICATIONS_COUNT}">menu</i>
+      <!-- ELSE -->
+      <i class="material-icons">menu</i>
+      <!-- ENDIF -->
+    </div>
+
     <!-- EVENT overall_header_headerbar_before -->
-    <!-- INCLUDE appbar/appbar_drawer_btn.html -->
-    <!-- INCLUDE appbar/appbar_logo.html -->
+
     <!-- INCLUDE appbar/appbar_title.html -->
-  </section>
-  <section class="appbar-middle"></section>
-  <section class="appbar-right">
-    <!-- INCLUDE profile/appbar_profile_menu.html -->
+    <div class="mdl-layout-spacer"></div>
+
     <!-- INCLUDE search/appbar_search_menu.html -->
+    <!-- INCLUDE profile/appbar_profile_menu.html -->
+
     <!-- EVENT overall_header_headerbar_after -->
-  </section>
+  </div>
 </header>

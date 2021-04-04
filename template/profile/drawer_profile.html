@@ -1,3 +1,18 @@
+<div class="pbb-drawer-profile mdl-shadow--2dp">
+  <div class="pbb-drawer-profile-image">
+    <!-- IF CURRENT_USER_AVATAR -->
+    {CURRENT_USER_AVATAR}
+    <!-- ELSE -->
+    <img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
+    <!-- ENDIF -->
+    <div class="pbb-drawer-profile-title">{S_USERNAME}</div>
+    <div class="pbb-drawer-profile-text">
+      <b>{L_LAST_VISIT}</b><br>
+      {LAST_VISIT_YOU}
+    </div>
+  </div>
+</div>
+
 <!-- IF S_USER_LOGGED_IN -->
 <li class="profile-overview">
   <!-- IF CURRENT_USER_AVATAR -->

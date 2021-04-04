@@ -1,0 +1,16 @@
+<!-- IF S_USER_LOGGED_IN -->
+<li class="profile-overview">
+  <!-- IF CURRENT_USER_AVATAR -->
+  {CURRENT_USER_AVATAR}
+  <!-- ELSE -->
+  <img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
+  <!-- ENDIF -->
+  <div class="profile-content">
+    <h3>{S_USERNAME}</h3>
+    <dl>
+      <dt>{L_LAST_VISIT}</dt>
+      <dd>{LAST_VISIT_YOU}</dd>
+    </dl>
+  </div>
+</li>
+<!-- ENDIF -->

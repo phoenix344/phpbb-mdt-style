@@ -1,60 +1,46 @@
-    <!-- IF S_DISPLAY_SEARCH -->
-    <div id="more-dropdown" class="mui-dropdown">
-      <button class="more-btn" data-mui-toggle="dropdown">
-        <i class="material-icons">more_vert</i>
-      </button>
-      <ul class="mui-dropdown__menu mui-dropdown__menu--right">
-        <!-- EVENT overall_header_searchbox_before -->
-        <!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
-        <li id="search-box" class="search-box search-header" role="search">
-          <form action="{U_SEARCH}" method="get" id="search" class="mui-form--inline">
-            <div class="mui-textfield">
-              <input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}"
-              class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
-              <a href="{U_SEARCH}" title="{L_SEARCH_ADV}">
-                {L_SEARCH_ADV}
-              </a>
-            </div>
-            <button class="search-btn" type="submit" title="{L_SEARCH}">
-              <i class="material-icons">search</i>
-            </button>
-            {S_SEARCH_HIDDEN_FIELDS}
-          </form>
-        </li>
-        <!-- ENDIF -->
-        <!-- EVENT overall_header_searchbox_after -->
-        <li><strong>{L_QUICK_LINKS}</strong></li>
-        <!-- IF S_REGISTERED_USER -->
-        <li>
-          <a href="{U_SEARCH_SELF}" role="menuitem">
-            {L_SEARCH_SELF}
-          </a>
-        </li>
-        <!-- ENDIF -->
-        <!-- IF S_USER_LOGGED_IN -->
-        <li>
-          <a href="{U_SEARCH_NEW}" role="menuitem">
-            {L_SEARCH_NEW}
-          </a>
-        </li>
-        <!-- ENDIF -->
-        <!-- IF S_LOAD_UNREADS -->
-        <li>
-          <a href="{U_SEARCH_UNREAD}" role="menuitem">
-            {L_SEARCH_UNREAD}
-          </a>
-        </li>
-        <!-- ENDIF -->
-        <li>
-          <a href="{U_SEARCH_UNANSWERED}" role="menuitem">
-            {L_SEARCH_UNANSWERED}
-          </a>
-        </li>
-        <li>
-          <a href="{U_SEARCH_ACTIVE_TOPICS}" role="menuitem">
-            {L_SEARCH_ACTIVE_TOPICS}
-          </a>
-        </li>
-      </ul>
+<!-- IF S_DISPLAY_SEARCH -->
+<!-- EVENT overall_header_searchbox_before -->
+<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+            mdl-textfield--floating-label mdl-textfield--align-right">
+  <form action="{U_SEARCH}" method="get">
+    <label class="mdl-button mdl-js-button mdl-button--icon"
+            for="appbar-search" title="{L_SEARCH_KEYWORDS}">
+      <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="search" name="keywords" id="appbar-search">
     </div>
-    <!-- ENDIF -->
+    {S_SEARCH_HIDDEN_FIELDS}
+  </form>
+</div>
+<!-- ENDIF -->
+
+<!-- IF S_USER_LOGGED_IN -->
+<nav class="mdl-navigation mdl-layout--large-screen-only">
+  <a class="mdl-navigation__link" href="{U_SEARCH}">{L_SEARCH_ADV}</a>
+  <a class="mdl-navigation__link" href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
+  <a class="mdl-navigation__link" href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
+</nav>
+
+<button id="appbar-search-btn" class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+<nav class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="appbar-search-btn">
+  <!-- EVENT overall_header_searchbox_after -->
+  <b class="pbb-menu__headline">{L_QUICK_LINKS}</b>
+  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{U_SEARCH}">{L_SEARCH_ADV}</a>
+  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
+  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
+  <!-- IF S_REGISTERED_USER -->
+  <a class="mdl-menu__item" href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+  <!-- ENDIF -->
+  <!-- IF S_LOAD_UNREADS -->
+  <a class="mdl-menu__item" href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a>
+  <!-- ENDIF -->
+  <a class="mdl-menu__item" href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+</nav>
+<!-- ENDIF -->
+
+<!-- EVENT overall_header_searchbox_after -->
+<!-- ENDIF -->

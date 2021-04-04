@@ -1,0 +1,36 @@
+<!-- IF notifications.UNREAD -->
+<li class="profile-notification notification-unread">
+<!-- ELSE -->
+<li class="profile-notification">
+<!-- ENDIF -->
+  <!-- IF notifications.URL -->
+  <a href="{notifications.URL}" class="profile-overview">
+  <!-- ELSE -->
+  <div class="profile-overview">
+  <!-- ENDIF -->
+    <!-- IF notifications.AVATAR -->
+    {notifications.AVATAR}
+    <!-- ELSE -->
+    <img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
+    <!-- ENDIF -->
+    
+    <!-- INCLUDE notification/drawer_notify_content.html -->
+
+  <!-- IF not notifications.URL -->
+  </div>
+  <!-- ELSE -->
+  </a>
+  <!-- ENDIF -->
+  <!-- IF notifications.UNREAD -->
+  <div class="actionbar">
+    <a href="{notifications.U_MARK_READ}">
+      <i class="material-icons mui--align-middle">mark_email_read</i>
+      {L_MARK_READ}
+    </a>
+  </div>
+  <!-- ENDIF -->
+<!-- IF notifications.UNREAD -->
+</li>
+<!-- ELSE -->
+</li>
+<!-- ENDIF -->
