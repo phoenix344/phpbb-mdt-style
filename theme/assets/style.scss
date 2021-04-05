@@ -4,12 +4,22 @@ $material-design-icons-font-directory-path: "../fonts/";
 @import "./theme-colors";
 
 // Material Design Styles
-@import "../../mdl/material-design-lite.scss";
+@import "./mdl-custom";
+@import "./mdl-mixins-override";
 
 // Material UI Icons
 @import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
 
-// appbar
+// main elements
+html, body {
+  background-color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+// MDL overrides
 
 .mdl-layout-title {
   > a {
@@ -45,6 +55,19 @@ $material-design-icons-font-directory-path: "../fonts/";
 
 .mdl-menu__item .material-icons {
   vertical-align: middle;
+}
+
+.mdl-button, .mdl-menu__item {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.mdl-dialog {
+  background-color: var(--dialog-bg-color);
+}
+.mdl-dialog__title {
+  color: var(--dialog-text-color);
 }
 
 // drawer
@@ -84,7 +107,7 @@ $material-design-icons-font-directory-path: "../fonts/";
 .pbb-drawer-profile-image {
   margin-bottom: $card-vertical-padding;
   > img {
-    @extend .mdl-shadow--3dp;
+    @include shadow-3dp();
     border-radius: 10%;
   }
 }
@@ -108,6 +131,7 @@ $material-design-icons-font-directory-path: "../fonts/";
 }
 .pbb-drawer-profile-title {
   @extend .mdl-card__title-text;
+  color: var(--text-color-primary);
   border-bottom: 1px solid $default-item-divider-color;
   margin-bottom: ($card-vertical-padding / 2);
 }
@@ -133,20 +157,34 @@ $material-design-icons-font-directory-path: "../fonts/";
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.05);
 }
+
+// drawer scale:
+// 2 columns on small devices < 480px
+// 4 columns on larger devices >= 480px
+$profile-btn-width: 92px;
+
+// 24px icon, max. 3 lines text (up to 36px), 4px to 16px space => 64px
+$profile-btn-height: 64px;
+
+// looks best in my personal opinion
+$profile-btn-font-size: 12px;
 
 .pbb-drawer-profile-btn {
   @extend .mdl-button;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  font-size: 12px;
-  width: 92px;
-  line-height: 12px;
+  font-size: $profile-btn-font-size;
+  line-height: $profile-btn-font-size;
+  width: $profile-btn-width;
+  height: $profile-btn-height;
   margin-bottom: 16px;
-  height: 64px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   box-sizing: border-box;
   > span {
     margin-top: 8px;
@@ -154,18 +192,44 @@ $material-design-icons-font-directory-path: "../fonts/";
   }
 }
 
+// drawer list
+
+.pbb-notification-indicator {
+  @extend .mdl-list__item, .mdl-list__item--two-line;
+  margin-bottom: 16px;
+}
+
 // drawer notifications
 
 .pbb-notification {
   @extend .mdl-list__item, .mdl-list__item--three-line;
   height: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0;
+  &:hover {
+    background-color: var(--grey-variant-3);
+  }
   .pbb-notification-content {
     @extend .mdl-list__item-primary-content;
     height: auto;
     color: inherit;
+    padding: $card-vertical-padding 0 $card-horizontal-padding $card-vertical-padding;
+  }
+  .dl-list__item-secondary-content {
+    margin: 0 $card-horizontal-padding;    
   }
   .mdl-list__item-text-body {
     height: auto;
+  }
+}
+
+.pbb-notification-highlight {
+  @include shadow-2dp();
+  background-color: transparent;
+  transition: 0.1s ease-in-out;
+  &:hover {
+    border-left: 3px solid rgba(var(--color-accent), 1);
+    background-color: transparent;
   }
 }
 
@@ -174,18 +238,22 @@ $material-design-icons-font-directory-path: "../fonts/";
 $category-horizontal-margin: 16px;
 $category-vertical-margin: 16px;
 
-.category-card {
-  @extend .mdl-card, .mdl-shadow--2dp;
+.pbb-category {
+  @extend .mdl-card;
+  @include shadow-3dp();
   margin: $category-vertical-margin $category-horizontal-margin;
   width: auto;
+  min-height: 0;
+  background-color: rgba($color-primary, 1);
 }
 
-.category-title {
+.pbb-category-title {
   @extend .mdl-card__title;
-  background-color: rgba($color-accent, 0.75);
-  color: $text-color-accent;
+  background-color: rgba($color-primary, 0.87);
   a {
-    color: inherit;
+    color: var(--text-color-primary-contrast);
+    font-size: 18px;
+    font-weight: 700;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -193,15 +261,63 @@ $category-vertical-margin: 16px;
   }
 }
 
-// forum boards
-
-.forum-list {
-  @extend .mdl-list;
-  margin-top: 0;
+.pbb-category-content {
+  @extend .mdl-card__actions, .mdl-card--border;
+  padding: 0;
 }
 
-.forum {
+// forum boards
+
+.pbb-forum-list {
+  @extend .mdl-list;
+  margin: 0;
+  padding: 0;
+}
+
+.pbb-forum {
   @extend .mdl-list__item, .mdl-list__item--three-line;
+  background-color: var(--grey-variant-1);
+  height: auto;
+
+  .pbb-forum-content {
+    @extend .mdl-list__item-primary-content;
+    height: auto;
+    font-size: 18px;
+    a {
+      color: var(--forum-link-color);
+    }
+  }
+
+  .pbb-forum-info {
+    @extend .mdl-list__item-text-body;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.pbb-forum-highlight {
+  @include shadow-3dp();
+  background-color: var(--grey-variant-2);
+  transition: 0.1s ease-in-out;
+  &:hover {
+    border-left: 3px solid rgba(var(--color-primary), 1);
+  }
+
+  .pbb-forum-icon.material-icons {
+    color: rgba(var(--text-color-accent), 0.87);
+  }
+}
+
+.pbb-forum-icon {
+  @extend .mdl-list__item-avatar;
+  &.material-icons {
+    background-color: transparent;
+    color: rgba(var(--text-color), 0.54);
+  }
+  img {
+    width: 100%;
+  }
 }
 
 // forum topics

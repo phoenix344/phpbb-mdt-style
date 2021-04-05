@@ -9,7 +9,7 @@
   <ul class="mdl-list">
     <!-- IF S_USER_LOGGED_IN -->
     <!-- IF S_NOTIFICATIONS_DISPLAY -->
-    <li class="mdl-list__item mdl-list__item--two-line">
+    <li class="pbb-notification-indicator">
 
       <span class="mdl-list__item-primary-content">
         <!-- IF NOTIFICATIONS_COUNT -->
@@ -18,9 +18,11 @@
         <span>{L_NOTIFICATIONS}</span>
         <!-- ENDIF -->
         <!-- IF NOTIFICATIONS_COUNT -->
-        <a class="mdl-list__item-sub-title" href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read">
-          {L_MARK_ALL_READ}
-        </a>
+        <span class="mdl-list__item-sub-title">
+          <a href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read">
+            {L_MARK_ALL_READ}
+          </a>
+        </span>
         <!-- ENDIF -->
       </span>
     </li>
