@@ -7,7 +7,7 @@
     <!-- IF forumrow.FORUM_IMAGE or forumrow.FORUM_IMG_STYLE neq "" -->
     <!-- IF forumrow.FORUM_IMAGE -->
     <!-- EVENT forumlist_body_forum_image_prepend -->
-    <span class="pbb-forum-icon">
+    <span id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon">
     <!-- IF forumrow.FORUM_IMG_STYLE eq "forum_unread_subforum" -->
       <span class="mdl-badge" data-badge="!">
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_read_subforum" -->
@@ -29,41 +29,40 @@
     <!-- EVENT forumlist_body_forum_image_append -->
     <!-- ELSE -->
     <!-- IF forumrow.FORUM_IMG_STYLE eq "forum_unread_subforum" -->
-    <i class="pbb-forum-icon material-icons">new_releases</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">new_releases</i>
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_read_subforum" -->
-    <i class="pbb-forum-icon material-icons">notes</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">notes</i>
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_unread" -->
-    <i class="pbb-forum-icon material-icons">new_releases</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">new_releases</i>
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_read" -->
-    <i class="pbb-forum-icon material-icons">notes</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">notes</i>
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_link" -->
-    <i class="pbb-forum-icon material-icons">link</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">link</i>
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_unread_locked" -->
-    <i class="pbb-forum-icon material-icons">lock_outline</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">lock_outline</i>
     <!-- ELSEIF forumrow.FORUM_IMG_STYLE eq "forum_read_locked" -->
-    <i class="pbb-forum-icon material-icons">lock_outline</i>
+    <i id="forum-{forumrow.FORUM_ID}" class="pbb-forum-icon material-icons">lock_outline</i>
     <!-- ENDIF -->
     <!-- ENDIF -->
-    
-    <!-- ELSE -->
-    <i class="material-icons mdl-list__item-avatar">person</i>
     <!-- ENDIF -->
-    <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
 
-    <!-- IF forumrow.FORUM_DESC -->
-    <div class="pbb-forum-info">
-      <div>{forumrow.FORUM_DESC}</div>
+    <div class="mdl-tooltip mdl-tooltip--right" for="forum-{forumrow.FORUM_ID}">
       <!-- IF forumrow.CLICKS -->
       <div>
         <b>{L_REDIRECTS}{L_COLON}</b> <span>{forumrow.CLICKS}</span>
       </div>
       <!-- ELSEIF not forumrow.S_IS_LINK -->
       <div>
-        <b>{L_TOPICS}{L_COLON}</b> <span>{forumrow.TOPICS}</span>
+        <b>{L_TOPICS}{L_COLON}</b> <span>{forumrow.TOPICS}</span><br>
         <b>{L_POSTS}{L_COLON}</b> <span>{forumrow.POSTS}</span>
       </div>
       <!-- ENDIF -->
     </div>
+
+    <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+
+    <!-- IF forumrow.FORUM_DESC -->
+    <div class="pbb-forum-info">{forumrow.FORUM_DESC}</div>
     <!-- ENDIF -->
   </div>
 </li>

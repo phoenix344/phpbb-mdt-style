@@ -1,6 +1,4 @@
-// import './drawer/drawer.js';
 import './profile/profile.js';
-// import './search/search.js';
 
 // TODO: set this up on ACP
 const defaultColorMode = 'light';
@@ -31,13 +29,13 @@ if (colorModeBtn) {
   colorModeBtn.addEventListener('click', toggleColorMode);
 }
 
-function _setColorMode(mode, iconName) {
-  if (colorModeBtn) {
-    const icon = colorModeBtn.querySelector('.material-icons');
-    icon.innerHTML = iconName;
+function toggleColorMode() {
+  const mode = localStorage.colorMode;
+  if (mode === 'dark') {
+    setColorMode('light');
+  } else {
+    setColorMode('dark');
   }
-  root.setAttribute('color-mode', mode);
-  localStorage.colorMode = mode;
 }
 
 function setColorMode(mode) {
@@ -48,11 +46,11 @@ function setColorMode(mode) {
   }
 }
 
-function toggleColorMode() {
-  const mode = localStorage.colorMode;
-  if (mode === 'dark') {
-    setColorMode('light');
-  } else {
-    setColorMode('dark');
+function _setColorMode(mode, iconName) {
+  if (colorModeBtn) {
+    const icon = colorModeBtn.querySelector('.material-icons');
+    icon.innerHTML = iconName;
   }
+  root.setAttribute('color-mode', mode);
+  localStorage.colorMode = mode;
 }

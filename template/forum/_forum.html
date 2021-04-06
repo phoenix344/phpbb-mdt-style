@@ -1,0 +1,85 @@
+<div class="pbb-forum">
+  <div class="pbb-forum-content">
+    <h2>
+      <!-- EVENT viewforum_forum_name_prepend -->
+      <a href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+      <!-- EVENT viewforum_forum_name_append -->
+    </h2>
+    <!-- EVENT viewforum_forum_title_after -->
+
+    <!-- IF FORUM_DESC or MODERATORS or U_MCP -->
+    <div>
+      <!-- NOTE: remove the style="display: none" when you want to have the forum description on the forum body -->
+      <!-- IF FORUM_DESC -->
+      <div style="display: none !important;">{FORUM_DESC}</div>
+      <!-- ENDIF -->
+      <!-- IF MODERATORS -->
+      <p><strong>
+        <!-- IF S_SINGLE_MODERATOR -->
+        {L_MODERATOR}{L_COLON}
+        <!-- ELSE -->
+        {L_MODERATORS}{L_COLON}
+        <!-- ENDIF -->
+      </strong> {MODERATORS}</p>
+      <!-- ENDIF -->
+    </div>
+    <!-- ENDIF -->
+
+    <!-- IF S_FORUM_RULES -->
+    <!-- IF U_FORUM_RULES -->
+    <div class="rules rules-link">
+    <!-- ELSE -->
+    <div class="rules">
+    <!-- ENDIF -->
+      <div class="inner">
+
+      <!-- IF U_FORUM_RULES -->
+        <a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
+      <!-- ELSE -->
+        <strong>{L_FORUM_RULES}</strong><br />
+        {FORUM_RULES}
+      <!-- ENDIF -->
+
+      </div>
+    </div>
+    <!-- ENDIF -->
+
+  </div>
+</div>
+
+<!-- TODO: A BUNCH OF THINGS HAVE TO BE IMPLEMENTED! -->
+
+<!-- EVENT viewforum_body_topic_row_before -->
+<!-- BEGIN topicrow -->
+
+<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and not topicrow.S_FIRST_ROW -->
+<!-- INCLUDE forum/forum_topic_footer.html -->
+<!-- ENDIF -->
+
+<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
+<!-- INCLUDE forum/forum_topic_header.html -->
+<!-- ENDIF -->
+
+<!-- EVENT viewforum_body_topicrow_row_before -->
+<!-- INCLUDE forum/forum_topic.html -->
+<!-- EVENT viewforum_body_topic_row_after -->
+
+<!-- IF topicrow.S_LAST_ROW -->
+<!-- INCLUDE forum/forum_topic_footer.html -->
+<!-- ENDIF -->
+
+<!-- BEGINELSE -->
+	<!-- IF S_IS_POSTABLE -->
+	<div class="panel">
+		<div class="inner">
+		<strong>{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</strong>
+		</div>
+	</div>
+	<!-- ELSE IF not S_HAS_SUBFORUM -->
+	<div class="panel">
+		<div class="inner">
+			<strong>{L_NO_FORUMS_IN_CATEGORY}</strong>
+		</div>
+	</div>
+	<!-- ENDIF -->
+<!-- END topicrow -->

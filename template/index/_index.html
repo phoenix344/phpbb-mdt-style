@@ -1,17 +1,17 @@
 <!-- BEGIN forumrow -->
 
 <!-- IF (forumrow.S_IS_CAT and not forumrow.S_FIRST_ROW) or forumrow.S_NO_CAT  -->
-<!-- INCLUDE forums/forum_category_footer.html -->
+<!-- INCLUDE index/index_category_footer.html -->
 <!-- ENDIF -->
 
 <!-- IF forumrow.S_IS_CAT -->
-<!-- INCLUDE forums/forum_category_header.html -->
+<!-- INCLUDE index/index_category_header.html -->
 <!-- ELSEIF not forumrow.S_IS_CAT -->
-<!-- INCLUDE forums/forum_view.html -->
+<!-- INCLUDE index/index_forum.html -->
 <!-- ENDIF -->
 
 <!-- IF forumrow.S_LAST_ROW -->
-<!-- INCLUDE forums/forum_category_footer.html -->
+<!-- INCLUDE index/index_category_footer.html -->
 <!-- EVENT forumlist_body_last_row_after -->
 <!-- ENDIF -->
 
