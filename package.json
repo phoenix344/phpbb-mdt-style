@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "gulp watch"
+    "start": "gulp watch",
+    "postinstall": "cp node_modules/dialog-polyfill/dist/dialog-polyfill.esm.js theme/assets/"
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",
     "cssnano": "^4.1.10",
+    "dialog-polyfill": "^0.5.6",
     "gulp": "^4.0.2",
     "gulp-livereload": "^4.0.2",
     "gulp-plumber": "^1.2.1",
@@ -19,6 +21,7 @@
     "postcss": "^8.2.9"
   },
   "devDependencies": {
+    "eslint": "^7.23.0",
     "stylehacks": "^4.0.3"
   }
 }

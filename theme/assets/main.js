@@ -1,4 +1,4 @@
-import "./profile/profile.js";
+import "./_profile.js";
 
 const defaultColorScheme = _getCssColorScheme();
 const colorSchemeBtn = document.querySelector("#color-mode-btn");
@@ -6,8 +6,8 @@ const systemColorScheme = window.matchMedia("(prefers-color-scheme: dark)")
   .matches
   ? "dark"
   : window.matchMedia("(prefers-color-scheme: light)").matches
-  ? "light"
-  : defaultColorScheme;
+    ? "light"
+    : defaultColorScheme;
 
 // the forum color scheme should fit the system preferences.
 if (
