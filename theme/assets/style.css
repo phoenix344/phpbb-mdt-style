@@ -14,40 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /*------------------------------------*\
     $CONTENTS
 \*------------------------------------*/
@@ -187,350 +153,6 @@
 /* SNACKBAR */
 /* TOOLTIP */
 /* CHIP */
-:root {
-  --color-grey-50: 250,250,250;
-  --color-grey-100: 245,245,245;
-  --color-grey-200: 238,238,238;
-  --color-grey-300: 224,224,224;
-  --color-grey-400: 189,189,189;
-  --color-grey-500: 158,158,158;
-  --color-grey-600: 117,117,117;
-  --color-grey-700: 97,97,97;
-  --color-grey-800: 66,66,66;
-  --color-grey-900: 33,33,33; }
-  :root[color-mode="light"] {
-    --color-primary: 183,28,28;
-    --color-primary-dark: 183,28,28;
-    --color-accent: 239,108,0;
-    --color-accent-dark: 230,81,0;
-    --color-primary-contrast: 255,255,255;
-    --color-accent-contrast: 255,255,255;
-    --color-bg: 255, 255, 255;
-    --color-bg-inverse: 0, 0, 0;
-    --color-fg: 0, 0, 0;
-    --color-fg-inverse: 255, 255, 255;
-    --shadow-override: 0, 0, 0;
-    --background-color: rgb(var(--color-bg));
-    --text-color: rgb(var(--color-fg));
-    --text-color-inverse: rgb(var(--color-fg-inverse));
-    --grey-variant-1: rgb(var(--color-grey-100));
-    --grey-variant-2: rgb(var(--color-bg));
-    --grey-variant-3: rgb(var(--color-grey-200));
-    --category-background-color: rgb(255,255,255);
-    --forum-link-color: var(--text-color-primary);
-    --dialog-bg-color: rgb(255, 255, 255);
-    --dialog-text-color: rgba(0,0,0, 0.87);
-    /* ==========  Typography  ========== */
-    --text-color-primary: rgba(0,0,0, 0.87);
-    --text-color-primary-contrast: rgba(255,255,255, 0.87);
-    --text-color-accent: rgba(0,0,0, 0.87);
-    --text-color-accent-contrast: rgba(255,255,255, 0.87);
-    --text-link-color: rgb(var(--color-accent));
-    /* ==========  Components  ========== */
-    /* ==========  Standard Buttons  ========== */
-    --button-primary-color: rgba(158,158,158, 0.20);
-    --button-secondary-color: rgb(0,0,0);
-    --button-hover-color: var(--button-primary-color);
-    --button-active-color: rgba(158,158,158, 0.40);
-    --button-focus-color: rgba(0,0,0, 0.12);
-    --button-primary-color-alt: rgb(var(--color-primary));
-    --button-secondary-color-alt: rgb(var(--color-primary-contrast));
-    --button-hover-color-alt: rgb(var(--color-primary));
-    --button-active-color-alt: rgb(var(--color-primary));
-    --button-focus-color-alt: var(--button-focus-color);
-    --button-ripple-color-alt: rgb(var(--color-primary-contrast));
-    --button-primary-color-disabled: rgba(0,0,0, 0.12);
-    --button-secondary-color-disabled: rgba(0,0,0, 0.26);
-    --button-fab-color-alt: rgb(var(--color-accent));
-    --button-fab-hover-color-alt: rgb(var(--color-accent));
-    --button-fab-active-color-alt: rgb(var(--color-accent));
-    --button-fab-text-color-alt: rgb(var(--color-accent-contrast));
-    --button-fab-ripple-color-alt: rgb(var(--color-accent-contrast));
-    --button-icon-color: rgb(97,97,97);
-    --button-icon-focus-color: var(--button-focus-color);
-    /* ==========  Icon Toggles  ========== */
-    --icon-toggle-color: rgb(97,97,97);
-    --icon-toggle-focus-color: var(--button-focus-color);
-    --icon-toggle-checked-color: rgb(var(--color-primary));
-    --icon-toggle-checked-focus-color: rgba(var(--color-primary), 0.26);
-    --icon-toggle-disabled-color: rgba(0,0,0, 0.26);
-    /* ==========  Radio Buttons  ========== */
-    --radio-color: rgb(var(--color-primary));
-    --radio-off-color: rgba(0,0,0, 0.54);
-    --radio-disabled-color: rgba(0,0,0, 0.26);
-    /* ==========  Ripple effect  ========== */
-    --ripple-bg-color: rgb(0,0,0);
-    /* ==========  Layout  ========== */
-    --layout-nav-color: rgb(224,224,224);
-    --layout-drawer-bg-color: rgb(250,250,250);
-    --layout-drawer-border-color: rgb(224,224,224);
-    --layout-text-color: rgb(66,66,66);
-    --layout-drawer-navigation-color: #757575;
-    --layout-drawer-navigation-link-active-background: rgb(224,224,224);
-    --layout-drawer-navigation-link-active-color: rgb(0,0,0);
-    --layout-header-bg-color: rgb(var(--color-primary));
-    --layout-header-text-color: rgb(var(--color-primary-contrast));
-    --layout-header-nav-hover-color: rgba(97,97,97, 0.6);
-    --layout-header-tab-text-color: rgba(var(--color-primary-contrast), 0.6);
-    --layout-header-tab-highlight: rgb(var(--color-accent));
-    /* ==========  Content Tabs  ========== */
-    --tab-highlight-color: rgb(var(--color-primary));
-    --tab-text-color: rgba(0,0,0, 0.54);
-    --tab-active-text-color: rgba(0,0,0, 0.87);
-    --tab-border-color: rgb(224,224,224);
-    /* ==========  Checkboxes  ========== */
-    --checkbox-color: rgb(var(--color-primary));
-    --checkbox-off-color: rgba(0,0,0, 0.54);
-    --checkbox-disabled-color: rgba(0,0,0, 0.26);
-    --checkbox-focus-color: rgba(var(--color-primary), 0.26);
-    /* ==========  Switches  ========== */
-    --switch-color: rgb(var(--color-primary));
-    --switch-faded-color: rgba(var(--color-primary), 0.26);
-    --switch-thumb-color: var(--switch-color);
-    --switch-track-color: rgba(var(--color-primary), 0.5);
-    --switch-off-thumb-color: rgb(250,250,250);
-    --switch-off-track-color: rgba(0,0,0, 0.26);
-    --switch-disabled-thumb-color: rgb(189,189,189);
-    --switch-disabled-track-color: rgba(0,0,0, 0.12);
-    /* ==========  Spinner  ========== */
-    --spinner-color-1: rgb(66,165,245);
-    --spinner-color-2: rgb(244,67,54);
-    --spinner-color-3: rgb(253,216,53);
-    --spinner-color-4: rgb(76,175,80);
-    --spinner-single-color: rgb(var(--color-primary));
-    /* ==========  Text fields  ========== */
-    --input-text-background-color: transparent;
-    --input-text-label-color: rgba(0,0,0, 0.26);
-    --input-text-bottom-border-color: rgba(0,0,0, 0.12);
-    --input-text-highlight-color: rgb(var(--color-primary));
-    --input-text-disabled-color: var(--input-text-bottom-border-color);
-    --input-text-disabled-text-color: var(--input-text-label-color);
-    --input-text-error-color: rgb(213,0,0);
-    /* ==========  Card  ========== */
-    --card-background-color: rgb(255,255,255);
-    --card-text-color: rgb(0,0,0);
-    --card-image-placeholder-color: rgb(var(--color-accent));
-    --card-supporting-text-text-color: rgba(0,0,0, 0.54);
-    --card-border-color: rgba(0,0,0,0.1);
-    --card-subtitle-color: rgba(0,0,0, 0.54);
-    /* ==========  Sliders ========== */
-    --range-bg-color: rgba(0,0,0, 0.26);
-    --range-color: rgb(var(--color-primary));
-    --range-faded-color: rgba(var(--color-primary), 0.26);
-    --range-bg-focus-color: rgba(0,0,0, 0.12);
-    /* ========== Progress ========== */
-    --progress-main-color: rgb(var(--color-primary));
-    --progress-secondary-color: rgba(var(--color-primary-contrast), 0.7);
-    --progress-fallback-buffer-color: rgba(var(--color-primary-contrast), 0.9);
-    /* ==========  List ========== */
-    --list-main-text-text-color: rgba(0,0,0, 0.87);
-    --list-supporting-text-text-color: rgba(0,0,0, 0.54);
-    --list-icon-color: rgb(117,117,117);
-    --list-avatar-color: white;
-    /* ==========  Item ========== */
-    --default-item-text-color: rgba(0,0,0, 0.87);
-    --default-item-outline-color: rgb(189,189,189);
-    --default-item-hover-bg-color: rgb(238,238,238);
-    --default-item-focus-bg-color: rgb(238,238,238);
-    --default-item-active-bg-color: rgb(224,224,224);
-    --default-item-divider-color: rgba(0,0,0, 0.12);
-    --disabled-item-text-color: rgb(189,189,189);
-    /* ==========  Dropdown menu ========== */
-    --default-dropdown-bg-color: rgb(255,255,255);
-    /* ==========  Tooltips  ========== */
-    --tooltip-text-color: rgb(255,255,255);
-    --tooltip-background-color: rgba(97,97,97, 0.9);
-    /* ==========  Footer  ========== */
-    --footer-bg-color: rgb(66,66,66);
-    --footer-color: rgb(158,158,158);
-    --footer-heading-color: rgb(224,224,224);
-    --footer-button-fill-color: var(--footer-color);
-    --footer-underline-color: var(--footer-color);
-    /* ==========  Badge  ========== */
-    --badge-color: rgb(var(--color-accent-contrast));
-    --badge-color-inverse: rgb(var(--color-accent));
-    --badge-background: rgb(var(--color-accent));
-    --badge-background-inverse: rgba(var(--color-accent-contrast),0.2);
-    /* ==========  Table  ========== */
-    --data-table-header-color: rgba(#000, 0.54);
-    --data-table-header-sorted-color: rgba(#000, 0.87);
-    --data-table-header-sorted-icon-hover-color: rgba(#000, 0.26);
-    --data-table-divider-color: rgba(#000, 0.12);
-    --data-table-hover-color: #eeeeee;
-    --data-table-selection-color: #e0e0e0;
-    /* SNACKBAR */
-    --snackbar-background-color: #323232;
-    --snackbar-action-color: rgb(var(--color-accent));
-    /* CHIP */
-    --chip-bg-color: rgb(222, 222, 222);
-    --chip-bg-active-color: rgb(214, 214, 214); }
-  :root[color-mode="dark"] {
-    --color-primary: 211,47,47;
-    --color-primary-dark: 183,28,28;
-    --color-accent: 255,152,0;
-    --color-accent-dark: 239,108,0;
-    --color-primary-contrast: 255,255,255;
-    --color-accent-contrast: 0,0,0;
-    --color-bg: 17, 17, 17;
-    --color-bg-inverse: 255, 255, 255;
-    --color-fg: 255, 255, 255;
-    --color-fg-inverse: 0, 0, 0;
-    --shadow-override: 0, 0, 0;
-    --background-color: rgb(var(--color-bg));
-    --text-color: rgb(var(--color-fg));
-    --text-color-inverse: rgb(var(--color-fg-inverse));
-    --grey-variant-1: rgb(var(--color-grey-900));
-    --grey-variant-2: rgba(var(--color-grey-900), 0.95);
-    --grey-variant-3: rgba(var(--color-grey-700), 0.2);
-    --category-background-color: rgb(33,33,33);
-    --forum-link-color: rgb(var(--color-accent));
-    --dialog-bg-color: rgb(33, 33, 33);
-    --dialog-text-color: rgba(255,255,255, 0.87);
-    /* ==========  Typography  ========== */
-    --text-color-primary: rgba(255,255,255, 0.87);
-    --text-color-primary-contrast: rgba(0,0,0, 0.87);
-    --text-color-accent: rgba(255,255,255, 0.87);
-    --text-color-accent-contrast: rgba(0,0,0, 0.87);
-    --text-link-color: rgb(var(--color-accent));
-    /* ==========  Components  ========== */
-    /* ==========  Standard Buttons  ========== */
-    --button-primary-color: rgba(158,158,158, 0.20);
-    --button-secondary-color: rgb(255,255,255);
-    --button-hover-color: var(--button-primary-color);
-    --button-active-color: rgba(158,158,158, 0.40);
-    --button-focus-color: rgba(0,0,0, 0.12);
-    --button-primary-color-alt: rgb(var(--color-primary));
-    --button-secondary-color-alt: rgb(var(--color-primary-contrast));
-    --button-hover-color-alt: rgb(var(--color-primary));
-    --button-active-color-alt: rgb(var(--color-primary));
-    --button-focus-color-alt: var(--button-focus-color);
-    --button-ripple-color-alt: rgb(var(--color-primary-contrast));
-    --button-primary-color-disabled: rgba(255,255,255, 0.12);
-    --button-secondary-color-disabled: rgba(255,255,255, 0.26);
-    --button-fab-color-alt: rgb(var(--color-accent));
-    --button-fab-hover-color-alt: rgb(var(--color-accent));
-    --button-fab-active-color-alt: rgb(var(--color-accent));
-    --button-fab-text-color-alt: rgb(var(--color-accent-contrast));
-    --button-fab-ripple-color-alt: rgb(var(--color-accent-contrast));
-    --button-icon-color: rgb(97,97,97);
-    --button-icon-focus-color: var(--button-focus-color);
-    /* ==========  Icon Toggles  ========== */
-    --icon-toggle-color: rgb(97,97,97);
-    --icon-toggle-focus-color: var(--button-focus-color);
-    --icon-toggle-checked-color: rgb(var(--color-primary));
-    --icon-toggle-checked-focus-color: rgba(var(--color-primary), 0.26);
-    --icon-toggle-disabled-color: rgba(255,255,255, 0.26);
-    /* ==========  Radio Buttons  ========== */
-    --radio-color: rgb(var(--color-primary));
-    --radio-off-color: rgba(255,255,255, 0.54);
-    --radio-disabled-color: rgba(255,255,255, 0.26);
-    /* ==========  Ripple effect  ========== */
-    --ripple-bg-color: rgb(0,0,0);
-    /* ==========  Layout  ========== */
-    --layout-nav-color: rgb(224,224,224);
-    --layout-drawer-bg-color: rgb(33,33,33);
-    --layout-drawer-border-color: rgb(224,224,224);
-    --layout-text-color: rgb(66,66,66);
-    --layout-drawer-navigation-color: #c0c0c0;
-    --layout-drawer-navigation-link-active-background: rgb(224,224,224);
-    --layout-drawer-navigation-link-active-color: rgb(0,0,0);
-    --layout-header-bg-color: rgb(var(--color-primary));
-    --layout-header-text-color: rgb(var(--color-primary-contrast));
-    --layout-header-nav-hover-color: rgba(97,97,97, 0.6);
-    --layout-header-tab-text-color: rgba(var(--color-primary-contrast), 0.6);
-    --layout-header-tab-highlight: rgb(var(--color-accent));
-    /* ==========  Content Tabs  ========== */
-    --tab-highlight-color: rgb(var(--color-primary));
-    --tab-text-color: rgba(255,255,255, 0.54);
-    --tab-active-text-color: rgba(255,255,255, 0.87);
-    --tab-border-color: rgb(224,224,224);
-    /* ==========  Checkboxes  ========== */
-    --checkbox-color: rgb(var(--color-primary));
-    --checkbox-off-color: rgba(255,255,255, 0.54);
-    --checkbox-disabled-color: rgba(255,255,255, 0.26);
-    --checkbox-focus-color: rgba(var(--color-primary), 0.26);
-    /* ==========  Switches  ========== */
-    --switch-color: rgb(var(--color-primary));
-    --switch-faded-color: rgba(var(--color-primary), 0.26);
-    --switch-thumb-color: var(--switch-color);
-    --switch-track-color: rgba(var(--color-primary), 0.5);
-    --switch-off-thumb-color: rgb(250,250,250);
-    --switch-off-track-color: rgba(255,255,255, 0.26);
-    --switch-disabled-thumb-color: rgb(189,189,189);
-    --switch-disabled-track-color: rgba(255,255,255, 0.12);
-    /* ==========  Spinner  ========== */
-    --spinner-color-1: rgb(66,165,245);
-    --spinner-color-2: rgb(244,67,54);
-    --spinner-color-3: rgb(253,216,53);
-    --spinner-color-4: rgb(76,175,80);
-    --spinner-single-color: rgb(var(--color-primary));
-    /* ==========  Text fields  ========== */
-    --input-text-background-color: transparent;
-    --input-text-label-color: rgba(255,255,255, 0.54);
-    --input-text-bottom-border-color: rgba(255,255,255, 0.12);
-    --input-text-highlight-color: rgb(var(--color-primary));
-    --input-text-disabled-color: var(--input-text-bottom-border-color);
-    --input-text-disabled-text-color: var(--input-text-label-color);
-    --input-text-error-color: rgb(213,0,0);
-    /* ==========  Card  ========== */
-    --card-background-color: rgb(66,66,66);
-    --card-text-color: rgb(255,255,255);
-    --card-image-placeholder-color: rgb(var(--color-accent));
-    --card-supporting-text-text-color: rgba(255,255,255, 0.54);
-    --card-border-color: rgba(255,255,255,0.1);
-    --card-subtitle-color: rgba(255,255,255, 0.54);
-    /* ==========  Sliders ========== */
-    --range-bg-color: rgba(255,255,255, 0.26);
-    --range-color: rgb(var(--color-primary));
-    --range-faded-color: rgba(var(--color-primary), 0.26);
-    --range-bg-focus-color: rgba(255,255,255, 0.12);
-    /* ========== Progress ========== */
-    --progress-main-color: rgb(var(--color-primary));
-    --progress-secondary-color: rgba(var(--color-primary-contrast), 0.7);
-    --progress-fallback-buffer-color: rgba(var(--color-primary-contrast), 0.9);
-    /* ==========  List ========== */
-    --list-main-text-text-color: rgba(255,255,255, 0.87);
-    --list-supporting-text-text-color: rgba(255,255,255, 0.54);
-    --list-icon-color: rgb(117,117,117);
-    --list-avatar-color: black;
-    /* ==========  Item ========== */
-    --default-item-text-color: rgba(255,255,255, 0.87);
-    --default-item-outline-color: rgb(189,189,189);
-    --default-item-hover-bg-color: rgb(97,97,97);
-    --default-item-focus-bg-color: rgb(238,238,238);
-    --default-item-active-bg-color: rgb(224,224,224);
-    --default-item-divider-color: rgba(255,255,255, 0.12);
-    --disabled-item-text-color: rgb(189,189,189);
-    /* ==========  Dropdown menu ========== */
-    --default-dropdown-bg-color: rgb(66,66,66);
-    /* ==========  Tooltips  ========== */
-    --tooltip-text-color: rgb(255,255,255);
-    --tooltip-background-color: rgba(97,97,97, 0.9);
-    /* ==========  Footer  ========== */
-    --footer-bg-color: rgb(66,66,66);
-    --footer-color: rgb(158,158,158);
-    --footer-heading-color: rgb(224,224,224);
-    --footer-button-fill-color: var(--footer-color);
-    --footer-underline-color: var(--footer-color);
-    /* ==========  Badge  ========== */
-    --badge-color: rgb(var(--color-accent-contrast));
-    --badge-color-inverse: rgb(var(--color-accent));
-    --badge-background: rgb(var(--color-accent));
-    --badge-background-inverse: rgba(var(--color-accent-contrast),0.2);
-    /* ==========  Table  ========== */
-    --data-table-header-color: rgba(#fff, 0.54);
-    --data-table-header-sorted-color: rgba(#fff, 0.87);
-    --data-table-header-sorted-icon-hover-color: rgba(#fff, 0.26);
-    --data-table-divider-color: rgba(#fff, 0.12);
-    --data-table-hover-color: #111111;
-    --data-table-selection-color: #101010;
-    /* SNACKBAR */
-    --snackbar-background-color: #dedede;
-    --snackbar-action-color: rgb(var(--color-accent));
-    /* CHIP */
-    --chip-bg-color: rgb(33, 33, 33);
-    --chip-bg-active-color: rgb(41, 41, 41); }
-
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
 /* ==========  Standard Buttons  ========== */
@@ -1284,7 +906,7 @@ textarea {
  */
 /* Remove the unwanted box around FAB buttons */
 /* More info: http://goo.gl/IPwKi */
-a, .mdl-accordion, .mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .mdl-card, .pbb-drawer-profile, .pbb-category, .mdl-checkbox, .mdl-dropdown-menu,
+a, .mdl-accordion, .mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-topic-paging a, .mdl-card, .pbb-drawer-profile, .pbb-category, .mdl-checkbox, .mdl-dropdown-menu,
 .mdl-icon-toggle, .mdl-item, .mdl-radio, .mdl-slider, .mdl-switch, .mdl-tabs__tab {
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
@@ -4316,7 +3938,7 @@ ul, ol {
     border-radius: 50%;
     background: var(--badge-background);
     color: var(--badge-color); }
-    .mdl-button .mdl-badge[data-badge]:after, .pbb-profile-btn .mdl-badge[data-badge]:after, .pbb-drawer-profile-btn .mdl-badge[data-badge]:after {
+    .mdl-button .mdl-badge[data-badge]:after, .pbb-profile-btn .mdl-badge[data-badge]:after, .pbb-drawer-profile-btn .mdl-badge[data-badge]:after, .pbb-topic-paging a .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
   .mdl-badge.mdl-badge--no-background[data-badge]:after {
@@ -4516,7 +4138,7 @@ ul, ol {
 /* Shadows */
 /* Animations */
 /* Dialog */
-.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn {
+.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-topic-paging a {
   background: transparent;
   border: none;
   border-radius: 2px;
@@ -4542,17 +4164,17 @@ ul, ol {
   text-align: center;
   line-height: 36px;
   vertical-align: middle; }
-  .mdl-button::-moz-focus-inner, .pbb-profile-btn::-moz-focus-inner, .pbb-drawer-profile-btn::-moz-focus-inner {
+  .mdl-button::-moz-focus-inner, .pbb-profile-btn::-moz-focus-inner, .pbb-drawer-profile-btn::-moz-focus-inner, .pbb-topic-paging a::-moz-focus-inner {
     border: 0; }
-  .mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover {
+  .mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .pbb-topic-paging a:hover {
     background-color: var(--button-hover-color); }
-  .mdl-button:focus:not(:active), .pbb-profile-btn:focus:not(:active), .pbb-drawer-profile-btn:focus:not(:active) {
+  .mdl-button:focus:not(:active), .pbb-profile-btn:focus:not(:active), .pbb-drawer-profile-btn:focus:not(:active), .pbb-topic-paging a:focus:not(:active) {
     background-color: var(--button-focus-color); }
-  .mdl-button:active, .pbb-profile-btn:active, .pbb-drawer-profile-btn:active {
+  .mdl-button:active, .pbb-profile-btn:active, .pbb-drawer-profile-btn:active, .pbb-topic-paging a:active {
     background-color: var(--button-active-color); }
-  .mdl-button.mdl-button--colored, .mdl-button--colored.pbb-profile-btn, .mdl-button--colored.pbb-drawer-profile-btn {
+  .mdl-button.mdl-button--colored, .mdl-button--colored.pbb-profile-btn, .mdl-button--colored.pbb-drawer-profile-btn, .pbb-topic-paging a.mdl-button--colored {
     color: var(--button-primary-color-alt); }
-    .mdl-button.mdl-button--colored:focus:not(:active), .mdl-button--colored.pbb-profile-btn:focus:not(:active), .mdl-button--colored.pbb-drawer-profile-btn:focus:not(:active) {
+    .mdl-button.mdl-button--colored:focus:not(:active), .mdl-button--colored.pbb-profile-btn:focus:not(:active), .mdl-button--colored.pbb-drawer-profile-btn:focus:not(:active), .pbb-topic-paging a.mdl-button--colored:focus:not(:active) {
       background-color: var(--button-focus-color-alt); }
 
 input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb-drawer-profile-btn[type="submit"] {
@@ -4624,7 +4246,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
     .mdl-button--fab.mdl-button--colored .mdl-ripple {
       background: var(--button-fab-ripple-color-alt); }
 
-.mdl-button--icon, .pbb-profile-btn {
+.mdl-button--icon, .pbb-profile-btn, .pbb-topic-paging a {
   border-radius: 50%;
   font-size: 24px;
   height: 32px;
@@ -4636,21 +4258,21 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   overflow: hidden;
   color: inherit;
   line-height: normal; }
-  .mdl-button--icon .material-icons, .pbb-profile-btn .material-icons {
+  .mdl-button--icon .material-icons, .pbb-profile-btn .material-icons, .pbb-topic-paging a .material-icons {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-12px, -12px);
     line-height: 24px;
     width: 24px; }
-  .mdl-button--icon.mdl-button--mini-icon, .mdl-button--mini-icon.pbb-profile-btn {
+  .mdl-button--icon.mdl-button--mini-icon, .mdl-button--mini-icon.pbb-profile-btn, .pbb-topic-paging a.mdl-button--mini-icon {
     height: 24px;
     min-width: 24px;
     width: 24px; }
-    .mdl-button--icon.mdl-button--mini-icon .material-icons, .mdl-button--mini-icon.pbb-profile-btn .material-icons {
+    .mdl-button--icon.mdl-button--mini-icon .material-icons, .mdl-button--mini-icon.pbb-profile-btn .material-icons, .pbb-topic-paging a.mdl-button--mini-icon .material-icons {
       top: 0px;
       left: 0px; }
-  .mdl-button--icon .mdl-button__ripple-container, .pbb-profile-btn .mdl-button__ripple-container {
+  .mdl-button--icon .mdl-button__ripple-container, .pbb-profile-btn .mdl-button__ripple-container, .pbb-topic-paging a .mdl-button__ripple-container {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
 
@@ -4663,10 +4285,11 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   width: 100%;
   z-index: 0;
   overflow: hidden; }
-  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-drawer-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple,
+  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-drawer-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-topic-paging a[disabled] .mdl-button__ripple-container .mdl-ripple,
   .mdl-button.mdl-button--disabled .mdl-button__ripple-container .mdl-ripple,
   .mdl-button--disabled.pbb-profile-btn .mdl-button__ripple-container .mdl-ripple,
-  .mdl-button--disabled.pbb-drawer-profile-btn .mdl-button__ripple-container .mdl-ripple {
+  .mdl-button--disabled.pbb-drawer-profile-btn .mdl-button__ripple-container .mdl-ripple,
+  .pbb-topic-paging a.mdl-button--disabled .mdl-button__ripple-container .mdl-ripple {
     background-color: transparent; }
 
 .mdl-button--primary.mdl-button--primary {
@@ -4685,7 +4308,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
     color: var(--button-fab-text-color-alt);
     background-color: var(--button-fab-color-alt); }
 
-.mdl-button[disabled][disabled], .pbb-profile-btn[disabled][disabled], .pbb-drawer-profile-btn[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled, .mdl-button--disabled.mdl-button--disabled.pbb-profile-btn, .mdl-button--disabled.mdl-button--disabled.pbb-drawer-profile-btn {
+.mdl-button[disabled][disabled], .pbb-profile-btn[disabled][disabled], .pbb-drawer-profile-btn[disabled][disabled], .pbb-topic-paging a[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled, .mdl-button--disabled.mdl-button--disabled.pbb-profile-btn, .mdl-button--disabled.mdl-button--disabled.pbb-drawer-profile-btn, .pbb-topic-paging a.mdl-button--disabled.mdl-button--disabled {
   color: var(--button-secondary-color-disabled);
   cursor: default;
   background-color: transparent; }
@@ -4702,7 +4325,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
 .mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled {
   color: var(--button-secondary-color-disabled); }
 
-.mdl-button .material-icons, .pbb-profile-btn .material-icons, .pbb-drawer-profile-btn .material-icons {
+.mdl-button .material-icons, .pbb-profile-btn .material-icons, .pbb-drawer-profile-btn .material-icons, .pbb-topic-paging a .material-icons {
   vertical-align: middle; }
 
 /**
@@ -4910,7 +4533,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   .mdl-card__title.mdl-card--border, .mdl-card__title.pbb-drawer-profile-content, .mdl-card__title.pbb-drawer-buttons, .pbb-drawer-buttons.pbb-category-title, .pbb-drawer-profile-content.pbb-category-title, .mdl-card--border.pbb-category-title, .pbb-category-title.pbb-category-content, .mdl-card__title.pbb-category-content {
     border-bottom: 1px solid var(--card-border-color); }
 
-.mdl-card__title-text, .pbb-drawer-profile-title {
+.mdl-card__title-text, .pbb-drawer-profile-title, .pbb-topic-headline {
   align-self: flex-end;
   color: inherit;
   display: block;
@@ -6190,7 +5813,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
     height: 48px;
     display: flex;
     outline: none; }
-    .mdl-expansion__summary::-webkit-details-marker {
+    .mdl-expansion__summary::marker {
       display: none; }
     .mdl-expansion__summary::after {
       font-family: 'Material Icons';
@@ -10703,7 +10326,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   max-width: 100%;
   margin: 0;
   padding: 20px 0; }
-  .mdl-textfield .mdl-button, .mdl-textfield .pbb-profile-btn, .mdl-textfield .pbb-drawer-profile-btn {
+  .mdl-textfield .mdl-button, .mdl-textfield .pbb-profile-btn, .mdl-textfield .pbb-drawer-profile-btn, .mdl-textfield .pbb-topic-paging a, .pbb-topic-paging .mdl-textfield a {
     position: absolute;
     bottom: 20px; }
 
@@ -10717,7 +10340,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   min-width: 32px;
   width: auto;
   min-height: 32px; }
-  .mdl-textfield--expandable .mdl-button--icon, .mdl-textfield--expandable .pbb-profile-btn {
+  .mdl-textfield--expandable .mdl-button--icon, .mdl-textfield--expandable .pbb-profile-btn, .mdl-textfield--expandable .pbb-topic-paging a, .pbb-topic-paging .mdl-textfield--expandable a {
     top: 16px; }
 
 .mdl-textfield__input {
@@ -15089,10 +14712,20 @@ html, body {
 
 a {
   text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 .mdl-layout-title > a {
   color: inherit;
   text-decoration: none; }
+
+.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-topic-paging a {
+  text-decoration: none; }
+
+.mdl-list__item-avatar > img, .pbb-forum-icon > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; }
 
 @media (max-width: 480px) {
   header .mdl-layout-title {
@@ -15112,7 +14745,7 @@ a {
 .mdl-menu__item .material-icons, .pbb-menu__headline .material-icons {
   vertical-align: middle; }
 
-.mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .mdl-menu__item:hover, .pbb-menu__headline:hover {
+.mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .pbb-topic-paging a:hover, .mdl-menu__item:hover, .pbb-menu__headline:hover {
   text-decoration: none; }
 
 .mdl-dialog {
@@ -15142,7 +14775,7 @@ a {
 .pbb-drawer-profile-image {
   margin-bottom: 16px; }
   .pbb-drawer-profile-image > img {
-    box-shadow: 0 3px 4px 0 rgba(var(--shadow-override), 0.14), 0 3px 3px -2px rgba(var(--shadow-override), 0.2), 0 1px 8px 0 rgba(var(--shadow-override), 0.12);
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
     border-radius: 10%; }
 
 @media (min-width: 480px) {
@@ -15216,7 +14849,7 @@ a {
     height: auto; }
 
 .pbb-notification-highlight {
-  box-shadow: 0 2px 2px 0 rgba(var(--shadow-override), 0.14), 0 3px 1px -2px rgba(var(--shadow-override), 0.2), 0 1px 5px 0 rgba(var(--shadow-override), 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   background-color: transparent;
   transition: 0.1s ease-in-out; }
   .pbb-notification-highlight:hover {
@@ -15224,16 +14857,17 @@ a {
     background-color: transparent; }
 
 .pbb-category {
-  box-shadow: 0 3px 4px 0 rgba(var(--shadow-override), 0.14), 0 3px 3px -2px rgba(var(--shadow-override), 0.2), 0 1px 8px 0 rgba(var(--shadow-override), 0.12);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   margin: 16px 16px;
   width: auto;
   min-height: 0;
   background-color: rgba(var(--color-primary), 1); }
 
 .pbb-category-title {
-  background-color: rgba(var(--color-primary), 0.87); }
+  background-color: rgba(var(--color-primary), 0.87);
+  color: var(--category-title-color); }
   .pbb-category-title a {
-    color: var(--text-color-primary-contrast);
+    color: var(--category-title-color);
     font-size: 18px;
     font-weight: 700;
     text-decoration: none; }
@@ -15250,6 +14884,8 @@ a {
 .pbb-forum {
   background-color: var(--grey-variant-1);
   height: auto; }
+  .pbb-forum:nth-last-of-type(2n) {
+    background-color: var(--grey-variant-2); }
   .pbb-forum .pbb-forum-content {
     height: auto;
     font-size: 18px; }
@@ -15261,7 +14897,7 @@ a {
     height: auto; }
 
 .pbb-forum-highlight {
-  box-shadow: 0 3px 4px 0 rgba(var(--shadow-override), 0.14), 0 3px 3px -2px rgba(var(--shadow-override), 0.2), 0 1px 8px 0 rgba(var(--shadow-override), 0.12);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   background-color: var(--grey-variant-2);
   transition: 0.1s ease-in-out; }
   .pbb-forum-highlight:hover {
@@ -15275,3 +14911,28 @@ a {
 
 .pbb-forum-icon img {
   width: 100%; }
+
+.pbb-topic-info {
+  display: flex;
+  justify-content: space-between; }
+  .pbb-topic-info .mdl-chip {
+    display: flex;
+    background-color: transparent; }
+  .pbb-topic-info .material-icons {
+    font-size: 18px;
+    vertical-align: middle; }
+
+.pbb-topic-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.pbb-topic-paging {
+  padding: 0; }
+  .pbb-topic-paging .material-icons {
+    font-size: 18px; }
+  .pbb-topic-paging a {
+    font-size: inherit;
+    line-height: inherit; }
+    .pbb-topic-paging a:hover {
+      font-weight: 700; }

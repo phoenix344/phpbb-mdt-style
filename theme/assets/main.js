@@ -1,56 +1,77 @@
-import './profile/profile.js';
+import "./profile/profile.js";
 
-// TODO: set this up on ACP
-const defaultColorMode = 'light';
+const defaultColorScheme = _getCssColorScheme();
+const colorSchemeBtn = document.querySelector("#color-mode-btn");
+const systemColorScheme = window.matchMedia("(prefers-color-scheme: dark)")
+  .matches
+  ? "dark"
+  : window.matchMedia("(prefers-color-scheme: light)").matches
+  ? "light"
+  : defaultColorScheme;
 
-const colorModeBtn = document.querySelector('#color-mode-btn');
-const root = document.querySelector(':root');
-
-// TODO: Make assumption on color mode by system preferences optional
-const systemColorMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  ? 'dark' : window.matchMedia('(prefers-color-scheme: light)').matches
-  ? 'light' : defaultColorMode;
-
-// If system color scheme is changing, the theme is assuming that
 // the forum color scheme should fit the system preferences.
-if (localStorage.systemColorMode && localStorage.systemColorMode !== systemColorMode) {
-  localStorage.removeItem('colorMode');
+if (
+  localStorage.initialColorScheme &&
+  localStorage.initialColorScheme !== systemColorScheme
+) {
+  localStorage.removeItem("colorScheme");
 }
 
-if (localStorage.colorMode) {
-  setColorMode(localStorage.colorMode);
+if (localStorage.colorScheme) {
+  setColorScheme(localStorage.colorScheme);
 } else {
-  setColorMode(systemColorMode);
+  setColorScheme(systemColorScheme);
 }
 
-localStorage.systemColorMode = systemColorMode;
+localStorage.initialColorScheme = systemColorScheme;
 
-if (colorModeBtn) {
-  colorModeBtn.addEventListener('click', toggleColorMode);
+if (colorSchemeBtn) {
+  colorSchemeBtn.addEventListener("click", toggleColorScheme);
 }
 
-function toggleColorMode() {
-  const mode = localStorage.colorMode;
-  if (mode === 'dark') {
-    setColorMode('light');
+function toggleColorScheme() {
+  const scheme = localStorage.colorScheme;
+  if (scheme === "dark") {
+    setColorScheme("light");
   } else {
-    setColorMode('dark');
+    setColorScheme("dark");
   }
 }
 
-function setColorMode(mode) {
-  if ('dark' === mode) {
-    _setColorMode('dark', 'nightlight_round');
+function setColorScheme(scheme) {
+  if ("dark" === scheme) {
+    _setColorScheme("dark", "nightlight_round");
   } else {
-    _setColorMode('light', 'wb_sunny');
+    _setColorScheme("light", "wb_sunny");
   }
 }
 
-function _setColorMode(mode, iconName) {
-  if (colorModeBtn) {
-    const icon = colorModeBtn.querySelector('.material-icons');
+function _setColorScheme(scheme, iconName) {
+  if (colorSchemeBtn) {
+    const icon = colorSchemeBtn.querySelector(".material-icons");
     icon.innerHTML = iconName;
   }
-  root.setAttribute('color-mode', mode);
-  localStorage.colorMode = mode;
+  _setCssColorScheme(scheme);
+  localStorage.colorScheme = scheme;
+}
+
+function _getCssColorScheme() {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue("--toggle-color-scheme").trim();
+  const result = raw.slice(1, raw.length - 1);
+  console.log(
+    raw,
+    result,
+    getComputedStyle(document.querySelector(":root")).getPropertyValue(
+      "--toggle-color-scheme"
+    )
+  );
+  return raw.slice(1, raw.length - 1);
+}
+
+function _setCssColorScheme(scheme) {
+  document.documentElement.style.setProperty(
+    "--toggle-color-scheme",
+    `"${scheme}"`
+  );
+  document.documentElement.setAttribute('color-scheme', scheme);
 }

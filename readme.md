@@ -1,33 +1,48 @@
 # Material Design Theme for phpBB 3.3
-Dieses Foren-Theme wurde mit einem mobilgerechten Design im Hintergrund erstellt. Das heißt, jede Komponente wurde in erster Linie für Mobilgeräte optimiert.
 
-## Abhängigkeiten
-Das Look & Feel wurde auf Basis von Material Design erstellt. Dafür kommt das CSS Framework [muicss]([muicss](https://www.muicss.com/)) zum Einsatz.
+**I screwed up your design pattern and I don't feel ashamed!**
 
-Die JavaScript Komponenten werden durch die Script Bibliotheken von muicss unterstützt, aber ich plane diese komplett zu ersetzen.
+As life goes, I inherited a forum and surprise! It was a phpBB. The look and feel of the forum is old and looks old regardless of the style decision. I wanted to migrate it to discourse, but my server said NOOOOOO. In addition, I catched a cold over Easter and couldn't celebrate with my family/friends. So... let's do this! Let's bring this old thing into a modern age!
 
-## Technologie Entscheidung
+## Internet Explorer
 
-**Why not react/angular?** Ich neige dazu eher weniger Komplexität im Endprodukt zu integrieren. Es wird von sich aus schon komplex genug. Hinzu kommt die schiere Masse an Abhängigkeiten, die während der Entwicklung benötigt werden. Der Build und die Einrichtung ist ein Zeitfresser. Da komme ich mit meinem zusammengestöpselten gulp setup wirklich sehr gut auch ohne all das klar klar und genieße nahezu den selben Luxus :)
+![Do we have R34 for phpBB???](https://i.chzbgr.com/original/6543621/h87CBCC23/internet-explorer-memes-and-jokes)
 
-**Why not TypeScript?** So gerne ich TypeScript auch mag, auch das ist wieder Overhead, der überbewertet ist. Gerade im Kontext meiner sehr (nicht) komplexen JavaScript Komponenten, die ich hier integriert habe und vermutlich noch integrieren werde.
+ES6 is supported by almost all modern browser (who cares about opera mini or the supreme chinese baidu browser anyway?). No need to fix this for an old browser like IE as well. People are going online on mobile devices nowadays.
 
-**Why [muicss](https://www.muicss.com/)?** Ich brauche eine Basis im CSS - und die sollte möglichst leichtgewichtig sein. Sie soll tun, was sie verspricht und dieses Framework war mir gut genug.
+Second reason for not supporting IE: CSS3 variables! They are marvellous! Not their look, but how they actually work. I was playing around with dark/light mode and it's... it's beautiful!
 
-Ziel ist es, so wenig Code wie nötig im Frontent zu nutzen. Deshalb werden ES6 Module idealerweise ohne irgendein Framework verwendet.
+[LOOK AT THIS!!!](https://ryanfeigenbaum.com/dark-mode/)
 
-Auch ohne JavaScript-Integration muss das Theme funktionieren und seinen Zweck erfüllen.
+IE IS THE REASON WHY WE CAN'T HAVE NICE THINGS!
 
-## Roadmap
+![IE is funny](https://images-cdn.9gag.com/photo/aV3pwW8_700b.jpg)
 
-- [X] jQuery raus
-- [X] IE9+ Unterstützung raus
-- [ ] modulare Neustrukturierung
-- [ ] muicss Script components raus
+Nah! I'm still not supporting it, because I have self-respect! No browser-waifu can change my decision!
 
-**IE wird nicht unterstützt!** Wenn jemand sich berufen fühlt, seine Zeit mit einem Browser zu verschwenden, dessen Userbasis (zumindest statistisch auf meinem eigenen Server) bei unter 1% liegt, dann klone das Repo und veröffentliche es.
+## Dependency decision
+
+**How about react/angular?** Nah! I don't need 150MB overhead on my development environment to write HTML/CSS and a tiny bit of JS.
+
+**How about TypeScript?** I'm fine with ES6.
+
+**gulp task to rule them all!** Preprocess SCSS to CSS, then do the PostCSS with autoprefixer and bundle it! Afterwards push changes directly on the development forum with livereload. I love fast development environments. Sometimes the gulp train derails and crashes the watcher. So I installed plumber and now it's working even after a complete crash thanks to the tiny railroad workers who put the gulp train always back on track. Nice!
+
+**Material Design Framework:** First library I stumbled upon was [muicss](https://www.muicss.com/). On the first look it was kinda promising. Nothing fancy. Might be exactly what I needed... oh god I was so wrong!!!
+
+In the middle of development I realized my drudgery by the fact it's not supporting half of the features I wanted to use. Quick decided: Screw this! So I looked for a better library and I found [Material Design Lite](https://getmdl.io/), developed by Google.
+
+Then I was sad. My whole work was broken. Damn it!
+
+Anyway! This was actually what I was looking for. Don't cry! You did it to yourself!
+
+Unfortunately google gave it not much love and I made a bunch of overrides, but I still don't need to add whole features. The main framework is solid and I have every layout component I need.
+
+Now I'm happy again. It looks even better than before! **I won't change again! NO! NO! NO!**
 
 ## Architecture
+
+
 
 * `theme/style.scss` enthält Referenzen auf `muicss`, `material-icons` und den Theme-eigenen Komponenten und Styles
 * `<GLOBAL_STYLE>` im `assets/` Verzeichnis wird immer mit einem Underscore _ gestartet.

@@ -1,0 +1,602 @@
+:root {
+  --color-grey-50: 250, 250, 250;
+  --color-grey-100: 245, 245, 245;
+  --color-grey-200: 238, 238, 238;
+  --color-grey-300: 224, 224, 224;
+  --color-grey-400: 189, 189, 189;
+  --color-grey-500: 158, 158, 158;
+  --color-grey-600: 117, 117, 117;
+  --color-grey-700: 97, 97, 97;
+  --color-grey-800: 66, 66, 66;
+  --color-grey-900: 33, 33, 33;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ==========  Typography  ========== */
+    --text-color-primary: rgba(255, 255, 255, 0.87);
+    --text-color-primary-contrast: rgba(0, 0, 0, 0.87);
+    --text-color-accent: rgba(255, 255, 255, 0.87);
+    --text-color-accent-contrast: rgba(0, 0, 0, 0.87);
+    --text-link-color: rgb(var(--color-accent));
+    /* ==========  Components  ========== */
+    /* ==========  Standard Buttons  ========== */
+    --button-primary-color: rgba(158, 158, 158, 0.2);
+    --button-secondary-color: rgb(255, 255, 255);
+    --button-hover-color: var(--button-primary-color);
+    --button-active-color: rgba(158, 158, 158, 0.4);
+    --button-focus-color: rgba(0, 0, 0, 0.12);
+    --button-primary-color-alt: rgb(var(--color-primary));
+    --button-secondary-color-alt: rgb(var(--color-primary-contrast));
+    --button-hover-color-alt: rgb(var(--color-primary));
+    --button-active-color-alt: rgb(var(--color-primary));
+    --button-focus-color-alt: var(--button-focus-color);
+    --button-ripple-color-alt: rgb(var(--color-primary-contrast));
+    --button-primary-color-disabled: rgba(255, 255, 255, 0.12);
+    --button-secondary-color-disabled: rgba(255, 255, 255, 0.26);
+    --button-fab-color-alt: rgb(var(--color-accent));
+    --button-fab-hover-color-alt: rgb(var(--color-accent));
+    --button-fab-active-color-alt: rgb(var(--color-accent));
+    --button-fab-text-color-alt: rgb(var(--color-accent-contrast));
+    --button-fab-ripple-color-alt: rgb(var(--color-accent-contrast));
+    --button-icon-color: rgb(97, 97, 97);
+    --button-icon-focus-color: var(--button-focus-color);
+    /* ==========  Icon Toggles  ========== */
+    --icon-toggle-color: rgb(97, 97, 97);
+    --icon-toggle-focus-color: var(--button-focus-color);
+    --icon-toggle-checked-color: rgb(var(--color-primary));
+    --icon-toggle-checked-focus-color: rgba(var(--color-primary), 0.26);
+    --icon-toggle-disabled-color: rgba(255, 255, 255, 0.26);
+    /* ==========  Radio Buttons  ========== */
+    --radio-color: rgb(var(--color-primary));
+    --radio-off-color: rgba(255, 255, 255, 0.54);
+    --radio-disabled-color: rgba(255, 255, 255, 0.26);
+    /* ==========  Ripple effect  ========== */
+    --ripple-bg-color: rgb(0, 0, 0);
+    /* ==========  Layout  ========== */
+    --layout-nav-color: rgb(224, 224, 224);
+    --layout-drawer-bg-color: rgb(33, 33, 33);
+    --layout-drawer-border-color: rgb(224, 224, 224);
+    --layout-text-color: rgb(66, 66, 66);
+    --layout-drawer-navigation-color: #c0c0c0;
+    --layout-drawer-navigation-link-active-background: rgb(224, 224, 224);
+    --layout-drawer-navigation-link-active-color: rgb(0, 0, 0);
+    --layout-header-bg-color: rgb(var(--color-primary));
+    --layout-header-text-color: rgb(var(--color-primary-contrast));
+    --layout-header-nav-hover-color: rgba(97, 97, 97, 0.6);
+    --layout-header-tab-text-color: rgba(var(--color-primary-contrast), 0.6);
+    --layout-header-tab-highlight: rgb(var(--color-accent));
+    /* ==========  Content Tabs  ========== */
+    --tab-highlight-color: rgb(var(--color-primary));
+    --tab-text-color: rgba(255, 255, 255, 0.54);
+    --tab-active-text-color: rgba(255, 255, 255, 0.87);
+    --tab-border-color: rgb(224, 224, 224);
+    /* ==========  Checkboxes  ========== */
+    --checkbox-color: rgb(var(--color-primary));
+    --checkbox-off-color: rgba(255, 255, 255, 0.54);
+    --checkbox-disabled-color: rgba(255, 255, 255, 0.26);
+    --checkbox-focus-color: rgba(var(--color-primary), 0.26);
+    /* ==========  Switches  ========== */
+    --switch-color: rgb(var(--color-primary));
+    --switch-faded-color: rgba(var(--color-primary), 0.26);
+    --switch-thumb-color: var(--switch-color);
+    --switch-track-color: rgba(var(--color-primary), 0.5);
+    --switch-off-thumb-color: rgb(250, 250, 250);
+    --switch-off-track-color: rgba(255, 255, 255, 0.26);
+    --switch-disabled-thumb-color: rgb(189, 189, 189);
+    --switch-disabled-track-color: rgba(255, 255, 255, 0.12);
+    /* ==========  Spinner  ========== */
+    --spinner-color-1: rgb(66, 165, 245);
+    --spinner-color-2: rgb(244, 67, 54);
+    --spinner-color-3: rgb(253, 216, 53);
+    --spinner-color-4: rgb(76, 175, 80);
+    --spinner-single-color: rgb(var(--color-primary));
+    /* ==========  Text fields  ========== */
+    --input-text-background-color: transparent;
+    --input-text-label-color: rgba(255, 255, 255, 0.54);
+    --input-text-bottom-border-color: rgba(255, 255, 255, 0.12);
+    --input-text-highlight-color: rgb(var(--color-primary));
+    --input-text-disabled-color: var(--input-text-bottom-border-color);
+    --input-text-disabled-text-color: var(--input-text-label-color);
+    --input-text-error-color: rgb(213, 0, 0);
+    /* ==========  Card  ========== */
+    --card-background-color: rgb(66, 66, 66);
+    --card-text-color: rgb(255, 255, 255);
+    --card-image-placeholder-color: rgb(var(--color-accent));
+    --card-supporting-text-text-color: rgba(255, 255, 255, 0.54);
+    --card-border-color: rgba(255, 255, 255, 0.1);
+    --card-subtitle-color: rgba(255, 255, 255, 0.54);
+    /* ==========  Sliders ========== */
+    --range-bg-color: rgba(255, 255, 255, 0.26);
+    --range-color: rgb(var(--color-primary));
+    --range-faded-color: rgba(var(--color-primary), 0.26);
+    --range-bg-focus-color: rgba(255, 255, 255, 0.12);
+    /* ========== Progress ========== */
+    --progress-main-color: rgb(var(--color-primary));
+    --progress-secondary-color: rgba(var(--color-primary-contrast), 0.7);
+    --progress-fallback-buffer-color: rgba(var(--color-primary-contrast), 0.9);
+    /* ==========  List ========== */
+    --list-main-text-text-color: rgba(255, 255, 255, 0.87);
+    --list-supporting-text-text-color: rgba(255, 255, 255, 0.54);
+    --list-icon-color: rgb(117, 117, 117);
+    --list-avatar-color: black;
+    /* ==========  Item ========== */
+    --default-item-text-color: rgba(255, 255, 255, 0.87);
+    --default-item-outline-color: rgb(189, 189, 189);
+    --default-item-hover-bg-color: rgb(97, 97, 97);
+    --default-item-focus-bg-color: rgb(238, 238, 238);
+    --default-item-active-bg-color: rgb(224, 224, 224);
+    --default-item-divider-color: rgba(255, 255, 255, 0.12);
+    --disabled-item-text-color: rgb(189, 189, 189);
+    /* ==========  Dropdown menu ========== */
+    --default-dropdown-bg-color: rgb(66, 66, 66);
+    /* ==========  Tooltips  ========== */
+    --tooltip-text-color: rgb(255, 255, 255);
+    --tooltip-background-color: rgba(97, 97, 97, 0.9);
+    /* ==========  Footer  ========== */
+    --footer-bg-color: rgb(66, 66, 66);
+    --footer-color: rgb(158, 158, 158);
+    --footer-heading-color: rgb(224, 224, 224);
+    --footer-button-fill-color: var(--footer-color);
+    --footer-underline-color: var(--footer-color);
+    /* ==========  Badge  ========== */
+    --badge-color: rgb(var(--color-accent-contrast));
+    --badge-color-inverse: rgb(var(--color-accent));
+    --badge-background: rgb(var(--color-accent));
+    --badge-background-inverse: rgba(var(--color-accent-contrast), 0.2);
+    /* ==========  Table  ========== */
+    --data-table-header-color: rgba(#fff, 0.54);
+    --data-table-header-sorted-color: rgba(#fff, 0.87);
+    --data-table-header-sorted-icon-hover-color: rgba(#fff, 0.26);
+    --data-table-divider-color: rgba(#fff, 0.12);
+    --data-table-hover-color: #111111;
+    --data-table-selection-color: #101010;
+    /* SNACKBAR */
+    --snackbar-background-color: #dedede;
+    --snackbar-action-color: rgb(var(--color-accent));
+    /* CHIP */
+    --chip-bg-color: rgb(33, 33, 33);
+    --chip-bg-active-color: rgb(41, 41, 41);
+  }  
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    /* ==========  Typography  ========== */
+    --text-color-primary: rgba(0, 0, 0, 0.87);
+    --text-color-primary-contrast: rgba(255, 255, 255, 0.87);
+    --text-color-accent: rgba(0, 0, 0, 0.87);
+    --text-color-accent-contrast: rgba(255, 255, 255, 0.87);
+    --text-link-color: rgb(var(--color-accent));
+    /* ==========  Components  ========== */
+    /* ==========  Standard Buttons  ========== */
+    --button-primary-color: rgba(158, 158, 158, 0.2);
+    --button-secondary-color: rgb(0, 0, 0);
+    --button-hover-color: var(--button-primary-color);
+    --button-active-color: rgba(158, 158, 158, 0.4);
+    --button-focus-color: rgba(0, 0, 0, 0.12);
+    --button-primary-color-alt: rgb(var(--color-primary));
+    --button-secondary-color-alt: rgb(var(--color-primary-contrast));
+    --button-hover-color-alt: rgb(var(--color-primary));
+    --button-active-color-alt: rgb(var(--color-primary));
+    --button-focus-color-alt: var(--button-focus-color);
+    --button-ripple-color-alt: rgb(var(--color-primary-contrast));
+    --button-primary-color-disabled: rgba(0, 0, 0, 0.12);
+    --button-secondary-color-disabled: rgba(0, 0, 0, 0.26);
+    --button-fab-color-alt: rgb(var(--color-accent));
+    --button-fab-hover-color-alt: rgb(var(--color-accent));
+    --button-fab-active-color-alt: rgb(var(--color-accent));
+    --button-fab-text-color-alt: rgb(var(--color-accent-contrast));
+    --button-fab-ripple-color-alt: rgb(var(--color-accent-contrast));
+    --button-icon-color: rgb(97, 97, 97);
+    --button-icon-focus-color: var(--button-focus-color);
+    /* ==========  Icon Toggles  ========== */
+    --icon-toggle-color: rgb(97, 97, 97);
+    --icon-toggle-focus-color: var(--button-focus-color);
+    --icon-toggle-checked-color: rgb(var(--color-primary));
+    --icon-toggle-checked-focus-color: rgba(var(--color-primary), 0.26);
+    --icon-toggle-disabled-color: rgba(0, 0, 0, 0.26);
+    /* ==========  Radio Buttons  ========== */
+    --radio-color: rgb(var(--color-primary));
+    --radio-off-color: rgba(0, 0, 0, 0.54);
+    --radio-disabled-color: rgba(0, 0, 0, 0.26);
+    /* ==========  Ripple effect  ========== */
+    --ripple-bg-color: rgb(0, 0, 0);
+    /* ==========  Layout  ========== */
+    --layout-nav-color: rgb(224, 224, 224);
+    --layout-drawer-bg-color: rgb(250, 250, 250);
+    --layout-drawer-border-color: rgb(224, 224, 224);
+    --layout-text-color: rgb(66, 66, 66);
+    --layout-drawer-navigation-color: #757575;
+    --layout-drawer-navigation-link-active-background: rgb(224, 224, 224);
+    --layout-drawer-navigation-link-active-color: rgb(0, 0, 0);
+    --layout-header-bg-color: rgb(var(--color-primary));
+    --layout-header-text-color: rgb(var(--color-primary-contrast));
+    --layout-header-nav-hover-color: rgba(97, 97, 97, 0.6);
+    --layout-header-tab-text-color: rgba(var(--color-primary-contrast), 0.6);
+    --layout-header-tab-highlight: rgb(var(--color-accent));
+    /* ==========  Content Tabs  ========== */
+    --tab-highlight-color: rgb(var(--color-primary));
+    --tab-text-color: rgba(0, 0, 0, 0.54);
+    --tab-active-text-color: rgba(0, 0, 0, 0.87);
+    --tab-border-color: rgb(224, 224, 224);
+    /* ==========  Checkboxes  ========== */
+    --checkbox-color: rgb(var(--color-primary));
+    --checkbox-off-color: rgba(0, 0, 0, 0.54);
+    --checkbox-disabled-color: rgba(0, 0, 0, 0.26);
+    --checkbox-focus-color: rgba(var(--color-primary), 0.26);
+    /* ==========  Switches  ========== */
+    --switch-color: rgb(var(--color-primary));
+    --switch-faded-color: rgba(var(--color-primary), 0.26);
+    --switch-thumb-color: var(--switch-color);
+    --switch-track-color: rgba(var(--color-primary), 0.5);
+    --switch-off-thumb-color: rgb(250, 250, 250);
+    --switch-off-track-color: rgba(0, 0, 0, 0.26);
+    --switch-disabled-thumb-color: rgb(189, 189, 189);
+    --switch-disabled-track-color: rgba(0, 0, 0, 0.12);
+    /* ==========  Spinner  ========== */
+    --spinner-color-1: rgb(66, 165, 245);
+    --spinner-color-2: rgb(244, 67, 54);
+    --spinner-color-3: rgb(253, 216, 53);
+    --spinner-color-4: rgb(76, 175, 80);
+    --spinner-single-color: rgb(var(--color-primary));
+    /* ==========  Text fields  ========== */
+    --input-text-background-color: transparent;
+    --input-text-label-color: rgba(0, 0, 0, 0.26);
+    --input-text-bottom-border-color: rgba(0, 0, 0, 0.12);
+    --input-text-highlight-color: rgb(var(--color-primary));
+    --input-text-disabled-color: var(--input-text-bottom-border-color);
+    --input-text-disabled-text-color: var(--input-text-label-color);
+    --input-text-error-color: rgb(213, 0, 0);
+    /* ==========  Card  ========== */
+    --card-background-color: rgb(255, 255, 255);
+    --card-text-color: rgb(0, 0, 0);
+    --card-image-placeholder-color: rgb(var(--color-accent));
+    --card-supporting-text-text-color: rgba(0, 0, 0, 0.54);
+    --card-border-color: rgba(0, 0, 0, 0.1);
+    --card-subtitle-color: rgba(0, 0, 0, 0.54);
+    /* ==========  Sliders ========== */
+    --range-bg-color: rgba(0, 0, 0, 0.26);
+    --range-color: rgb(var(--color-primary));
+    --range-faded-color: rgba(var(--color-primary), 0.26);
+    --range-bg-focus-color: rgba(0, 0, 0, 0.12);
+    /* ========== Progress ========== */
+    --progress-main-color: rgb(var(--color-primary));
+    --progress-secondary-color: rgba(var(--color-primary-contrast), 0.7);
+    --progress-fallback-buffer-color: rgba(var(--color-primary-contrast), 0.9);
+    /* ==========  List ========== */
+    --list-main-text-text-color: rgba(0, 0, 0, 0.87);
+    --list-supporting-text-text-color: rgba(0, 0, 0, 0.54);
+    --list-icon-color: rgb(117, 117, 117);
+    --list-avatar-color: white;
+    /* ==========  Item ========== */
+    --default-item-text-color: rgba(0, 0, 0, 0.87);
+    --default-item-outline-color: rgb(189, 189, 189);
+    --default-item-hover-bg-color: rgb(238, 238, 238);
+    --default-item-focus-bg-color: rgb(238, 238, 238);
+    --default-item-active-bg-color: rgb(224, 224, 224);
+    --default-item-divider-color: rgba(0, 0, 0, 0.12);
+    --disabled-item-text-color: rgb(189, 189, 189);
+    /* ==========  Dropdown menu ========== */
+    --default-dropdown-bg-color: rgb(255, 255, 255);
+    /* ==========  Tooltips  ========== */
+    --tooltip-text-color: rgb(255, 255, 255);
+    --tooltip-background-color: rgba(97, 97, 97, 0.9);
+    /* ==========  Footer  ========== */
+    --footer-bg-color: rgb(66, 66, 66);
+    --footer-color: rgb(158, 158, 158);
+    --footer-heading-color: rgb(224, 224, 224);
+    --footer-button-fill-color: var(--footer-color);
+    --footer-underline-color: var(--footer-color);
+    /* ==========  Badge  ========== */
+    --badge-color: rgb(var(--color-accent-contrast));
+    --badge-color-inverse: rgb(var(--color-accent));
+    --badge-background: rgb(var(--color-accent));
+    --badge-background-inverse: rgba(var(--color-accent-contrast), 0.2);
+    /* ==========  Table  ========== */
+    --data-table-header-color: rgba(#000, 0.54);
+    --data-table-header-sorted-color: rgba(#000, 0.87);
+    --data-table-header-sorted-icon-hover-color: rgba(#000, 0.26);
+    --data-table-divider-color: rgba(#000, 0.12);
+    --data-table-hover-color: #eeeeee;
+    --data-table-selection-color: #e0e0e0;
+    /* SNACKBAR */
+    --snackbar-background-color: #323232;
+    --snackbar-action-color: rgb(var(--color-accent));
+    /* CHIP */
+    --chip-bg-color: rgb(222, 222, 222);
+    --chip-bg-active-color: rgb(214, 214, 214);
+  }
+}
+
+:root[color-scheme="dark"] {
+  /* ==========  Typography  ========== */
+  --text-color-primary: rgba(255, 255, 255, 0.87);
+  --text-color-primary-contrast: rgba(0, 0, 0, 0.87);
+  --text-color-accent: rgba(255, 255, 255, 0.87);
+  --text-color-accent-contrast: rgba(0, 0, 0, 0.87);
+  --text-link-color: rgb(var(--color-accent));
+  /* ==========  Components  ========== */
+  /* ==========  Standard Buttons  ========== */
+  --button-primary-color: rgba(158, 158, 158, 0.2);
+  --button-secondary-color: rgb(255, 255, 255);
+  --button-hover-color: var(--button-primary-color);
+  --button-active-color: rgba(158, 158, 158, 0.4);
+  --button-focus-color: rgba(0, 0, 0, 0.12);
+  --button-primary-color-alt: rgb(var(--color-primary));
+  --button-secondary-color-alt: rgb(var(--color-primary-contrast));
+  --button-hover-color-alt: rgb(var(--color-primary));
+  --button-active-color-alt: rgb(var(--color-primary));
+  --button-focus-color-alt: var(--button-focus-color);
+  --button-ripple-color-alt: rgb(var(--color-primary-contrast));
+  --button-primary-color-disabled: rgba(255, 255, 255, 0.12);
+  --button-secondary-color-disabled: rgba(255, 255, 255, 0.26);
+  --button-fab-color-alt: rgb(var(--color-accent));
+  --button-fab-hover-color-alt: rgb(var(--color-accent));
+  --button-fab-active-color-alt: rgb(var(--color-accent));
+  --button-fab-text-color-alt: rgb(var(--color-accent-contrast));
+  --button-fab-ripple-color-alt: rgb(var(--color-accent-contrast));
+  --button-icon-color: rgb(97, 97, 97);
+  --button-icon-focus-color: var(--button-focus-color);
+  /* ==========  Icon Toggles  ========== */
+  --icon-toggle-color: rgb(97, 97, 97);
+  --icon-toggle-focus-color: var(--button-focus-color);
+  --icon-toggle-checked-color: rgb(var(--color-primary));
+  --icon-toggle-checked-focus-color: rgba(var(--color-primary), 0.26);
+  --icon-toggle-disabled-color: rgba(255, 255, 255, 0.26);
+  /* ==========  Radio Buttons  ========== */
+  --radio-color: rgb(var(--color-primary));
+  --radio-off-color: rgba(255, 255, 255, 0.54);
+  --radio-disabled-color: rgba(255, 255, 255, 0.26);
+  /* ==========  Ripple effect  ========== */
+  --ripple-bg-color: rgb(0, 0, 0);
+  /* ==========  Layout  ========== */
+  --layout-nav-color: rgb(224, 224, 224);
+  --layout-drawer-bg-color: rgb(33, 33, 33);
+  --layout-drawer-border-color: rgb(224, 224, 224);
+  --layout-text-color: rgb(66, 66, 66);
+  --layout-drawer-navigation-color: #c0c0c0;
+  --layout-drawer-navigation-link-active-background: rgb(224, 224, 224);
+  --layout-drawer-navigation-link-active-color: rgb(0, 0, 0);
+  --layout-header-bg-color: rgb(var(--color-primary));
+  --layout-header-text-color: rgb(var(--color-primary-contrast));
+  --layout-header-nav-hover-color: rgba(97, 97, 97, 0.6);
+  --layout-header-tab-text-color: rgba(var(--color-primary-contrast), 0.6);
+  --layout-header-tab-highlight: rgb(var(--color-accent));
+  /* ==========  Content Tabs  ========== */
+  --tab-highlight-color: rgb(var(--color-primary));
+  --tab-text-color: rgba(255, 255, 255, 0.54);
+  --tab-active-text-color: rgba(255, 255, 255, 0.87);
+  --tab-border-color: rgb(224, 224, 224);
+  /* ==========  Checkboxes  ========== */
+  --checkbox-color: rgb(var(--color-primary));
+  --checkbox-off-color: rgba(255, 255, 255, 0.54);
+  --checkbox-disabled-color: rgba(255, 255, 255, 0.26);
+  --checkbox-focus-color: rgba(var(--color-primary), 0.26);
+  /* ==========  Switches  ========== */
+  --switch-color: rgb(var(--color-primary));
+  --switch-faded-color: rgba(var(--color-primary), 0.26);
+  --switch-thumb-color: var(--switch-color);
+  --switch-track-color: rgba(var(--color-primary), 0.5);
+  --switch-off-thumb-color: rgb(250, 250, 250);
+  --switch-off-track-color: rgba(255, 255, 255, 0.26);
+  --switch-disabled-thumb-color: rgb(189, 189, 189);
+  --switch-disabled-track-color: rgba(255, 255, 255, 0.12);
+  /* ==========  Spinner  ========== */
+  --spinner-color-1: rgb(66, 165, 245);
+  --spinner-color-2: rgb(244, 67, 54);
+  --spinner-color-3: rgb(253, 216, 53);
+  --spinner-color-4: rgb(76, 175, 80);
+  --spinner-single-color: rgb(var(--color-primary));
+  /* ==========  Text fields  ========== */
+  --input-text-background-color: transparent;
+  --input-text-label-color: rgba(255, 255, 255, 0.54);
+  --input-text-bottom-border-color: rgba(255, 255, 255, 0.12);
+  --input-text-highlight-color: rgb(var(--color-primary));
+  --input-text-disabled-color: var(--input-text-bottom-border-color);
+  --input-text-disabled-text-color: var(--input-text-label-color);
+  --input-text-error-color: rgb(213, 0, 0);
+  /* ==========  Card  ========== */
+  --card-background-color: rgb(66, 66, 66);
+  --card-text-color: rgb(255, 255, 255);
+  --card-image-placeholder-color: rgb(var(--color-accent));
+  --card-supporting-text-text-color: rgba(255, 255, 255, 0.54);
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --card-subtitle-color: rgba(255, 255, 255, 0.54);
+  /* ==========  Sliders ========== */
+  --range-bg-color: rgba(255, 255, 255, 0.26);
+  --range-color: rgb(var(--color-primary));
+  --range-faded-color: rgba(var(--color-primary), 0.26);
+  --range-bg-focus-color: rgba(255, 255, 255, 0.12);
+  /* ========== Progress ========== */
+  --progress-main-color: rgb(var(--color-primary));
+  --progress-secondary-color: rgba(var(--color-primary-contrast), 0.7);
+  --progress-fallback-buffer-color: rgba(var(--color-primary-contrast), 0.9);
+  /* ==========  List ========== */
+  --list-main-text-text-color: rgba(255, 255, 255, 0.87);
+  --list-supporting-text-text-color: rgba(255, 255, 255, 0.54);
+  --list-icon-color: rgb(117, 117, 117);
+  --list-avatar-color: black;
+  /* ==========  Item ========== */
+  --default-item-text-color: rgba(255, 255, 255, 0.87);
+  --default-item-outline-color: rgb(189, 189, 189);
+  --default-item-hover-bg-color: rgb(97, 97, 97);
+  --default-item-focus-bg-color: rgb(238, 238, 238);
+  --default-item-active-bg-color: rgb(224, 224, 224);
+  --default-item-divider-color: rgba(255, 255, 255, 0.12);
+  --disabled-item-text-color: rgb(189, 189, 189);
+  /* ==========  Dropdown menu ========== */
+  --default-dropdown-bg-color: rgb(66, 66, 66);
+  /* ==========  Tooltips  ========== */
+  --tooltip-text-color: rgb(255, 255, 255);
+  --tooltip-background-color: rgba(97, 97, 97, 0.9);
+  /* ==========  Footer  ========== */
+  --footer-bg-color: rgb(66, 66, 66);
+  --footer-color: rgb(158, 158, 158);
+  --footer-heading-color: rgb(224, 224, 224);
+  --footer-button-fill-color: var(--footer-color);
+  --footer-underline-color: var(--footer-color);
+  /* ==========  Badge  ========== */
+  --badge-color: rgb(var(--color-accent-contrast));
+  --badge-color-inverse: rgb(var(--color-accent));
+  --badge-background: rgb(var(--color-accent));
+  --badge-background-inverse: rgba(var(--color-accent-contrast), 0.2);
+  /* ==========  Table  ========== */
+  --data-table-header-color: rgba(#fff, 0.54);
+  --data-table-header-sorted-color: rgba(#fff, 0.87);
+  --data-table-header-sorted-icon-hover-color: rgba(#fff, 0.26);
+  --data-table-divider-color: rgba(#fff, 0.12);
+  --data-table-hover-color: #111111;
+  --data-table-selection-color: #101010;
+  /* SNACKBAR */
+  --snackbar-background-color: #dedede;
+  --snackbar-action-color: rgb(var(--color-accent));
+  /* CHIP */
+  --chip-bg-color: rgb(33, 33, 33);
+  --chip-bg-active-color: rgb(41, 41, 41);
+}
+:root[color-scheme="light"] {
+  /* ==========  Typography  ========== */
+  --text-color-primary: rgba(0, 0, 0, 0.87);
+  --text-color-primary-contrast: rgba(255, 255, 255, 0.87);
+  --text-color-accent: rgba(0, 0, 0, 0.87);
+  --text-color-accent-contrast: rgba(255, 255, 255, 0.87);
+  --text-link-color: rgb(var(--color-accent));
+  /* ==========  Components  ========== */
+  /* ==========  Standard Buttons  ========== */
+  --button-primary-color: rgba(158, 158, 158, 0.2);
+  --button-secondary-color: rgb(0, 0, 0);
+  --button-hover-color: var(--button-primary-color);
+  --button-active-color: rgba(158, 158, 158, 0.4);
+  --button-focus-color: rgba(0, 0, 0, 0.12);
+  --button-primary-color-alt: rgb(var(--color-primary));
+  --button-secondary-color-alt: rgb(var(--color-primary-contrast));
+  --button-hover-color-alt: rgb(var(--color-primary));
+  --button-active-color-alt: rgb(var(--color-primary));
+  --button-focus-color-alt: var(--button-focus-color);
+  --button-ripple-color-alt: rgb(var(--color-primary-contrast));
+  --button-primary-color-disabled: rgba(0, 0, 0, 0.12);
+  --button-secondary-color-disabled: rgba(0, 0, 0, 0.26);
+  --button-fab-color-alt: rgb(var(--color-accent));
+  --button-fab-hover-color-alt: rgb(var(--color-accent));
+  --button-fab-active-color-alt: rgb(var(--color-accent));
+  --button-fab-text-color-alt: rgb(var(--color-accent-contrast));
+  --button-fab-ripple-color-alt: rgb(var(--color-accent-contrast));
+  --button-icon-color: rgb(97, 97, 97);
+  --button-icon-focus-color: var(--button-focus-color);
+  /* ==========  Icon Toggles  ========== */
+  --icon-toggle-color: rgb(97, 97, 97);
+  --icon-toggle-focus-color: var(--button-focus-color);
+  --icon-toggle-checked-color: rgb(var(--color-primary));
+  --icon-toggle-checked-focus-color: rgba(var(--color-primary), 0.26);
+  --icon-toggle-disabled-color: rgba(0, 0, 0, 0.26);
+  /* ==========  Radio Buttons  ========== */
+  --radio-color: rgb(var(--color-primary));
+  --radio-off-color: rgba(0, 0, 0, 0.54);
+  --radio-disabled-color: rgba(0, 0, 0, 0.26);
+  /* ==========  Ripple effect  ========== */
+  --ripple-bg-color: rgb(0, 0, 0);
+  /* ==========  Layout  ========== */
+  --layout-nav-color: rgb(224, 224, 224);
+  --layout-drawer-bg-color: rgb(250, 250, 250);
+  --layout-drawer-border-color: rgb(224, 224, 224);
+  --layout-text-color: rgb(66, 66, 66);
+  --layout-drawer-navigation-color: #757575;
+  --layout-drawer-navigation-link-active-background: rgb(224, 224, 224);
+  --layout-drawer-navigation-link-active-color: rgb(0, 0, 0);
+  --layout-header-bg-color: rgb(var(--color-primary));
+  --layout-header-text-color: rgb(var(--color-primary-contrast));
+  --layout-header-nav-hover-color: rgba(97, 97, 97, 0.6);
+  --layout-header-tab-text-color: rgba(var(--color-primary-contrast), 0.6);
+  --layout-header-tab-highlight: rgb(var(--color-accent));
+  /* ==========  Content Tabs  ========== */
+  --tab-highlight-color: rgb(var(--color-primary));
+  --tab-text-color: rgba(0, 0, 0, 0.54);
+  --tab-active-text-color: rgba(0, 0, 0, 0.87);
+  --tab-border-color: rgb(224, 224, 224);
+  /* ==========  Checkboxes  ========== */
+  --checkbox-color: rgb(var(--color-primary));
+  --checkbox-off-color: rgba(0, 0, 0, 0.54);
+  --checkbox-disabled-color: rgba(0, 0, 0, 0.26);
+  --checkbox-focus-color: rgba(var(--color-primary), 0.26);
+  /* ==========  Switches  ========== */
+  --switch-color: rgb(var(--color-primary));
+  --switch-faded-color: rgba(var(--color-primary), 0.26);
+  --switch-thumb-color: var(--switch-color);
+  --switch-track-color: rgba(var(--color-primary), 0.5);
+  --switch-off-thumb-color: rgb(250, 250, 250);
+  --switch-off-track-color: rgba(0, 0, 0, 0.26);
+  --switch-disabled-thumb-color: rgb(189, 189, 189);
+  --switch-disabled-track-color: rgba(0, 0, 0, 0.12);
+  /* ==========  Spinner  ========== */
+  --spinner-color-1: rgb(66, 165, 245);
+  --spinner-color-2: rgb(244, 67, 54);
+  --spinner-color-3: rgb(253, 216, 53);
+  --spinner-color-4: rgb(76, 175, 80);
+  --spinner-single-color: rgb(var(--color-primary));
+  /* ==========  Text fields  ========== */
+  --input-text-background-color: transparent;
+  --input-text-label-color: rgba(0, 0, 0, 0.26);
+  --input-text-bottom-border-color: rgba(0, 0, 0, 0.12);
+  --input-text-highlight-color: rgb(var(--color-primary));
+  --input-text-disabled-color: var(--input-text-bottom-border-color);
+  --input-text-disabled-text-color: var(--input-text-label-color);
+  --input-text-error-color: rgb(213, 0, 0);
+  /* ==========  Card  ========== */
+  --card-background-color: rgb(255, 255, 255);
+  --card-text-color: rgb(0, 0, 0);
+  --card-image-placeholder-color: rgb(var(--color-accent));
+  --card-supporting-text-text-color: rgba(0, 0, 0, 0.54);
+  --card-border-color: rgba(0, 0, 0, 0.1);
+  --card-subtitle-color: rgba(0, 0, 0, 0.54);
+  /* ==========  Sliders ========== */
+  --range-bg-color: rgba(0, 0, 0, 0.26);
+  --range-color: rgb(var(--color-primary));
+  --range-faded-color: rgba(var(--color-primary), 0.26);
+  --range-bg-focus-color: rgba(0, 0, 0, 0.12);
+  /* ========== Progress ========== */
+  --progress-main-color: rgb(var(--color-primary));
+  --progress-secondary-color: rgba(var(--color-primary-contrast), 0.7);
+  --progress-fallback-buffer-color: rgba(var(--color-primary-contrast), 0.9);
+  /* ==========  List ========== */
+  --list-main-text-text-color: rgba(0, 0, 0, 0.87);
+  --list-supporting-text-text-color: rgba(0, 0, 0, 0.54);
+  --list-icon-color: rgb(117, 117, 117);
+  --list-avatar-color: white;
+  /* ==========  Item ========== */
+  --default-item-text-color: rgba(0, 0, 0, 0.87);
+  --default-item-outline-color: rgb(189, 189, 189);
+  --default-item-hover-bg-color: rgb(238, 238, 238);
+  --default-item-focus-bg-color: rgb(238, 238, 238);
+  --default-item-active-bg-color: rgb(224, 224, 224);
+  --default-item-divider-color: rgba(0, 0, 0, 0.12);
+  --disabled-item-text-color: rgb(189, 189, 189);
+  /* ==========  Dropdown menu ========== */
+  --default-dropdown-bg-color: rgb(255, 255, 255);
+  /* ==========  Tooltips  ========== */
+  --tooltip-text-color: rgb(255, 255, 255);
+  --tooltip-background-color: rgba(97, 97, 97, 0.9);
+  /* ==========  Footer  ========== */
+  --footer-bg-color: rgb(66, 66, 66);
+  --footer-color: rgb(158, 158, 158);
+  --footer-heading-color: rgb(224, 224, 224);
+  --footer-button-fill-color: var(--footer-color);
+  --footer-underline-color: var(--footer-color);
+  /* ==========  Badge  ========== */
+  --badge-color: rgb(var(--color-accent-contrast));
+  --badge-color-inverse: rgb(var(--color-accent));
+  --badge-background: rgb(var(--color-accent));
+  --badge-background-inverse: rgba(var(--color-accent-contrast), 0.2);
+  /* ==========  Table  ========== */
+  --data-table-header-color: rgba(#000, 0.54);
+  --data-table-header-sorted-color: rgba(#000, 0.87);
+  --data-table-header-sorted-icon-hover-color: rgba(#000, 0.26);
+  --data-table-divider-color: rgba(#000, 0.12);
+  --data-table-hover-color: #eeeeee;
+  --data-table-selection-color: #e0e0e0;
+  /* SNACKBAR */
+  --snackbar-background-color: #323232;
+  --snackbar-action-color: rgb(var(--color-accent));
+  /* CHIP */
+  --chip-bg-color: rgb(222, 222, 222);
+  --chip-bg-active-color: rgb(214, 214, 214);
+}

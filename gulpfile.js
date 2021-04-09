@@ -1,10 +1,11 @@
 const gulp = require("gulp");
 const postcss = require("gulp-postcss");
 const sass = require("gulp-sass");
+const stylehacks = require("stylehacks");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const livereload = require("gulp-livereload");
-const plumber = require('gulp-plumber');
+const plumber = require("gulp-plumber");
 
 gulp.task("sass", async () => {
   gulp
@@ -18,18 +19,24 @@ gulp.task("css", async () => {
   return gulp
     .src("theme/assets/style.css")
     .pipe(plumber())
-    .pipe(postcss([autoprefixer(), cssnano()]).on('error', err => {
-      console.log(err);
-    }))
+    .pipe(
+      postcss([
+        // stylehacks(),
+        autoprefixer(),
+        cssnano(),
+      ]).on("error", (err) => {
+        console.log(err);
+      })
+    )
     .pipe(gulp.dest("theme/assets/"))
     .pipe(livereload());
 });
 
-gulp.task('watch', async () => {
+gulp.task("watch", async () => {
   livereload.listen();
   gulp.watch("theme/assets/**/*.scss", gulp.series("sass", "css"));
   gulp.watch(
-    ["template/**/*", "theme/assets/**/*.js"],
+    ["template/**/*", "theme/assets/**/*.js", "theme/assets/**/!(style)*.css"],
     { events: "all" },
     async () => livereload.reload()
   );

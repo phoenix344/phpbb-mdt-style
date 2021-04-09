@@ -67,9 +67,30 @@
     <!-- ENDIF -->
 
     <!-- IF topicrow.U_VIEW_TOPIC -->
-    <h3><a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></h3>
+    <h2 class="pbb-topic-headline">
+      <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
+        <!-- IF .topicrow.pagination -->
+        <span class="pbb-topic-paging mdl-chip mdl-chip--contact">
+          <span class="mdl-chip__text">
+            <!-- BEGIN topicrow.pagination -->
+            <!-- IF topicrow.pagination.S_IS_PREV -->
+            <!-- ELSEIF topicrow.pagination.S_IS_CURRENT -->
+            {topicrow.pagination.PAGE_NUMBER}
+            <!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS -->
+            {L_ELLIPSIS}
+            <!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
+            <!-- ELSE -->
+            <a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a>
+            <!-- ENDIF -->
+            <!-- END topicrow.pagination -->
+          </span>
+        </span>
+        <!-- ENDIF -->
+    </h2>
     <!-- ELSE -->
-    <h3>{topicrow.TOPIC_TITLE}</h3>
+    <h2 class="pbb-topic-headline">
+      {topicrow.TOPIC_TITLE}
+    </h2>
     <!-- ENDIF -->
 
     <!-- EVENT topiclist_row_topic_title_after -->
@@ -104,38 +125,50 @@
       </div>
       <!-- ENDIF -->
 
-      <div>
-        <!-- IF topicrow.S_HAS_POLL -->
-        <i class="material-icons">poll</i>
-        <!-- ENDIF -->
-        <!-- IF topicrow.ATTACH_ICON_IMG -->
-        <i class="material-icons">attach_file</i>
-        <!-- ENDIF -->
-        {% EVENT topiclist_row_topic_by_author_before %}
-        {L_POST_BY_AUTHOR}
-        <!-- EVENT viewforum_body_topic_author_username_prepend -->
-        {topicrow.TOPIC_AUTHOR_FULL}
-        <!-- EVENT viewforum_body_topic_author_username_append -->
-        &raquo;
-        <time datetime="{topicrow.FIRST_POST_TIME_RFC3339}">
-          {topicrow.FIRST_POST_TIME}
-        </time>
-        {% EVENT topiclist_row_topic_by_author_after %}
-        <!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID -->
-        &raquo; {L_IN}
-        <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a>
-        <!-- ENDIF -->
-      </div>
+      <div class="pbb-topic-info">
+        <span class="mdl-chip mdl-chip--contact">
+          <span class="mdl-chip__text">
+            <!-- IF topicrow.S_HAS_POLL -->
+            <i class="material-icons">poll</i>
+            <!-- ENDIF -->
+            <!-- IF topicrow.ATTACH_ICON_IMG -->
+            <i class="material-icons">attach_file</i>
+            <!-- ENDIF -->
 
-      {L_LAST_POST} {L_POST_BY_AUTHOR}
-      <!-- EVENT viewforum_body_last_post_author_username_prepend -->
-      {topicrow.LAST_POST_AUTHOR_FULL}
-      <!-- EVENT viewforum_body_last_post_author_username_append -->
-      <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">
-        <time datetime="{topicrow.LAST_POST_TIME_RFC3339}">
-          {topicrow.LAST_POST_TIME}
-        </time>
-      </a>
+            {% EVENT topiclist_row_topic_by_author_before %}
+            {L_POST_BY_AUTHOR}
+            <!-- EVENT viewforum_body_topic_author_username_prepend -->
+            {topicrow.TOPIC_AUTHOR_FULL}
+            <!-- EVENT viewforum_body_topic_author_username_append -->
+            &raquo;
+            <time datetime="{topicrow.FIRST_POST_TIME_RFC3339}">
+              {topicrow.FIRST_POST_TIME}
+            </time>
+          </span>
+          {% EVENT topiclist_row_topic_by_author_after %}
+          <!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID -->
+          &raquo; {L_IN}
+          <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a>
+          <!-- ENDIF -->
+        </span>
+  
+        <span class="mdl-chip">
+          <span class="mdl-chip__text">
+            <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{L_LAST_POST}</a>
+            {L_POST_BY_AUTHOR}
+            <!-- EVENT viewforum_body_last_post_author_username_prepend -->
+            {topicrow.LAST_POST_AUTHOR_FULL}
+            <!-- EVENT viewforum_body_last_post_author_username_append -->
+            &raquo;
+            <time datetime="{topicrow.LAST_POST_TIME_RFC3339}">
+              {topicrow.LAST_POST_TIME}
+            </time>
+          </span>
+        </span>
+
+        <!-- EVENT topiclist_row_append -->
+        <!-- EVENT viewforum_body_topic_row_append -->
+      </div>
 
       <!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID -->
       <div>
@@ -147,20 +180,4 @@
     <!-- ENDIF -->
   </div>
 
-  <!-- IF .topicrow.pagination -->
-  <!-- BEGIN topicrow.pagination -->
-  <!-- IF topicrow.pagination.S_IS_PREV -->
-  <!-- ELSEIF topicrow.pagination.S_IS_CURRENT -->
-  <span class="mdl-list__item-secondary-content"><span class="active">{topicrow.pagination.PAGE_NUMBER}</span></span>
-  <!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS -->
-  <span class="mdl-list__item-secondary-content"><span class="ellipsis">{L_ELLIPSIS}</span></span>
-  <!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
-  <!-- ELSE -->
-  <span class="mdl-list__item-secondary-content"><a class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a></span>
-  <!-- ENDIF -->
-  <!-- END topicrow.pagination -->
-  <!-- ENDIF -->
-
-  <!-- EVENT topiclist_row_append -->
-  <!-- EVENT viewforum_body_topic_row_append -->
 </li>

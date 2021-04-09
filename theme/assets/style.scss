@@ -1,11 +1,10 @@
 $material-design-icons-font-directory-path: "../fonts/";
 
 // Override for Material Design Color Theme
-@import "./theme-colors";
+@import "override-mdl-colors";
 
 // Material Design Styles
-@import "./mdl-custom";
-@import "./mdl-mixins-override";
+@import "mdl-custom";
 
 // Material UI Icons
 @import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
@@ -17,6 +16,9 @@ html, body {
 
 a {
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 // MDL overrides
@@ -25,6 +27,18 @@ a {
   > a {
     color: inherit;
     text-decoration: none;
+  }
+}
+
+.mdl-button {
+  text-decoration: none;
+}
+
+.mdl-list__item-avatar {
+  > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
   }
 }
 
@@ -250,8 +264,9 @@ $category-vertical-margin: 16px;
 .pbb-category-title {
   @extend .mdl-card__title;
   background-color: rgba($color-primary, 0.87);
+  color: var(--category-title-color);
   a {
-    color: var(--text-color-primary-contrast);
+    color: var(--category-title-color);
     font-size: 18px;
     font-weight: 700;
     text-decoration: none;
@@ -278,6 +293,10 @@ $category-vertical-margin: 16px;
   @extend .mdl-list__item, .mdl-list__item--three-line;
   background-color: var(--grey-variant-1);
   height: auto;
+
+  &:nth-last-of-type(2n) {
+    background-color: var(--grey-variant-2);
+  }
 
   .pbb-forum-content {
     @extend .mdl-list__item-primary-content;
@@ -317,6 +336,41 @@ $category-vertical-margin: 16px;
   }
   img {
     width: 100%;
+  }
+}
+
+.pbb-topic-info {
+  display: flex;
+  justify-content: space-between;
+  .mdl-chip {
+    display: flex;
+    background-color: transparent;
+  }
+  .material-icons {
+    font-size: 18px;
+    vertical-align: middle;
+  }
+}
+
+.pbb-topic-headline {
+  @extend .mdl-card__title-text;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pbb-topic-paging {
+  padding: 0;
+  .material-icons {
+    font-size: 18px;
+  }
+  a {
+    @extend .mdl-button, .mdl-button--icon;
+    font-size: inherit;
+    line-height: inherit;
+    &:hover {
+      font-weight: 700;
+    }
   }
 }
 
