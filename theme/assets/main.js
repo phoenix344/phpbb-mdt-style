@@ -57,14 +57,6 @@ function _setColorScheme(scheme, iconName) {
 
 function _getCssColorScheme() {
   const raw = getComputedStyle(document.documentElement).getPropertyValue("--toggle-color-scheme").trim();
-  const result = raw.slice(1, raw.length - 1);
-  console.log(
-    raw,
-    result,
-    getComputedStyle(document.querySelector(":root")).getPropertyValue(
-      "--toggle-color-scheme"
-    )
-  );
   return raw.slice(1, raw.length - 1);
 }
 

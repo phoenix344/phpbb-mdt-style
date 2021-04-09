@@ -3,10 +3,13 @@ import dialogPolyfill from './dialog-polyfill.esm.js';
 function appbarLogin() {
   const openBtn = document.querySelector("#appbar-login-btn");
   const dialog = document.querySelector("#appbar-login-dialog");
-  dialogPolyfill.registerDialog(dialog);
 
   if (!openBtn || !dialog) {
     return;
+  }
+
+  if (!dialog.showModal) {
+    dialogPolyfill.registerDialog(dialog);
   }
 
   openBtn.addEventListener("click", () => {

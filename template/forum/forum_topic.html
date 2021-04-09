@@ -96,11 +96,31 @@
     <!-- EVENT topiclist_row_topic_title_after -->
     <!-- IF not S_IS_BOT -->
     <div class="pbb-forum-info">
+      <div class="pbb-forum-control">
+        <a href="{topicrow.U_MCP_QUEUE}">
+          APPROVAL:
+          {L_TOPIC_UNAPPROVED}
+        </a>
+
+        <a href="{topicrow.U_MCP_QUEUE}">
+          APPROVAL:
+          {L_POSTS_UNAPPROVED}
+        </a>
+
+        <a href="{topicrow.U_MCP_QUEUE}">
+          <i class="material-icons">delete</i>
+          {L_TOPIC_DELETED}
+        </a>
+
+        <a href="{topicrow.U_MCP_REPORT}">
+          <i class="material-icons">report</i>
+          {L_TOPIC_REPORTED}
+        </a>
+      </div>
       <!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED or topicrow.S_TOPIC_DELETED or topicrow.S_TOPIC_REPORTED -->
       <div>
         <!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED -->
         <a href="{topicrow.U_MCP_QUEUE}">
-          APPROVAL:
           <!-- IF topicrow.S_TOPIC_UNAPPROVED -->
           {L_TOPIC_UNAPPROVED}
           <!-- ELSE -->

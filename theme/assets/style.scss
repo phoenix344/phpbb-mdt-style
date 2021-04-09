@@ -195,7 +195,8 @@ $profile-btn-font-size: 12px;
   font-size: $profile-btn-font-size;
   line-height: $profile-btn-font-size;
   width: $profile-btn-width;
-  height: $profile-btn-height;
+  min-height: $profile-btn-height;
+  height: auto;
   margin-bottom: 16px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -312,6 +313,13 @@ $category-vertical-margin: 16px;
     display: flex;
     flex-direction: column;
     height: auto;
+  }
+  .pbb-forum-control {
+    display: flex;
+    align-items: center;
+    .material-icons {
+      vertical-align: middle;
+    }
   }
 }
 
