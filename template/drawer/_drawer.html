@@ -1,9 +1,8 @@
 <div class="mdl-layout__drawer">
-  <!-- <span class="mdl-layout-title"><a href="{{ U_SITE_HOME }}">{{ SITENAME }}</a></span> -->
   {% EVENT overall_header_navbar_before %}
 
   {% if S_USER_LOGGED_IN %}
-  {{ include('profile/drawer_profile.html')  }}
+  {{ include('profile/drawer_profile.html') }}
   {% endif %}
 
   <ul class="mdl-list">
@@ -13,14 +12,14 @@
 
       <span class="mdl-list__item-primary-content">
         {% if NOTIFICATIONS_COUNT %}
-        <span class="mdl-badge" data-badge="{{ NOTIFICATIONS_COUNT }}">{L_NOTIFICATIONS}</span>
+        <span class="mdl-badge" data-badge="{{ NOTIFICATIONS_COUNT }}">{{ lang('NOTIFICATIONS') }}</span>
         {% else %}
-        <span>{L_NOTIFICATIONS}</span>
+        <span>{{ lang('NOTIFICATIONS') }}</span>
         {% endif %}
         {% if NOTIFICATIONS_COUNT %}
         <span class="mdl-list__item-sub-title">
           <a href="{{ U_MARK_ALL_NOTIFICATIONS }}" data-ajax="notification.mark_all_read">
-            {L_MARK_ALL_READ}
+            {{ lang('MARK_ALL_READ') }}
           </a>
         </span>
         {% endif %}
@@ -29,17 +28,17 @@
 
     {% if not notification %}
     <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">{L_NO_NOTIFICATIONS}</span>
+      <span class="mdl-list__item-primary-content">{{ lang('NO_NOTIFICATIONS') }}</span>
     </li>
     {% endif %}
 
     {% for notification in notifications %}
-    {{ include('notification/drawer_notification.html')  }}
+    {{ include('notification/drawer_notification.html') }}
     {% endfor %}
 
     <li class="mdl-list__item">
       <span class="mdl-list__item-primary-content">
-        <a class="mdl-button mdl-js-button mdl-button--raised" href="{{ U_VIEW_ALL_NOTIFICATIONS }}">{L_SEE_ALL}</a>
+        <a class="mdl-button mdl-js-button mdl-button--raised" href="{{ U_VIEW_ALL_NOTIFICATIONS }}">{{ lang('SEE_ALL') }}</a>
       </span>
     </li>
 
@@ -61,7 +60,7 @@
     <li class="mui-panel">
       <a href="{{ U_FAQ }}" rel="help" role="menuitem">
         <i class="material-icons mui--align-middle">question_answer</i>
-        {L_FAQ}
+        {{ lang('FAQ') }}
       </a>
     </li>
   </ul>

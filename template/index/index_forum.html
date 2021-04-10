@@ -3,7 +3,7 @@
     {% if row.FORUM_IMAGE or row.FORUM_IMG_STYLE neq "" %}
     {% if row.FORUM_IMAGE %}
     {% EVENT forumlist_body_forum_image_prepend %}
-    <span id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon">
+    <span id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon">
     {% if row.FORUM_IMG_STYLE eq "forum_unread_subforum" %}
       <span class="mdl-badge" data-badge="✭">
     {% elseif row.FORUM_IMG_STYLE eq "forum_read_subforum" %}
@@ -19,46 +19,46 @@
     {% elseif row.FORUM_IMG_STYLE eq "forum_read_locked" %}
       <span>
     {% endif %}
-        {{ row.FORUM_IMAGE  }}
+        {{ row.FORUM_IMAGE }}
       </span>
     </span>
     {% EVENT forumlist_body_forum_image_append %}
     {% else %}
     {% if row.FORUM_IMG_STYLE eq "forum_unread_subforum" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">new_releases</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">new_releases</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_read_subforum" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">notes</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">notes</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_unread" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">new_releases</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">new_releases</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_read" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">notes</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">notes</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_link" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">link</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">link</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_unread_locked" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">lock_outline</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">lock_outline</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_read_locked" %}
-    <i id="forum-{{ row.FORUM_ID  }}" class="pbb-forum-icon material-icons">lock_outline</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">lock_outline</i>
     {% endif %}
     {% endif %}
     {% endif %}
 
-    <div class="mdl-tooltip mdl-tooltip--right" for="forum-{{ row.FORUM_ID  }}">
+    <div class="mdl-tooltip mdl-tooltip--right" for="forum-{{ row.FORUM_ID }}">
       {% if row.CLICKS %}
       <div>
-        <b>{L_REDIRECTS}{L_COLON}</b> <span>{{ row.CLICKS  }}</span>
+        <b>{{ lang('REDIRECTS') }}{{ lang('COLON') }}</b> <span>{{ row.CLICKS }}</span>
       </div>
       {% elseif not row.S_IS_LINK %}
       <div>
-        <b>{L_TOPICS}{L_COLON}</b> <span>{{ row.TOPICS  }}</span><br>
-        <b>{L_POSTS}{L_COLON}</b> <span>{{ row.POSTS  }}</span>
+        <b>{{ lang('TOPICS') }}{{ lang('COLON') }}</b> <span>{{ row.TOPICS }}</span><br>
+        <b>{{ lang('POSTS') }}{{ lang('COLON') }}</b> <span>{{ row.POSTS }}</span>
       </div>
       {% endif %}
     </div>
 
-    <a href="{{ row.U_VIEWFORUM  }}">{{ row.FORUM_NAME  }}</a>
+    <a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a>
 
     {% if row.FORUM_DESC %}
-    <div class="pbb-forum-info">{{ row.FORUM_DESC  }}</div>
+    <div class="pbb-forum-info">{{ row.FORUM_DESC }}</div>
     {% endif %}
   </div>
 </li>

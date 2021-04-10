@@ -6,10 +6,10 @@
     <a class="pbb-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
       {% if S_IS_LOCKED %}
       <span class="material-icons">lock</span>
-      {L_BUTTON_FORUM_LOCKED}
+      {{ lang('BUTTON_FORUM_LOCKED') }}
       {% else %}
       <span class="material-icons">topic</span>
-      {L_BUTTON_NEW_TOPIC}
+      {{ lang('BUTTON_NEW_TOPIC') }}
       {% endif %}
     </a>
     {% EVENT viewforum_buttons_top_after %}
@@ -24,14 +24,14 @@
           <i class="material-icons">search</i>
         </label>
         <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input"  type="search" name="keywords" id="search_keywords" size="20" placeholder="{L_SEARCH_FORUM}">
-          <label class="mdl-textfield__label">{L_SEARCH}</label>
+          <input class="mdl-textfield__input"  type="search" name="keywords" id="search_keywords" size="20" placeholder="{{ lang('SEARCH_FORUM') }}">
+          <label class="mdl-textfield__label">{{ lang('SEARCH') }}</label>
         </div>
       </div>
       {{ S_SEARCH_LOCAL_HIDDEN_FIELDS }}
     </form>
 
-    <a class="pbb-forum-search-adv mdl-js-button" href="{{ U_SEARCH_FORUM  }}" title="{L_SEARCH_ADV}">
+    <a class="pbb-forum-search-adv mdl-js-button" href="{{ U_SEARCH_FORUM }}" title="{{ lang('SEARCH_ADV') }}">
       <span class="material-icons">settings</span>
     </a>
     {% endif %}
@@ -39,7 +39,7 @@
     <div class="pbb-forum-pagination">
       {% if not S_IS_BOT and U_MARK_TOPICS and row %}
       <a href="{{ U_MARK_TOPICS }}" class="mark" accesskey="m" data-ajax="mark_topics_read">
-        {L_MARK_TOPICS_READ}
+        {{ lang('MARK_TOPICS_READ') }}
       </a> &bull;
       {% endif %}
       {{ TOTAL_TOPICS }}

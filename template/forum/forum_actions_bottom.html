@@ -6,10 +6,10 @@
     <a class="pbb-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
       {% if S_IS_LOCKED %}
       <span class="material-icons">lock</span>
-      {L_BUTTON_FORUM_LOCKED}
+      {{ lang('BUTTON_FORUM_LOCKED') }}
       {% else %}
       <span class="material-icons">topic</span>
-      {L_BUTTON_NEW_TOPIC}
+      {{ lang('BUTTON_NEW_TOPIC') }}
       {% endif %}
     </a>
     {% EVENT viewforum_buttons_top_after %}
@@ -18,17 +18,17 @@
 
   {% if S_SELECT_SORT_DAYS and not S_IS_BOT %}
   <form method="post" action="{{ S_FORUM_ACTION }}">
-    {{ include('display_options.html')  }}
+    {{ include('display_options.html') }}
   </form>
   {% endif %}
   
   <div class="pbb-forum-actions-controls">
     {% if S_IS_POSTABLE and rules|length %}
-    <button id="forum-permissions" class="mdl-button mdl-button--icon" title="{L_FORUM_PERMISSIONS}">
+    <button id="forum-permissions" class="mdl-button mdl-button--icon" title="{{ lang('FORUM_PERMISSIONS') }}">
       <i class="material-icons">verified_user</i>
     </button>
     <nav class="pbb-forum-permissions mdl-menu mdl-menu--bottom-right mdl-js-menu" for="forum-permissions">
-      <b class="pbb-menu__headline">{L_FORUM_PERMISSIONS}</b>
+      <b class="pbb-menu__headline">{{ lang('FORUM_PERMISSIONS') }}</b>
       {% for rule in rules %}
       <span class="pbb-menu__item-inactive">{{ rule.RULE }}</span>
       {% endfor %}
@@ -42,12 +42,12 @@
     <div class="pbb-forum-pagination">
       {% if not S_IS_BOT and U_MARK_TOPICS and row %}
       <a href="{{ U_MARK_TOPICS }}" class="mark" accesskey="m" data-ajax="mark_topics_read">
-        {L_MARK_TOPICS_READ}
+        {{ lang('MARK_TOPICS_READ') }}
       </a> &bull;
       {% endif %}
       {{ TOTAL_TOPICS }}
       {% if pagination %}
-        {{ include('pagination.html')  }}
+        {{ include('pagination.html') }}
       {% else %}
         &bull; {{ PAGE_NUMBER }}
       {% endif %}

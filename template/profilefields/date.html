@@ -1,5 +1,5 @@
 {% for dateval in date %}
-<label for="{{ dateval.FIELD_IDENT }}_day">{L_DAY}{L_COLON} <select name="{{ dateval.FIELD_IDENT }}_day" id="{{ dateval.FIELD_IDENT }}_day">{{ dateval.S_DAY_OPTIONS }}</select></label>
-<label for="{{ dateval.FIELD_IDENT }}_month">{L_MONTH}{L_COLON} <select name="{{ dateval.FIELD_IDENT }}_month" id="{{ dateval.FIELD_IDENT }}_month">{{ dateval.S_MONTH_OPTIONS }}</select></label>
-<label for="{{ dateval.FIELD_IDENT }}_year">{L_YEAR}{L_COLON} <select name="{{ dateval.FIELD_IDENT }}_year" id="{{ dateval.FIELD_IDENT }}_year">{{ dateval.S_YEAR_OPTIONS }}</select></label>
+<label for="{{ dateval.FIELD_IDENT }}_day">{{ lang('L_DAY') }}{{ lang('L_COLON') }} <select name="{{ dateval.FIELD_IDENT }}_day" id="{{ dateval.FIELD_IDENT }}_day">{{ dateval.S_DAY_OPTIONS }}</select></label>
+<label for="{{ dateval.FIELD_IDENT }}_month">{{ lang('L_MONTH') }}{{ lang('L_COLON') }} <select name="{{ dateval.FIELD_IDENT }}_month" id="{{ dateval.FIELD_IDENT }}_month">{{ dateval.S_MONTH_OPTIONS }}</select></label>
+<label for="{{ dateval.FIELD_IDENT }}_year">{{ lang('L_YEAR') }}{{ lang('L_COLON') }} <select name="{{ dateval.FIELD_IDENT }}_year" id="{{ dateval.FIELD_IDENT }}_year">{{ dateval.S_YEAR_OPTIONS }}</select></label>
 {% endfor %}

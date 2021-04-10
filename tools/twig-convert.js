@@ -29,11 +29,11 @@ const writeFile = util.promisify(fs.writeFile);
     .replace(/<!-- INCLUDE (.+?) -->/g, "{{ include('$1') }}")
     .replace(/<!-- EVENT (.+?) -->/g, '{% EVENT $1 %}')
     // replace variable output
-    .replace(/\{+\s*([^{}#%]+)\s*\}+/g, '{{ $1 }}')
+    .replace(/\{+\s*([^{}#%\s]+)\s*\}+/g, '{{ $1 }}')
     // replace i18n output from changed variable, because
     // it partly works only with one {L_***} and not the
     // twig way {{ L_*** }}
-    .replace(/\{+\s*(L_([^{}#% ]+))\s*\}+/g, "{{ lang('$1') }}");
+    .replace(/\{+\s*(L_([^{}#%\s]+))\s*\}+/g, "{{ lang('$2') }}");
 
   if (allowLoop) {
     // Basically the separation of the BEGIN/BEGINELSE/END loop of

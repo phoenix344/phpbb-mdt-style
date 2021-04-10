@@ -10,20 +10,20 @@
   {% EVENT overall_header_searchbox_after %}
   <b class="pbb-menu__headline">{{ S_USERNAME }}</b>
   {% if U_RESTORE_PERMISSIONS %}
-  <a class="mdl-menu__item" href="{{ U_RESTORE_PERMISSIONS }}">{L_RESTORE_PERMISSIONS}</a>
+  <a class="mdl-menu__item" href="{{ U_RESTORE_PERMISSIONS }}">{{ lang('RESTORE_PERMISSIONS') }}</a>
   {% endif %}
 
   {% EVENT navbar_header_profile_list_before %}
 
   <a class="mdl-menu__item" href="{{ U_PROFILE }}">
     <i class="material-icons">miscellaneous_services</i>
-    {L_PROFILE}
+    {{ lang('PROFILE') }}
   </a>
 
   {% if U_USER_PROFILE %}
   <a class="mdl-menu__item mdl-menu__item--full-bleed-divider" href="{{ U_USER_PROFILE }}">
     <i class="material-icons">person</i>
-    {L_READ_PROFILE}
+    {{ lang('READ_PROFILE') }}
   </a>
   {% endif %}
 
@@ -32,19 +32,19 @@
   {% if U_ACP %}
   <a class="mdl-menu__item mdl-color--primary mdl-color-text--primary-contrast mdl-menu__item--full-bleed-divider" href="{{ U_ACP }}">
     <i class="material-icons">admin_panel_settings</i>
-    {L_ACP}
+    {{ lang('ACP') }}
   </a>
   {% endif %}
   {% if U_MCP %}
   <a class="mdl-menu__item mdl-color--primary mdl-color-text--primary-contrast mdl-menu__item--full-bleed-divider" href="{{ U_MCP }}">
     <i class="material-icons">local_police</i>
-    {L_MCP}
+    {{ lang('MCP') }}
   </a>
   {% endif %}
   {% if S_USER_LOGGED_IN %}
   <a class="mdl-menu__item" href="{{ U_LOGIN_LOGOUT }}">
     <i class="material-icons">logout</i>
-    {L_LOGIN_LOGOUT}
+    {{ lang('LOGIN_LOGOUT') }}
   </a>
   {% endif %}
 </nav>
@@ -53,36 +53,36 @@
   <i class="material-icons">account_circle</i>
 </button>
 <dialog class="mdl-dialog" id="appbar-login-dialog">
-  <h4 class="mdl-dialog__title">{L_LOGIN}</h4>
+  <h4 class="mdl-dialog__title">{{ lang('LOGIN') }}</h4>
   <form action="{{ U_LOGIN_LOGOUT }}" method="POST">
     <div class="mdl-dialog__content">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" name="username" id="appbar-profile-username">
-        <label class="mdl-textfield__label" for="appbar-profile-username">{L_USERNAME}</label>
+        <label class="mdl-textfield__label" for="appbar-profile-username">{{ lang('USERNAME') }}</label>
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="password" name="password" id="appbar-profile-password">
-        <label class="mdl-textfield__label" for="appbar-profile-passwprd">{L_PASSWORD}</label>
+        <label class="mdl-textfield__label" for="appbar-profile-passwprd">{{ lang('PASSWORD') }}</label>
       </div>
       <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="appbar-autologin">
         <input type="checkbox" name="autologin" id="appbar-autologin" class="mdl-switch__input">
-        <span class="mdl-switch__label">{L_LOG_ME_IN}</span>
+        <span class="mdl-switch__label">{{ lang('LOG_ME_IN') }}</span>
       </label>
 
       {{ S_LOGIN_REDIRECT }}
       {{ S_FORM_TOKEN_LOGIN }}
     </div>
     <div class="mdl-dialog__actions">
-      <button type="submit" name="login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">{L_LOGIN}</button>
-      <button type="button" class="mdl-button close mdl-js-button mdl-button--raised mdl-js-ripple-effect">{L_CANCEL}</button>
+      <button type="submit" name="login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">{{ lang('LOGIN') }}</button>
+      <button type="button" class="mdl-button close mdl-js-button mdl-button--raised mdl-js-ripple-effect">{{ lang('CANCEL') }}</button>
     </div>
   </form>
   <div class="pbb-modal-links">
     {% if U_SEND_PASSWORD %}
-    <a href="{{ U_SEND_PASSWORD }}">{L_FORGOT_PASS}</a>
+    <a href="{{ U_SEND_PASSWORD }}">{{ lang('FORGOT_PASS') }}</a>
     {% endif %}
     {% if S_REGISTER_ENABLED %}
-    <a href="{{ U_REGISTER }}">{L_REGISTER}</a>
+    <a href="{{ U_REGISTER }}">{{ lang('REGISTER') }}</a>
     {% endif %}
   </div>
 </dialog>

@@ -104,9 +104,9 @@
             {% for paging in row.pagination %}
               {% if paging.S_IS_PREV %}
               {% elseif paging.S_IS_CURRENT %}
-                {{ paging.PAGE_NUMBER  }}
+                {{ paging.PAGE_NUMBER }}
               {% elseif paging.S_IS_ELLIPSIS %}
-                {L_ELLIPSIS}
+                {{ lang('ELLIPSIS') }}
               {% elseif paging.S_IS_NEXT %}
               {% else %}
                 <a href="{{ paging.PAGE_URL }}">{{ paging.PAGE_NUMBER }}</a>
@@ -130,9 +130,9 @@
         {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
         <a href="{{ row.U_MCP_QUEUE }}">
           {% if row.S_TOPIC_UNAPPROVED %}
-          {L_TOPIC_UNAPPROVED}
+          {{ lang('TOPIC_UNAPPROVED') }}
           {% else %}
-          {L_POSTS_UNAPPROVED}
+          {{ lang('POSTS_UNAPPROVED') }}
           {% endif %}
         </a>
         {% endif %}
@@ -140,14 +140,14 @@
         {% if row.S_TOPIC_DELETED %}
         <a href="{{ row.U_MCP_QUEUE }}">
           <i class="material-icons">delete</i>
-          {L_TOPIC_DELETED}
+          {{ lang('TOPIC_DELETED') }}
         </a>
         {% endif %}
         
         {% if row.S_TOPIC_REPORTED %}
         <a href="{{ row.U_MCP_REPORT }}">
           <i class="material-icons">report</i>
-          {L_TOPIC_REPORTED}
+          {{ lang('TOPIC_REPORTED') }}
         </a>
         {% endif %}
       </div>
@@ -164,7 +164,7 @@
             {% endif %}
 
             {% EVENT topiclist_row_topic_by_author_before %}
-            {L_POST_BY_AUTHOR}
+            {{ lang('POST_BY_AUTHOR') }}
             {% EVENT viewforum_body_topic_author_username_prepend %}
             {{ row.TOPIC_AUTHOR_FULL }}
             {% EVENT viewforum_body_topic_author_username_append %}
@@ -175,15 +175,15 @@
           </span>
           {% EVENT topiclist_row_topic_by_author_after %}
           {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
-          &raquo; {L_IN}
+          &raquo; {{ lang('IN') }}
           <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
           {% endif %}
         </span>
   
         <span>
           <span class="mdl-chip__text">
-            <a href="{{ row.U_LAST_POST }}" title="{L_GOTO_LAST_POST}">{L_LAST_POST}</a>
-            {L_POST_BY_AUTHOR}
+            <a href="{{ row.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">{{ lang('LAST_POST') }}</a>
+            {{ lang('POST_BY_AUTHOR') }}
             {% EVENT viewforum_body_last_post_author_username_prepend %}
             {{ row.LAST_POST_AUTHOR_FULL }}
             {% EVENT viewforum_body_last_post_author_username_append %}
@@ -200,7 +200,7 @@
 
       {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
       <div>
-        {L_POSTED} {L_IN}
+        {{ lang('POSTED') }} {{ lang('IN') }}
         <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
       </div>
       {% endif %}

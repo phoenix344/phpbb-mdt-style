@@ -1,22 +1,22 @@
 {% if forumrow|length > 0 %}{% for row in forumrow %}
 
 {% if (row.S_IS_CAT and not row.S_FIRST_ROW) or row.S_NO_CAT  %}
-{{ include('index/index_category_footer.html')  }}
+{{ include('index/index_category_footer.html') }}
 {% endif %}
 
 {% if row.S_IS_CAT %}
-{{ include('index/index_category_header.html')  }}
+{{ include('index/index_category_header.html') }}
 {% elseif not row.S_IS_CAT %}
-{{ include('index/index_forum.html')  }}
+{{ include('index/index_forum.html') }}
 {% endif %}
 
 {% if row.S_LAST_ROW %}
-{{ include('index/index_category_footer.html')  }}
+{{ include('index/index_category_footer.html') }}
 {% EVENT forumlist_body_last_row_after %}
 {% endif %}
 
 {% endfor %}{% else %}
 <section class="forums-empty">
-  <p><strong>{L_NO_FORUMS}</strong></p>
+  <p><strong>{{ lang('NO_FORUMS') }}</strong></p>
 </section>
 {% endif %}
