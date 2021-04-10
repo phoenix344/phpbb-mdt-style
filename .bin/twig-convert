@@ -7,5 +7,5 @@ case $1 in
     echo "CONVERT HTML COMMENT TEMPLATE ENGINE TO TWIG"
     echo "  > twig-convert <your-file>"
     echo "DONE!";;
-  *) node $DIR/../tools/twig-convert.js $1;;
+  *) node $DIR/../tools/twig-convert.js $@;;
 esac
