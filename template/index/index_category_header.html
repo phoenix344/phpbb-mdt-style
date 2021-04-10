@@ -1,9 +1,9 @@
 <section class="pbb-category">
   <div class="pbb-category-title">
-    <h2 class="mdl-card__title-text"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2>
+    <h2 class="mdl-card__title-text"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h2>
   </div>
-  <!-- IF forumrow.FORUM_DESC -->
-  <div class="mdl-card__supporting-text">{forumrow.FORUM_DESC}</div>
-  <!-- ENDIF -->
+  {% if row.FORUM_DESC %}
+  <div class="mdl-card__supporting-text">{{ row.FORUM_DESC }}</div>
+  {% endif %}
   <div class="pbb-category-content">
     <ul class="pbb-forum-list">

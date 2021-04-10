@@ -1,70 +1,70 @@
 <div class="mdl-layout__drawer">
-  <!-- <span class="mdl-layout-title"><a href="{U_SITE_HOME}">{SITENAME}</a></span> -->
-  <!-- EVENT overall_header_navbar_before -->
+  <!-- <span class="mdl-layout-title"><a href="{{ U_SITE_HOME }}">{{ SITENAME }}</a></span> -->
+  {% EVENT overall_header_navbar_before %}
 
-  <!-- IF S_USER_LOGGED_IN -->
-  <!-- INCLUDE profile/drawer_profile.html -->
-  <!-- ENDIF -->
+  {% if S_USER_LOGGED_IN %}
+  {{ include('profile/drawer_profile.html')  }}
+  {% endif %}
 
   <ul class="mdl-list">
-    <!-- IF S_USER_LOGGED_IN -->
-    <!-- IF S_NOTIFICATIONS_DISPLAY -->
+    {% if S_USER_LOGGED_IN %}
+    {% if S_NOTIFICATIONS_DISPLAY %}
     <li class="pbb-notification-indicator">
 
       <span class="mdl-list__item-primary-content">
-        <!-- IF NOTIFICATIONS_COUNT -->
-        <span class="mdl-badge" data-badge="{NOTIFICATIONS_COUNT}">{L_NOTIFICATIONS}</span>
-        <!-- ELSE -->
+        {% if NOTIFICATIONS_COUNT %}
+        <span class="mdl-badge" data-badge="{{ NOTIFICATIONS_COUNT }}">{L_NOTIFICATIONS}</span>
+        {% else %}
         <span>{L_NOTIFICATIONS}</span>
-        <!-- ENDIF -->
-        <!-- IF NOTIFICATIONS_COUNT -->
+        {% endif %}
+        {% if NOTIFICATIONS_COUNT %}
         <span class="mdl-list__item-sub-title">
-          <a href="{U_MARK_ALL_NOTIFICATIONS}" data-ajax="notification.mark_all_read">
+          <a href="{{ U_MARK_ALL_NOTIFICATIONS }}" data-ajax="notification.mark_all_read">
             {L_MARK_ALL_READ}
           </a>
         </span>
-        <!-- ENDIF -->
+        {% endif %}
       </span>
     </li>
 
-    <!-- IF not .notifications -->
+    {% if not notification %}
     <li class="mdl-list__item">
       <span class="mdl-list__item-primary-content">{L_NO_NOTIFICATIONS}</span>
     </li>
-    <!-- ENDIF -->
+    {% endif %}
 
-    <!-- BEGIN notifications -->
-    <!-- INCLUDE notification/drawer_notification.html -->
-    <!-- END notifications -->
+    {% for notification in notifications %}
+    {{ include('notification/drawer_notification.html')  }}
+    {% endfor %}
 
     <li class="mdl-list__item">
       <span class="mdl-list__item-primary-content">
-        <a class="mdl-button mdl-js-button mdl-button--raised" href="{U_VIEW_ALL_NOTIFICATIONS}">{L_SEE_ALL}</a>
+        <a class="mdl-button mdl-js-button mdl-button--raised" href="{{ U_VIEW_ALL_NOTIFICATIONS }}">{L_SEE_ALL}</a>
       </span>
     </li>
 
     <li class="mdl-list__item mdl-list__item--two-line">
       <span class="mdl-list__item-primary-content">
-        <span class="mdl-list__item-sub-title">{CURRENT_TIME}</span>
+        <span class="mdl-list__item-sub-title">{{ CURRENT_TIME }}</span>
       </span>
     </li>
 
-    <!-- ENDIF -->
-    <!-- EVENT navbar_header_user_profile_append -->
-    <!-- ELSE -->
+    {% endif %}
+    {% EVENT navbar_header_user_profile_append %}
+    {% else %}
 
-    <!-- EVENT navbar_header_logged_out_content -->
+    {% EVENT navbar_header_logged_out_content %}
 
     <!-- TODO: Login Form -->
 
-    <!-- ENDIF -->
+    {% endif %}
     <li class="mui-panel">
-      <a href="{U_FAQ}" rel="help" role="menuitem">
+      <a href="{{ U_FAQ }}" rel="help" role="menuitem">
         <i class="material-icons mui--align-middle">question_answer</i>
         {L_FAQ}
       </a>
     </li>
   </ul>
 
-  <!-- EVENT overall_header_page_body_before -->
+  {% EVENT overall_header_page_body_before %}
 </div>

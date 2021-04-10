@@ -1,22 +1,22 @@
-<!-- BEGIN forumrow -->
+{% if forumrow|length > 0 %}{% for row in forumrow %}
 
-<!-- IF (forumrow.S_IS_CAT and not forumrow.S_FIRST_ROW) or forumrow.S_NO_CAT  -->
-<!-- INCLUDE index/index_category_footer.html -->
-<!-- ENDIF -->
+{% if (row.S_IS_CAT and not row.S_FIRST_ROW) or row.S_NO_CAT  %}
+{{ include('index/index_category_footer.html')  }}
+{% endif %}
 
-<!-- IF forumrow.S_IS_CAT -->
-<!-- INCLUDE index/index_category_header.html -->
-<!-- ELSEIF not forumrow.S_IS_CAT -->
-<!-- INCLUDE index/index_forum.html -->
-<!-- ENDIF -->
+{% if row.S_IS_CAT %}
+{{ include('index/index_category_header.html')  }}
+{% elseif not row.S_IS_CAT %}
+{{ include('index/index_forum.html')  }}
+{% endif %}
 
-<!-- IF forumrow.S_LAST_ROW -->
-<!-- INCLUDE index/index_category_footer.html -->
-<!-- EVENT forumlist_body_last_row_after -->
-<!-- ENDIF -->
+{% if row.S_LAST_ROW %}
+{{ include('index/index_category_footer.html')  }}
+{% EVENT forumlist_body_last_row_after %}
+{% endif %}
 
-<!-- BEGINELSE -->
+{% endfor %}{% else %}
 <section class="forums-empty">
   <p><strong>{L_NO_FORUMS}</strong></p>
 </section>
-<!-- END forumrow -->
+{% endif %}

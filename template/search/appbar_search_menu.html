@@ -1,9 +1,9 @@
-<!-- IF S_DISPLAY_SEARCH -->
-<!-- EVENT overall_header_searchbox_before -->
-<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+{% if S_DISPLAY_SEARCH %}
+{% EVENT overall_header_searchbox_before %}
+{% if S_DISPLAY_SEARCH and not S_IN_SEARCH %}
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
             mdl-textfield--floating-label mdl-textfield--align-right">
-  <form action="{U_SEARCH}" method="get">
+  <form action="{{ U_SEARCH }}" method="get">
     <label class="mdl-button mdl-js-button mdl-button--icon"
             for="appbar-search" title="{L_SEARCH_KEYWORDS}">
       <i class="material-icons">search</i>
@@ -11,36 +11,36 @@
     <div class="mdl-textfield__expandable-holder">
       <input class="mdl-textfield__input" type="search" name="keywords" id="appbar-search">
     </div>
-    {S_SEARCH_HIDDEN_FIELDS}
+    {{ S_SEARCH_HIDDEN_FIELDS }}
   </form>
 </div>
-<!-- ENDIF -->
+{% endif %}
 
-<!-- IF S_USER_LOGGED_IN -->
+{% if S_USER_LOGGED_IN %}
 <nav class="mdl-navigation mdl-layout--large-screen-only">
-  <a class="mdl-navigation__link" href="{U_SEARCH}">{L_SEARCH_ADV}</a>
-  <a class="mdl-navigation__link" href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
-  <a class="mdl-navigation__link" href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
+  <a class="mdl-navigation__link" href="{{ U_SEARCH }}">{L_SEARCH_ADV}</a>
+  <a class="mdl-navigation__link" href="{{ U_SEARCH_NEW }}">{L_SEARCH_NEW}</a>
+  <a class="mdl-navigation__link" href="{{ U_SEARCH_ACTIVE_TOPICS }}">{L_SEARCH_ACTIVE_TOPICS}</a>
 </nav>
 
 <button id="appbar-search-btn" class="mdl-button mdl-js-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
 <nav class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="appbar-search-btn">
-  <!-- EVENT overall_header_searchbox_after -->
+  {% EVENT overall_header_searchbox_after %}
   <b class="pbb-menu__headline">{L_QUICK_LINKS}</b>
-  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{U_SEARCH}">{L_SEARCH_ADV}</a>
-  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
-  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
-  <!-- IF S_REGISTERED_USER -->
-  <a class="mdl-menu__item" href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
-  <!-- ENDIF -->
-  <!-- IF S_LOAD_UNREADS -->
-  <a class="mdl-menu__item" href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a>
-  <!-- ENDIF -->
-  <a class="mdl-menu__item" href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{{ U_SEARCH }}">{L_SEARCH_ADV}</a>
+  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{{ U_SEARCH_NEW }}">{L_SEARCH_NEW}</a>
+  <a class="mdl-menu__item mdl-layout--small-screen-only" href="{{ U_SEARCH_ACTIVE_TOPICS }}">{L_SEARCH_ACTIVE_TOPICS}</a>
+  {% if S_REGISTERED_USER %}
+  <a class="mdl-menu__item" href="{{ U_SEARCH_SELF }}">{L_SEARCH_SELF}</a>
+  {% endif %}
+  {% if S_LOAD_UNREADS %}
+  <a class="mdl-menu__item" href="{{ U_SEARCH_UNREAD }}">{L_SEARCH_UNREAD}</a>
+  {% endif %}
+  <a class="mdl-menu__item" href="{{ U_SEARCH_UNANSWERED }}">{L_SEARCH_UNANSWERED}</a>
 </nav>
-<!-- ENDIF -->
+{% endif %}
 
-<!-- EVENT overall_header_searchbox_after -->
-<!-- ENDIF -->
+{% EVENT overall_header_searchbox_after %}
+{% endif %}
