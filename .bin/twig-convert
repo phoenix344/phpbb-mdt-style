@@ -4,8 +4,22 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 case $1 in
   -h|--help|help)
-    echo "CONVERT HTML COMMENT TEMPLATE ENGINE TO TWIG"
-    echo "  > twig-convert <your-file>"
-    echo "DONE!";;
+    echo "CAUTION! Make sure you have a copy of your files."
+    echo "         This procedure will mutate the file permanently!"
+    echo "         It can destroy your template!"
+    echo
+    echo "Loops can't be handeled on recursion. It will destroy"
+    echo "your structure if you are not careful. ALWAYS(!) visit"
+    echo "the file before converting it."
+    echo
+    echo "Options:"
+    echo "  --noloop BEGIN/BEGINELSE/END loop will be ignored"
+    echo
+    echo "Usage:"
+    echo "  twig-convert <filename> [--noloop] <oldvalue>:<newvalue> <oldvalue2>:<newvalue2> ..."
+    echo
+    echo "You are responsible for your actions. I don't guarantee for anything!"
+    echo "Use a repository or create backups before using this tool!"
+    echo;;
   *) node $DIR/../tools/twig-convert.js $@;;
 esac
