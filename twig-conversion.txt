@@ -1,0 +1,27 @@
+<!-- IF (.+?) -->
+{% if $1 %}
+
+<!-- ELSE ?IF (.+?) -->
+{% elseif $1 %}
+
+<!-- ELSE -->
+{% else %}
+
+<!-- ENDIF -->
+{% endif %}
+
+<!-- INCLUDE (.+?) -->
+{{ include('$1') }}
+
+<!-- EVENT (.+?) -->
+{% EVENT $1 %}
+
+REPLACING LOOPS COMPLICATED!
+<!-- BEGIN (.+?) -->
+<!-- END (.+?) -->
+
+\{+\s*([^{}#%]+)\s*\}+
+{{ $1 }}
+
+\{+\s*(L_[^{}#% ]+)\s*\}+
+{$1}

@@ -1,0 +1,26 @@
+#!/usr/bin/node
+
+import fs from 'fs';
+import * as process from 'process';
+import * as util from 'util'
+
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
+
+(async () => {
+
+  const [, , file] = process.argv;
+  const data = (await readFile(file)).toString();
+
+  await writeFile(file, data
+    .replace(/<!-- IF (.+?) -->/g, '{% if $1 %}')
+    .replace(/<!-- ELSE ?IF (.+?) -->/g, '{% elseif $1 %}')
+    .replace(/<!-- ELSE -->/g, '{% else %}')
+    .replace(/<!-- ENDIF -->/g, '{% endif %}')
+    .replace(/<!-- INCLUDE (.+?) -->/g, "{{ include('$1') }}")
+    .replace(/<!-- EVENT (.+?) -->/g, '{% EVENT $1 %}')
+    .replace(/\{+\s*([^{}#%]+)\s*\}+/g, '{{ $1 }}')
+    .replace(/\{+\s*(L_[^{}#% ]+)\s*\}+/g, '{$1}')
+  );
+
+})().catch(console.error);

@@ -1,86 +1,99 @@
 <div class="pbb-forum">
   <div class="pbb-forum-content">
     <h2>
-      <!-- EVENT viewforum_forum_name_prepend -->
-      {FORUM_NAME}
-      <!-- EVENT viewforum_forum_name_append -->
+      {% EVENT viewforum_forum_name_prepend %}
+      {{ FORUM_NAME }}
+      {% EVENT viewforum_forum_name_append %}
     </h2>
-    <!-- EVENT viewforum_forum_title_after -->
+    {% EVENT viewforum_forum_title_after %}
 
-    <!-- IF FORUM_DESC or MODERATORS or U_MCP -->
+    {% if FORUM_DESC or MODERATORS or U_MCP %}
     <div>
-      <!-- NOTE: remove the style="display: none" when you want to have the forum description on the forum body -->
-      <!-- IF FORUM_DESC -->
-      <div>{FORUM_DESC}</div>
-      <!-- ENDIF -->
+      {% if FORUM_DESC %}
+      <div>{{ FORUM_DESC }}</div>
+      {% endif %}
 
-      <!-- IF MODERATORS -->
+      {% if MODERATORS %}
       <p><strong>
-        <!-- IF S_SINGLE_MODERATOR -->
+        {% if S_SINGLE_MODERATOR %}
         {L_MODERATOR}{L_COLON}
-        <!-- ELSE -->
+        {% else %}
         {L_MODERATORS}{L_COLON}
-        <!-- ENDIF -->
-      </strong> {MODERATORS}</p>
-      <!-- ENDIF -->
+        {% endif %}
+      </strong> {{ MODERATORS }}</p>
+      {% endif %}
     </div>
-    <!-- ENDIF -->
+    {% endif %}
 
-    <!-- IF S_FORUM_RULES -->
-    <!-- IF U_FORUM_RULES -->
-    <div class="rules rules-link">
-    <!-- ELSE -->
-    <div class="rules">
-    <!-- ENDIF -->
-      <div class="inner">
-
-      <!-- IF U_FORUM_RULES -->
-        <a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
-      <!-- ELSE -->
-        <strong>{L_FORUM_RULES}</strong><br />
-        {FORUM_RULES}
-      <!-- ENDIF -->
-
+    {% if S_FORUM_RULES %}
+    <div class="pbb-forum-rules">
+      {% if U_FORUM_RULES %}
+      <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
+        {L_FORUM_RULES}
+      </a>
+      <div class="mdl-tooltip" for="forum-rules">
+        <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
       </div>
+      {% else %}
+      <h4>{L_FORUM_RULES}</h4>
+      <p>{{ FORUM_RULES }}</p>
+      {% endif %}
     </div>
-    <!-- ENDIF -->
+    {% endif %}
+
+    {% if S_HAS_SUBFORUM %}
+    <h4>{L_SUBFORUMS}</h4>
+    {% if not S_IS_BOT and U_MARK_FORUMS %}
+    <small>
+      <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{L_MARK_SUBFORUMS_READ}</a>
+    </small>
+    {% endif %}
+    {{ include('index/_index.html') }}
+    {% endif %}
 
   </div>
 </div>
 
-<!-- TODO: A BUNCH OF THINGS HAVE TO BE IMPLEMENTED! -->
+{{ include('forum/forum_actions_top.html') }}
 
-<!-- EVENT viewforum_body_topic_row_before -->
-<!-- BEGIN topicrow -->
+{% if S_NO_READ_ACCESS %}
+<div class="pbb-forum">
+  <div class="pbb-forum-content">{L_NO_READ_ACCESS}</div>
+</div>
+{% endif %}
 
-<!-- IF not topicrow.S_TOPIC_TYPE_SWITCH and not topicrow.S_FIRST_ROW -->
-<!-- INCLUDE forum/forum_topic_footer.html -->
-<!-- ENDIF -->
+{% EVENT viewforum_body_topic_row_before %}
 
-<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
-<!-- INCLUDE forum/forum_topic_header.html -->
-<!-- ENDIF -->
+{% if topicrow|length > 0 %}
+  {% for row in topicrow %}
 
-<!-- EVENT viewforum_body_topicrow_row_before -->
-<!-- INCLUDE forum/forum_topic.html -->
-<!-- EVENT viewforum_body_topic_row_after -->
+    {% if not row.S_TOPIC_TYPE_SWITCH and not row.S_FIRST_ROW %}
+    {{ include('forum/forum_topic_footer.html') }}
+    {% endif %}
 
-<!-- IF topicrow.S_LAST_ROW -->
-<!-- INCLUDE forum/forum_topic_footer.html -->
-<!-- ENDIF -->
+    {% if row.S_FIRST_ROW or not row.S_TOPIC_TYPE_SWITCH %}
+    {{ include('forum/forum_topic_header.html') }}
+    {% endif %}
 
-<!-- BEGINELSE -->
-	<!-- IF S_IS_POSTABLE -->
-	<div class="panel">
-		<div class="inner">
-		<strong>{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</strong>
-		</div>
-	</div>
-	<!-- ELSE IF not S_HAS_SUBFORUM -->
-	<div class="panel">
-		<div class="inner">
-			<strong>{L_NO_FORUMS_IN_CATEGORY}</strong>
-		</div>
-	</div>
-	<!-- ENDIF -->
-<!-- END topicrow -->
+    {% EVENT viewforum_body_topicrow_row_before %}
+    {{ include('forum/forum_topic.html') }}
+    {% EVENT viewforum_body_topic_row_after %}
+
+    {% if row.S_LAST_ROW %}
+    {{ include('forum/forum_topic_footer.html') }}
+    {% endif %}
+
+  {% endfor %}
+{% else %}
+  {% if S_IS_POSTABLE %}
+  <div class="pbb-forum">
+    <div class="pbb-forum-content">{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS')  }}</div>
+  </div>
+  {% elseif not S_HAS_SUBFORUM %}
+  <div class="pbb-forum">
+    <div class="pbb-forum-content">{L_NO_FORUMS_IN_CATEGORY}</div>
+  </div>
+  {% endif %}
+{% endif %}
+
+{{ include('forum/forum_actions_bottom.html') }}

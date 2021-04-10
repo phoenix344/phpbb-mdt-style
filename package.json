@@ -2,6 +2,7 @@
   "name": "phpbb33-styles",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "start": "gulp watch",

@@ -1,11 +1,8 @@
 <li class="pbb-forum">
-  <!-- EVENT viewforum_body_topic_row_prepend -->
+  {% EVENT viewforum_body_topic_row_prepend %}
 
-  <!--
+  {#
     TOPIC_ICON_IMG:
-    topic_moved
-    topic_moved_hot
-    topic_moved_locked
     global_read
     global_read_hot
     global_read_locked
@@ -42,6 +39,9 @@
     sticky_unread_mine
     sticky_unread_hot_mine
     sticky_unread_locked_mine
+    topic_moved
+    topic_moved_hot
+    topic_moved_locked
     topic_read
     topic_read_hot
     topic_read_locked
@@ -54,150 +54,155 @@
     topic_unread_mine
     topic_unread_hot_mine
     topic_unread_locked_mine
-  -->
+  #}
 
   <div class="pbb-forum-content">
-    <!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS -->
-    <span class="pbb-forum-icon"><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" alt="{topicrow.TOPIC_FOLDER_IMG_ALT}"></span>
-    <!-- ENDIF -->
+    {% set _TOPIC_STYLE_CHUNKS = row.TOPIC_IMG_STYLE | split("_") %}
+    {% set _TOPIC_STYLE_LENGTH = _TOPIC_STYLE_CHUNKS|length %}
+    {% set TOPIC_TYPE = _TOPIC_STYLE_CHUNKS[0] %}
+    {% set TOPIC_READ = _TOPIC_STYLE_CHUNKS[1] == "read" %}
+    {% set TOPIC_MOVE = _TOPIC_STYLE_CHUNKS[1] == "moved" %}
+    {% if _TOPIC_STYLE_LENGTH gt 2 %}
+      {% set TOPIC_MINE = _TOPIC_STYLE_CHUNKS[2] == "mine" %}
+      {% set TOPIC_HOT = _TOPIC_STYLE_CHUNKS[2] == "hot" %}
+      {% set TOPIC_LOCK = _TOPIC_STYLE_CHUNKS[2] == "locked" %}
+      {% if _TOPIC_STYLE_LENGTH eq 4 %}
+        {% set TOPIC_MINE = _TOPIC_STYLE_CHUNKS[3] == "mine" %}
+      {% endif %}
+    {% endif %}
 
-    <!-- EVENT topiclist_row_prepend -->
-    <!-- IF topicrow.S_UNREAD_TOPIC and not S_IS_BOT -->
-    <a class="pbb-forum-icon material-icons" href="{topicrow.U_NEWEST_POST}" title="{NEW_POST}">new_releases</a>
-    <!-- ENDIF -->
+    {{ row.TOPIC_IMG_STYLE  }}
 
-    <!-- IF topicrow.U_VIEW_TOPIC -->
+    {{ TOPIC_TYPE  }}
+    {{ TOPIC_READ ? "read" : "unread"  }}
+    {{ TOPIC_MOVE ? "moved" : "stays here!"  }}
+    {{ TOPIC_MINE ? "mine" : "someone else"  }}
+    {{ TOPIC_HOT ? "hot topic" : "regular topic"  }}
+    {{ TOPIC_LOCK ? "locked" : "unlocked"  }}
+
+    {% if row.TOPIC_ICON_IMG and S_TOPIC_ICONS %}
+    <span class="pbb-topic-icon">
+      <img src="{{ T_ICONS_PATH }}{{ row.TOPIC_ICON_IMG }}" alt="{{ row.TOPIC_FOLDER_IMG_ALT }}">
+    </span>
+    {% endif %}
+
+    {% EVENT topiclist_row_prepend %}
+
+    {% if row.S_UNREAD_TOPIC and not S_IS_BOT %}
+    <a class="pbb-forum-icon material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ NEW_POST }}">new_releases</a>
+    {% endif %}
+
+    {% if row.U_VIEW_TOPIC %}
     <h2 class="pbb-topic-headline">
-      <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
-        <!-- IF .topicrow.pagination -->
+      <a href="{{ row.U_VIEW_TOPIC }}">{{ row.TOPIC_TITLE }}</a>
+        {% if row.pagination %}
         <span class="pbb-topic-paging mdl-chip mdl-chip--contact">
           <span class="mdl-chip__text">
-            <!-- BEGIN topicrow.pagination -->
-            <!-- IF topicrow.pagination.S_IS_PREV -->
-            <!-- ELSEIF topicrow.pagination.S_IS_CURRENT -->
-            {topicrow.pagination.PAGE_NUMBER}
-            <!-- ELSEIF topicrow.pagination.S_IS_ELLIPSIS -->
-            {L_ELLIPSIS}
-            <!-- ELSEIF topicrow.pagination.S_IS_NEXT -->
-            <!-- ELSE -->
-            <a href="{topicrow.pagination.PAGE_URL}">{topicrow.pagination.PAGE_NUMBER}</a>
-            <!-- ENDIF -->
-            <!-- END topicrow.pagination -->
+            {% for paging in row.pagination %}
+              {% if paging.S_IS_PREV %}
+              {% elseif paging.S_IS_CURRENT %}
+                {{ paging.PAGE_NUMBER  }}
+              {% elseif paging.S_IS_ELLIPSIS %}
+                {L_ELLIPSIS}
+              {% elseif paging.S_IS_NEXT %}
+              {% else %}
+                <a href="{{ paging.PAGE_URL }}">{{ paging.PAGE_NUMBER }}</a>
+              {% endif %}
+            {% endfor %}
           </span>
         </span>
-        <!-- ENDIF -->
+        {% endif %}
     </h2>
-    <!-- ELSE -->
+    {% else %}
     <h2 class="pbb-topic-headline">
-      {topicrow.TOPIC_TITLE}
+      {{ row.TOPIC_TITLE }}
     </h2>
-    <!-- ENDIF -->
+    {% endif %}
 
-    <!-- EVENT topiclist_row_topic_title_after -->
-    <!-- IF not S_IS_BOT -->
+    {% EVENT topiclist_row_topic_title_after %}
+    {% if not S_IS_BOT %}
     <div class="pbb-forum-info">
+      {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED or row.S_TOPIC_DELETED or row.S_TOPIC_REPORTED %}
       <div class="pbb-forum-control">
-        <a href="{topicrow.U_MCP_QUEUE}">
-          APPROVAL:
+        {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
+        <a href="{{ row.U_MCP_QUEUE }}">
+          {% if row.S_TOPIC_UNAPPROVED %}
           {L_TOPIC_UNAPPROVED}
-        </a>
-
-        <a href="{topicrow.U_MCP_QUEUE}">
-          APPROVAL:
+          {% else %}
           {L_POSTS_UNAPPROVED}
+          {% endif %}
         </a>
+        {% endif %}
 
-        <a href="{topicrow.U_MCP_QUEUE}">
+        {% if row.S_TOPIC_DELETED %}
+        <a href="{{ row.U_MCP_QUEUE }}">
           <i class="material-icons">delete</i>
           {L_TOPIC_DELETED}
         </a>
-
-        <a href="{topicrow.U_MCP_REPORT}">
-          <i class="material-icons">report</i>
-          {L_TOPIC_REPORTED}
-        </a>
-      </div>
-      <!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED or topicrow.S_TOPIC_DELETED or topicrow.S_TOPIC_REPORTED -->
-      <div>
-        <!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED -->
-        <a href="{topicrow.U_MCP_QUEUE}">
-          <!-- IF topicrow.S_TOPIC_UNAPPROVED -->
-          {L_TOPIC_UNAPPROVED}
-          <!-- ELSE -->
-          {L_POSTS_UNAPPROVED}
-          <!-- ENDIF -->
-        </a>
-        <!-- ENDIF -->
-
-        <!-- IF topicrow.S_TOPIC_DELETED -->
-        <a href="{topicrow.U_MCP_QUEUE}">
-          <i class="material-icons">delete</i>
-          {L_TOPIC_DELETED}
-        </a>
-        <!-- ENDIF -->
+        {% endif %}
         
-        <!-- IF topicrow.S_TOPIC_REPORTED -->
-        <a href="{topicrow.U_MCP_REPORT}">
+        {% if row.S_TOPIC_REPORTED %}
+        <a href="{{ row.U_MCP_REPORT }}">
           <i class="material-icons">report</i>
           {L_TOPIC_REPORTED}
         </a>
-        <!-- ENDIF -->
+        {% endif %}
       </div>
-      <!-- ENDIF -->
+      {% endif %}
 
       <div class="pbb-topic-info">
-        <span class="mdl-chip mdl-chip--contact">
+        <span>
           <span class="mdl-chip__text">
-            <!-- IF topicrow.S_HAS_POLL -->
+            {% if row.S_HAS_POLL %}
             <i class="material-icons">poll</i>
-            <!-- ENDIF -->
-            <!-- IF topicrow.ATTACH_ICON_IMG -->
+            {% endif %}
+            {% if row.ATTACH_ICON_IMG %}
             <i class="material-icons">attach_file</i>
-            <!-- ENDIF -->
+            {% endif %}
 
             {% EVENT topiclist_row_topic_by_author_before %}
             {L_POST_BY_AUTHOR}
-            <!-- EVENT viewforum_body_topic_author_username_prepend -->
-            {topicrow.TOPIC_AUTHOR_FULL}
-            <!-- EVENT viewforum_body_topic_author_username_append -->
+            {% EVENT viewforum_body_topic_author_username_prepend %}
+            {{ row.TOPIC_AUTHOR_FULL }}
+            {% EVENT viewforum_body_topic_author_username_append %}
             &raquo;
-            <time datetime="{topicrow.FIRST_POST_TIME_RFC3339}">
-              {topicrow.FIRST_POST_TIME}
+            <time datetime="{{ row.FIRST_POST_TIME_RFC3339 }}">
+              {{ row.FIRST_POST_TIME }}
             </time>
           </span>
           {% EVENT topiclist_row_topic_by_author_after %}
-          <!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID -->
+          {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
           &raquo; {L_IN}
-          <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a>
-          <!-- ENDIF -->
+          <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
+          {% endif %}
         </span>
   
-        <span class="mdl-chip">
+        <span>
           <span class="mdl-chip__text">
-            <a href="{topicrow.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{L_LAST_POST}</a>
+            <a href="{{ row.U_LAST_POST }}" title="{L_GOTO_LAST_POST}">{L_LAST_POST}</a>
             {L_POST_BY_AUTHOR}
-            <!-- EVENT viewforum_body_last_post_author_username_prepend -->
-            {topicrow.LAST_POST_AUTHOR_FULL}
-            <!-- EVENT viewforum_body_last_post_author_username_append -->
+            {% EVENT viewforum_body_last_post_author_username_prepend %}
+            {{ row.LAST_POST_AUTHOR_FULL }}
+            {% EVENT viewforum_body_last_post_author_username_append %}
             &raquo;
-            <time datetime="{topicrow.LAST_POST_TIME_RFC3339}">
-              {topicrow.LAST_POST_TIME}
+            <time datetime="{{ row.LAST_POST_TIME_RFC3339 }}">
+              {{ row.LAST_POST_TIME }}
             </time>
           </span>
         </span>
 
-        <!-- EVENT topiclist_row_append -->
-        <!-- EVENT viewforum_body_topic_row_append -->
+        {% EVENT topiclist_row_append %}
+        {% EVENT viewforum_body_topic_row_append %}
       </div>
 
-      <!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID -->
+      {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
       <div>
         {L_POSTED} {L_IN}
-        <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a>
+        <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
       </div>
-      <!-- ENDIF -->
+      {% endif %}
     </div>
-    <!-- ENDIF -->
+    {% endif %}
   </div>
 
 </li>

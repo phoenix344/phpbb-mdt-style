@@ -2,5 +2,8 @@
     "files.autoSave": "afterDelay",
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.formatOnSave": true,
-    "eslint.format.enable": true
+    "eslint.format.enable": true,
+    "terminal.integrated.env.linux": {
+      "PATH": ".bin/"
+    }
 }

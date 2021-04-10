@@ -1,13 +1,13 @@
 <div class="pbb-category">
   <div class="pbb-category-title">
     <h3 class="mdl-card__title-text">
-      <!-- IF S_DISPLAY_ACTIVE -->
+      {% if S_DISPLAY_ACTIVE %}
       {L_ACTIVE_TOPICS}
-      <!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->
+      {% elseif row.S_TOPIC_TYPE_SWITCH and (row.S_POST_ANNOUNCE or row.S_POST_GLOBAL) %}
       {L_ANNOUNCEMENTS}
-      <!-- ELSE -->
+      {% else %}
       {L_TOPICS}
-      <!-- ENDIF -->
+      {% endif %}
     </h3>
   </div>
   <div class="pbb-category-content">
