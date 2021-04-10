@@ -1,3 +1,3 @@
-<!-- BEGIN string -->
-<input type="text" class="inputbox autowidth" name="{string.FIELD_IDENT}" id="{string.FIELD_IDENT}" size="{string.FIELD_LENGTH}" maxlength="{string.FIELD_MAXLEN}" value="{string.FIELD_VALUE}" />
-<!-- END string -->
+{% for stringval in string %}
+<input type="text" class="inputbox autowidth" name="{{ stringval.FIELD_IDENT }}" id="{{ stringval.FIELD_IDENT }}" size="{{ stringval.FIELD_LENGTH }}" maxlength="{{ stringval.FIELD_MAXLEN }}" value="{{ stringval.FIELD_VALUE }}" />
+{% endfor %}

@@ -1,3 +1,3 @@
-<!-- BEGIN int -->
-<input type="number" min="{int.FIELD_MINLEN}" max="{int.FIELD_MAXLEN}" class="inputbox autowidth" name="{int.FIELD_IDENT}" id="{int.FIELD_IDENT}" size="{int.FIELD_LENGTH}" value="{int.FIELD_VALUE}" />
-<!-- END int -->
+{% for intval in int %}
+<input type="number" min="{{ intval.FIELD_MINLEN }}" max="{{ intval.FIELD_MAXLEN }}" class="inputbox autowidth" name="{{ intval.FIELD_IDENT }}" id="{{ intval.FIELD_IDENT }}" size="{{ intval.FIELD_LENGTH }}" value="{{ intval.FIELD_VALUE }}" />
+{% endfor %}

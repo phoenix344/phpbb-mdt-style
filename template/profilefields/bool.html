@@ -1,7 +1,12 @@
-<!-- BEGIN bool -->
-<!-- IF bool.FIELD_LENGTH eq 1 -->
-	<!-- BEGIN options --><label for="{bool.FIELD_IDENT}_{bool.options.OPTION_ID}"><input type="radio" class="radio" name="{bool.FIELD_IDENT}" id="{bool.FIELD_IDENT}_{bool.options.OPTION_ID}" value="{bool.options.OPTION_ID}"{bool.options.CHECKED} /> {bool.options.VALUE}</label> <!-- END options -->
-<!-- ELSE -->
-	<input type="checkbox" class="radio" name="{bool.FIELD_IDENT}" id="{bool.FIELD_IDENT}"<!-- IF bool.FIELD_VALUE --> checked="checked"<!-- ENDIF --> />
-<!-- ENDIF -->
-<!-- END bool -->
+{% for boolval in bool %}
+{% if boolval.FIELD_LENGTH eq 1 %}
+	{% for option in boolval.options %}
+  <label for="{{ boolval.FIELD_IDENT   }}_{{ option.OPTION_ID }}">
+    <input type="radio" class="radio" name="{{ boolval.FIELD_IDENT }}" id="{{ boolval.FIELD_IDENT }}_{{ option.OPTION_ID }}" value="{{ option.OPTION_ID }}"{{ option.CHECKED }} />
+    {{ option.VALUE }}
+  </label>
+  {% endfor %}
+{% else %}
+	<input type="checkbox" class="radio" name="{{ boolval.FIELD_IDENT }}" id="{{ boolval.FIELD_IDENT }}"{% if boolval.FIELD_VALUE %} checked="checked"{% endif %} />
+{% endif %}
+{% endfor %}

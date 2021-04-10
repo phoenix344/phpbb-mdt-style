@@ -1,3 +1,3 @@
-<!-- BEGIN url -->
-<input type="url" class="inputbox autowidth" name="{url.FIELD_IDENT}" id="{url.FIELD_IDENT}" size="{url.FIELD_LENGTH}" maxlength="{url.FIELD_MAXLEN}" value="{url.FIELD_VALUE}" />
-<!-- END url -->
+{% for urlval in url %}
+<input type="urlval" class="inputbox autowidth" name="{{ urlval.FIELD_IDENT }}" id="{{ urlval.FIELD_IDENT }}" size="{{ urlval.FIELD_LENGTH }}" maxlength="{{ urlval.FIELD_MAXLEN }}" value="{{ urlval.FIELD_VALUE }}" />
+{% endfor %}
