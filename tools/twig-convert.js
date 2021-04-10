@@ -33,7 +33,7 @@ const writeFile = util.promisify(fs.writeFile);
     // replace i18n output from changed variable, because
     // it partly works only with one {L_***} and not the
     // twig way {{ L_*** }}
-    .replace(/\{+\s*(L_[^{}#% ]+)\s*\}+/g, '{$1}');
+    .replace(/\{+\s*(L_([^{}#% ]+))\s*\}+/g, "{{ lang('$1') }}");
 
   if (allowLoop) {
     // Basically the separation of the BEGIN/BEGINELSE/END loop of
