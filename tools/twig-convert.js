@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 import fs from 'fs';
 import * as process from 'process';
 import * as util from 'util'

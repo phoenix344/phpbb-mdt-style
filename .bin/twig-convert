@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+case $1 in
+  -h|--help|help)
+    echo "CONVERT HTML COMMENT TEMPLATE ENGINE TO TWIG"
+    echo "  > twig-convert <your-file>"
+    echo "DONE!";;
+  *) node $DIR/../tools/twig-convert.js $1;;
+esac
