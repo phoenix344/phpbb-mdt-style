@@ -906,7 +906,7 @@ textarea {
  */
 /* Remove the unwanted box around FAB buttons */
 /* More info: http://goo.gl/IPwKi */
-a, .mdl-accordion, .mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-forum-new-topic, .pbb-forum-search-adv, .pbb-topic-paging a, .mdl-card, .pbb-drawer-profile, .pbb-category, .mdl-checkbox, .mdl-dropdown-menu,
+a, .mdl-accordion, .mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-forum-new-topic, .pbb-forum-search-adv, .pbb-topic-icon, .pbb-topic-paging a, .mdl-card, .pbb-drawer-profile, .pbb-category, .mdl-checkbox, .mdl-dropdown-menu,
 .mdl-icon-toggle, .mdl-item, .mdl-radio, .mdl-slider, .mdl-switch, .mdl-tabs__tab {
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
@@ -3938,7 +3938,7 @@ ul, ol {
     border-radius: 50%;
     background: var(--badge-background);
     color: var(--badge-color); }
-    .mdl-button .mdl-badge[data-badge]:after, .pbb-profile-btn .mdl-badge[data-badge]:after, .pbb-drawer-profile-btn .mdl-badge[data-badge]:after, .pbb-forum-new-topic .mdl-badge[data-badge]:after, .pbb-forum-search-adv .mdl-badge[data-badge]:after, .pbb-topic-paging a .mdl-badge[data-badge]:after {
+    .mdl-button .mdl-badge[data-badge]:after, .pbb-profile-btn .mdl-badge[data-badge]:after, .pbb-drawer-profile-btn .mdl-badge[data-badge]:after, .pbb-forum-new-topic .mdl-badge[data-badge]:after, .pbb-forum-search-adv .mdl-badge[data-badge]:after, .pbb-topic-icon .mdl-badge[data-badge]:after, .pbb-topic-paging a .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
   .mdl-badge.mdl-badge--no-background[data-badge]:after {
@@ -4138,7 +4138,7 @@ ul, ol {
 /* Shadows */
 /* Animations */
 /* Dialog */
-.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-forum-new-topic, .pbb-forum-search-adv, .pbb-topic-paging a {
+.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-forum-new-topic, .pbb-forum-search-adv, .pbb-topic-icon, .pbb-topic-paging a {
   background: transparent;
   border: none;
   border-radius: 2px;
@@ -4164,20 +4164,20 @@ ul, ol {
   text-align: center;
   line-height: 36px;
   vertical-align: middle; }
-  .mdl-button::-moz-focus-inner, .pbb-profile-btn::-moz-focus-inner, .pbb-drawer-profile-btn::-moz-focus-inner, .pbb-forum-new-topic::-moz-focus-inner, .pbb-forum-search-adv::-moz-focus-inner, .pbb-topic-paging a::-moz-focus-inner {
+  .mdl-button::-moz-focus-inner, .pbb-profile-btn::-moz-focus-inner, .pbb-drawer-profile-btn::-moz-focus-inner, .pbb-forum-new-topic::-moz-focus-inner, .pbb-forum-search-adv::-moz-focus-inner, .pbb-topic-icon::-moz-focus-inner, .pbb-topic-paging a::-moz-focus-inner {
     border: 0; }
-  .mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .pbb-forum-new-topic:hover, .pbb-forum-search-adv:hover, .pbb-topic-paging a:hover {
+  .mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .pbb-forum-new-topic:hover, .pbb-forum-search-adv:hover, .pbb-topic-icon:hover, .pbb-topic-paging a:hover {
     background-color: var(--button-hover-color); }
-  .mdl-button:focus:not(:active), .pbb-profile-btn:focus:not(:active), .pbb-drawer-profile-btn:focus:not(:active), .pbb-forum-new-topic:focus:not(:active), .pbb-forum-search-adv:focus:not(:active), .pbb-topic-paging a:focus:not(:active) {
+  .mdl-button:focus:not(:active), .pbb-profile-btn:focus:not(:active), .pbb-drawer-profile-btn:focus:not(:active), .pbb-forum-new-topic:focus:not(:active), .pbb-forum-search-adv:focus:not(:active), .pbb-topic-icon:focus:not(:active), .pbb-topic-paging a:focus:not(:active) {
     background-color: var(--button-focus-color); }
-  .mdl-button:active, .pbb-profile-btn:active, .pbb-drawer-profile-btn:active, .pbb-forum-new-topic:active, .pbb-forum-search-adv:active, .pbb-topic-paging a:active {
+  .mdl-button:active, .pbb-profile-btn:active, .pbb-drawer-profile-btn:active, .pbb-forum-new-topic:active, .pbb-forum-search-adv:active, .pbb-topic-icon:active, .pbb-topic-paging a:active {
     background-color: var(--button-active-color); }
-  .mdl-button.mdl-button--colored, .mdl-button--colored.pbb-profile-btn, .mdl-button--colored.pbb-drawer-profile-btn, .pbb-forum-new-topic, .mdl-button--colored.pbb-forum-search-adv, .pbb-topic-paging a.mdl-button--colored, .pbb-topic-paging a.pbb-forum-new-topic {
+  .mdl-button.mdl-button--colored, .mdl-button--colored.pbb-profile-btn, .mdl-button--colored.pbb-drawer-profile-btn, .pbb-forum-new-topic, .mdl-button--colored.pbb-forum-search-adv, .mdl-button--colored.pbb-topic-icon, .pbb-topic-paging a.mdl-button--colored, .pbb-topic-paging a.pbb-forum-new-topic {
     color: var(--button-primary-color-alt); }
-    .mdl-button.mdl-button--colored:focus:not(:active), .mdl-button--colored.pbb-profile-btn:focus:not(:active), .mdl-button--colored.pbb-drawer-profile-btn:focus:not(:active), .pbb-forum-new-topic:focus:not(:active), .mdl-button--colored.pbb-forum-search-adv:focus:not(:active), .pbb-topic-paging a.mdl-button--colored:focus:not(:active) {
+    .mdl-button.mdl-button--colored:focus:not(:active), .mdl-button--colored.pbb-profile-btn:focus:not(:active), .mdl-button--colored.pbb-drawer-profile-btn:focus:not(:active), .pbb-forum-new-topic:focus:not(:active), .mdl-button--colored.pbb-forum-search-adv:focus:not(:active), .mdl-button--colored.pbb-topic-icon:focus:not(:active), .pbb-topic-paging a.mdl-button--colored:focus:not(:active) {
       background-color: var(--button-focus-color-alt); }
 
-input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb-drawer-profile-btn[type="submit"], input.pbb-forum-new-topic[type="submit"], input.pbb-forum-search-adv[type="submit"] {
+input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb-drawer-profile-btn[type="submit"], input.pbb-forum-new-topic[type="submit"], input.pbb-forum-search-adv[type="submit"], input.pbb-topic-icon[type="submit"] {
   -webkit-appearance: none; }
 
 .mdl-button--raised, .pbb-forum-new-topic {
@@ -4246,7 +4246,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
     .mdl-button--fab.mdl-button--colored .mdl-ripple, .mdl-button--fab.pbb-forum-new-topic .mdl-ripple {
       background: var(--button-fab-ripple-color-alt); }
 
-.mdl-button--icon, .pbb-profile-btn, .pbb-forum-search-adv, .pbb-topic-paging a {
+.mdl-button--icon, .pbb-profile-btn, .pbb-forum-search-adv, .pbb-topic-icon, .pbb-topic-paging a {
   border-radius: 50%;
   font-size: 24px;
   height: 32px;
@@ -4258,21 +4258,21 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   overflow: hidden;
   color: inherit;
   line-height: normal; }
-  .mdl-button--icon .material-icons, .pbb-profile-btn .material-icons, .pbb-forum-search-adv .material-icons, .pbb-topic-paging a .material-icons {
+  .mdl-button--icon .material-icons, .pbb-profile-btn .material-icons, .pbb-forum-search-adv .material-icons, .pbb-topic-icon .material-icons, .pbb-topic-paging a .material-icons {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-12px, -12px);
     line-height: 24px;
     width: 24px; }
-  .mdl-button--icon.mdl-button--mini-icon, .mdl-button--mini-icon.pbb-profile-btn, .mdl-button--mini-icon.pbb-forum-search-adv, .pbb-topic-paging a.mdl-button--mini-icon {
+  .mdl-button--icon.mdl-button--mini-icon, .mdl-button--mini-icon.pbb-profile-btn, .mdl-button--mini-icon.pbb-forum-search-adv, .mdl-button--mini-icon.pbb-topic-icon, .pbb-topic-paging a.mdl-button--mini-icon {
     height: 24px;
     min-width: 24px;
     width: 24px; }
-    .mdl-button--icon.mdl-button--mini-icon .material-icons, .mdl-button--mini-icon.pbb-profile-btn .material-icons, .mdl-button--mini-icon.pbb-forum-search-adv .material-icons, .pbb-topic-paging a.mdl-button--mini-icon .material-icons {
+    .mdl-button--icon.mdl-button--mini-icon .material-icons, .mdl-button--mini-icon.pbb-profile-btn .material-icons, .mdl-button--mini-icon.pbb-forum-search-adv .material-icons, .mdl-button--mini-icon.pbb-topic-icon .material-icons, .pbb-topic-paging a.mdl-button--mini-icon .material-icons {
       top: 0px;
       left: 0px; }
-  .mdl-button--icon .mdl-button__ripple-container, .pbb-profile-btn .mdl-button__ripple-container, .pbb-forum-search-adv .mdl-button__ripple-container, .pbb-topic-paging a .mdl-button__ripple-container {
+  .mdl-button--icon .mdl-button__ripple-container, .pbb-profile-btn .mdl-button__ripple-container, .pbb-forum-search-adv .mdl-button__ripple-container, .pbb-topic-icon .mdl-button__ripple-container, .pbb-topic-paging a .mdl-button__ripple-container {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
 
@@ -4285,12 +4285,13 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   width: 100%;
   z-index: 0;
   overflow: hidden; }
-  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-drawer-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-forum-new-topic[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-forum-search-adv[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-topic-paging a[disabled] .mdl-button__ripple-container .mdl-ripple,
+  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-drawer-profile-btn[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-forum-new-topic[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-forum-search-adv[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-topic-icon[disabled] .mdl-button__ripple-container .mdl-ripple, .pbb-topic-paging a[disabled] .mdl-button__ripple-container .mdl-ripple,
   .mdl-button.mdl-button--disabled .mdl-button__ripple-container .mdl-ripple,
   .mdl-button--disabled.pbb-profile-btn .mdl-button__ripple-container .mdl-ripple,
   .mdl-button--disabled.pbb-drawer-profile-btn .mdl-button__ripple-container .mdl-ripple,
   .mdl-button--disabled.pbb-forum-new-topic .mdl-button__ripple-container .mdl-ripple,
   .mdl-button--disabled.pbb-forum-search-adv .mdl-button__ripple-container .mdl-ripple,
+  .mdl-button--disabled.pbb-topic-icon .mdl-button__ripple-container .mdl-ripple,
   .pbb-topic-paging a.mdl-button--disabled .mdl-button__ripple-container .mdl-ripple {
     background-color: transparent; }
 
@@ -4310,7 +4311,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
     color: var(--button-fab-text-color-alt);
     background-color: var(--button-fab-color-alt); }
 
-.mdl-button[disabled][disabled], .pbb-profile-btn[disabled][disabled], .pbb-drawer-profile-btn[disabled][disabled], .pbb-forum-new-topic[disabled][disabled], .pbb-forum-search-adv[disabled][disabled], .pbb-topic-paging a[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled, .mdl-button--disabled.mdl-button--disabled.pbb-profile-btn, .mdl-button--disabled.mdl-button--disabled.pbb-drawer-profile-btn, .mdl-button--disabled.mdl-button--disabled.pbb-forum-new-topic, .mdl-button--disabled.mdl-button--disabled.pbb-forum-search-adv, .pbb-topic-paging a.mdl-button--disabled.mdl-button--disabled {
+.mdl-button[disabled][disabled], .pbb-profile-btn[disabled][disabled], .pbb-drawer-profile-btn[disabled][disabled], .pbb-forum-new-topic[disabled][disabled], .pbb-forum-search-adv[disabled][disabled], .pbb-topic-icon[disabled][disabled], .pbb-topic-paging a[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled, .mdl-button--disabled.mdl-button--disabled.pbb-profile-btn, .mdl-button--disabled.mdl-button--disabled.pbb-drawer-profile-btn, .mdl-button--disabled.mdl-button--disabled.pbb-forum-new-topic, .mdl-button--disabled.mdl-button--disabled.pbb-forum-search-adv, .mdl-button--disabled.mdl-button--disabled.pbb-topic-icon, .pbb-topic-paging a.mdl-button--disabled.mdl-button--disabled {
   color: var(--button-secondary-color-disabled);
   cursor: default;
   background-color: transparent; }
@@ -4327,7 +4328,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
 .mdl-button--colored[disabled][disabled], .pbb-forum-new-topic[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled, .mdl-button--disabled.mdl-button--disabled.pbb-forum-new-topic {
   color: var(--button-secondary-color-disabled); }
 
-.mdl-button .material-icons, .pbb-profile-btn .material-icons, .pbb-drawer-profile-btn .material-icons, .pbb-forum-new-topic .material-icons, .pbb-forum-search-adv .material-icons, .pbb-topic-paging a .material-icons {
+.mdl-button .material-icons, .pbb-profile-btn .material-icons, .pbb-drawer-profile-btn .material-icons, .pbb-forum-new-topic .material-icons, .pbb-forum-search-adv .material-icons, .pbb-topic-icon .material-icons, .pbb-topic-paging a .material-icons {
   vertical-align: middle; }
 
 /**
@@ -10328,7 +10329,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   max-width: 100%;
   margin: 0;
   padding: 20px 0; }
-  .mdl-textfield .mdl-button, .mdl-textfield .pbb-profile-btn, .mdl-textfield .pbb-drawer-profile-btn, .mdl-textfield .pbb-forum-new-topic, .mdl-textfield .pbb-forum-search-adv, .mdl-textfield .pbb-topic-paging a, .pbb-topic-paging .mdl-textfield a {
+  .mdl-textfield .mdl-button, .mdl-textfield .pbb-profile-btn, .mdl-textfield .pbb-drawer-profile-btn, .mdl-textfield .pbb-forum-new-topic, .mdl-textfield .pbb-forum-search-adv, .mdl-textfield .pbb-topic-icon, .mdl-textfield .pbb-topic-paging a, .pbb-topic-paging .mdl-textfield a {
     position: absolute;
     bottom: 20px; }
 
@@ -10342,7 +10343,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   min-width: 32px;
   width: auto;
   min-height: 32px; }
-  .mdl-textfield--expandable .mdl-button--icon, .mdl-textfield--expandable .pbb-profile-btn, .mdl-textfield--expandable .pbb-forum-search-adv, .mdl-textfield--expandable .pbb-topic-paging a, .pbb-topic-paging .mdl-textfield--expandable a {
+  .mdl-textfield--expandable .mdl-button--icon, .mdl-textfield--expandable .pbb-profile-btn, .mdl-textfield--expandable .pbb-forum-search-adv, .mdl-textfield--expandable .pbb-topic-icon, .mdl-textfield--expandable .pbb-topic-paging a, .pbb-topic-paging .mdl-textfield--expandable a {
     top: 16px; }
 
 .mdl-textfield__input {
@@ -14721,7 +14722,7 @@ a {
   color: inherit;
   text-decoration: none; }
 
-.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-forum-new-topic, .pbb-forum-search-adv, .pbb-topic-paging a {
+.mdl-button, .pbb-profile-btn, .pbb-drawer-profile-btn, .pbb-forum-new-topic, .pbb-forum-search-adv, .pbb-topic-icon, .pbb-topic-paging a {
   text-decoration: none; }
 
 .mdl-list__item-avatar > img, .pbb-forum-icon > img {
@@ -14758,7 +14759,7 @@ a {
 .mdl-menu__item .material-icons, .pbb-menu__headline .material-icons, .pbb-menu__item-inactive .material-icons {
   vertical-align: middle; }
 
-.mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .pbb-forum-new-topic:hover, .pbb-forum-search-adv:hover, .pbb-topic-paging a:hover, .mdl-menu__item:hover, .pbb-menu__headline:hover, .pbb-menu__item-inactive:hover {
+.mdl-button:hover, .pbb-profile-btn:hover, .pbb-drawer-profile-btn:hover, .pbb-forum-new-topic:hover, .pbb-forum-search-adv:hover, .pbb-topic-icon:hover, .pbb-topic-paging a:hover, .mdl-menu__item:hover, .pbb-menu__headline:hover, .pbb-menu__item-inactive:hover {
   text-decoration: none; }
 
 .mdl-dialog {
@@ -14926,7 +14927,7 @@ a {
     .pbb-forum .pbb-forum-control .material-icons {
       vertical-align: middle; }
 
-.pbb-forum-rules .mdl-button, .pbb-forum-rules .pbb-profile-btn, .pbb-forum-rules .pbb-drawer-profile-btn, .pbb-forum-rules .pbb-forum-new-topic, .pbb-forum-rules .pbb-forum-search-adv, .pbb-forum-rules .pbb-topic-paging a, .pbb-topic-paging .pbb-forum-rules a {
+.pbb-forum-rules .mdl-button, .pbb-forum-rules .pbb-profile-btn, .pbb-forum-rules .pbb-drawer-profile-btn, .pbb-forum-rules .pbb-forum-new-topic, .pbb-forum-rules .pbb-forum-search-adv, .pbb-forum-rules .pbb-topic-icon, .pbb-forum-rules .pbb-topic-paging a, .pbb-topic-paging .pbb-forum-rules a {
   margin-top: 16px; }
 
 .pbb-forum-actions {
@@ -14947,7 +14948,7 @@ a {
   margin-right: 16px; }
   .pbb-forum-search .mdl-textfield {
     padding: 0; }
-  .pbb-forum-search .mdl-textfield--expandable .mdl-button--icon, .pbb-forum-search .mdl-textfield--expandable .pbb-profile-btn, .pbb-forum-search .mdl-textfield--expandable .pbb-forum-search-adv, .pbb-forum-search .mdl-textfield--expandable .pbb-topic-paging a, .pbb-topic-paging .pbb-forum-search .mdl-textfield--expandable a {
+  .pbb-forum-search .mdl-textfield--expandable .mdl-button--icon, .pbb-forum-search .mdl-textfield--expandable .pbb-profile-btn, .pbb-forum-search .mdl-textfield--expandable .pbb-forum-search-adv, .pbb-forum-search .mdl-textfield--expandable .pbb-topic-icon, .pbb-forum-search .mdl-textfield--expandable .pbb-topic-paging a, .pbb-topic-paging .pbb-forum-search .mdl-textfield--expandable a {
     top: 0; }
 
 .pbb-forum-search-adv {

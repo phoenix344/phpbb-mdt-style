@@ -443,6 +443,7 @@ $category-vertical-margin: 16px;
 }
 
 .pbb-topic-icon {
+  @extend .mdl-button, .mdl-button--icon;
   display: flex;
   align-items: center;
   justify-content: center;

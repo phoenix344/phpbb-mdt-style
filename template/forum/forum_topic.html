@@ -91,6 +91,19 @@
 
     {% EVENT topiclist_row_prepend %}
 
+    <a class="pbb-forum-icon{% if not TOPIC_READ %} mdl-color-text--primary{% endif %} material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ NEW_POST }}">
+      {% if TOPIC_TYPE == 'global' %}
+      announcement
+      {% elseif TOPIC_TYPE == 'announce' %}
+      announcement
+      {% elseif TOPIC_TYPE == 'sticky' %}
+      sticky_note_2
+      {% else %}
+      topic
+      {% endif %}  
+    </a>
+    
+
     {#{% if row.S_UNREAD_TOPIC and not S_IS_BOT %}
     <a class="pbb-forum-icon material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ NEW_POST }}">new_releases</a>
     {% endif %}#}
