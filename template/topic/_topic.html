@@ -1,0 +1,46 @@
+<div class="pbb-forum">
+  <div class="pbb-forum-content">
+    {% EVENT viewtopic_topic_title_before %}
+    <h2>{% EVENT viewtopic_topic_title_prepend %}
+      {{ TOPIC_TITLE }}
+      {% EVENT viewtopic_topic_title_append %}
+    </h2>
+    {% EVENT viewtopic_topic_title_after %}
+
+    {% if FORUM_DESC or MODERATORS or U_MCP %}
+    <div>
+      {% if FORUM_DESC %}
+      <div>{{ FORUM_DESC }}</div>
+      {% endif %}
+
+      {% if MODERATORS %}
+      <p><strong>
+        {% if S_SINGLE_MODERATOR %}
+        {{ lang('MODERATOR') }}{{ lang('COLON') }}
+        {% else %}
+        {{ lang('MODERATORS') }}{{ lang('COLON') }}
+        {% endif %}
+      </strong> {{ MODERATORS }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if S_FORUM_RULES %}
+    <div class="pbb-forum-rules">
+      {% if U_FORUM_RULES %}
+      <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
+        {{ lang('FORUM_RULES') }}
+      </a>
+      <div class="mdl-tooltip" for="forum-rules">
+        <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
+      </div>
+      {% else %}
+      <h4>{{ lang('FORUM_RULES') }}</h4>
+      <p>{{ FORUM_RULES }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% include('topic/topic_actions_top.html') %}

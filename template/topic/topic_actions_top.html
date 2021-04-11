@@ -1,0 +1,59 @@
+<div class="pbb-forum-actions">
+  {% EVENT viewtopic_buttons_top_before %}
+
+  {% if not S_IS_BOT and S_DISPLAY_POST_INFO %}
+  <div class="pbb-forum-buttons">
+    <a class="pbb-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_REPLY_TOPIC }}">
+      {% if S_IS_LOCKED %}
+      <span class="material-icons">lock</span>
+      {{ lang('BUTTON_TOPIC_LOCKED') }}
+      {% else %}
+      <span class="material-icons">post_add</span>
+      {{ lang('BUTTON_POST_REPLY') }}
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+  {% EVENT viewtopic_buttons_top_after %}
+  {{ include('topic/topic_actions_toolbar.html') }}
+  {% EVENT viewtopic_dropdown_top_custom %}
+
+  <div class="pbb-forum-actions-controls">
+    {% if S_DISPLAY_SEARCHBOX %}
+    <form class="pbb-forum-search" method="get" id="forum-search" action="{{ S_SEARCHBOX_ACTION }}">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search_keywords">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input"  type="search" name="keywords" id="search_keywords" size="20" placeholder="{{ lang('SEARCH_FORUM') }}">
+          <label class="mdl-textfield__label">{{ lang('SEARCH') }}</label>
+        </div>
+      </div>
+      {{ S_SEARCH_LOCAL_HIDDEN_FIELDS }}
+    </form>
+
+    <a class="pbb-forum-search-adv mdl-js-button" href="{{ U_SEARCH_FORUM }}" title="{{ lang('SEARCH_ADV') }}">
+      <span class="material-icons">settings</span>
+    </a>
+    {% endif %}
+  </div>
+
+  {% if pagination or TOTAL_POSTS %}
+  <div class="pbb-forum-pagination">
+    {% if not S_IS_BOT and U_MARK_TOPICS and row %}
+    <a href="{{ U_VIEW_UNREAD_POST }}" class="mark">
+      {{ lang('VIEW_UNREAD_POST') }}
+    </a> &bull;
+    {% endif %}
+    {{ TOTAL_POSTS }}
+    {% if pagination %}
+      {% include('pagination.html') %}
+    {% else %}
+      &bull; {{ PAGE_NUMBER }}
+    {% endif %}
+  </div>
+  {% endif %}
+  {% EVENT viewtopic_body_pagination_top_after %}
+</div>

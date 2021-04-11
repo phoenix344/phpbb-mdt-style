@@ -524,6 +524,24 @@ $category-vertical-margin: 16px;
   }
 }
 
+.pbb-topic-toolbar {
+  display: flex;
+  list-style: none;
+  line-height: 32px;
+  margin: 0;
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: 0.1s ease-in-out;
+  &.pbb-topic-menu-expandable {
+    max-width: 96px;
+    width: auto;
+  }
+  > li {
+    margin: 0 8px;
+  }
+}
+
 // forum topics
 
 // forum posts
