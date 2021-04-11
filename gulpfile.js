@@ -1,11 +1,10 @@
-const gulp = require("gulp");
-const postcss = require("gulp-postcss");
-const sass = require("gulp-sass");
-const stylehacks = require("stylehacks");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
-const livereload = require("gulp-livereload");
-const plumber = require("gulp-plumber");
+import gulp from 'gulp';
+import postcss from "gulp-postcss";
+import sass from "gulp-sass";
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
+import livereload from "gulp-livereload";
+import plumber from "gulp-plumber";
 
 gulp.task("sass", async () => {
   gulp
