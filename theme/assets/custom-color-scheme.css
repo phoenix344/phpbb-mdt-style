@@ -4,10 +4,10 @@
  */
  @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: 211, 47, 47;
-    --color-primary-dark: 183, 28, 28;
-    --color-accent: 255, 152, 0;
-    --color-accent-dark: 239, 108, 0;
+    --color-primary: 112, 72, 232;
+    --color-primary-dark: 95, 61, 196;
+    --color-accent: 127, 255, 0;
+    --color-accent-dark: 102, 205, 0;
     --color-primary-contrast: 255, 255, 255;
     --color-accent-contrast: 0, 0, 0;
     --color-bg: 17, 17, 17;
@@ -34,10 +34,10 @@
  */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-primary: 183, 28, 28;
-    --color-primary-dark: 183, 28, 28;
-    --color-accent: 239, 108, 0;
-    --color-accent-dark: 230, 81, 0;
+    --color-primary: 112, 72, 232;
+    --color-primary-dark: 95, 61, 196;
+    --color-accent: 56, 142, 60;
+    --color-accent-dark: 27, 94, 32;
     --color-primary-contrast: 255, 255, 255;
     --color-accent-contrast: 255, 255, 255;
     --color-bg: 255, 255, 255;
@@ -63,10 +63,10 @@
  * User defined dark mode Color Scheme on WebSite
  */
  :root[color-scheme="dark"] {
-  --color-primary: 211, 47, 47;
-  --color-primary-dark: 183, 28, 28;
-  --color-accent: 255, 152, 0;
-  --color-accent-dark: 239, 108, 0;
+  --color-primary: 112, 72, 232;
+  --color-primary-dark: 95, 61, 196;
+  --color-accent: 127, 255, 0;
+  --color-accent-dark: 102, 205, 0;
   --color-primary-contrast: 255, 255, 255;
   --color-accent-contrast: 0, 0, 0;
   --color-bg: 17, 17, 17;
@@ -91,10 +91,10 @@
  * User defined light mode Color Scheme on WebSite
  */
 :root[color-scheme="light"] {
-  --color-primary: 183, 28, 28;
-  --color-primary-dark: 183, 28, 28;
-  --color-accent: 239, 108, 0;
-  --color-accent-dark: 230, 81, 0;
+  --color-primary: 112, 72, 232;
+  --color-primary-dark: 95, 61, 196;
+  --color-accent: 56, 142, 60;
+  --color-accent-dark: 27, 94, 32;
   --color-primary-contrast: 255, 255, 255;
   --color-accent-contrast: 255, 255, 255;
   --color-bg: 255, 255, 255;
