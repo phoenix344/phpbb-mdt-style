@@ -6954,7 +6954,7 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   padding: 8px 0;
   list-style: none; }
 
-.mdl-list__item, .pbb-notification-indicator, .pbb-notification, .pbb-forum {
+.mdl-list__item, .pbb-notification-indicator, .pbb-notification, .pbb-forum, .pbb-topic {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -6971,31 +6971,31 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
   cursor: default;
   color: var(--list-main-text-text-color);
   overflow: hidden; }
-  .mdl-list__item .mdl-list__item-primary-content, .pbb-notification-indicator .mdl-list__item-primary-content, .pbb-notification .mdl-list__item-primary-content, .pbb-forum .mdl-list__item-primary-content, .pbb-notification .pbb-notification-content, .pbb-forum .pbb-forum-content {
+  .mdl-list__item .mdl-list__item-primary-content, .pbb-notification-indicator .mdl-list__item-primary-content, .pbb-notification .mdl-list__item-primary-content, .pbb-forum .mdl-list__item-primary-content, .pbb-topic .mdl-list__item-primary-content, .pbb-notification .pbb-notification-content, .pbb-forum .pbb-forum-content, .pbb-topic .pbb-forum-content {
     order: 0;
     flex-grow: 2;
     text-decoration: none;
     box-sizing: border-box;
     display: flex;
     align-items: center; }
-    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-forum .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification .pbb-notification-content .mdl-list__item-icon, .pbb-forum .pbb-forum-content .mdl-list__item-icon {
+    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-forum .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-topic .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification .pbb-notification-content .mdl-list__item-icon, .pbb-forum .pbb-forum-content .mdl-list__item-icon, .pbb-topic .pbb-forum-content .mdl-list__item-icon {
       margin-right: 32px; }
-    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-forum .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification-indicator .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .mdl-list__item-primary-content .pbb-forum-icon, .pbb-forum .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-forum .pbb-forum-content .pbb-forum-icon {
+    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-forum .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-topic .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .pbb-topic .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification-indicator .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .mdl-list__item-primary-content .pbb-forum-icon, .pbb-forum .mdl-list__item-primary-content .pbb-forum-icon, .pbb-topic .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-forum .pbb-forum-content .pbb-forum-icon, .pbb-topic .pbb-forum-content .pbb-forum-icon {
       margin-right: 16px; }
-  .mdl-list__item .mdl-list__item-secondary-content, .pbb-notification-indicator .mdl-list__item-secondary-content, .pbb-notification .mdl-list__item-secondary-content, .pbb-forum .mdl-list__item-secondary-content {
+  .mdl-list__item .mdl-list__item-secondary-content, .pbb-notification-indicator .mdl-list__item-secondary-content, .pbb-notification .mdl-list__item-secondary-content, .pbb-forum .mdl-list__item-secondary-content, .pbb-topic .mdl-list__item-secondary-content {
     display: flex;
     flex-flow: column;
     align-items: flex-end;
     margin-left: 16px; }
-    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-notification-indicator .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-notification .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-forum .mdl-list__item-secondary-content .mdl-list__item-secondary-action label {
+    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-notification-indicator .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-notification .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-forum .mdl-list__item-secondary-content .mdl-list__item-secondary-action label, .pbb-topic .mdl-list__item-secondary-content .mdl-list__item-secondary-action label {
       display: inline; }
-    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-notification-indicator .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-notification .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-forum .mdl-list__item-secondary-content .mdl-list__item-secondary-info {
+    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-notification-indicator .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-notification .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-forum .mdl-list__item-secondary-content .mdl-list__item-secondary-info, .pbb-topic .mdl-list__item-secondary-content .mdl-list__item-secondary-info {
       font-size: 12px;
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0;
       color: var(--list-supporting-text-text-color); }
-    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-notification-indicator .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-notification .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-forum .mdl-list__item-secondary-content .mdl-list__item-sub-header {
+    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-notification-indicator .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-notification .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-forum .mdl-list__item-secondary-content .mdl-list__item-sub-header, .pbb-topic .mdl-list__item-secondary-content .mdl-list__item-sub-header {
       padding: 0 0 0 16px; }
 
 .mdl-list__item-icon,
@@ -7019,18 +7019,18 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
 
 .mdl-list__item--two-line, .pbb-notification-indicator {
   height: 72px; }
-  .mdl-list__item--two-line .mdl-list__item-primary-content, .pbb-notification-indicator .mdl-list__item-primary-content, .mdl-list__item--two-line .pbb-notification .pbb-notification-content, .pbb-notification .mdl-list__item--two-line .pbb-notification-content, .pbb-notification-indicator .pbb-notification .pbb-notification-content, .pbb-notification .pbb-notification-indicator .pbb-notification-content, .mdl-list__item--two-line .pbb-forum .pbb-forum-content, .pbb-forum .mdl-list__item--two-line .pbb-forum-content, .pbb-notification-indicator .pbb-forum .pbb-forum-content, .pbb-forum .pbb-notification-indicator .pbb-forum-content {
+  .mdl-list__item--two-line .mdl-list__item-primary-content, .pbb-notification-indicator .mdl-list__item-primary-content, .mdl-list__item--two-line .pbb-notification .pbb-notification-content, .pbb-notification .mdl-list__item--two-line .pbb-notification-content, .pbb-notification-indicator .pbb-notification .pbb-notification-content, .pbb-notification .pbb-notification-indicator .pbb-notification-content, .mdl-list__item--two-line .pbb-forum .pbb-forum-content, .pbb-forum .mdl-list__item--two-line .pbb-forum-content, .pbb-notification-indicator .pbb-forum .pbb-forum-content, .pbb-forum .pbb-notification-indicator .pbb-forum-content, .mdl-list__item--two-line .pbb-topic .pbb-forum-content, .pbb-topic .mdl-list__item--two-line .pbb-forum-content, .pbb-notification-indicator .pbb-topic .pbb-forum-content, .pbb-topic .pbb-notification-indicator .pbb-forum-content {
     height: 36px;
     line-height: 20px;
     display: block; }
-    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-avatar, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-avatar, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-avatar, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-avatar, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item--two-line .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification-indicator .mdl-list__item-primary-content .pbb-forum-icon, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .pbb-forum-icon, .pbb-notification-indicator .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-notification .pbb-notification-indicator .pbb-notification-content .pbb-forum-icon, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .pbb-forum-icon, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .pbb-forum-icon, .pbb-notification-indicator .pbb-forum .pbb-forum-content .pbb-forum-icon, .pbb-forum .pbb-notification-indicator .pbb-forum-content .pbb-forum-icon {
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-avatar, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-avatar, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-avatar, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-avatar, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item--two-line .pbb-topic .pbb-forum-content .mdl-list__item-avatar, .pbb-topic .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-avatar, .pbb-notification-indicator .pbb-topic .pbb-forum-content .mdl-list__item-avatar, .pbb-topic .pbb-notification-indicator .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item--two-line .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification-indicator .mdl-list__item-primary-content .pbb-forum-icon, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .pbb-forum-icon, .pbb-notification-indicator .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-notification .pbb-notification-indicator .pbb-notification-content .pbb-forum-icon, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .pbb-forum-icon, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .pbb-forum-icon, .pbb-notification-indicator .pbb-forum .pbb-forum-content .pbb-forum-icon, .pbb-forum .pbb-notification-indicator .pbb-forum-content .pbb-forum-icon, .mdl-list__item--two-line .pbb-topic .pbb-forum-content .pbb-forum-icon, .pbb-topic .mdl-list__item--two-line .pbb-forum-content .pbb-forum-icon, .pbb-notification-indicator .pbb-topic .pbb-forum-content .pbb-forum-icon, .pbb-topic .pbb-notification-indicator .pbb-forum-content .pbb-forum-icon {
       float: left; }
-    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-icon, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-icon, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-icon, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-icon, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-icon, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-icon, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-icon, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-icon, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-icon {
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-icon, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-icon, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-icon, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-icon, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-icon, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-icon, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-icon, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-icon, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-icon, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-icon, .mdl-list__item--two-line .pbb-topic .pbb-forum-content .mdl-list__item-icon, .pbb-topic .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-icon, .pbb-notification-indicator .pbb-topic .pbb-forum-content .mdl-list__item-icon, .pbb-topic .pbb-notification-indicator .pbb-forum-content .mdl-list__item-icon {
       float: left;
       margin-top: 6px; }
-    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-secondary-content, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-secondary-content, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-secondary-content, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-secondary-content, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-secondary-content, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-secondary-content, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-secondary-content, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-secondary-content, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-secondary-content, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-secondary-content {
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-secondary-content, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-secondary-content, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-secondary-content, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-secondary-content, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-secondary-content, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-secondary-content, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-secondary-content, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-secondary-content, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-secondary-content, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-secondary-content, .mdl-list__item--two-line .pbb-topic .pbb-forum-content .mdl-list__item-secondary-content, .pbb-topic .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-secondary-content, .pbb-notification-indicator .pbb-topic .pbb-forum-content .mdl-list__item-secondary-content, .pbb-topic .pbb-notification-indicator .pbb-forum-content .mdl-list__item-secondary-content {
       height: 36px; }
-    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-sub-title, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-sub-title, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-sub-title, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-sub-title, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-sub-title, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-sub-title, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-sub-title, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-sub-title, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-sub-title {
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title, .pbb-notification-indicator .mdl-list__item-primary-content .mdl-list__item-sub-title, .mdl-list__item--two-line .pbb-notification .pbb-notification-content .mdl-list__item-sub-title, .pbb-notification .mdl-list__item--two-line .pbb-notification-content .mdl-list__item-sub-title, .pbb-notification-indicator .pbb-notification .pbb-notification-content .mdl-list__item-sub-title, .pbb-notification .pbb-notification-indicator .pbb-notification-content .mdl-list__item-sub-title, .mdl-list__item--two-line .pbb-forum .pbb-forum-content .mdl-list__item-sub-title, .pbb-forum .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-sub-title, .pbb-notification-indicator .pbb-forum .pbb-forum-content .mdl-list__item-sub-title, .pbb-forum .pbb-notification-indicator .pbb-forum-content .mdl-list__item-sub-title, .mdl-list__item--two-line .pbb-topic .pbb-forum-content .mdl-list__item-sub-title, .pbb-topic .mdl-list__item--two-line .pbb-forum-content .mdl-list__item-sub-title, .pbb-notification-indicator .pbb-topic .pbb-forum-content .mdl-list__item-sub-title, .pbb-topic .pbb-notification-indicator .pbb-forum-content .mdl-list__item-sub-title {
       font-size: 14px;
       font-weight: 400;
       line-height: 24px;
@@ -7040,22 +7040,24 @@ input.mdl-button[type="submit"], input.pbb-profile-btn[type="submit"], input.pbb
       display: block;
       padding: 0; }
 
-.mdl-list__item--three-line, .pbb-notification, .pbb-forum {
+.mdl-list__item--three-line, .pbb-notification, .pbb-forum, .pbb-topic {
   height: 88px; }
-  .mdl-list__item--three-line .mdl-list__item-primary-content, .pbb-notification .mdl-list__item-primary-content, .pbb-forum .mdl-list__item-primary-content, .pbb-notification .pbb-notification-content, .pbb-forum .pbb-forum-content {
+  .mdl-list__item--three-line .mdl-list__item-primary-content, .pbb-notification .mdl-list__item-primary-content, .pbb-forum .mdl-list__item-primary-content, .pbb-topic .mdl-list__item-primary-content, .pbb-notification .pbb-notification-content, .pbb-forum .pbb-forum-content, .pbb-topic .pbb-forum-content {
     height: 52px;
     line-height: 20px;
     display: block; }
-    .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-forum .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item--three-line .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .mdl-list__item-primary-content .pbb-forum-icon, .pbb-forum .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-forum .pbb-forum-content .pbb-forum-icon,
+    .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-forum .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-topic .mdl-list__item-primary-content .mdl-list__item-avatar, .pbb-notification .pbb-notification-content .mdl-list__item-avatar, .pbb-forum .pbb-forum-content .mdl-list__item-avatar, .pbb-topic .pbb-forum-content .mdl-list__item-avatar, .mdl-list__item--three-line .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .mdl-list__item-primary-content .pbb-forum-icon, .pbb-forum .mdl-list__item-primary-content .pbb-forum-icon, .pbb-topic .mdl-list__item-primary-content .pbb-forum-icon, .pbb-notification .pbb-notification-content .pbb-forum-icon, .pbb-forum .pbb-forum-content .pbb-forum-icon, .pbb-topic .pbb-forum-content .pbb-forum-icon,
     .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-icon,
     .pbb-notification .mdl-list__item-primary-content .mdl-list__item-icon,
     .pbb-forum .mdl-list__item-primary-content .mdl-list__item-icon,
+    .pbb-topic .mdl-list__item-primary-content .mdl-list__item-icon,
     .pbb-notification .pbb-notification-content .mdl-list__item-icon,
-    .pbb-forum .pbb-forum-content .mdl-list__item-icon {
+    .pbb-forum .pbb-forum-content .mdl-list__item-icon,
+    .pbb-topic .pbb-forum-content .mdl-list__item-icon {
       float: left; }
-  .mdl-list__item--three-line .mdl-list__item-secondary-content, .pbb-notification .mdl-list__item-secondary-content, .pbb-forum .mdl-list__item-secondary-content {
+  .mdl-list__item--three-line .mdl-list__item-secondary-content, .pbb-notification .mdl-list__item-secondary-content, .pbb-forum .mdl-list__item-secondary-content, .pbb-topic .mdl-list__item-secondary-content {
     height: 52px; }
-  .mdl-list__item--three-line .mdl-list__item-text-body, .pbb-notification .mdl-list__item-text-body, .pbb-forum .mdl-list__item-text-body, .pbb-forum .pbb-forum-info {
+  .mdl-list__item--three-line .mdl-list__item-text-body, .pbb-notification .mdl-list__item-text-body, .pbb-forum .mdl-list__item-text-body, .pbb-topic .mdl-list__item-text-body, .pbb-forum .pbb-forum-info, .pbb-topic .pbb-forum-info, .pbb-forum .pbb-topic-addition, .pbb-topic .pbb-topic-addition {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
@@ -14871,7 +14873,7 @@ a {
     padding: 16px 0 16px 16px; }
   .pbb-notification .dl-list__item-secondary-content {
     margin: 0 16px; }
-  .pbb-notification .mdl-list__item-text-body, .pbb-notification .pbb-forum .pbb-forum-info, .pbb-forum .pbb-notification .pbb-forum-info {
+  .pbb-notification .mdl-list__item-text-body, .pbb-notification .pbb-forum .pbb-forum-info, .pbb-forum .pbb-notification .pbb-forum-info, .pbb-notification .pbb-topic .pbb-forum-info, .pbb-topic .pbb-notification .pbb-forum-info, .pbb-notification .pbb-forum .pbb-topic-addition, .pbb-forum .pbb-notification .pbb-topic-addition, .pbb-notification .pbb-topic .pbb-topic-addition, .pbb-topic .pbb-notification .pbb-topic-addition {
     height: auto; }
 
 .pbb-notification-highlight {
@@ -14907,24 +14909,24 @@ a {
   margin: 0;
   padding: 0; }
 
-.pbb-forum {
+.pbb-forum, .pbb-topic {
   background-color: var(--grey-variant-1);
   height: auto; }
-  .pbb-forum:nth-last-of-type(2n) {
+  .pbb-forum:nth-last-of-type(2n), .pbb-topic:nth-last-of-type(2n) {
     background-color: var(--grey-variant-2); }
-  .pbb-forum .pbb-forum-content {
+  .pbb-forum .pbb-forum-content, .pbb-topic .pbb-forum-content {
     height: auto;
     font-size: 18px; }
-    .pbb-forum .pbb-forum-content a {
+    .pbb-forum .pbb-forum-content a, .pbb-topic .pbb-forum-content a {
       color: var(--forum-link-color); }
-  .pbb-forum .pbb-forum-info {
+  .pbb-forum .pbb-forum-info, .pbb-topic .pbb-forum-info, .pbb-forum .pbb-topic-addition, .pbb-topic .pbb-topic-addition {
     display: flex;
     flex-direction: column;
     height: auto; }
-  .pbb-forum .pbb-forum-control {
+  .pbb-forum .pbb-forum-control, .pbb-topic .pbb-forum-control {
     display: flex;
     align-items: center; }
-    .pbb-forum .pbb-forum-control .material-icons {
+    .pbb-forum .pbb-forum-control .material-icons, .pbb-topic .pbb-forum-control .material-icons {
       vertical-align: middle; }
 
 .pbb-forum-rules .mdl-button, .pbb-forum-rules .pbb-profile-btn, .pbb-forum-rules .pbb-drawer-profile-btn, .pbb-forum-rules .pbb-forum-new-topic, .pbb-forum-rules .pbb-forum-search-adv, .pbb-forum-rules .pbb-topic-icon, .pbb-forum-rules .pbb-topic-paging a, .pbb-topic-paging .pbb-forum-rules a {
@@ -14986,12 +14988,26 @@ a {
   background-color: transparent;
   color: rgba(var(--text-color), 0.54); }
 
+.pbb-topic {
+  display: grid;
+  grid-template-columns: 40px 12px auto; }
+
+.pbb-topic-content {
+  display: flex;
+  align-items: center;
+  grid-column: 3; }
+
+.pbb-topic-addition {
+  grid-column: 3; }
+
 .pbb-topic-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px; }
+  width: 40px;
+  height: 40px; }
+  .pbb-topic-icon.material-icons {
+    font-size: 30px; }
   .pbb-topic-icon img {
     width: 100%; }
 
@@ -15008,7 +15024,18 @@ a {
 .pbb-topic-headline {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  line-height: 30px;
+  min-height: 40px; }
+
+.pbb-topic-menu {
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: 0.1s ease-in-out; }
+  .pbb-topic-menu.pbb-topic-menu-expandable {
+    max-width: 96px;
+    width: auto; }
 
 .pbb-topic-paging {
   padding: 0; }

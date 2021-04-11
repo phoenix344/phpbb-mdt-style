@@ -442,13 +442,35 @@ $category-vertical-margin: 16px;
   }
 }
 
+// topics
+
+.pbb-topic {
+  @extend .pbb-forum;
+  display: grid;
+  grid-template-columns: 40px 12px auto;
+}
+
+.pbb-topic-content {
+  display: flex;
+  align-items: center;
+  grid-column: 3;
+}
+
+.pbb-topic-addition {
+  @extend .pbb-forum-info;
+  grid-column: 3;
+}
+
 .pbb-topic-icon {
   @extend .mdl-button, .mdl-button--icon;
   display: flex;
   align-items: center;
   justify-content: center;
-  width:  24px;
-  height: 24px;
+  width:  40px;
+  height: 40px;
+  &.material-icons {
+    font-size: 30px;
+  }
   img {
     width: 100%;
   }
@@ -472,6 +494,19 @@ $category-vertical-margin: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  line-height: 30px;
+  min-height: 40px;
+}
+
+.pbb-topic-menu {
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: 0.1s ease-in-out;
+  &.pbb-topic-menu-expandable {
+    max-width: 96px;
+    width: auto;
+  }
 }
 
 .pbb-topic-paging {

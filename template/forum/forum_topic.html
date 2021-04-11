@@ -1,4 +1,4 @@
-<li class="pbb-forum">
+<li class="pbb-topic">
   {% EVENT viewforum_body_topic_row_prepend %}
 
   {#
@@ -75,34 +75,33 @@
     {% endif %}
   {% endif %}
 
-  <div class="pbb-forum-content">
-    TYPE: {{ TOPIC_TYPE }}<br>
+  {% EVENT topiclist_row_prepend %}
+
+  <a class="pbb-topic-icon{% if not TOPIC_READ %} mdl-color-text--primary{% endif %} material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">
+    {% if TOPIC_TYPE == 'global' %}
+    announcement
+    {% elseif TOPIC_TYPE == 'announce' %}
+    announcement
+    {% elseif TOPIC_TYPE == 'sticky' %}
+    sticky_note_2
+    {% else %}
+    topic
+    {% endif %}  
+  </a>
+
+  <div class="pbb-topic-content">
+    {#TYPE: {{ TOPIC_TYPE }}<br>
     READ: {{ TOPIC_READ }}<br>
     MOVE: {{ TOPIC_MOVE }}<br>
     MINE: {{ TOPIC_MINE }}<br>
     HOT:  {{ TOPIC_HOT }}<br>
-    LOCK: {{ TOPIC_LOCK }}<br>
+    LOCK: {{ TOPIC_LOCK }}<br>#}
 
     {#{% if row.TOPIC_ICON_IMG and S_TOPIC_ICONS %}
     <span class="pbb-topic-icon">
       <img src="{{ T_ICONS_PATH }}{{ row.TOPIC_ICON_IMG }}" alt="{{ row.TOPIC_FOLDER_IMG_ALT }}">
     </span>
     {% endif %}#}
-
-    {% EVENT topiclist_row_prepend %}
-
-    <a class="pbb-forum-icon{% if not TOPIC_READ %} mdl-color-text--primary{% endif %} material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ NEW_POST }}">
-      {% if TOPIC_TYPE == 'global' %}
-      announcement
-      {% elseif TOPIC_TYPE == 'announce' %}
-      announcement
-      {% elseif TOPIC_TYPE == 'sticky' %}
-      sticky_note_2
-      {% else %}
-      topic
-      {% endif %}  
-    </a>
-    
 
     {#{% if row.S_UNREAD_TOPIC and not S_IS_BOT %}
     <a class="pbb-forum-icon material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ NEW_POST }}">new_releases</a>
@@ -111,23 +110,23 @@
     {% if row.U_VIEW_TOPIC %}
     <h2 class="pbb-topic-headline">
       <a href="{{ row.U_VIEW_TOPIC }}">{{ row.TOPIC_TITLE }}</a>
-        {% if row.pagination %}
-        <span class="pbb-topic-paging mdl-chip mdl-chip--contact">
-          <span class="mdl-chip__text">
-            {% for paging in row.pagination %}
-              {% if paging.S_IS_PREV %}
-              {% elseif paging.S_IS_CURRENT %}
-                {{ paging.PAGE_NUMBER }}
-              {% elseif paging.S_IS_ELLIPSIS %}
-                {{ lang('ELLIPSIS') }}
-              {% elseif paging.S_IS_NEXT %}
-              {% else %}
-                <a href="{{ paging.PAGE_URL }}">{{ paging.PAGE_NUMBER }}</a>
-              {% endif %}
-            {% endfor %}
-          </span>
+      {% if row.pagination %}
+      <span class="pbb-topic-paging mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__text">
+          {% for paging in row.pagination %}
+            {% if paging.S_IS_PREV %}
+            {% elseif paging.S_IS_CURRENT %}
+              {{ paging.PAGE_NUMBER }}
+            {% elseif paging.S_IS_ELLIPSIS %}
+              {{ lang('ELLIPSIS') }}
+            {% elseif paging.S_IS_NEXT %}
+            {% else %}
+              <a href="{{ paging.PAGE_URL }}">{{ paging.PAGE_NUMBER }}</a>
+            {% endif %}
+          {% endfor %}
         </span>
-        {% endif %}
+      </span>
+      {% endif %}
     </h2>
     {% else %}
     <h2 class="pbb-topic-headline">
@@ -135,90 +134,99 @@
     </h2>
     {% endif %}
 
-    {% EVENT topiclist_row_topic_title_after %}
-    {% if not S_IS_BOT %}
-    <div class="pbb-forum-info">
-      {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED or row.S_TOPIC_DELETED or row.S_TOPIC_REPORTED %}
-      <div class="pbb-forum-control">
-        {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
-        <a href="{{ row.U_MCP_QUEUE }}">
-          {% if row.S_TOPIC_UNAPPROVED %}
-          {{ lang('TOPIC_UNAPPROVED') }}
-          {% else %}
-          {{ lang('POSTS_UNAPPROVED') }}
-          {% endif %}
-        </a>
-        {% endif %}
+    <button class="pbb-topic-menu-toggle mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">more_horiz</i>
+    </button>
+    <nav class="pbb-topic-menu">
+      <a class="mdl-button mdl-button--icon">
+        <i class="material-icons">bookmark_border</i>
+      </a>
+    </nav>
 
-        {% if row.S_TOPIC_DELETED %}
-        <a href="{{ row.U_MCP_QUEUE }}">
-          <i class="material-icons">delete</i>
-          {{ lang('TOPIC_DELETED') }}
-        </a>
+    {% EVENT topiclist_row_topic_title_after %}
+  </div>
+
+  {% if not S_IS_BOT %}
+  <div class="pbb-topic-addition">
+    {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED or row.S_TOPIC_DELETED or row.S_TOPIC_REPORTED %}
+    <div class="pbb-topic-control">
+      {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
+      <a href="{{ row.U_MCP_QUEUE }}">
+        {% if row.S_TOPIC_UNAPPROVED %}
+        {{ lang('TOPIC_UNAPPROVED') }}
+        {% else %}
+        {{ lang('POSTS_UNAPPROVED') }}
         {% endif %}
-        
-        {% if row.S_TOPIC_REPORTED %}
-        <a href="{{ row.U_MCP_REPORT }}">
-          <i class="material-icons">report</i>
-          {{ lang('TOPIC_REPORTED') }}
-        </a>
-        {% endif %}
-      </div>
+      </a>
       {% endif %}
 
-      <div class="pbb-topic-info">
-        <span>
-          <span class="mdl-chip__text">
-            {% if row.S_HAS_POLL %}
-            <i class="material-icons">poll</i>
-            {% endif %}
-            {% if row.ATTACH_ICON_IMG %}
-            <i class="material-icons">attach_file</i>
-            {% endif %}
-
-            {% EVENT topiclist_row_topic_by_author_before %}
-            {{ lang('POST_BY_AUTHOR') }}
-            {% EVENT viewforum_body_topic_author_username_prepend %}
-            {{ row.TOPIC_AUTHOR_FULL }}
-            {% EVENT viewforum_body_topic_author_username_append %}
-            &raquo;
-            <time datetime="{{ row.FIRST_POST_TIME_RFC3339 }}">
-              {{ row.FIRST_POST_TIME }}
-            </time>
-          </span>
-          {% EVENT topiclist_row_topic_by_author_after %}
-          {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
-          &raquo; {{ lang('IN') }}
-          <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
-          {% endif %}
-        </span>
-  
-        <span>
-          <span class="mdl-chip__text">
-            <a href="{{ row.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">{{ lang('LAST_POST') }}</a>
-            {{ lang('POST_BY_AUTHOR') }}
-            {% EVENT viewforum_body_last_post_author_username_prepend %}
-            {{ row.LAST_POST_AUTHOR_FULL }}
-            {% EVENT viewforum_body_last_post_author_username_append %}
-            &raquo;
-            <time datetime="{{ row.LAST_POST_TIME_RFC3339 }}">
-              {{ row.LAST_POST_TIME }}
-            </time>
-          </span>
-        </span>
-
-        {% EVENT topiclist_row_append %}
-        {% EVENT viewforum_body_topic_row_append %}
-      </div>
-
-      {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
-      <div>
-        {{ lang('POSTED') }} {{ lang('IN') }}
-        <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
-      </div>
+      {% if row.S_TOPIC_DELETED %}
+      <a href="{{ row.U_MCP_QUEUE }}">
+        <i class="material-icons">delete</i>
+        {{ lang('TOPIC_DELETED') }}
+      </a>
+      {% endif %}
+      
+      {% if row.S_TOPIC_REPORTED %}
+      <a href="{{ row.U_MCP_REPORT }}">
+        <i class="material-icons">report</i>
+        {{ lang('TOPIC_REPORTED') }}
+      </a>
       {% endif %}
     </div>
     {% endif %}
-  </div>
 
+    <div class="pbb-topic-info">
+      <span>
+        <span class="mdl-chip__text">
+          {% if row.S_HAS_POLL %}
+          <i class="material-icons">poll</i>
+          {% endif %}
+          {% if row.ATTACH_ICON_IMG %}
+          <i class="material-icons">attach_file</i>
+          {% endif %}
+
+          {% EVENT topiclist_row_topic_by_author_before %}
+          {{ lang('POST_BY_AUTHOR') }}
+          {% EVENT viewforum_body_topic_author_username_prepend %}
+          {{ row.TOPIC_AUTHOR_FULL }}
+          {% EVENT viewforum_body_topic_author_username_append %}
+          &raquo;
+          <time datetime="{{ row.FIRST_POST_TIME_RFC3339 }}">
+            {{ row.FIRST_POST_TIME }}
+          </time>
+        </span>
+        {% EVENT topiclist_row_topic_by_author_after %}
+        {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
+        &raquo; {{ lang('IN') }}
+        <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
+        {% endif %}
+      </span>
+
+      <span>
+        <span class="mdl-chip__text">
+          <a href="{{ row.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">{{ lang('LAST_POST') }}</a>
+          {{ lang('POST_BY_AUTHOR') }}
+          {% EVENT viewforum_body_last_post_author_username_prepend %}
+          {{ row.LAST_POST_AUTHOR_FULL }}
+          {% EVENT viewforum_body_last_post_author_username_append %}
+          &raquo;
+          <time datetime="{{ row.LAST_POST_TIME_RFC3339 }}">
+            {{ row.LAST_POST_TIME }}
+          </time>
+        </span>
+      </span>
+
+      {% EVENT topiclist_row_append %}
+      {% EVENT viewforum_body_topic_row_append %}
+    </div>
+
+    {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
+    <div>
+      {{ lang('POSTED') }} {{ lang('IN') }}
+      <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
 </li>
