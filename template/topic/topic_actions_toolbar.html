@@ -1,39 +1,65 @@
-<ul class="pbb-topic-toolbar">
-  {% EVENT viewtopic_topic_tools_before %}
-  {% if U_WATCH_TOPIC %}
-  <li>
-    <a class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_WATCH_TOPIC }}" title="{{ S_WATCH_TOPIC_TITLE }}">
-      <i class="material-icons">art_track</i>
-    </a>
-  </li>
-  {% endif %}
-  {% if U_BOOKMARK_TOPIC %}
-  <li>
-    <a class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_BOOKMARK_TOPIC }}" title="{{ lang('BOOKMARK_TOPIC') }}">
-      <i class="material-icons">bookmark_outline</i>
-    </a>
-  </li>
-  {% endif %}
-  {% if U_BUMP_TOPIC %}
-  <li>
-    <a class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_BUMP_TOPIC }}" title="{{ lang('BUMP_TOPIC') }}">
-      <i class="material-icons">recommend</i>
-    </a>
-  </li>
-  {% endif %}
-  {% if U_EMAIL_TOPIC %}
-  <li>
-    <a class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_EMAIL_TOPIC }}" title="{{ lang('EMAIL_TOPIC') }}">
-      <i class="material-icons">email</i>
-    </a>
-  </li>
-  {% endif %}
-  {% if U_PRINT_TOPIC %}
-  <li>
-    <a class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_PRINT_TOPIC }}" title="{{ lang('PRINT_TOPIC') }}">
-      <i class="material-icons">print</i>
-    </a>
-  </li>
-  {% endif %}
-  {% EVENT viewtopic_topic_tools_after %}
-</ul>
+<div class="pbb-toolbar">
+  <button class="pbb-topic-menu-toggle mdl-button mdl-button--icon mdl-js-button">
+    <i class="material-icons">more_horiz</i>
+  </button>
+  <ul class="pbb-toolbar-content">
+    {% EVENT viewtopic_topic_tools_before %}
+    {% if U_WATCH_TOPIC %}
+    <li>
+      <a id="topic-subscription-top" class="mdl-button mdl-button--icon{% if S_WATCHING_TOPIC %} mdl-button--colored{% endif %} mdl-js-button" href="{{ U_WATCH_TOPIC }}">
+        <i class="material-icons">art_track</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-subscription-top">
+        <span class="mdl-tooltip__text">{{ S_WATCH_TOPIC_TITLE }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_BOOKMARK_TOPIC %}
+    <li>
+      <a id="topic-bookmark-top" class="mdl-button mdl-button--icon{% if S_BOOKMARKED_TOPIC %} mdl-button--colored{% endif %} mdl-js-button" href="{{ U_BOOKMARK_TOPIC }}">
+        <i class="material-icons">
+          {% if S_BOOKMARKED_TOPIC %}
+          bookmark
+          {% else %}
+          bookmark_outline
+          {% endif %}
+        </i>
+      </a>
+      <span class="mdl-tooltip" for="topic-bookmark-top">
+        <span class="mdl-tooltip__text">{{ lang('BOOKMARK_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_BUMP_TOPIC %}
+    <li>
+      <a id="topic-bump-top" class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_BUMP_TOPIC }}">
+        <i class="material-icons">recommend</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-bump-top">
+        <span class="mdl-tooltip__text">{{ lang('BUMP_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_EMAIL_TOPIC %}
+    <li>
+      <a id="topic-email-top" class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_EMAIL_TOPIC }}">
+        <i class="material-icons">email</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-email-top">
+        <span class="mdl-tooltip__text">{{ lang('EMAIL_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_PRINT_TOPIC %}
+    <li>
+      <a id="topic-print-top" class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_PRINT_TOPIC }}">
+        <i class="material-icons">print</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-print-top">
+        <span class="mdl-tooltip__text">{{ lang('PRINT_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% EVENT viewtopic_topic_tools_after %}
+  </ul>
+</div>
