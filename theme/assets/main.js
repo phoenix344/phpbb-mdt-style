@@ -1,4 +1,5 @@
 import "./_profile.js";
+import "./_forum.js";
 
 const defaultColorScheme = _getCssColorScheme();
 const colorSchemeBtn = document.querySelector("#color-mode-btn");
