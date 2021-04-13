@@ -20,13 +20,11 @@
   {# if a custom forum image exist, it should be used #}
   {% if row.FORUM_IMAGE %}
   {% EVENT forumlist_body_forum_image_prepend %}
-  <picture class="pbb-forum-image-container">
-    {{ row.FORUM_IMAGE }}
-  </picture>
+  {{ row.FORUM_IMAGE }}
   {% EVENT forumlist_body_forum_image_append %}
   {% endif %}
 
-  <div class="pbb-forum-container">
+  <div class="pbb-subforum-container">
 
     {# otherwise use material icons as a status icon #}
     {% if CONTENT_LOCK %}
@@ -57,20 +55,21 @@
   
     {# headline appears here! #}
 
-    <h2 class="pbb-forum-headline"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h2>
+    <h3 class="pbb-forum-headline"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h3>
 
     {% if row.FORUM_DESC %}
     <div class="pbb-forum-description">{{ row.FORUM_DESC }}</div>
     {% endif %}
 
+    {% if row.subforum|length > 0 %}
     <div class="pbb-forum-subforums">
       {% for sub in row.subforum %}
         {% EVENT forumlist_body_sub_link_prepend %}
-        <a class="pbb-subforum-chip{% if sub.S_UNREAD %} pbb-subforum-highlight{% endif %}" href="{{ sub.U_SUBFORUM }}">
+        <a class="pbb-subforum{% if sub.S_UNREAD %} pbb-subforum-highlight{% endif %}" href="{{ sub.U_SUBFORUM }}">
           <span class="pbb-subforum-icon">
             {% if sub.IS_LINK %}
             <i class="material-icons">link</i>
-            {% endif %} 
+            {% endif %}
 
             <i class="material-icons">notes</i>
             
@@ -81,6 +80,7 @@
       {% endfor %}
       {% EVENT forumlist_body_subs_after %}
     </div>
+    {% endif %}
 
   </div>
 </li>

@@ -5,6 +5,20 @@
   flex: 1;
 }
 
+.pbb-forum-header {
+  flex: 1;
+  padding: 16px;
+  > div {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .pbb-category {
+    margin: 0;
+  }
+}
+
 .pbb-forum-image {
   padding: 0;
   .pbb-forum-container {
@@ -52,6 +66,11 @@
       text-decoration: underline;
     }
   }
+}
+
+.pbb-forum-image-container {
+  @include shadow-4dp();
+  margin: 8px 0 8px 8px;
 }
 
 .pbb-forum-description {

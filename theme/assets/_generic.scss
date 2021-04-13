@@ -1,0 +1,14 @@
+.username {
+  @extend .mdl-chip;
+  @include typo-button;
+  @include shadow-2dp();
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.25s ease-in-out;
+  background-color: transparent;
+  &:hover {
+    @include shadow-3dp();
+    color: $text-link-color;
+  }
+}

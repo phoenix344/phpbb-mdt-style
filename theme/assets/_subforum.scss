@@ -1,4 +1,17 @@
-.pbb-subforum {
+.pbb-subforum-container {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  flex: 1;
+}
+
+.pbb-subforums-unmark {
+  margin-top: 12px;
+  text-align: right;
+  display: block;
+}
+
+.pbb-subforum-chip {
   @extend .mdl-chip, .mdl-chip--contact;
   @include shadow-2dp();
   font-size: $chip-font-size;

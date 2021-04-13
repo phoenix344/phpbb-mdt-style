@@ -1,19 +1,19 @@
 {% if forumrow|length > 0 %}{% for row in forumrow %}
 
 {% if (row.S_IS_CAT and not row.S_FIRST_ROW) or row.S_NO_CAT  %}
-{{ include('index/index_category_footer.html') }}
+{{ include('forum/forum_subforum_footer.html') }}
 {% endif %}
 
 {% if (not row.S_IS_CAT and row.S_FIRST_ROW) or row.S_IS_CAT %}
-{{ include('index/index_category_header.html') }}
+{{ include('forum/forum_subforum_header.html') }}
 {% endif %}
 
 {% if not row.S_IS_CAT %}
-{{ include('index/index_forum.html') }}
+{{ include('forum/forum_subforum.html') }}
 {% endif %}
 
 {% if row.S_LAST_ROW %}
-{{ include('index/index_category_footer.html') }}
+{{ include('forum/forum_subforum_footer.html') }}
 {% EVENT forumlist_body_last_row_after %}
 {% endif %}
 

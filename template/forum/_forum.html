@@ -8,49 +8,50 @@
     {% EVENT viewforum_forum_title_after %}
   </div>
   <div class="pbb-category-content">
-    {% if FORUM_DESC or MODERATORS or U_MCP %}
-    <div>
+    <div class="pbb-forum-header">
       {% if FORUM_DESC %}
-      <div>{{ FORUM_DESC }}</div>
+      <div class="pbb-forum-description">{{ FORUM_DESC }}</div>
       {% endif %}
 
       {% if MODERATORS %}
-      <p><strong>
-        {% if S_SINGLE_MODERATOR %}
-        {{ lang('MODERATOR') }}{{ lang('COLON') }}
-        {% else %}
-        {{ lang('MODERATORS') }}{{ lang('COLON') }}
-        {% endif %}
-      </strong> {{ MODERATORS }}</p>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    {% if S_FORUM_RULES %}
-    <div class="pbb-forum-rules">
-      {% if U_FORUM_RULES %}
-      <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
-        {{ lang('FORUM_RULES') }}
-      </a>
-      <div class="mdl-tooltip" for="forum-rules">
-        <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
+      <div class="pbb-forum-moderation">
+        <b>
+          {% if S_SINGLE_MODERATOR %}
+          {{ lang('MODERATOR') }}{{ lang('COLON') }}
+          {% else %}
+          {{ lang('MODERATORS') }}{{ lang('COLON') }}
+          {% endif %}
+        </b> {{ MODERATORS }}
       </div>
-      {% else %}
-      <h4>{{ lang('FORUM_RULES') }}</h4>
-      <p>{{ FORUM_RULES }}</p>
       {% endif %}
-    </div>
-    {% endif %}
 
-    {% if S_HAS_SUBFORUM %}
-    <h4>{{ lang('SUBFORUMS') }}</h4>
-    {% if not S_IS_BOT and U_MARK_FORUMS %}
-    <small>
-      <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{{ lang('MARK_SUBFORUMS_READ') }}</a>
-    </small>
-    {% endif %}
-    {{ include('index/_index.html') }}
-    {% endif %}
+      {% if S_FORUM_RULES %}
+      <div class="pbb-forum-rules">
+        {% if U_FORUM_RULES %}
+        <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
+          {{ lang('FORUM_RULES') }}
+        </a>
+        <div class="mdl-tooltip" for="forum-rules">
+          <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
+        </div>
+        {% else %}
+        <h4>{{ lang('FORUM_RULES') }}</h4>
+        <p>{{ FORUM_RULES }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if S_HAS_SUBFORUM %}
+      {% if not S_IS_BOT and U_MARK_FORUMS %}
+
+      {% endif %}
+      {{ include('forum/forum_subforums_list.html') }}
+      {% endif %}
+      
+      <small class="pbb-subforums-unmark">
+        <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{{ lang('MARK_SUBFORUMS_READ') }}</a>
+      </small>
+    </div>
   </div>
 </div>
 
