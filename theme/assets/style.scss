@@ -9,17 +9,23 @@ $material-design-icons-font-directory-path: "../fonts/";
 // Material UI Icons
 @import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
 
+@import "list";
+@import "drawer";
+@import "category";
+@import "forum";
+@import "subforum";
+
 // main elements
 html, body {
   background-color: var(--background-color);
 }
 
-a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
+// a {
+//   text-decoration: none;
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// }
 
 // MDL overrides
 
@@ -314,40 +320,6 @@ $profile-btn-font-size: 12px;
   }
 }
 
-// forum categories
-
-$category-horizontal-margin: 16px;
-$category-vertical-margin: 16px;
-
-.pbb-category {
-  @extend .mdl-card;
-  @include shadow-3dp();
-  margin: $category-vertical-margin $category-horizontal-margin;
-  width: auto;
-  min-height: 0;
-  background-color: rgba($color-primary, 1);
-}
-
-.pbb-category-title {
-  @extend .mdl-card__title;
-  background-color: rgba($color-primary, 0.87);
-  color: var(--category-title-color);
-  a {
-    color: var(--category-title-color);
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.pbb-category-content {
-  @extend .mdl-card__actions, .mdl-card--border;
-  padding: 0;
-}
-
 // forum boards
 
 .pbb-forum-list {
@@ -457,23 +429,21 @@ $category-vertical-margin: 16px;
   @include shadow-3dp();
   background-color: var(--grey-variant-2);
   transition: 0.1s ease-in-out;
-  &:hover {
-    border-left: 3px solid rgba(var(--color-primary), 1);
-  }
+  border-left: 3px solid rgba(var(--color-primary), 1);
 
-  .pbb-forum-icon.material-icons {
-    color: rgba(var(--text-color-accent), 0.87);
-  }
+  // .pbb-forum-icon.material-icons {
+  //   color: rgba(var(--text-color-accent), 0.87);
+  // }
 }
 
-.pbb-forum-icon {
-  @extend .mdl-list__item-avatar;
+// .pbb-forum-icon {
+//   @extend .mdl-list__item-avatar;
 
-  &.material-icons {
-    background-color: transparent;
-    color: rgba(var(--text-color), 0.54);
-  }
-}
+//   &.material-icons {
+//     background-color: transparent;
+//     color: rgba(var(--text-color), 0.54);
+//   }
+// }
 
 // topics
 
@@ -593,6 +563,11 @@ $category-vertical-margin: 16px;
   display: flex;
   flex-direction: column;
   padding: 16px;
+  margin-top: 1px;
+}
+
+.pbb-chart-label {
+  padding-left: 24px;
 }
 
 .pbb-chart-content {
@@ -611,10 +586,14 @@ $category-vertical-margin: 16px;
   width: 0;
 }
 
-.pbb-chart-percentage {
+.pbb-chart-percent {
   text-align: right;
   margin-right: 8px;
   font-weight: 700;
+}
+
+.pbb-chart-footer {
+  margin-top: 12px;
 }
 
 // .pbb-poll-content {

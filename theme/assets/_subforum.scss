@@ -1,0 +1,28 @@
+.pbb-subforum {
+  @extend .mdl-chip, .mdl-chip--contact;
+  @include shadow-2dp();
+  font-size: $chip-font-size;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+  &:hover {
+    @include shadow-3dp();
+    color: rgba(#{$color-accent}, .87);
+  }
+  &.pbb-subforum-highlight {
+    color: rgba(#{$color-accent}, .54);
+    &:hover {
+      color: rgba(#{$color-accent}, .87);
+    }
+    .pbb-subforum-text {
+      font-weight: 700;
+    }
+  }
+}
+
+.pbb-subforum-icon {
+  @extend .mdl-chip__contact;
+  margin-right: 0;
+  .material-icons {
+    vertical-align: middle;
+  }
+}

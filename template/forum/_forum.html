@@ -1,12 +1,13 @@
-<div class="pbb-forum">
-  <div class="pbb-forum-content">
-    <h2>
+<div class="pbb-category">
+  <div class="pbb-category-title">
+    <h2 class="mdl-card__title-text">
       {% EVENT viewforum_forum_name_prepend %}
       {{ FORUM_NAME }}
       {% EVENT viewforum_forum_name_append %}
     </h2>
     {% EVENT viewforum_forum_title_after %}
-
+  </div>
+  <div class="pbb-category-content">
     {% if FORUM_DESC or MODERATORS or U_MCP %}
     <div>
       {% if FORUM_DESC %}
