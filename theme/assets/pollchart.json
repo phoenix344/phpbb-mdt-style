@@ -1,0 +1,15 @@
+{
+  "NO_VOTES": "No votes",
+  "success": true,
+  "user_votes": {
+    "2": 1
+  },
+  "vote_counts": {
+    "1": 1,
+    "2": 2,
+    "3": 0,
+    "4": 0
+  },
+  "total_votes": 3,
+  "can_vote": false
+}

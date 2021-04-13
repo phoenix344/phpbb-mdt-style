@@ -134,14 +134,7 @@
     </h2>
     {% endif %}
 
-    <button class="pbb-topic-menu-toggle mdl-button mdl-button--icon mdl-js-button">
-      <i class="material-icons">more_horiz</i>
-    </button>
-    <nav class="pbb-topic-menu">
-      <a class="mdl-button mdl-button--icon">
-        <i class="material-icons">bookmark_border</i>
-      </a>
-    </nav>
+    {{ include('topic/topic_actions_toolbar.html') }}
 
     {% EVENT topiclist_row_topic_title_after %}
   </div>

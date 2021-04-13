@@ -1,4 +1,10 @@
-const buttons = document.querySelectorAll('.pbb-topic-menu-toggle');
+
+/**
+ * handle behavior of horizontal icon toolbars
+ */
+
+const expandableClass = 'pbb-toolbar-expandable';
+const buttons = document.querySelectorAll('.pbb-toolbar-toggle');
 const activeMenus = new Set();
 buttons.forEach(button => {
   const menu = button.nextElementSibling;
@@ -7,10 +13,10 @@ buttons.forEach(button => {
   });
   button.addEventListener('click', (event) => {
     event.stopPropagation();
-    if (menu.classList.contains('pbb-topic-menu-expandable')) {
-      menu.classList.remove('pbb-topic-menu-expandable');
+    if (menu.classList.contains(expandableClass)) {
+      menu.classList.remove(expandableClass);
     } else {
-      menu.classList.add('pbb-topic-menu-expandable');
+      menu.classList.add(expandableClass);
       activeMenus.add(menu);
     }
   });
@@ -18,7 +24,7 @@ buttons.forEach(button => {
 
 document.addEventListener('click', () => {
   for (const menu of activeMenus.values()) {
-    menu.classList.remove('pbb-topic-menu-expandable');
+    menu.classList.remove(expandableClass);
   }
   activeMenus.clear();
 });

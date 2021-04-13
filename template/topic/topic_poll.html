@@ -1,0 +1,96 @@
+{% EVENT viewtopic_body_poll_before %}
+
+{% if S_HAS_POLL %}
+<form id="poll-form" method="post" action="{{ S_POLL_ACTION }}">
+  <h3>
+    {% EVENT viewtopic_body_poll_question_prepend %}
+    {{ POLL_QUESTION }}
+    {% EVENT viewtopic_body_poll_question_append %}
+  </h3>
+  <p>
+    {{ lang('POLL_LENGTH') }}
+    {% if S_CAN_VOTE %}
+    {{ lang('MAX_VOTES') }}
+    {% endif %}
+  </p>
+
+  {# TODO: add tab panel to make it more user friendly
+     TODO: if vote is published, tab should be disabled and results should be visible immediately
+
+   #}
+
+  <div class="pbb-poll">
+    {% for option in poll_option %}
+    {% EVENT viewtopic_body_option_before %}
+    {% if S_DISPLAY_RESULTS %}
+    <h4>{{ option.POLL_OPTION_RESULT }}</h4>
+    <p class="mdl-list__item-sub-title">
+      {% if option.POLL_OPTION_RESULT == 0 %}
+      {{ lang('NO_VOTES') }}
+      {% else %}
+      {{ option.POLL_OPTION_PERCENT }}
+      {% endif %}
+    </p>
+    {% elseif S_CAN_VOTE %}
+    <div class="pbb-poll-item">
+      {% if S_IS_MULTI_CHOICE %}
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vote_{{ option.POLL_OPTION_ID }}">
+        <input type="checkbox" id="vote_{{ option.POLL_OPTION_ID }}" class="mdl-checkbox__input" name="vote_id[]" value="{{ option.POLL_OPTION_ID }}"{% if option.POLL_OPTION_VOTED %} checked{% endif %}>
+        {{ option.POLL_OPTION_CAPTION }}
+      </label>
+      {% else %}
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="vote_{{ option.POLL_OPTION_ID }}">
+        <input type="radio" id="vote_{{ option.POLL_OPTION_ID }}" class="mdl-radio__button" name="vote_id[]" value="{{ option.POLL_OPTION_ID }}"{% if option.POLL_OPTION_VOTED %} checked{% endif %}>
+        {{ option.POLL_OPTION_CAPTION }}
+      </label>
+      {% endif %}
+    </div>
+    {% else %}
+    <div class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        {{ option.POLL_OPTION_CAPTION }}
+      </span>
+    </div>
+    {% endif %}
+    {% EVENT viewtopic_body_option_after %}
+    {% endfor %}
+  </div>
+
+  <div id="poll-chart" class="pbb-chart">
+    {% for option in poll_option %}
+    <div class="pbb-chart-content">
+      <div class="pbb-chart-label">{{ option.POLL_OPTION_CAPTION }}</div>
+      <div class="pbb-chart-percent">{{ option.POLL_OPTION_PERCENT }}</div>
+      <div class="pbb-chart-bar"></div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if S_CAN_VOTE %}
+  <button class="mdl-button mdl-button--raised mdl-button--colored" type="submit">
+    <i class="material-icons">add_chart</i>
+    {{ lang('SUBMIT_VOTE') }}
+  </button>
+  {% endif %}
+
+  {% if not S_DISPLAY_RESULTS %}
+  <a class="mdl-button mdl-button--raised" href="{{ U_VIEW_RESULTS }}">
+    <i class="material-icons">insert_chart</i>
+    {{ lang('VIEW_RESULTS') }}
+  </a>
+  {% endif %}
+
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        {{ lang('TOTAL_VOTES') }}{{ lang('COLON') }} <strong>{{ TOTAL_VOTES }}</strong>
+      </span>
+    </li>
+  </ul>
+
+  {{ S_FORM_TOKEN }}
+  {{ S_HIDDEN_FIELDS }}
+</form>
+{% endif %}
+
+{% EVENT viewtopic_body_poll_after %}

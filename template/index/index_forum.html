@@ -4,9 +4,9 @@
     {% if row.FORUM_IMAGE %}
     {% EVENT forumlist_body_forum_image_prepend %}
     <span id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon">
-    {% if row.FORUM_IMG_STYLE eq "forum_unread_subforum" %}
+    {% if row.FORUM_IMG_STYLE eq "forum_unread_sub" %}
       <span class="mdl-badge" data-badge="✭">
-    {% elseif row.FORUM_IMG_STYLE eq "forum_read_subforum" %}
+    {% elseif row.FORUM_IMG_STYLE eq "forum_read_sub" %}
       <span>
     {% elseif row.FORUM_IMG_STYLE eq "forum_unread" %}
       <span class="mdl-badge" data-badge="✭">
@@ -24,9 +24,9 @@
     </span>
     {% EVENT forumlist_body_forum_image_append %}
     {% else %}
-    {% if row.FORUM_IMG_STYLE eq "forum_unread_subforum" %}
+    {% if row.FORUM_IMG_STYLE eq "forum_unread_sub" %}
     <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">new_releases</i>
-    {% elseif row.FORUM_IMG_STYLE eq "forum_read_subforum" %}
+    {% elseif row.FORUM_IMG_STYLE eq "forum_read_sub" %}
     <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">notes</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_unread" %}
     <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">new_releases</i>
@@ -60,5 +60,18 @@
     {% if row.FORUM_DESC %}
     <div class="pbb-forum-info">{{ row.FORUM_DESC }}</div>
     {% endif %}
+
+    <div class="pbb-forum-subforum">
+      {% for sub in row.subforum %}
+        {% EVENT forumlist_body_sub_link_prepend %}
+        <span class="mdl-chip">
+          <a class="mdl-chip__text" href="{{ sub.U_SUBFORUM }}">
+            {{ sub.SUBFORUM_NAME }}
+          </a>
+        </span>
+        {% EVENT forumlist_body_sub_link_append %}
+      {% endfor %}
+      {% EVENT forumlist_body_subs_after %}
+    </div>
   </div>
 </li>

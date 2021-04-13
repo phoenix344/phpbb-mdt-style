@@ -1,5 +1,6 @@
+{% if U_WATCH_TOPIC or U_BOOKMARK_TOPIC or U_BUMP_TOPIC or U_EMAIL_TOPIC or U_PRINT_TOPIC %}
 <div class="pbb-toolbar">
-  <button class="pbb-topic-menu-toggle mdl-button mdl-button--icon mdl-js-button">
+  <button class="pbb-toolbar-toggle mdl-js-button">
     <i class="material-icons">more_horiz</i>
   </button>
   <ul class="pbb-toolbar-content">
@@ -63,3 +64,4 @@
     {% EVENT viewtopic_topic_tools_after %}
   </ul>
 </div>
+{% endif %}

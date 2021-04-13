@@ -281,6 +281,39 @@ $profile-btn-font-size: 12px;
   }
 }
 
+// toolbar
+
+.pbb-toolbar {
+  @extend .mdl-chip;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.pbb-toolbar-toggle {
+  @extend .mdl-button, .mdl-button--icon;
+}
+
+.pbb-toolbar-content {
+  display: flex;
+  list-style: none;
+  line-height: 32px;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: 0.1s ease-in-out;
+  &.pbb-toolbar-expandable {
+    min-width: 96px;
+    max-width: 128px;
+    width: auto;
+  }
+  > li {
+    margin: 0 4px;
+  }
+}
+
 // forum categories
 
 $category-horizontal-margin: 16px;
@@ -524,33 +557,68 @@ $category-vertical-margin: 16px;
   }
 }
 
-.pbb-toolbar {
-  @extend .mdl-chip;
-  display: flex;
-  padding: 0;
-  margin: 0;
+// poll
+
+.pbb-topic-header {
+  @extend .mdl-card;
+  width: auto;
 }
 
-.pbb-toolbar-content {
+.pbb-topic-header-content {
+  @extend .mdl-card__title;
+}
+
+.pbb-poll {
   display: flex;
-  list-style: none;
-  line-height: 32px;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  max-width: 0;
-  overflow: hidden;
-  transition: 0.1s ease-in-out;
-  &.pbb-topic-menu-expandable {
-    min-width: 96px;
-    max-width: 128px;
-    width: auto;
-  }
-  > li {
-    margin: 0 4px;
+  flex-direction: column;
+  margin-bottom: $category-vertical-margin;
+  h3 {
+    margin-bottom: 0;
   }
 }
 
-// forum topics
+.pbb-poll-item {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  cursor: pointer;
+  min-height: 32px;
+  label {
+    cursor: pointer;
+    height: auto;
+  }
+}
+
+.pbb-chart {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.pbb-chart-content {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+  min-height: 32px;
+}
+
+.pbb-chart-bar {
+  display: block;
+  background: linear-gradient(180deg, rgba(var(--color-accent), 0.1), rgba(var(--color-accent), 0.5));
+  transition: width 0.3s ease-in;
+  height: 8px;
+  border-radius: 3px;
+  width: 0;
+}
+
+.pbb-chart-percentage {
+  text-align: right;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+// .pbb-poll-content {
+
+// }
 
 // forum posts
