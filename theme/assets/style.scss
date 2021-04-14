@@ -48,12 +48,12 @@ html, body {
   }
 }
 
-.pbb-menu__headline {
+.mdt-menu__headline {
   @extend .mdl-menu__item--full-bleed-divider;
   font-weight: 700;
 }
 
-.pbb-menu__headline, .pbb-menu__item-inactive {
+.mdt-menu__headline, .mdt-menu__item-inactive {
   @extend .mdl-menu__item;
   cursor: default;
 
@@ -71,15 +71,15 @@ html, body {
   }
 }
 
-.pbb-menu__item-inactive {
+.mdt-menu__item-inactive {
   line-height: 150%;
   height: auto;
 }
 
-.pbb-forum-permissions {
+.mdt-forum-permissions {
   padding-top: 0;
   
-  .pbb-menu__headline {
+  .mdt-menu__headline {
     margin-bottom: 12px;
   }  
 }
@@ -103,7 +103,7 @@ html, body {
 
 // generic components
 
-.pbb-display-options {
+.mdt-display-options {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -128,7 +128,7 @@ html, body {
 
 // drawer profile
 
-.pbb-profile-btn {
+.mdt-profile-btn {
   @extend .mdl-button, .mdl-button--icon;
   img {
     max-width: 100%;
@@ -136,12 +136,12 @@ html, body {
   }
 }
 
-.pbb-drawer-profile {
+.mdt-drawer-profile {
   @extend .mdl-card;
   width: 100%;
   min-height: 0;
 }
-.pbb-drawer-profile-content {
+.mdt-drawer-profile-content {
   @extend .mdl-card__actions,
           .mdl-card__media,
           .mdl-card--expand,
@@ -151,7 +151,7 @@ html, body {
   padding: $card-vertical-padding $card-horizontal-padding;
 }
 
-.pbb-drawer-profile-image {
+.mdt-drawer-profile-image {
   margin-bottom: $card-vertical-padding;
   > img {
     @include shadow-3dp();
@@ -160,34 +160,34 @@ html, body {
 }
 
 @media (min-width: $grid-tablet-breakpoint) {
-  .pbb-drawer-profile-content {
+  .mdt-drawer-profile-content {
     flex-direction: row;
   }
-  .pbb-drawer-profile-image {
+  .mdt-drawer-profile-image {
     margin-right: $card-horizontal-padding;
     margin-bottom: 0;
   }
-  .pbb-drawer-profile-typo {
+  .mdt-drawer-profile-typo {
     flex: 1;
   }
 }
 
-.pbb-drawer-profile-action {
+.mdt-drawer-profile-action {
   @extend .mdl-card__actions;
   padding: 0;
 }
-.pbb-drawer-profile-title {
+.mdt-drawer-profile-title {
   @extend .mdl-card__title-text;
   color: var(--text-color-primary);
   border-bottom: 1px solid $default-item-divider-color;
   margin-bottom: ($card-vertical-padding / 2);
 }
-.pbb-drawer-profile-text {
+.mdt-drawer-profile-text {
   @extend .mdl-card__subtitle-text;
   font-size: $card-supporting-text-font-size;
 }
 
-.pbb-modal-links {
+.mdt-modal-links {
   margin-top: 1rem;
   text-align: right;
   a {
@@ -197,8 +197,8 @@ html, body {
 
 // drawer user control
 
-.pbb-drawer-buttons {
-  @extend .pbb-drawer-profile-content;
+.mdt-drawer-buttons {
+  @extend .mdt-drawer-profile-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -218,7 +218,7 @@ $profile-btn-height: 64px;
 // looks best in my personal opinion
 $profile-btn-font-size: 12px;
 
-.pbb-drawer-profile-btn {
+.mdt-drawer-profile-btn {
   @extend .mdl-button;
   display: flex;
   flex-direction: column;
@@ -242,14 +242,14 @@ $profile-btn-font-size: 12px;
 
 // drawer list
 
-.pbb-notification-indicator {
+.mdt-notification-indicator {
   @extend .mdl-list__item, .mdl-list__item--two-line;
   margin-bottom: 16px;
 }
 
 // drawer notifications
 
-.pbb-notification {
+.mdt-notification {
   @extend .mdl-list__item, .mdl-list__item--three-line;
   height: auto;
   background-color: rgba(0, 0, 0, 0.1);
@@ -257,7 +257,7 @@ $profile-btn-font-size: 12px;
   &:hover {
     background-color: var(--grey-variant-3);
   }
-  .pbb-notification-content {
+  .mdt-notification-content {
     @extend .mdl-list__item-primary-content;
     height: auto;
     color: inherit;
@@ -271,7 +271,7 @@ $profile-btn-font-size: 12px;
   }
 }
 
-.pbb-notification-highlight {
+.mdt-notification-highlight {
   @include shadow-2dp();
   background-color: transparent;
   transition: 0.1s ease-in-out;
@@ -283,18 +283,18 @@ $profile-btn-font-size: 12px;
 
 // toolbar
 
-.pbb-toolbar {
+.mdt-toolbar {
   @extend .mdl-chip;
   display: flex;
   padding: 0;
   margin: 0;
 }
 
-.pbb-toolbar-toggle {
+.mdt-toolbar-toggle {
   @extend .mdl-button, .mdl-button--icon;
 }
 
-.pbb-toolbar-content {
+.mdt-toolbar-content {
   display: flex;
   list-style: none;
   line-height: 32px;
@@ -304,7 +304,7 @@ $profile-btn-font-size: 12px;
   max-width: 0;
   overflow: hidden;
   transition: 0.1s ease-in-out;
-  &.pbb-toolbar-expandable {
+  &.mdt-toolbar-expandable {
     min-width: 96px;
     max-width: 128px;
     width: auto;
@@ -316,22 +316,22 @@ $profile-btn-font-size: 12px;
 
 // topics
 
-.pbb-topic {
+.mdt-topic {
   display: grid;
   grid-template-columns: 40px 12px auto;
 }
 
-.pbb-topic-content {
+.mdt-topic-content {
   display: flex;
   align-items: center;
   grid-column: 3;
 }
 
-.pbb-topic-addition {
+.mdt-topic-addition {
   grid-column: 3;
 }
 
-.pbb-topic-icon {
+.mdt-topic-icon {
   @extend .mdl-button, .mdl-button--icon;
   display: flex;
   align-items: center;
@@ -346,7 +346,7 @@ $profile-btn-font-size: 12px;
   }
 }
 
-.pbb-topic-info {
+.mdt-topic-info {
   display: flex;
   justify-content: space-between;
   flex-flow: wrap;
@@ -359,7 +359,7 @@ $profile-btn-font-size: 12px;
   }
 }
 
-.pbb-topic-headline {
+.mdt-topic-headline {
   @extend .mdl-card__title-text;
   display: flex;
   align-items: center;
@@ -368,18 +368,18 @@ $profile-btn-font-size: 12px;
   min-height: 40px;
 }
 
-.pbb-topic-menu {
+.mdt-topic-menu {
   min-width: 0;
   max-width: 0;
   overflow: hidden;
   transition: 0.1s ease-in-out;
-  &.pbb-topic-menu-expandable {
+  &.mdt-topic-menu-expandable {
     max-width: 96px;
     width: auto;
   }
 }
 
-.pbb-topic-paging {
+.mdt-topic-paging {
   padding: 0;
   .material-icons {
     font-size: 18px;
@@ -396,16 +396,16 @@ $profile-btn-font-size: 12px;
 
 // poll
 
-.pbb-topic-header {
+.mdt-topic-header {
   @extend .mdl-card;
   width: auto;
 }
 
-.pbb-topic-header-content {
+.mdt-topic-header-content {
   @extend .mdl-card__title;
 }
 
-.pbb-poll {
+.mdt-poll {
   display: flex;
   flex-direction: column;
   margin-bottom: $category-vertical-margin;
@@ -414,7 +414,7 @@ $profile-btn-font-size: 12px;
   }
 }
 
-.pbb-poll-item {
+.mdt-poll-item {
   display: flex;
   align-items: center;
   flex-flow: wrap;
@@ -426,25 +426,25 @@ $profile-btn-font-size: 12px;
   }
 }
 
-.pbb-chart {
+.mdt-chart {
   display: flex;
   flex-direction: column;
   padding: 16px;
   margin-top: 1px;
 }
 
-.pbb-chart-label {
+.mdt-chart-label {
   padding-left: 24px;
 }
 
-.pbb-chart-content {
+.mdt-chart-content {
   display: grid;
   grid-template-columns: 1fr 40px 1fr;
   align-items: center;
   min-height: 32px;
 }
 
-.pbb-chart-bar {
+.mdt-chart-bar {
   display: block;
   background: linear-gradient(180deg, rgba(var(--color-accent), 0.1), rgba(var(--color-accent), 0.5));
   transition: width 0.3s ease-in;
@@ -453,17 +453,17 @@ $profile-btn-font-size: 12px;
   width: 0;
 }
 
-.pbb-chart-percent {
+.mdt-chart-percent {
   text-align: right;
   margin-right: 8px;
   font-weight: 700;
 }
 
-.pbb-chart-footer {
+.mdt-chart-footer {
   margin-top: 12px;
 }
 
-// .pbb-poll-content {
+// .mdt-poll-content {
 
 // }
 

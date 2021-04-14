@@ -1,29 +1,29 @@
 {% if S_USER_LOGGED_IN %}
-<div class="pbb-drawer-profile mdl-shadow--2dp">
-  <div class="pbb-drawer-profile-content">
-    <div class="pbb-drawer-profile-image">
+<div class="mdt-drawer-profile mdl-shadow--2dp">
+  <div class="mdt-drawer-profile-content">
+    <div class="mdt-drawer-profile-image">
       {% if CURRENT_USER_AVATAR %}
       {{ CURRENT_USER_AVATAR }}
       {% else %}
       <img src="{{ T_THEME_PATH }}/images/no_avatar.gif" alt="" />
       {% endif %}
     </div>
-    <div class="pbb-drawer-profile-typo">
-      <div class="pbb-drawer-profile-title">{{ S_USERNAME }}</div>
-      <div class="pbb-drawer-profile-text">
+    <div class="mdt-drawer-profile-typo">
+      <div class="mdt-drawer-profile-title">{{ S_USERNAME }}</div>
+      <div class="mdt-drawer-profile-text">
         <b>{{ lang('LAST_VISIT') }}</b><br>
         <span>{{ LAST_VISIT_YOU }}</span>
       </div>
     </div>
   </div>
-  <nav class="pbb-drawer-buttons">
-    <a id="drawer-profile-btn" title="{{ lang('PROFILE') }}" class="pbb-drawer-profile-btn mdl-js-ripple-effect" href="{{ U_PROFILE }}">
+  <nav class="mdt-drawer-buttons">
+    <a id="drawer-profile-btn" title="{{ lang('PROFILE') }}" class="mdt-drawer-profile-btn mdl-js-ripple-effect" href="{{ U_PROFILE }}">
       <i class="material-icons">miscellaneous_services</i>
       <span>{{ lang('PROFILE') }}</span>
     </a>
 
     {% if U_USER_PROFILE %}
-    <a id="drawer-user-profile-btn" title="{{ lang('READ_PROFILE') }}" class="pbb-drawer-profile-btn mdl-js-ripple-effect" href="{{ U_USER_PROFILE }}">
+    <a id="drawer-user-profile-btn" title="{{ lang('READ_PROFILE') }}" class="mdt-drawer-profile-btn mdl-js-ripple-effect" href="{{ U_USER_PROFILE }}">
       <i class="material-icons">person</i>
       <span>{{ lang('READ_PROFILE') }}</span>
     </a>
@@ -32,19 +32,19 @@
     {% EVENT navbar_header_profile_list_after %}
 
     {% if U_ACP %}
-    <a id="drawer-acp-btn" title="{{ lang('ACP') }}" class="pbb-drawer-profile-btn mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="{{ U_ACP }}">
+    <a id="drawer-acp-btn" title="{{ lang('ACP') }}" class="mdt-drawer-profile-btn mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="{{ U_ACP }}">
       <i class="material-icons">admin_panel_settings</i>
       <span>{{ lang('ACP_SHORT') }}</span>
     </a>
     {% endif %}
     {% if U_MCP %}
-    <a id="drawer-mcp-btn" title="{{ lang('MCP') }}" class="pbb-drawer-profile-btn mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="{{ U_MCP }}">
+    <a id="drawer-mcp-btn" title="{{ lang('MCP') }}" class="mdt-drawer-profile-btn mdl-button--raised mdl-button--primary mdl-js-ripple-effect" href="{{ U_MCP }}">
       <i class="material-icons">local_police</i>
       <span>{{ lang('MCP_SHORT') }}</span>
     </a>
     {% endif %}
     {% if S_USER_LOGGED_IN %}
-    <a id="drawer-logout-btn" title="{{ lang('LOGIN_LOGOUT') }}" class="pbb-drawer-profile-btn mdl-js-ripple-effect" href="{{ U_LOGIN_LOGOUT }}">
+    <a id="drawer-logout-btn" title="{{ lang('LOGIN_LOGOUT') }}" class="mdt-drawer-profile-btn mdl-js-ripple-effect" href="{{ U_LOGIN_LOGOUT }}">
       <i class="material-icons">logout</i>
       <span>{{ lang('LOGIN_LOGOUT') }}</span>
     </a>

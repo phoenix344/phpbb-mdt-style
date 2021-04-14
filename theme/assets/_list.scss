@@ -1,10 +1,10 @@
-.pbb-list {
+.mdt-list {
   @extend .mdl-list;
   margin: 0;
   padding: 0;
 }
 
-.pbb-list-content {
+.mdt-list-content {
   @extend .mdl-list__item;
   background-color: var(--grey-variant-1);
   height: auto;
@@ -13,7 +13,7 @@
     background-color: var(--grey-variant-2);
   }
 
-  .pbb-list-primary {
+  .mdt-list-primary {
     @extend .mdl-list__item-primary-content;
     display: grid;
     grid-template-columns: 56px 1fr;
@@ -22,7 +22,7 @@
   }  
 }
 
-.pbb-list-highlight {
+.mdt-list-highlight {
   @include shadow-2dp();
   transition: 0.1s ease-in-out;
   border-left: 5px solid rgba(var(--color-primary), 1);

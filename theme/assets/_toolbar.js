@@ -3,8 +3,8 @@
  * handle behavior of horizontal icon toolbars
  */
 
-const expandableClass = 'pbb-toolbar-expandable';
-const buttons = document.querySelectorAll('.pbb-toolbar-toggle');
+const expandableClass = 'mdt-toolbar-expandable';
+const buttons = document.querySelectorAll('.mdt-toolbar-toggle');
 const activeMenus = new Set();
 buttons.forEach(button => {
   const menu = button.nextElementSibling;

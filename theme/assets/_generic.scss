@@ -1,14 +1,12 @@
-.username {
-  @extend .mdl-chip;
-  @include typo-button;
-  @include shadow-2dp();
-  display: inline-flex;
-  align-items: center;
+.username, .mdt-link {
   text-decoration: none;
   transition: color 0.25s ease-in-out;
-  background-color: transparent;
+  color: rgba(#{$color-accent}, .87);
   &:hover {
-    @include shadow-3dp();
-    color: $text-link-color;
+    color: rgba(#{$color-accent}, 1);
   }
+}
+
+.mdt-container {
+  flex: 1;
 }

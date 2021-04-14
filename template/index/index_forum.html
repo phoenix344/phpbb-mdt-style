@@ -1,4 +1,4 @@
-<li class="pbb-list-content{% if row.S_UNREAD_FORUM %} pbb-list-highlight{% endif %}{% if row.FORUM_IMAGE %} pbb-forum-image{% endif %}">
+<li class="mdt-list-content{% if row.S_UNREAD_FORUM %} mdt-list-highlight{% endif %}{% if row.FORUM_IMAGE %} mdt-forum-image{% endif %}">
 
   {# private declaration #}
   {% set _STYLE_CHUNKS = row.FORUM_IMG_STYLE | split("_") %}
@@ -20,23 +20,23 @@
   {# if a custom forum image exist, it should be used #}
   {% if row.FORUM_IMAGE %}
   {% EVENT forumlist_body_forum_image_prepend %}
-  <picture class="pbb-forum-image-container">
+  <picture class="mdt-forum-image-container">
     {{ row.FORUM_IMAGE }}
   </picture>
   {% EVENT forumlist_body_forum_image_append %}
   {% endif %}
 
-  <div class="pbb-forum-container">
+  <div class="mdt-container mdt-forum-container">
 
     {# otherwise use material icons as a status icon #}
     {% if CONTENT_LOCK %}
-    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">lock_outline</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="mdt-forum-icon material-icons">lock_outline</i>
     {% elseif row.FORUM_IMG_STYLE eq "forum_link" %}
-    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">link</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="mdt-forum-icon material-icons">link</i>
     {% elseif CONTENT_READ %}
-    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">notes</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="mdt-forum-icon material-icons">notes</i>
     {% else %}
-    <i id="forum-{{ row.FORUM_ID }}" class="pbb-forum-icon material-icons">new_releases</i>
+    <i id="forum-{{ row.FORUM_ID }}" class="mdt-forum-icon material-icons">new_releases</i>
     {% endif %}
   
     {# additional information to posts/topics/clicks in forum are added in a tooltip #}
@@ -57,17 +57,17 @@
   
     {# headline appears here! #}
 
-    <h2 class="pbb-forum-headline"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h2>
+    <h2 class="mdt-forum-headline"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h2>
 
     {% if row.FORUM_DESC %}
-    <div class="pbb-forum-description">{{ row.FORUM_DESC }}</div>
+    <div class="mdt-forum-description">{{ row.FORUM_DESC }}</div>
     {% endif %}
 
-    <div class="pbb-forum-subforums">
+    <div class="mdt-forum-subforums">
       {% for sub in row.subforum %}
         {% EVENT forumlist_body_sub_link_prepend %}
-        <a class="pbb-subforum-chip{% if sub.S_UNREAD %} pbb-subforum-highlight{% endif %}" href="{{ sub.U_SUBFORUM }}">
-          <span class="pbb-subforum-icon">
+        <a class="mdt-subforum-chip{% if sub.S_UNREAD %} mdt-subforum-highlight{% endif %}" href="{{ sub.U_SUBFORUM }}">
+          <span class="mdt-subforum-icon">
             {% if sub.IS_LINK %}
             <i class="material-icons">link</i>
             {% endif %} 
@@ -75,7 +75,7 @@
             <i class="material-icons">notes</i>
             
           </span>
-          <span class="pbb-subforum-text">{{ sub.SUBFORUM_NAME }}</span>
+          <span class="mdt-subforum-text">{{ sub.SUBFORUM_NAME }}</span>
         </a>
         {% EVENT forumlist_body_sub_link_append %}
       {% endfor %}

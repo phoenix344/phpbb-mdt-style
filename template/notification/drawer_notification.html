@@ -1,12 +1,12 @@
 {% if notification.UNREAD %}
-<li class="pbb-notification pbb-notification-highlight">
+<li class="mdt-notification mdt-notification-highlight">
 {% else %}
-<li class="pbb-notification">
+<li class="mdt-notification">
 {% endif %}
   {% if notification.URL %}
-  <a href="{{ notification.URL }}" class="pbb-notification-content">
+  <a href="{{ notification.URL }}" class="mdt-notification-content">
   {% else %}
-  <span class="pbb-notification-content">
+  <span class="mdt-notification-content">
   {% endif %}
     {% if notification.AVATAR %}
     <span class="mdl-list__item-avatar">{{ notification.AVATAR }}</span>

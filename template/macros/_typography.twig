@@ -1,0 +1,30 @@
+{% macro categoryH2(title, url) %}
+<div class="mdt-category-title">
+  <h2 class="mdl-card__title-text">
+    {% if url %}
+    <a href="{{ url }}">{{ title }}</a>
+    {% else %}
+    {{ title }}
+    {% endif %}
+  </h2>
+</div>
+{% endmacro %}
+
+{% macro categoryH3(title, url) %}
+<div class="mdt-category-title">
+  <h3 class="mdl-card__title-text">
+    {% if url %}
+    <a href="{{ url }}">{{ title }}</a>
+    {% else %}
+    {{ title }}
+    {% endif %}
+  </h3>
+</div>
+{% endmacro %}
+
+{% macro categoryDesc(desc) %}
+{% if desc %}
+<div class="mdl-card__supporting-text">{{ desc }}</div>
+{% endif %}
+{% endmacro %}
+

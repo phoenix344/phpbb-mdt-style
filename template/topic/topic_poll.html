@@ -24,7 +24,7 @@
       {% endif %}
     </p>
 
-    <div class="pbb-poll">
+    <div class="mdt-poll">
       {% for option in poll_option %}
       {% EVENT viewtopic_body_option_before %}
       {% if S_DISPLAY_RESULTS %}
@@ -37,7 +37,7 @@
         {% endif %}
       </p>
       {% elseif S_CAN_VOTE %}
-      <div class="pbb-poll-item">
+      <div class="mdt-poll-item">
         {% if S_IS_MULTI_CHOICE %}
         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vote_{{ option.POLL_OPTION_ID }}">
           <input type="checkbox" id="vote_{{ option.POLL_OPTION_ID }}" class="mdl-checkbox__input" name="vote_id[]" value="{{ option.POLL_OPTION_ID }}"{% if option.POLL_OPTION_VOTED %} checked{% endif %}>
@@ -79,7 +79,7 @@
     {{ S_HIDDEN_FIELDS }}
   </form>
 
-  <div id="poll-chart" class="mdl-tabs__panel" class="pbb-chart">
+  <div id="poll-chart" class="mdl-tabs__panel" class="mdt-chart">
     <h3>
       {% EVENT viewtopic_body_poll_question_prepend %}
       {{ POLL_QUESTION }}
@@ -93,15 +93,15 @@
     </p>
 
     {% for option in poll_option %}
-    <div class="pbb-chart-content">
-      <div class="pbb-chart-label">{{ option.POLL_OPTION_CAPTION }}</div>
-      <div class="pbb-chart-percent">{{ option.POLL_OPTION_PERCENT }}</div>
-      <div class="pbb-chart-bar"></div>
+    <div class="mdt-chart-content">
+      <div class="mdt-chart-label">{{ option.POLL_OPTION_CAPTION }}</div>
+      <div class="mdt-chart-percent">{{ option.POLL_OPTION_PERCENT }}</div>
+      <div class="mdt-chart-bar"></div>
     </div>
     {% endfor %}
-    <div class="pbb-chart-footer">
+    <div class="mdt-chart-footer">
       {{ lang('TOTAL_VOTES') }}{{ lang('COLON') }}
-      <strong class="pbb-chart-total">{{ TOTAL_VOTES }}</strong>
+      <strong class="mdt-chart-total">{{ TOTAL_VOTES }}</strong>
     </div>
   </div>
 </div>

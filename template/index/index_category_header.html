@@ -1,9 +1,7 @@
-<section class="pbb-category">
-  <div class="pbb-category-title">
-    <h2 class="mdl-card__title-text"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h2>
-  </div>
-  {% if row.FORUM_DESC %}
-  <div class="mdl-card__supporting-text">{{ row.FORUM_DESC }}</div>
-  {% endif %}
-  <div class="pbb-category-content">
-    <ul class="pbb-list">
+{% import "macros/_typography.twig" as typo %}
+
+<section class="mdt-category">
+  {{ typo.categoryH2(row.FORUM_NAME, row.U_VIEWFORUM) }}
+  {{ typo.categoryDesc(row.FORUM_DESC) }}
+  <div class="mdt-category-content">
+    <ul class="mdt-list">

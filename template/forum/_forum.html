@@ -1,5 +1,5 @@
-<div class="pbb-category">
-  <div class="pbb-category-title">
+<div class="mdt-category">
+  <div class="mdt-category-title">
     <h2 class="mdl-card__title-text">
       {% EVENT viewforum_forum_name_prepend %}
       {{ FORUM_NAME }}
@@ -7,14 +7,14 @@
     </h2>
     {% EVENT viewforum_forum_title_after %}
   </div>
-  <div class="pbb-category-content">
-    <div class="pbb-forum-header">
+  <div class="mdt-category-content">
+    <div class="mdt-forum-header">
       {% if FORUM_DESC %}
-      <div class="pbb-forum-description">{{ FORUM_DESC }}</div>
+      <div class="mdt-forum-description">{{ FORUM_DESC }}</div>
       {% endif %}
 
       {% if MODERATORS %}
-      <div class="pbb-forum-moderation">
+      <div class="mdt-forum-moderation">
         <b>
           {% if S_SINGLE_MODERATOR %}
           {{ lang('MODERATOR') }}{{ lang('COLON') }}
@@ -26,7 +26,7 @@
       {% endif %}
 
       {% if S_FORUM_RULES %}
-      <div class="pbb-forum-rules">
+      <div class="mdt-forum-rules">
         {% if U_FORUM_RULES %}
         <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
           {{ lang('FORUM_RULES') }}
@@ -48,7 +48,7 @@
       {{ include('forum/forum_subforums_list.html') }}
       {% endif %}
       
-      <small class="pbb-subforums-unmark">
+      <small class="mdt-subforums-unmark">
         <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{{ lang('MARK_SUBFORUMS_READ') }}</a>
       </small>
     </div>
@@ -58,8 +58,8 @@
 {{ include('forum/forum_actions_top.html') }}
 
 {% if S_NO_READ_ACCESS %}
-<div class="pbb-forum">
-  <div class="pbb-forum-content">{{ lang('NO_READ_ACCESS') }}</div>
+<div class="mdt-forum">
+  <div class="mdt-forum-content">{{ lang('NO_READ_ACCESS') }}</div>
 </div>
 {% endif %}
 
@@ -87,12 +87,12 @@
   {% endfor %}
 {% else %}
   {% if S_IS_POSTABLE %}
-  <div class="pbb-forum">
-    <div class="pbb-forum-content">{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</div>
+  <div class="mdt-forum">
+    <div class="mdt-forum-content">{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</div>
   </div>
   {% elseif not S_HAS_SUBFORUM %}
-  <div class="pbb-forum">
-    <div class="pbb-forum-content">{{ lang('NO_FORUMS_IN_CATEGORY') }}</div>
+  <div class="mdt-forum">
+    <div class="mdt-forum-content">{{ lang('NO_FORUMS_IN_CATEGORY') }}</div>
   </div>
   {% endif %}
 {% endif %}

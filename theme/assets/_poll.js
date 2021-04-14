@@ -2,15 +2,15 @@ const form = document.querySelector('#poll-form');
 const chart = document.querySelector('#poll-chart');
 
 function reset() {
-  for (const child of chart.querySelectorAll('.pbb-chart-content')) {
-    child.querySelector('.pbb-chart-bar').style.width = '0';
-    child.querySelector('.pbb-chart-percent').innerHTML = '0%';
+  for (const child of chart.querySelectorAll('.mdt-chart-content')) {
+    child.querySelector('.mdt-chart-bar').style.width = '0';
+    child.querySelector('.mdt-chart-percent').innerHTML = '0%';
   }
 }
 
 function extractHtml() {
   const nums = [];
-  for (const child of chart.querySelectorAll('.pbb-chart-percent')) {
+  for (const child of chart.querySelectorAll('.mdt-chart-percent')) {
     if (child) {
       nums.push(parseInt(child.innerHTML, 10));
     }
@@ -23,10 +23,10 @@ function render(nums) {
     nums = extractHtml();
   }
   const max = Math.max(...nums);
-  const items = chart.querySelectorAll('.pbb-chart-content');
+  const items = chart.querySelectorAll('.mdt-chart-content');
   for (let i = 0; i < items.length; i++) {
     const child = items[i];
-    const bar = child.querySelector('.pbb-chart-bar');
+    const bar = child.querySelector('.mdt-chart-bar');
     if (bar) {
       bar.style.width = Math.round(nums[i] / max * 100) + '%';
     }
@@ -52,14 +52,14 @@ if (form && chart) {
       .then(json => {
         if (json.success) {
           const nums = [];
-          const items = chart.querySelectorAll('.pbb-chart-content');
+          const items = chart.querySelectorAll('.mdt-chart-content');
           for (const [id, count] of Object.entries(json.vote_counts)) {
             const percent = count / json.total_votes * 100;
             nums.push(nums);
-            items[id - 1].querySelector('.pbb-chart-percent').innerHTML = percent;
+            items[id - 1].querySelector('.mdt-chart-percent').innerHTML = percent;
           }
           for (const [id] of Object.entries(json.user_votes)) {
-            items[id - 1].classList.add('pbb-chart-voted');
+            items[id - 1].classList.add('mdt-chart-voted');
           }
           // TODO: can_vote should be used to determine if the user has still a vote
           // TODO: NO_VOTES not quite sure if this is needed...

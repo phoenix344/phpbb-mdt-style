@@ -2,7 +2,7 @@
 // Add transition to drawer when page is actually loaded.
 window.addEventListener('load', () => {
   const drawer = document.querySelector('.mdl-layout__drawer');
-  drawer.classList.add('pbb-drawer-delayed-transition');
+  drawer.classList.add('mdt-drawer-delayed-transition');
 });
 
 // On resize the drawer appears to rerender and
@@ -19,7 +19,7 @@ window.addEventListener('resize', () => {
   if (timeout === false) {
     timeout = true;
     const drawer = document.querySelector('.mdl-layout__drawer');
-    drawer.classList.remove('pbb-drawer-delayed-transition');
+    drawer.classList.remove('mdt-drawer-delayed-transition');
     setTimeout(resizeend, delta);
   }
 });
@@ -32,6 +32,6 @@ function resizeend() {
   } else {
     timeout = false;
     const drawer = document.querySelector('.mdl-layout__drawer');
-    drawer.classList.add('pbb-drawer-delayed-transition');
+    drawer.classList.add('mdt-drawer-delayed-transition');
   }
 }

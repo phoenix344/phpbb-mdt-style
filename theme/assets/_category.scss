@@ -1,7 +1,7 @@
 $category-horizontal-margin: 16px;
 $category-vertical-margin: 16px;
 
-.pbb-category {
+.mdt-category {
   @extend .mdl-card;
   @include shadow-3dp();
   margin: $category-vertical-margin $category-horizontal-margin;
@@ -9,7 +9,7 @@ $category-vertical-margin: 16px;
   min-height: 0;
 }
 
-.pbb-category-title {
+.mdt-category-title {
   @extend .mdl-card__title;
   background-color: rgba($color-primary, 0.87);
   color: var(--category-title-color);
@@ -24,7 +24,7 @@ $category-vertical-margin: 16px;
   }
 }
 
-.pbb-category-content {
+.mdt-category-content {
   @extend .mdl-card__actions, .mdl-card--border;
   padding: 0;
 }

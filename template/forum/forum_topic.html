@@ -1,4 +1,4 @@
-<li class="pbb-topic">
+<li class="mdt-list-content">
   {% EVENT viewforum_body_topic_row_prepend %}
 
   {# private declaration #}
@@ -22,7 +22,9 @@
 
   {% EVENT topiclist_row_prepend %}
 
-  <a class="pbb-topic-icon{% if not CONTENT_READ %} mdl-color-text--primary{% endif %} material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">
+
+
+  <a class="mdt-topic-icon{% if not CONTENT_READ %} mdl-color-text--primary{% endif %} material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">
     {% if CONTENT_TYPE == 'global' %}
     announcement
     {% elseif CONTENT_TYPE == 'announce' %}
@@ -34,12 +36,12 @@
     {% endif %}  
   </a>
 
-  <div class="pbb-topic-content">
+  <div class="mdt-topic-content">
     {% if row.U_VIEW_TOPIC %}
-    <h2 class="pbb-topic-headline">
+    <h2 class="mdt-topic-headline">
       <a href="{{ row.U_VIEW_TOPIC }}">{{ row.TOPIC_TITLE }}</a>
       {% if row.pagination %}
-      <span class="pbb-topic-paging mdl-chip mdl-chip--contact">
+      <span class="mdt-topic-paging mdl-chip mdl-chip--contact">
         <span class="mdl-chip__text">
           {% for paging in row.pagination %}
             {% if paging.S_IS_PREV %}
@@ -57,7 +59,7 @@
       {% endif %}
     </h2>
     {% else %}
-    <h2 class="pbb-topic-headline">
+    <h2 class="mdt-topic-headline">
       {{ row.TOPIC_TITLE }}
     </h2>
     {% endif %}
@@ -68,9 +70,9 @@
   </div>
 
   {% if not S_IS_BOT %}
-  <div class="pbb-topic-addition">
+  <div class="mdt-topic-addition">
     {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED or row.S_TOPIC_DELETED or row.S_TOPIC_REPORTED %}
-    <div class="pbb-topic-control">
+    <div class="mdt-topic-control">
       {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
       <a href="{{ row.U_MCP_QUEUE }}">
         {% if row.S_TOPIC_UNAPPROVED %}
@@ -97,7 +99,7 @@
     </div>
     {% endif %}
 
-    <div class="pbb-topic-info">
+    <div class="mdt-topic-info">
       <span>
         <span class="mdl-chip__text">
           {% if row.S_HAS_POLL %}

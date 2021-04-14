@@ -1,5 +1,5 @@
 {% if S_USER_LOGGED_IN %}
-<button id="appbar-profile-btn" class="pbb-profile-btn mdl-js-button mdl-js-ripple-effect">
+<button id="appbar-profile-btn" class="mdt-profile-btn mdl-js-button mdl-js-ripple-effect">
   {% if CURRENT_USER_AVATAR %}
   {{ CURRENT_USER_AVATAR }}
   {% else %}
@@ -8,7 +8,7 @@
 </button>
 <nav class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="appbar-profile-btn">
   {% EVENT overall_header_searchbox_after %}
-  <b class="pbb-menu__headline">{{ S_USERNAME }}</b>
+  <b class="mdt-menu__headline">{{ S_USERNAME }}</b>
   {% if U_RESTORE_PERMISSIONS %}
   <a class="mdl-menu__item" href="{{ U_RESTORE_PERMISSIONS }}">{{ lang('RESTORE_PERMISSIONS') }}</a>
   {% endif %}
@@ -49,7 +49,7 @@
   {% endif %}
 </nav>
 {% else %}
-<button id="appbar-login-btn" class="pbb-profile-btn mdl-js-button mdl-js-ripple-effect">
+<button id="appbar-login-btn" class="mdt-profile-btn mdl-js-button mdl-js-ripple-effect">
   <i class="material-icons">account_circle</i>
 </button>
 <dialog class="mdl-dialog" id="appbar-login-dialog">
@@ -77,7 +77,7 @@
       <button type="button" class="mdl-button close mdl-js-button mdl-button--raised mdl-js-ripple-effect">{{ lang('CANCEL') }}</button>
     </div>
   </form>
-  <div class="pbb-modal-links">
+  <div class="mdt-modal-links">
     {% if U_SEND_PASSWORD %}
     <a href="{{ U_SEND_PASSWORD }}">{{ lang('FORGOT_PASS') }}</a>
     {% endif %}
