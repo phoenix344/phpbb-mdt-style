@@ -23,6 +23,7 @@
     --grey-variant-3: rgba(var(--color-grey-700), 0.2);
     --category-background-color: #212121;
     --category-title-color: #fff;
+    --forum-image-overlay-color: #fff;
     --forum-link-color: rgb(var(--color-accent));
     --dialog-bg-color: #212121;
     --dialog-text-color: hsla(0, 0%, 100%, 0.87);
@@ -54,6 +55,7 @@
     --grey-variant-3: rgb(var(--color-grey-400));
     --category-background-color: #fff;
     --category-title-color: #fff;
+    --forum-image-overlay-color: #fff;
     --forum-link-color: var(--text-color-primary);
     --dialog-bg-color: #fff;
     --dialog-text-color: rgba(0, 0, 0, 0.87);
@@ -84,6 +86,7 @@
   --grey-variant-3: rgba(var(--color-grey-700), 0.2);
   --category-background-color: #212121;
   --category-title-color: #fff;
+  --forum-image-overlay-color: #fff;
   --forum-link-color: rgb(var(--color-accent));
   --dialog-bg-color: #212121;
   --dialog-text-color: hsla(0, 0%, 100%, 0.87);
@@ -113,6 +116,7 @@
   --grey-variant-3: rgb(var(--color-grey-400));
   --category-background-color: #fff;
   --category-title-color: #fff;
+  --forum-image-overlay-color: #fff;
   --forum-link-color: var(--text-color-primary);
   --dialog-bg-color: #fff;
   --dialog-text-color: rgba(0, 0, 0, 0.87);

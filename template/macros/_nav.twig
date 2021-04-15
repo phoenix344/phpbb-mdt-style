@@ -1,0 +1,41 @@
+{# link with or without material design icon #}
+{% macro link(url, text, icon, cssClass, accessKey) %}
+<a class="mdt-link{% if cssClass %} {{ cssClass }}{% endif %}" href="{{ url }}"{% if accessKey %} accesskey="{{ accessKey }}"{% endif %}>
+  {% if icon %}<i class="material-icons">{{ icon }}</i>{% endif %}
+  {{ text }}
+</a>
+{% endmacro %}
+
+{# link  with or without image #}
+{% macro linkImg(url, text, image, cssClass, accessKey) %}
+<a{% if cssClass %} class="mdt-link{{ cssClass }}"{% endif %} href="{{ url }}"{% if accessKey %} accesskey="{{ accessKey }}"{% endif %}>
+  {% if image %}<img src="{{ image }}" alt="">{% endif %}
+  {{ text }}
+</a>
+{% endmacro %}
+
+{% macro jumpbox(btnTitle, forums, id, contentDirection) %}
+<div class="mdt-jumpbox">
+  <button id="nav-jumpbox-{{ id }}" class="mdt-jumpbox-btn mdl-js-button mdl-js-ripple-effect">
+    {{ btnTitle }}
+    <i class="material-icons">chevron_right</i>
+  </button>
+  <nav class="mdt-jumpbox-content mdl-menu--bottom-right mdt-jumpbox-{{ contentDirection }} mdl-js-menu mdl-js-ripple-effect" for="nav-jumpbox-{{ id }}">
+    {% for forum in forums %}
+    {% if forum.FORUM_ID neq -1 %}
+    {% set _level = forum.level ? forum.level|length : 0 %}
+    <a href="{{ forum.LINK }}" class="mdt-jumpbox-spacer-{{ _level }} mdt-jumpbox-{% if forum.S_IS_CAT %}category{% else %}forum{% endif %}">
+      {% if _level > 0 %}
+      {% if contentDirection eq 'rtl' %}
+      <i class="material-icons">subdirectory_arrow_left</i>
+      {% else %}
+      <i class="material-icons">subdirectory_arrow_right</i>
+      {% endif %}
+      {% endif %}
+      {{ forum.FORUM_NAME }}
+    </a>
+    {% endif %}
+    {% endfor %}
+  </nav>
+</div>
+{% endmacro %}

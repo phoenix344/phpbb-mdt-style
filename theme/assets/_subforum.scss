@@ -23,14 +23,16 @@
   @include shadow-2dp();
   font-size: $chip-font-size;
   text-decoration: none;
-  transition: color 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
   &:hover {
     @include shadow-3dp();
     color: rgba(#{$color-accent}, .87);
   }
   &.mdt-subforum-highlight {
-    color: rgba(#{$color-accent}, .54);
+    animation: text-accent-easing 1.7s linear 0s infinite;
+    // color: rgba(#{$color-accent}, .54);
     &:hover {
+      animation: none;
       color: rgba(#{$color-accent}, .87);
     }
     .mdt-subforum-text {

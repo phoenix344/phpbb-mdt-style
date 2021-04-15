@@ -11,6 +11,7 @@ $material-design-icons-font-directory-path: "../fonts/";
 
 @import "generic";
 @import "list";
+@import "jumpbox";
 @import "drawer";
 @import "category";
 @import "forum";
@@ -328,7 +329,8 @@ $profile-btn-font-size: 12px;
 }
 
 .mdt-topic-addition {
-  grid-column: 3;
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .mdt-topic-icon {

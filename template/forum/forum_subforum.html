@@ -1,4 +1,4 @@
-<li class="mdt-list-content{% if row.S_UNREAD_FORUM %} mdt-list-highlight{% endif %}{% if row.FORUM_IMAGE %} mdt-forum-image{% endif %}">
+<li class="mdt-list-content{% if row.S_UNREAD_FORUM %} mdt-list-highlight{% endif %}{% if row.FORUM_IMAGE %} mdt-forum-has-image{% endif %}">
 
   {# private declaration #}
   {% set _STYLE_CHUNKS = row.FORUM_IMG_STYLE | split("_") %}

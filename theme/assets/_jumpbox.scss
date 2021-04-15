@@ -1,0 +1,45 @@
+
+$jumpbox-max-height: 184px;
+
+.mdt-jumpbox .mdl-menu__container {
+  margin-right: 16px;
+}
+
+.mdt-jumpbox-btn {
+  @extend .mdl-button, .mdl-button--raised;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.mdt-jumpbox-content {
+  @extend .mdl-menu;
+  max-height: $jumpbox-max-height;
+  overflow: auto;
+}
+
+[class^="mdt-jumpbox-spacer"] {
+  @extend .mdl-menu__item;
+  height: 32px;
+  line-height: 32px;
+}
+
+@for $index from 1 through 10 {
+  .mdt-jumpbox-ltr {
+    .mdt-jumpbox-spacer-#{$index} {
+      padding-left: ($index * 24px)
+    }
+  }
+  .mdt-jumpbox-rtl {
+    .mdt-jumpbox-spacer-#{$index} {
+      padding-right: ($index * 24px);
+    }
+  }
+}
+
+.mdt-jumpbox-category {
+  font-weight: 700;
+}
+
+.mdt-jumpbox-forum {
+  font-weight: 400;
+}

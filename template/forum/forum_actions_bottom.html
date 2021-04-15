@@ -1,5 +1,5 @@
 {% if S_DISPLAY_POST_INFO or pagination or TOTAL_POSTS or TOTAL_TOPICS %}
-<div class="mdt-forum-actions">
+<div class="mdt-actions mdt-forum-actions">
   {% if not S_IS_BOT and S_DISPLAY_POST_INFO %}
   <div class="mdt-forum-buttons">
     {% EVENT viewforum_buttons_top_before %}
@@ -37,7 +37,7 @@
   </div>
 </div>
 
-<div class="mdt-forum-actions">
+<div class="mdt-actions mdt-forum-actions">
   <div class="mdt-forum-actions-controls">
     <div class="mdt-forum-pagination">
       {% if not S_IS_BOT and U_MARK_TOPICS and row %}

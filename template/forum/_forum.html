@@ -1,3 +1,41 @@
+{% import "macros/_nav.twig" as nav %}
+
+<div class="mdt-actions">
+  <nav class="mdt-breadcrumb">
+    {% if U_SITE_HOME %}
+    {{ nav.link(U_SITE_HOME, L_SITE_HOME, 'home') }}
+    <i class="material-icons">keyboard_arrow_right</i>
+    {% endif %}
+
+    {% EVENT overall_header_breadcrumb_prepend %}
+    {{ nav.link(U_INDEX, L_INDEX, U_SITE_HOME ? '' : 'home', '', 'h') }}
+
+    {% set navlink_position = 1 %}
+    {% set navlink_length = navlinks|length %}
+    {% for navlink in navlinks %}
+      {% set NAVLINK_NAME = navlink.BREADCRUMB_NAME | default(navlink.FORUM_NAME) %}
+      {% set NAVLINK_LINK = navlink.U_BREADCRUMB | default(navlink.U_VIEW_FORUM) %}
+
+      <i class="material-icons">keyboard_arrow_right</i>
+
+      {% EVENT overall_header_navlink_prepend %}
+      {% if navlink_length == navlink_position %}
+      <span>{{ NAVLINK_NAME }}</span>
+      {% else %}
+      {{ nav.link(NAVLINK_LINK, NAVLINK_NAME) }}
+      {% endif %}
+      {% EVENT overall_header_navlink_append %}
+      {% set navlink_position = navlink_position + 1 %}
+    {% endfor %}
+
+    {% EVENT overall_header_breadcrumbs_after %}
+  </nav>
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__header', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>
+
 <div class="mdt-category">
   <div class="mdt-category-title">
     <h2 class="mdl-card__title-text">
@@ -42,15 +80,14 @@
       {% endif %}
 
       {% if S_HAS_SUBFORUM %}
-      {% if not S_IS_BOT and U_MARK_FORUMS %}
-
-      {% endif %}
       {{ include('forum/forum_subforums_list.html') }}
-      {% endif %}
-      
+      {% if not S_IS_BOT and U_MARK_FORUMS %}
       <small class="mdt-subforums-unmark">
         <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{{ lang('MARK_SUBFORUMS_READ') }}</a>
       </small>
+      {% endif %}
+      {% endif %}
+      
     </div>
   </div>
 </div>
@@ -98,3 +135,39 @@
 {% endif %}
 
 {{ include('forum/forum_actions_bottom.html') }}
+
+<div class="mdt-actions">
+  <nav class="mdt-breadcrumb">
+    {% if U_SITE_HOME %}
+    {{ nav.link(U_SITE_HOME, L_SITE_HOME, 'home') }}
+    <i class="material-icons">keyboard_arrow_right</i>
+    {% endif %}
+
+    {% EVENT overall_header_breadcrumb_prepend %}
+    {{ nav.link(U_INDEX, L_INDEX, U_SITE_HOME ? '' : 'home', '', 'h') }}
+
+    {% set navlink_position = 1 %}
+    {% set navlink_length = navlinks|length %}
+    {% for navlink in navlinks %}
+      {% set NAVLINK_NAME = navlink.BREADCRUMB_NAME | default(navlink.FORUM_NAME) %}
+      {% set NAVLINK_LINK = navlink.U_BREADCRUMB | default(navlink.U_VIEW_FORUM) %}
+
+      <i class="material-icons">keyboard_arrow_right</i>
+
+      {% EVENT overall_header_navlink_prepend %}
+      {% if navlink_length == navlink_position %}
+      <span>{{ NAVLINK_NAME }}</span>
+      {% else %}
+      {{ nav.link(NAVLINK_LINK, NAVLINK_NAME) }}
+      {% endif %}
+      {% EVENT overall_header_navlink_append %}
+      {% set navlink_position = navlink_position + 1 %}
+    {% endfor %}
+
+    {% EVENT overall_header_breadcrumbs_after %}
+  </nav>
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__footer', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>

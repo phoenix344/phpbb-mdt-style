@@ -1,12 +1,63 @@
+
+// Small devices (landscape phones, 576px and up)
+$breakpoint-phones-landscape: 576px;
+
+// Medium devices (tablets, 768px and up)
+$breakpoint-tablets: 768px;
+
+// Large devices (desktops, 992px and up)
+$breakpoint-desktops: 992px;
+
+// Extra large devices (large desktops, 1200px and up)
+$breakpoint-large-desktops: 1200px;
+
+@keyframes text-accent-easing {
+  0% { color: rgba(#{$color-accent}, 0.87); }
+  50% { color: rgba(#{$color-accent}, 0.74); }
+  100% { color: rgba(#{$color-accent}, 0.87); }
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+time {
+  color: rgba(var(--color-fg), 0.54);
+}
+
 .username, .mdt-link {
+  display: inline-flex;
   text-decoration: none;
   transition: color 0.25s ease-in-out;
   color: rgba(#{$color-accent}, .87);
   &:hover {
     color: rgba(#{$color-accent}, 1);
   }
+  .material-icons {
+    padding-right: 4px;
+    font-size: inherit;
+    line-height: inherit;
+  }
 }
 
 .mdt-container {
   flex: 1;
+}
+
+.mdt-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px;
+}
+
+.mdt-breadcrumb {
+  > * {
+    line-height: 20px;
+    vertical-align: middle;
+    white-space: nowrap;
+    .material-icons {
+      font-size: 20px;
+    }
+  }
 }

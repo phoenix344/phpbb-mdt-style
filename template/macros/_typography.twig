@@ -28,3 +28,22 @@
 {% endif %}
 {% endmacro %}
 
+{% macro headline2(title, url) %}
+<h2 class="mdt-forum-headline">
+  {% if url %}
+  <a href="{{ url }}">{{ title }}</a>
+  {% else %}
+  {{ title }}
+  {% endif %}
+</h2>
+{% endmacro %}
+
+{% macro headline3(title, url) %}
+<h3 class="mdt-forum-headline">
+  {% if url %}
+  <a href="{{ url }}">{{ title }}</a>
+  {% else %}
+  {{ title }}
+  {% endif %}
+</h3>
+{% endmacro %}
