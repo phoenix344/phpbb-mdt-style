@@ -1,14 +1,12 @@
-<div class="pbb-category">
-  <div class="pbb-category-title">
-    <h3 class="mdl-card__title-text">
-      {% if S_DISPLAY_ACTIVE %}
-      {{ lang('ACTIVE_TOPICS') }}
-      {% elseif row.S_TOPIC_TYPE_SWITCH and (row.S_POST_ANNOUNCE or row.S_POST_GLOBAL) %}
-      {{ lang('ANNOUNCEMENTS') }}
-      {% else %}
-      {{ lang('TOPICS') }}
-      {% endif %}
-    </h3>
-  </div>
-  <div class="pbb-category-content">
-    <ul class="pbb-forum-list">
+{% import "macros/_typography.twig" as typo %}
+
+<div class="mdt-category">
+  {% if S_DISPLAY_ACTIVE %}
+  {{ typo.categoryH3(lang('ACTIVE_TOPICS')) }}
+  {% elseif row.S_TOPIC_TYPE_SWITCH and (row.S_POST_ANNOUNCE or row.S_POST_GLOBAL) %}
+  {{ typo.categoryH3(lang('ANNOUNCEMENTS')) }}
+  {% else %}
+  {{ typo.categoryH3(lang('TOPICS')) }}
+  {% endif %}
+  <div class="mdt-category-content">
+    <ul class="mdt-list">

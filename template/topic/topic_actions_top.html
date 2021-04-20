@@ -1,20 +1,23 @@
-{% if S_DISPLAY_POST_INFO or pagination or TOTAL_POSTS or TOTAL_TOPICS %}
-<div class="mdt-actions mdt-forum-actions">
+<div class="mdt-forum-actions">
+  {% EVENT viewtopic_buttons_top_before %}
+
   {% if not S_IS_BOT and S_DISPLAY_POST_INFO %}
   <div class="mdt-forum-buttons">
-    {% EVENT viewforum_buttons_top_before %}
-    <a class="mdt-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
+    <a class="mdt-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_REPLY_TOPIC }}">
       {% if S_IS_LOCKED %}
       <span class="material-icons">lock</span>
-      {{ lang('BUTTON_FORUM_LOCKED') }}
+      {{ lang('BUTTON_TOPIC_LOCKED') }}
       {% else %}
-      <span class="material-icons">topic</span>
-      {{ lang('BUTTON_NEW_TOPIC') }}
+      <span class="material-icons">post_add</span>
+      {{ lang('BUTTON_POST_REPLY') }}
       {% endif %}
     </a>
-    {% EVENT viewforum_buttons_top_after %}
   </div>
   {% endif %}
+
+  {% EVENT viewtopic_buttons_top_after %}
+  {{ include('topic/topic_actions_toolbar.html') }}
+  {% EVENT viewtopic_dropdown_top_custom %}
 
   <div class="mdt-forum-actions-controls">
     {% if S_DISPLAY_SEARCHBOX %}
@@ -35,20 +38,22 @@
       <span class="material-icons">settings</span>
     </a>
     {% endif %}
-
-    <div class="mdt-forum-pagination">
-      {% if not S_IS_BOT and U_MARK_TOPICS and row %}
-      <a href="{{ U_MARK_TOPICS }}" class="mark" accesskey="m" data-ajax="mark_topics_read">
-        {{ lang('MARK_TOPICS_READ') }}
-      </a> &bull;
-      {% endif %}
-      {{ TOTAL_TOPICS }}
-      {% if pagination %}
-        {% include('pagination.html') %}
-      {% else %}
-        &bull; {{ PAGE_NUMBER }}
-      {% endif %}
-    </div>
   </div>
+
+  {% if pagination or TOTAL_POSTS %}
+  <div class="mdt-forum-pagination">
+    {% if not S_IS_BOT and U_MARK_TOPICS and row %}
+    <a href="{{ U_VIEW_UNREAD_POST }}" class="mark">
+      {{ lang('VIEW_UNREAD_POST') }}
+    </a> &bull;
+    {% endif %}
+    {{ TOTAL_POSTS }}
+    {% if pagination %}
+      {% include('pagination.html') %}
+    {% else %}
+      &bull; {{ PAGE_NUMBER }}
+    {% endif %}
+  </div>
+  {% endif %}
+  {% EVENT viewtopic_body_pagination_top_after %}
 </div>
-{% endif %}

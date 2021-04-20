@@ -1,0 +1,30 @@
+$category-horizontal-margin: 16px;
+$category-vertical-margin: 16px;
+
+.mdt-category {
+  @extend .mdl-card;
+  @include shadow-3dp();
+  margin: $category-vertical-margin $category-horizontal-margin;
+  width: auto;
+  min-height: 0;
+}
+
+.mdt-category-title {
+  @extend .mdl-card__title;
+  background-color: rgba($color-primary, 0.87);
+  color: var(--category-title-color);
+  a {
+    color: var(--category-title-color);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.mdt-category-content {
+  @extend .mdl-card__actions, .mdl-card--border;
+  padding: 0;
+}

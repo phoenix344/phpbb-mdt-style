@@ -4,10 +4,10 @@
  */
  @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: 211, 47, 47;
-    --color-primary-dark: 183, 28, 28;
-    --color-accent: 255, 152, 0;
-    --color-accent-dark: 239, 108, 0;
+    --color-primary: 112, 72, 232;
+    --color-primary-dark: 95, 61, 196;
+    --color-accent: 127, 255, 0;
+    --color-accent-dark: 102, 205, 0;
     --color-primary-contrast: 255, 255, 255;
     --color-accent-contrast: 0, 0, 0;
     --color-bg: 17, 17, 17;
@@ -19,13 +19,15 @@
     --text-color: rgb(var(--color-fg));
     --text-color-inverse: rgb(var(--color-fg-inverse));
     --grey-variant-1: rgb(var(--color-grey-900));
-    --grey-variant-2: rgba(var(--color-grey-900), 0.95);
+    --grey-variant-2: rgba(var(--color-grey-900), 0.85);
     --grey-variant-3: rgba(var(--color-grey-700), 0.2);
     --category-background-color: #212121;
     --category-title-color: #fff;
+    --forum-image-overlay-color: #fff;
     --forum-link-color: rgb(var(--color-accent));
     --dialog-bg-color: #212121;
     --dialog-text-color: hsla(0, 0%, 100%, 0.87);
+    --list-highlight-bg-color: rgba(var(--color-grey-900), 0.15);
   }
 }
 
@@ -34,10 +36,10 @@
  */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-primary: 183, 28, 28;
-    --color-primary-dark: 183, 28, 28;
-    --color-accent: 239, 108, 0;
-    --color-accent-dark: 230, 81, 0;
+    --color-primary: 112, 72, 232;
+    --color-primary-dark: 95, 61, 196;
+    --color-accent: 56, 142, 60;
+    --color-accent-dark: 27, 94, 32;
     --color-primary-contrast: 255, 255, 255;
     --color-accent-contrast: 255, 255, 255;
     --color-bg: 255, 255, 255;
@@ -49,13 +51,15 @@
     --text-color: rgb(var(--color-fg));
     --text-color-inverse: rgb(var(--color-fg-inverse));
     --grey-variant-1: rgb(var(--color-grey-100));
-    --grey-variant-2: rgb(var(--color-bg));
-    --grey-variant-3: rgb(var(--color-grey-200));
+    --grey-variant-2: rgb(var(--color-grey-200));
+    --grey-variant-3: rgb(var(--color-grey-400));
     --category-background-color: #fff;
     --category-title-color: #fff;
+    --forum-image-overlay-color: #fff;
     --forum-link-color: var(--text-color-primary);
     --dialog-bg-color: #fff;
     --dialog-text-color: rgba(0, 0, 0, 0.87);
+    --list-highlight-bg-color: rgb(255, 255, 255);
   }
 }
 
@@ -63,10 +67,10 @@
  * User defined dark mode Color Scheme on WebSite
  */
  :root[color-scheme="dark"] {
-  --color-primary: 211, 47, 47;
-  --color-primary-dark: 183, 28, 28;
-  --color-accent: 255, 152, 0;
-  --color-accent-dark: 239, 108, 0;
+  --color-primary: 112, 72, 232;
+  --color-primary-dark: 95, 61, 196;
+  --color-accent: 127, 255, 0;
+  --color-accent-dark: 102, 205, 0;
   --color-primary-contrast: 255, 255, 255;
   --color-accent-contrast: 0, 0, 0;
   --color-bg: 17, 17, 17;
@@ -78,23 +82,25 @@
   --text-color: rgb(var(--color-fg));
   --text-color-inverse: rgb(var(--color-fg-inverse));
   --grey-variant-1: rgb(var(--color-grey-900));
-  --grey-variant-2: rgba(var(--color-grey-900), 0.95);
+  --grey-variant-2: rgba(var(--color-grey-900), 0.85);
   --grey-variant-3: rgba(var(--color-grey-700), 0.2);
   --category-background-color: #212121;
   --category-title-color: #fff;
+  --forum-image-overlay-color: #fff;
   --forum-link-color: rgb(var(--color-accent));
   --dialog-bg-color: #212121;
   --dialog-text-color: hsla(0, 0%, 100%, 0.87);
+  --list-highlight-bg-color: rgba(var(--color-grey-900), 0.15);
 }
 
 /**
  * User defined light mode Color Scheme on WebSite
  */
 :root[color-scheme="light"] {
-  --color-primary: 183, 28, 28;
-  --color-primary-dark: 183, 28, 28;
-  --color-accent: 239, 108, 0;
-  --color-accent-dark: 230, 81, 0;
+  --color-primary: 112, 72, 232;
+  --color-primary-dark: 95, 61, 196;
+  --color-accent: 56, 142, 60;
+  --color-accent-dark: 27, 94, 32;
   --color-primary-contrast: 255, 255, 255;
   --color-accent-contrast: 255, 255, 255;
   --color-bg: 255, 255, 255;
@@ -106,11 +112,13 @@
   --text-color: rgb(var(--color-fg));
   --text-color-inverse: rgb(var(--color-fg-inverse));
   --grey-variant-1: rgb(var(--color-grey-100));
-  --grey-variant-2: rgb(var(--color-bg));
-  --grey-variant-3: rgb(var(--color-grey-200));
+  --grey-variant-2: rgb(var(--color-grey-200));
+  --grey-variant-3: rgb(var(--color-grey-400));
   --category-background-color: #fff;
   --category-title-color: #fff;
+  --forum-image-overlay-color: #fff;
   --forum-link-color: var(--text-color-primary);
   --dialog-bg-color: #fff;
   --dialog-text-color: rgba(0, 0, 0, 0.87);
+  --list-highlight-bg-color: rgb(255, 255, 255);
 }

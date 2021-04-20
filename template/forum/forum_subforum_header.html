@@ -1,7 +1,9 @@
 {% import "macros/_typography.twig" as typo %}
 
 <section class="mdt-category">
+  {% if row.S_IS_CAT %}
   {{ typo.categoryH2(row.FORUM_NAME, row.U_VIEWFORUM) }}
   {{ typo.categoryDesc(row.FORUM_DESC) }}
+  {% endif %}
   <div class="mdt-category-content">
     <ul class="mdt-list">

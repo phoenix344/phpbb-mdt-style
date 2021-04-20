@@ -1,0 +1,67 @@
+{% if U_WATCH_TOPIC or U_BOOKMARK_TOPIC or U_BUMP_TOPIC or U_EMAIL_TOPIC or U_PRINT_TOPIC %}
+<div class="mdt-toolbar">
+  <button class="mdt-toolbar-toggle mdl-js-button">
+    <i class="material-icons">more_horiz</i>
+  </button>
+  <ul class="mdt-toolbar-content">
+    {% EVENT viewtopic_topic_tools_before %}
+    {% if U_WATCH_TOPIC %}
+    <li>
+      <a id="topic-subscription-top" class="mdl-button mdl-button--icon{% if S_WATCHING_TOPIC %} mdl-button--colored{% endif %} mdl-js-button" href="{{ U_WATCH_TOPIC }}">
+        <i class="material-icons">art_track</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-subscription-top">
+        <span class="mdl-tooltip__text">{{ S_WATCH_TOPIC_TITLE }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_BOOKMARK_TOPIC %}
+    <li>
+      <a id="topic-bookmark-top" class="mdl-button mdl-button--icon{% if S_BOOKMARKED_TOPIC %} mdl-button--colored{% endif %} mdl-js-button" href="{{ U_BOOKMARK_TOPIC }}">
+        <i class="material-icons">
+          {% if S_BOOKMARKED_TOPIC %}
+          bookmark
+          {% else %}
+          bookmark_outline
+          {% endif %}
+        </i>
+      </a>
+      <span class="mdl-tooltip" for="topic-bookmark-top">
+        <span class="mdl-tooltip__text">{{ lang('BOOKMARK_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_BUMP_TOPIC %}
+    <li>
+      <a id="topic-bump-top" class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_BUMP_TOPIC }}">
+        <i class="material-icons">recommend</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-bump-top">
+        <span class="mdl-tooltip__text">{{ lang('BUMP_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_EMAIL_TOPIC %}
+    <li>
+      <a id="topic-email-top" class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_EMAIL_TOPIC }}">
+        <i class="material-icons">email</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-email-top">
+        <span class="mdl-tooltip__text">{{ lang('EMAIL_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% if U_PRINT_TOPIC %}
+    <li>
+      <a id="topic-print-top" class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_PRINT_TOPIC }}">
+        <i class="material-icons">print</i>
+      </a>
+      <span class="mdl-tooltip" for="topic-print-top">
+        <span class="mdl-tooltip__text">{{ lang('PRINT_TOPIC') }}</span>
+      </span>
+    </li>
+    {% endif %}
+    {% EVENT viewtopic_topic_tools_after %}
+  </ul>
+</div>
+{% endif %}

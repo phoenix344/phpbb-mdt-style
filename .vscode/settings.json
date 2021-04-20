@@ -4,6 +4,6 @@
     "editor.formatOnSave": true,
     "eslint.format.enable": true,
     "terminal.integrated.env.linux": {
-      "PATH": "/home/phoenix/.local/share/ungoogled-chromium/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/snap/bin:~/md-theme.com/styles/mdt/.bin"
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/snap/bin:~/md-theme.com/styles/mdt/.bin"
     }
 }

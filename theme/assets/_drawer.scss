@@ -1,0 +1,12 @@
+
+// By default the drawer is swiping in on page load.
+// I delay the integration of transition to avoid this
+// animation.
+.mdl-layout__drawer {
+  transition: none;
+  &.mdt-drawer-delayed-transition {
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: transform;
+  }
+}

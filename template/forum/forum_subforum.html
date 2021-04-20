@@ -16,17 +16,17 @@
     {% set CONTENT_SUBFORUM = _STYLE_CHUNKS[2] == "subforum" %}
   {% endif %}
 
-  <div class="mdt-container mdt-forum-container{% if not row.LAST_POST_TIME %} mdt-forum-nocorner{% endif %}">
 
-    {# if a custom forum image exist, it should be used #}
-    {% if row.FORUM_IMAGE %}
-    {% EVENT forumlist_body_forum_image_prepend %}
-    <picture class="mdt-forum-image-container">
-      {# TODO: allow multiple image sources #}
-      {{ row.FORUM_IMAGE }}
-    </picture>
-    {% EVENT forumlist_body_forum_image_append %}
-    {% endif %}
+  {# if a custom forum image exist, it should be used #}
+  {% if row.FORUM_IMAGE %}
+  {% EVENT forumlist_body_forum_image_prepend %}
+  <picture class="mdt-forum-image-container">
+    {{ row.FORUM_IMAGE }}
+  </picture>
+  {% EVENT forumlist_body_forum_image_append %}
+  {% endif %}
+
+  <div class="mdt-subforum-container">
 
     {# otherwise use material icons as a status icon #}
     {% if CONTENT_LOCK %}
@@ -57,21 +57,21 @@
   
     {# headline appears here! #}
 
-    <h2 class="mdt-forum-headline"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h2>
+    <h3 class="mdt-forum-headline"><a href="{{ row.U_VIEWFORUM }}">{{ row.FORUM_NAME }}</a></h3>
 
     {% if row.FORUM_DESC %}
-    <div class="mdt-forum-full-row mdt-forum-description">{{ row.FORUM_DESC }}</div>
+    <div class="mdt-forum-description">{{ row.FORUM_DESC }}</div>
     {% endif %}
 
     {% if row.subforum|length > 0 %}
-    <div class="mdt-forum-full-row mdt-forum-subforums">
+    <div class="mdt-forum-subforums">
       {% for sub in row.subforum %}
         {% EVENT forumlist_body_sub_link_prepend %}
         <a class="mdt-subforum-chip{% if sub.S_UNREAD %} mdt-subforum-highlight{% endif %}" href="{{ sub.U_SUBFORUM }}">
           <span class="mdt-subforum-icon">
             {% if sub.IS_LINK %}
             <i class="material-icons">link</i>
-            {% endif %} 
+            {% endif %}
 
             <i class="material-icons">notes</i>
             
@@ -81,58 +81,6 @@
         {% EVENT forumlist_body_sub_link_append %}
       {% endfor %}
       {% EVENT forumlist_body_subs_after %}
-    </div>
-    {% endif %}
-
-    {% if row.MODERATORS %}
-    <div class="mdt-forum-full-row mdt-forum-moderation">
-      <b>{{ row.L_MODERATOR_STR }}{{ lang('COLON') }}</b> {{ row.MODERATORS }}
-    </div>
-
-    {% if row.U_UNAPPROVED_TOPICS %}
-    <div class="mdt-forum-full-row">
-      <a class="mdt-link" href="{{ row.U_UNAPPROVED_TOPICS }}">
-        <i class="material-icons">approval</i>
-        {{ lang('TOPICS_UNAPPROVED') }}
-      </a>
-    </div>
-    {% elseif row.U_UNAPPROVED_POSTS %}
-    <div class="mdt-forum-full-row">
-      <a class="mdt-link" href="{{ row.U_UNAPPROVED_POSTS }}">
-        <i class="material-icons">approval</i>
-        {{ lang('POSTS_UNAPPROVED_FORUM') }}
-      </a>
-    </div>
-    {% endif %}
-    {% endif %}
-
-    {% if row.LAST_POST_TIME %}
-    <div class="mdt-forum-full-row mdt-forum-info">
-      <p>
-        {{ lang('LAST_POST') }}
-        {% if row.S_DISPLAY_SUBJECT %}
-      
-        {% EVENT forumlist_body_last_post_title_prepend %}
-        <a href="{{ row.U_LAST_POST }}" title="{{ row.LAST_POST_SUBJECT }}" class="mdt-link">
-          {{ row.LAST_POST_SUBJECT_TRUNCATED }}
-        </a>
-        {% endif %}
-        {{ lang('POST_BY_AUTHOR') }}
-
-        {% EVENT forumlist_body_last_poster_username_prepend %}
-        {{ row.LAST_POSTER_FULL }}
-        {% EVENT forumlist_body_last_poster_username_append %}
-      </p>
-
-      <p>
-        {% if not S_IS_BOT %}
-        <a class="mdt-link" href="{{ row.U_LAST_POST }}">
-          <i class="material-icons">local_post_office</i>
-          {{ lang('VIEW_LATEST_POST') }}
-        </a><br>
-        {% endif %}
-        <time datetime="{{ row.LAST_POST_TIME_RFC3339 }}">{{ row.LAST_POST_TIME }}</time>
-      </p>
     </div>
     {% endif %}
 

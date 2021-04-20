@@ -1,63 +1,102 @@
-<div class="pbb-forum">
-  <div class="pbb-forum-content">
-    <h2>
+{% import "macros/_nav.twig" as nav %}
+
+<div class="mdt-actions">
+  <nav class="mdt-breadcrumb">
+    {% if U_SITE_HOME %}
+    {{ nav.link(U_SITE_HOME, L_SITE_HOME, 'home') }}
+    <i class="material-icons">keyboard_arrow_right</i>
+    {% endif %}
+
+    {% EVENT overall_header_breadcrumb_prepend %}
+    {{ nav.link(U_INDEX, L_INDEX, U_SITE_HOME ? '' : 'home', '', 'h') }}
+
+    {% set navlink_position = 1 %}
+    {% set navlink_length = navlinks|length %}
+    {% for navlink in navlinks %}
+      {% set NAVLINK_NAME = navlink.BREADCRUMB_NAME | default(navlink.FORUM_NAME) %}
+      {% set NAVLINK_LINK = navlink.U_BREADCRUMB | default(navlink.U_VIEW_FORUM) %}
+
+      <i class="material-icons">keyboard_arrow_right</i>
+
+      {% EVENT overall_header_navlink_prepend %}
+      {% if navlink_length == navlink_position %}
+      <span>{{ NAVLINK_NAME }}</span>
+      {% else %}
+      {{ nav.link(NAVLINK_LINK, NAVLINK_NAME) }}
+      {% endif %}
+      {% EVENT overall_header_navlink_append %}
+      {% set navlink_position = navlink_position + 1 %}
+    {% endfor %}
+
+    {% EVENT overall_header_breadcrumbs_after %}
+  </nav>
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__header', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>
+
+<div class="mdt-category">
+  <div class="mdt-category-title">
+    <h2 class="mdl-card__title-text">
       {% EVENT viewforum_forum_name_prepend %}
       {{ FORUM_NAME }}
       {% EVENT viewforum_forum_name_append %}
     </h2>
     {% EVENT viewforum_forum_title_after %}
-
-    {% if FORUM_DESC or MODERATORS or U_MCP %}
-    <div>
+  </div>
+  <div class="mdt-category-content">
+    <div class="mdt-forum-header">
       {% if FORUM_DESC %}
-      <div>{{ FORUM_DESC }}</div>
+      <div class="mdt-forum-description">{{ FORUM_DESC }}</div>
       {% endif %}
 
       {% if MODERATORS %}
-      <p><strong>
-        {% if S_SINGLE_MODERATOR %}
-        {{ lang('MODERATOR') }}{{ lang('COLON') }}
-        {% else %}
-        {{ lang('MODERATORS') }}{{ lang('COLON') }}
-        {% endif %}
-      </strong> {{ MODERATORS }}</p>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    {% if S_FORUM_RULES %}
-    <div class="pbb-forum-rules">
-      {% if U_FORUM_RULES %}
-      <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
-        {{ lang('FORUM_RULES') }}
-      </a>
-      <div class="mdl-tooltip" for="forum-rules">
-        <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
+      <div class="mdt-forum-moderation">
+        <b>
+          {% if S_SINGLE_MODERATOR %}
+          {{ lang('MODERATOR') }}{{ lang('COLON') }}
+          {% else %}
+          {{ lang('MODERATORS') }}{{ lang('COLON') }}
+          {% endif %}
+        </b> {{ MODERATORS }}
       </div>
-      {% else %}
-      <h4>{{ lang('FORUM_RULES') }}</h4>
-      <p>{{ FORUM_RULES }}</p>
       {% endif %}
-    </div>
-    {% endif %}
 
-    {% if S_HAS_SUBFORUM %}
-    <h4>{{ lang('SUBFORUMS') }}</h4>
-    {% if not S_IS_BOT and U_MARK_FORUMS %}
-    <small>
-      <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{{ lang('MARK_SUBFORUMS_READ') }}</a>
-    </small>
-    {% endif %}
-    {{ include('index/_index.html') }}
-    {% endif %}
+      {% if S_FORUM_RULES %}
+      <div class="mdt-forum-rules">
+        {% if U_FORUM_RULES %}
+        <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
+          {{ lang('FORUM_RULES') }}
+        </a>
+        <div class="mdl-tooltip" for="forum-rules">
+          <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
+        </div>
+        {% else %}
+        <h4>{{ lang('FORUM_RULES') }}</h4>
+        <p>{{ FORUM_RULES }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if S_HAS_SUBFORUM %}
+      {{ include('forum/forum_subforums_list.html') }}
+      {% if not S_IS_BOT and U_MARK_FORUMS %}
+      <small class="mdt-subforums-unmark">
+        <a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" data-ajax="mark_forums_read">{{ lang('MARK_SUBFORUMS_READ') }}</a>
+      </small>
+      {% endif %}
+      {% endif %}
+      
+    </div>
   </div>
 </div>
 
 {{ include('forum/forum_actions_top.html') }}
 
 {% if S_NO_READ_ACCESS %}
-<div class="pbb-forum">
-  <div class="pbb-forum-content">{{ lang('NO_READ_ACCESS') }}</div>
+<div class="mdt-forum">
+  <div class="mdt-forum-content">{{ lang('NO_READ_ACCESS') }}</div>
 </div>
 {% endif %}
 
@@ -85,14 +124,50 @@
   {% endfor %}
 {% else %}
   {% if S_IS_POSTABLE %}
-  <div class="pbb-forum">
-    <div class="pbb-forum-content">{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</div>
+  <div class="mdt-forum">
+    <div class="mdt-forum-content">{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</div>
   </div>
   {% elseif not S_HAS_SUBFORUM %}
-  <div class="pbb-forum">
-    <div class="pbb-forum-content">{{ lang('NO_FORUMS_IN_CATEGORY') }}</div>
+  <div class="mdt-forum">
+    <div class="mdt-forum-content">{{ lang('NO_FORUMS_IN_CATEGORY') }}</div>
   </div>
   {% endif %}
 {% endif %}
 
 {{ include('forum/forum_actions_bottom.html') }}
+
+<div class="mdt-actions">
+  <nav class="mdt-breadcrumb">
+    {% if U_SITE_HOME %}
+    {{ nav.link(U_SITE_HOME, L_SITE_HOME, 'home') }}
+    <i class="material-icons">keyboard_arrow_right</i>
+    {% endif %}
+
+    {% EVENT overall_header_breadcrumb_prepend %}
+    {{ nav.link(U_INDEX, L_INDEX, U_SITE_HOME ? '' : 'home', '', 'h') }}
+
+    {% set navlink_position = 1 %}
+    {% set navlink_length = navlinks|length %}
+    {% for navlink in navlinks %}
+      {% set NAVLINK_NAME = navlink.BREADCRUMB_NAME | default(navlink.FORUM_NAME) %}
+      {% set NAVLINK_LINK = navlink.U_BREADCRUMB | default(navlink.U_VIEW_FORUM) %}
+
+      <i class="material-icons">keyboard_arrow_right</i>
+
+      {% EVENT overall_header_navlink_prepend %}
+      {% if navlink_length == navlink_position %}
+      <span>{{ NAVLINK_NAME }}</span>
+      {% else %}
+      {{ nav.link(NAVLINK_LINK, NAVLINK_NAME) }}
+      {% endif %}
+      {% EVENT overall_header_navlink_append %}
+      {% set navlink_position = navlink_position + 1 %}
+    {% endfor %}
+
+    {% EVENT overall_header_breadcrumbs_after %}
+  </nav>
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__footer', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>

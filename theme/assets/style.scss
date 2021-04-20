@@ -9,16 +9,17 @@ $material-design-icons-font-directory-path: "../fonts/";
 // Material UI Icons
 @import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
 
+@import "generic";
+@import "list";
+@import "jumpbox";
+@import "drawer";
+@import "category";
+@import "forum";
+@import "subforum";
+
 // main elements
 html, body {
   background-color: var(--background-color);
-}
-
-a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 // MDL overrides
@@ -48,12 +49,12 @@ a {
   }
 }
 
-.pbb-menu__headline {
+.mdt-menu__headline {
   @extend .mdl-menu__item--full-bleed-divider;
   font-weight: 700;
 }
 
-.pbb-menu__headline, .pbb-menu__item-inactive {
+.mdt-menu__headline, .mdt-menu__item-inactive {
   @extend .mdl-menu__item;
   cursor: default;
 
@@ -71,15 +72,15 @@ a {
   }
 }
 
-.pbb-menu__item-inactive {
+.mdt-menu__item-inactive {
   line-height: 150%;
   height: auto;
 }
 
-.pbb-forum-permissions {
+.mdt-forum-permissions {
   padding-top: 0;
   
-  .pbb-menu__headline {
+  .mdt-menu__headline {
     margin-bottom: 12px;
   }  
 }
@@ -103,7 +104,7 @@ a {
 
 // generic components
 
-.pbb-display-options {
+.mdt-display-options {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -128,7 +129,7 @@ a {
 
 // drawer profile
 
-.pbb-profile-btn {
+.mdt-profile-btn {
   @extend .mdl-button, .mdl-button--icon;
   img {
     max-width: 100%;
@@ -136,12 +137,12 @@ a {
   }
 }
 
-.pbb-drawer-profile {
+.mdt-drawer-profile {
   @extend .mdl-card;
   width: 100%;
   min-height: 0;
 }
-.pbb-drawer-profile-content {
+.mdt-drawer-profile-content {
   @extend .mdl-card__actions,
           .mdl-card__media,
           .mdl-card--expand,
@@ -151,7 +152,7 @@ a {
   padding: $card-vertical-padding $card-horizontal-padding;
 }
 
-.pbb-drawer-profile-image {
+.mdt-drawer-profile-image {
   margin-bottom: $card-vertical-padding;
   > img {
     @include shadow-3dp();
@@ -160,34 +161,34 @@ a {
 }
 
 @media (min-width: $grid-tablet-breakpoint) {
-  .pbb-drawer-profile-content {
+  .mdt-drawer-profile-content {
     flex-direction: row;
   }
-  .pbb-drawer-profile-image {
+  .mdt-drawer-profile-image {
     margin-right: $card-horizontal-padding;
     margin-bottom: 0;
   }
-  .pbb-drawer-profile-typo {
+  .mdt-drawer-profile-typo {
     flex: 1;
   }
 }
 
-.pbb-drawer-profile-action {
+.mdt-drawer-profile-action {
   @extend .mdl-card__actions;
   padding: 0;
 }
-.pbb-drawer-profile-title {
+.mdt-drawer-profile-title {
   @extend .mdl-card__title-text;
   color: var(--text-color-primary);
   border-bottom: 1px solid $default-item-divider-color;
   margin-bottom: ($card-vertical-padding / 2);
 }
-.pbb-drawer-profile-text {
+.mdt-drawer-profile-text {
   @extend .mdl-card__subtitle-text;
   font-size: $card-supporting-text-font-size;
 }
 
-.pbb-modal-links {
+.mdt-modal-links {
   margin-top: 1rem;
   text-align: right;
   a {
@@ -197,8 +198,8 @@ a {
 
 // drawer user control
 
-.pbb-drawer-buttons {
-  @extend .pbb-drawer-profile-content;
+.mdt-drawer-buttons {
+  @extend .mdt-drawer-profile-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -218,7 +219,7 @@ $profile-btn-height: 64px;
 // looks best in my personal opinion
 $profile-btn-font-size: 12px;
 
-.pbb-drawer-profile-btn {
+.mdt-drawer-profile-btn {
   @extend .mdl-button;
   display: flex;
   flex-direction: column;
@@ -242,14 +243,14 @@ $profile-btn-font-size: 12px;
 
 // drawer list
 
-.pbb-notification-indicator {
+.mdt-notification-indicator {
   @extend .mdl-list__item, .mdl-list__item--two-line;
   margin-bottom: 16px;
 }
 
 // drawer notifications
 
-.pbb-notification {
+.mdt-notification {
   @extend .mdl-list__item, .mdl-list__item--three-line;
   height: auto;
   background-color: rgba(0, 0, 0, 0.1);
@@ -257,7 +258,7 @@ $profile-btn-font-size: 12px;
   &:hover {
     background-color: var(--grey-variant-3);
   }
-  .pbb-notification-content {
+  .mdt-notification-content {
     @extend .mdl-list__item-primary-content;
     height: auto;
     color: inherit;
@@ -271,7 +272,7 @@ $profile-btn-font-size: 12px;
   }
 }
 
-.pbb-notification-highlight {
+.mdt-notification-highlight {
   @include shadow-2dp();
   background-color: transparent;
   transition: 0.1s ease-in-out;
@@ -281,187 +282,58 @@ $profile-btn-font-size: 12px;
   }
 }
 
-// forum categories
+// toolbar
 
-$category-horizontal-margin: 16px;
-$category-vertical-margin: 16px;
-
-.pbb-category {
-  @extend .mdl-card;
-  @include shadow-3dp();
-  margin: $category-vertical-margin $category-horizontal-margin;
-  width: auto;
-  min-height: 0;
-  background-color: rgba($color-primary, 1);
-}
-
-.pbb-category-title {
-  @extend .mdl-card__title;
-  background-color: rgba($color-primary, 0.87);
-  color: var(--category-title-color);
-  a {
-    color: var(--category-title-color);
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.pbb-category-content {
-  @extend .mdl-card__actions, .mdl-card--border;
+.mdt-toolbar {
+  @extend .mdl-chip;
+  display: flex;
   padding: 0;
+  margin: 0;
 }
 
-// forum boards
+.mdt-toolbar-toggle {
+  @extend .mdl-button, .mdl-button--icon;
+}
 
-.pbb-forum-list {
-  @extend .mdl-list;
+.mdt-toolbar-content {
+  display: flex;
+  list-style: none;
+  line-height: 32px;
   margin: 0;
   padding: 0;
-}
-
-.pbb-forum {
-  @extend .mdl-list__item, .mdl-list__item--three-line;
-  background-color: var(--grey-variant-1);
-  height: auto;
-
-  &:nth-last-of-type(2n) {
-    background-color: var(--grey-variant-2);
-  }
-
-  .pbb-forum-content {
-    @extend .mdl-list__item-primary-content;
-    height: auto;
-    font-size: 18px;
-    a {
-      color: var(--forum-link-color);
-    }
-  }
-
-  .pbb-forum-info {
-    @extend .mdl-list__item-text-body;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
-  .pbb-forum-control {
-    display: flex;
-    align-items: center;
-    .material-icons {
-      vertical-align: middle;
-    }
-  }
-}
-
-.pbb-forum-rules {
-  .mdl-button {
-    margin-top: $category-vertical-margin;
-  }
-}
-
-.pbb-forum-actions {
-  display: flex;
-  align-items: flex-end;
-  margin: $category-vertical-margin $category-horizontal-margin;
-}
-
-.pbb-forum-actions-controls {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-}
-
-.pbb-forum-new-topic {
-  @extend .mdl-button, .mdl-button--raised, .mdl-button--colored;
-  margin-right: $category-horizontal-margin;
-}
-
-.pbb-forum-search {
-  margin-right: $category-horizontal-margin;
-  .mdl-textfield {
-    padding: 0;
-  }
-  .mdl-textfield--expandable .mdl-button--icon {
-    top: 0;
-  }
-}
-
-.pbb-forum-search-adv {
-  @extend .mdl-button, .mdl-button--icon;
-  margin-right: $category-horizontal-margin;
-}
-
-.pbb-forum-pagination {
-  min-width: 200px;
-  text-align: right;
-  flex: 1;
-}
-
-@media (max-width: $grid-tablet-breakpoint) {
-  .pbb-forum-actions {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .pbb-forum-actions-controls {
-    width: 100%;
-    min-width: 320px;
-    justify-content: flex-start;
-  }
-  .pbb-forum-new-topic {
-    margin-bottom: $category-vertical-margin;
-  }
-  .pbb-forum-pagination {
-    min-width: 150px;
-  }
-}
-
-.pbb-forum-highlight {
-  @include shadow-3dp();
-  background-color: var(--grey-variant-2);
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
   transition: 0.1s ease-in-out;
-  &:hover {
-    border-left: 3px solid rgba(var(--color-primary), 1);
+  &.mdt-toolbar-expandable {
+    min-width: 96px;
+    max-width: 128px;
+    width: auto;
   }
-
-  .pbb-forum-icon.material-icons {
-    color: rgba(var(--text-color-accent), 0.87);
-  }
-}
-
-.pbb-forum-icon {
-  @extend .mdl-list__item-avatar;
-
-  &.material-icons {
-    background-color: transparent;
-    color: rgba(var(--text-color), 0.54);
+  > li {
+    margin: 0 4px;
   }
 }
 
 // topics
 
-.pbb-topic {
-  @extend .pbb-forum;
+.mdt-topic {
   display: grid;
   grid-template-columns: 40px 12px auto;
 }
 
-.pbb-topic-content {
+.mdt-topic-content {
   display: flex;
   align-items: center;
   grid-column: 3;
 }
 
-.pbb-topic-addition {
-  @extend .pbb-forum-info;
-  grid-column: 3;
+.mdt-topic-addition {
+  grid-column: 2;
+  grid-row: 3;
 }
 
-.pbb-topic-icon {
+.mdt-topic-icon {
   @extend .mdl-button, .mdl-button--icon;
   display: flex;
   align-items: center;
@@ -476,7 +348,7 @@ $category-vertical-margin: 16px;
   }
 }
 
-.pbb-topic-info {
+.mdt-topic-info {
   display: flex;
   justify-content: space-between;
   flex-flow: wrap;
@@ -489,7 +361,7 @@ $category-vertical-margin: 16px;
   }
 }
 
-.pbb-topic-headline {
+.mdt-topic-headline {
   @extend .mdl-card__title-text;
   display: flex;
   align-items: center;
@@ -498,18 +370,18 @@ $category-vertical-margin: 16px;
   min-height: 40px;
 }
 
-.pbb-topic-menu {
+.mdt-topic-menu {
   min-width: 0;
   max-width: 0;
   overflow: hidden;
   transition: 0.1s ease-in-out;
-  &.pbb-topic-menu-expandable {
+  &.mdt-topic-menu-expandable {
     max-width: 96px;
     width: auto;
   }
 }
 
-.pbb-topic-paging {
+.mdt-topic-paging {
   padding: 0;
   .material-icons {
     font-size: 18px;
@@ -524,6 +396,77 @@ $category-vertical-margin: 16px;
   }
 }
 
-// forum topics
+// poll
+
+.mdt-topic-header {
+  @extend .mdl-card;
+  width: auto;
+}
+
+.mdt-topic-header-content {
+  @extend .mdl-card__title;
+}
+
+.mdt-poll {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $category-vertical-margin;
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+.mdt-poll-item {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  cursor: pointer;
+  min-height: 32px;
+  label {
+    cursor: pointer;
+    height: auto;
+  }
+}
+
+.mdt-chart {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin-top: 1px;
+}
+
+.mdt-chart-label {
+  padding-left: 24px;
+}
+
+.mdt-chart-content {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+  min-height: 32px;
+}
+
+.mdt-chart-bar {
+  display: block;
+  background: linear-gradient(180deg, rgba(var(--color-accent), 0.1), rgba(var(--color-accent), 0.5));
+  transition: width 0.3s ease-in;
+  height: 8px;
+  border-radius: 3px;
+  width: 0;
+}
+
+.mdt-chart-percent {
+  text-align: right;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.mdt-chart-footer {
+  margin-top: 12px;
+}
+
+// .mdt-poll-content {
+
+// }
 
 // forum posts

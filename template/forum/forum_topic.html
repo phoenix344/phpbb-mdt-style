@@ -1,232 +1,147 @@
-<li class="pbb-topic">
+{% import "macros/_typography.twig" as typo %}
+
+{# private declaration #}
+{% set _STYLE_CHUNKS = row.TOPIC_IMG_STYLE | split("_") %}
+{% set _STYLE_LENGTH = _STYLE_CHUNKS|length %}
+
+{# declaration of type (possible types: global, announce, sticky, topic) #}
+{% set CONTENT_TYPE = _STYLE_CHUNKS[0] %}
+
+{# declaration of bool values #}
+{% set CONTENT_READ = _STYLE_CHUNKS[1] == "read" %}
+{% set CONTENT_MOVE = _STYLE_CHUNKS[1] == "moved" %}
+{% if _STYLE_LENGTH gt 2 %}
+  {% set CONTENT_MINE = _STYLE_CHUNKS[2] == "mine" %}
+  {% set CONTENT_HOT = _STYLE_CHUNKS[2] == "hot" %}
+  {% set CONTENT_LOCK = _STYLE_CHUNKS[2] == "locked" %}
+  {% if _STYLE_LENGTH eq 4 %}
+    {% set CONTENT_MINE = _STYLE_CHUNKS[3] == "mine" %}
+  {% endif %}
+{% endif %}
+
+<li class="mdt-list-content{% if not CONTENT_READ %} mdt-list-highlight{% endif %}">
   {% EVENT viewforum_body_topic_row_prepend %}
 
-  {#
-    TOPIC_ICON_IMG:
-    global_read
-    global_read_hot
-    global_read_locked
-    global_unread
-    global_unread_hot
-    global_unread_locked
-    global_read_mine
-    global_read_hot_mine
-    global_read_locked_mine
-    global_unread_mine
-    global_unread_hot_mine
-    global_unread_locked_mine
-    announce_read
-    announce_read_hot
-    announce_read_locked
-    announce_unread
-    announce_unread_hot
-    announce_unread_locked
-    announce_read_mine
-    announce_read_hot_mine
-    announce_read_locked_mine
-    announce_unread_mine
-    announce_unread_hot_mine
-    announce_unread_locked_mine
-    sticky_read
-    sticky_read_hot
-    sticky_read_locked
-    sticky_unread
-    sticky_unread_hot
-    sticky_unread_locked
-    sticky_read_mine
-    sticky_read_hot_mine
-    sticky_read_locked_mine
-    sticky_unread_mine
-    sticky_unread_hot_mine
-    sticky_unread_locked_mine
-    topic_moved
-    topic_moved_hot
-    topic_moved_locked
-    topic_read
-    topic_read_hot
-    topic_read_locked
-    topic_unread
-    topic_unread_hot
-    topic_unread_locked
-    topic_read_mine
-    topic_read_hot_mine
-    topic_read_locked_mine
-    topic_unread_mine
-    topic_unread_hot_mine
-    topic_unread_locked_mine
-  #}
-
-  {# private declaration #}
-  {% set _TOPIC_STYLE_CHUNKS = row.TOPIC_IMG_STYLE | split("_") %}
-  {% set _TOPIC_STYLE_LENGTH = _TOPIC_STYLE_CHUNKS|length %}
-
-  {# declaration of type (possible types: global, announce, sticky, topic) #}
-  {% set TOPIC_TYPE = _TOPIC_STYLE_CHUNKS[0] %}
-
-  {# declaration of bool values #}
-  {% set TOPIC_READ = _TOPIC_STYLE_CHUNKS[1] == "read" %}
-  {% set TOPIC_MOVE = _TOPIC_STYLE_CHUNKS[1] == "moved" %}
-  {% if _TOPIC_STYLE_LENGTH gt 2 %}
-    {% set TOPIC_MINE = _TOPIC_STYLE_CHUNKS[2] == "mine" %}
-    {% set TOPIC_HOT = _TOPIC_STYLE_CHUNKS[2] == "hot" %}
-    {% set TOPIC_LOCK = _TOPIC_STYLE_CHUNKS[2] == "locked" %}
-    {% if _TOPIC_STYLE_LENGTH eq 4 %}
-      {% set TOPIC_MINE = _TOPIC_STYLE_CHUNKS[3] == "mine" %}
-    {% endif %}
+  {% if row.pagination %}
+  <span class="mdt-topic-paging mdl-chip mdl-chip--contact">
+    <span class="mdl-chip__text">
+      {% for paging in row.pagination %}
+        {% if paging.S_IS_PREV %}
+        {% elseif paging.S_IS_CURRENT %}
+          {{ paging.PAGE_NUMBER }}
+        {% elseif paging.S_IS_ELLIPSIS %}
+          {{ lang('ELLIPSIS') }}
+        {% elseif paging.S_IS_NEXT %}
+        {% else %}
+          <a href="{{ paging.PAGE_URL }}">{{ paging.PAGE_NUMBER }}</a>
+        {% endif %}
+      {% endfor %}
+    </span>
+  </span>
   {% endif %}
+
+  {{ include('topic/topic_actions_toolbar.html') }}
 
   {% EVENT topiclist_row_prepend %}
 
-  <a class="pbb-topic-icon{% if not TOPIC_READ %} mdl-color-text--primary{% endif %} material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">
-    {% if TOPIC_TYPE == 'global' %}
-    announcement
-    {% elseif TOPIC_TYPE == 'announce' %}
-    announcement
-    {% elseif TOPIC_TYPE == 'sticky' %}
-    sticky_note_2
-    {% else %}
-    topic
-    {% endif %}  
-  </a>
+  <div class="mdt-container mdt-forum-container">
+    <div class="mdt-forum-icon material-icons" title="{{ lang('GOTO_LAST_POST') }}">
+      {% if CONTENT_TYPE == 'global' %}
+      announcement
+      {% elseif CONTENT_TYPE == 'announce' %}
+      announcement
+      {% elseif CONTENT_TYPE == 'sticky' %}
+      sticky_note_2
+      {% else %}
+      topic
+      {% endif %}  
+    </div>
 
-  <div class="pbb-topic-content">
-    {#TYPE: {{ TOPIC_TYPE }}<br>
-    READ: {{ TOPIC_READ }}<br>
-    MOVE: {{ TOPIC_MOVE }}<br>
-    MINE: {{ TOPIC_MINE }}<br>
-    HOT:  {{ TOPIC_HOT }}<br>
-    LOCK: {{ TOPIC_LOCK }}<br>#}
-
-    {#{% if row.TOPIC_ICON_IMG and S_TOPIC_ICONS %}
-    <span class="pbb-topic-icon">
-      <img src="{{ T_ICONS_PATH }}{{ row.TOPIC_ICON_IMG }}" alt="{{ row.TOPIC_FOLDER_IMG_ALT }}">
-    </span>
-    {% endif %}#}
-
-    {#{% if row.S_UNREAD_TOPIC and not S_IS_BOT %}
-    <a class="pbb-forum-icon material-icons" href="{{ row.U_NEWEST_POST }}" title="{{ NEW_POST }}">new_releases</a>
-    {% endif %}#}
-
-    {% if row.U_VIEW_TOPIC %}
-    <h2 class="pbb-topic-headline">
-      <a href="{{ row.U_VIEW_TOPIC }}">{{ row.TOPIC_TITLE }}</a>
-      {% if row.pagination %}
-      <span class="pbb-topic-paging mdl-chip mdl-chip--contact">
-        <span class="mdl-chip__text">
-          {% for paging in row.pagination %}
-            {% if paging.S_IS_PREV %}
-            {% elseif paging.S_IS_CURRENT %}
-              {{ paging.PAGE_NUMBER }}
-            {% elseif paging.S_IS_ELLIPSIS %}
-              {{ lang('ELLIPSIS') }}
-            {% elseif paging.S_IS_NEXT %}
-            {% else %}
-              <a href="{{ paging.PAGE_URL }}">{{ paging.PAGE_NUMBER }}</a>
-            {% endif %}
-          {% endfor %}
-        </span>
-      </span>
-      {% endif %}
-    </h2>
-    {% else %}
-    <h2 class="pbb-topic-headline">
-      {{ row.TOPIC_TITLE }}
-    </h2>
-    {% endif %}
-
-    <button class="pbb-topic-menu-toggle mdl-button mdl-button--icon mdl-js-button">
-      <i class="material-icons">more_horiz</i>
-    </button>
-    <nav class="pbb-topic-menu">
-      <a class="mdl-button mdl-button--icon">
-        <i class="material-icons">bookmark_border</i>
-      </a>
-    </nav>
-
+    {{ typo.headline3(row.TOPIC_TITLE, row.U_VIEW_TOPIC) }}
     {% EVENT topiclist_row_topic_title_after %}
-  </div>
 
-  {% if not S_IS_BOT %}
-  <div class="pbb-topic-addition">
-    {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED or row.S_TOPIC_DELETED or row.S_TOPIC_REPORTED %}
-    <div class="pbb-topic-control">
-      {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
-      <a href="{{ row.U_MCP_QUEUE }}">
-        {% if row.S_TOPIC_UNAPPROVED %}
-        {{ lang('TOPIC_UNAPPROVED') }}
-        {% else %}
-        {{ lang('POSTS_UNAPPROVED') }}
+    {% if not S_IS_BOT %}
+    <div class="mdt-topic-addition">
+      {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED or row.S_TOPIC_DELETED or row.S_TOPIC_REPORTED %}
+      <div class="mdt-topic-control">
+        {% if row.S_TOPIC_UNAPPROVED or row.S_POSTS_UNAPPROVED %}
+        <a href="{{ row.U_MCP_QUEUE }}">
+          {% if row.S_TOPIC_UNAPPROVED %}
+          {{ lang('TOPIC_UNAPPROVED') }}
+          {% else %}
+          {{ lang('POSTS_UNAPPROVED') }}
+          {% endif %}
+        </a>
         {% endif %}
-      </a>
+  
+        {% if row.S_TOPIC_DELETED %}
+        <a href="{{ row.U_MCP_QUEUE }}">
+          <i class="material-icons">delete</i>
+          {{ lang('TOPIC_DELETED') }}
+        </a>
+        {% endif %}
+        
+        {% if row.S_TOPIC_REPORTED %}
+        <a href="{{ row.U_MCP_REPORT }}">
+          <i class="material-icons">report</i>
+          {{ lang('TOPIC_REPORTED') }}
+        </a>
+        {% endif %}
+      </div>
       {% endif %}
-
-      {% if row.S_TOPIC_DELETED %}
-      <a href="{{ row.U_MCP_QUEUE }}">
-        <i class="material-icons">delete</i>
-        {{ lang('TOPIC_DELETED') }}
-      </a>
-      {% endif %}
-      
-      {% if row.S_TOPIC_REPORTED %}
-      <a href="{{ row.U_MCP_REPORT }}">
-        <i class="material-icons">report</i>
-        {{ lang('TOPIC_REPORTED') }}
-      </a>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    <div class="pbb-topic-info">
-      <span>
-        <span class="mdl-chip__text">
-          {% if row.S_HAS_POLL %}
-          <i class="material-icons">poll</i>
+  
+      <div class="mdt-topic-info">
+        <span>
+          <span class="mdl-chip__text">
+            {% if row.S_HAS_POLL %}
+            <i class="material-icons">poll</i>
+            {% endif %}
+            {% if row.ATTACH_ICON_IMG %}
+            <i class="material-icons">attach_file</i>
+            {% endif %}
+  
+            {% EVENT topiclist_row_topic_by_author_before %}
+            {{ lang('POST_BY_AUTHOR') }}
+            {% EVENT viewforum_body_topic_author_username_prepend %}
+            {{ row.TOPIC_AUTHOR_FULL }}
+            {% EVENT viewforum_body_topic_author_username_append %}
+            &raquo;
+            <time datetime="{{ row.FIRST_POST_TIME_RFC3339 }}">
+              {{ row.FIRST_POST_TIME }}
+            </time>
+          </span>
+          {% EVENT topiclist_row_topic_by_author_after %}
+          {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
+          &raquo; {{ lang('IN') }}
+          <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
           {% endif %}
-          {% if row.ATTACH_ICON_IMG %}
-          <i class="material-icons">attach_file</i>
-          {% endif %}
-
-          {% EVENT topiclist_row_topic_by_author_before %}
-          {{ lang('POST_BY_AUTHOR') }}
-          {% EVENT viewforum_body_topic_author_username_prepend %}
-          {{ row.TOPIC_AUTHOR_FULL }}
-          {% EVENT viewforum_body_topic_author_username_append %}
-          &raquo;
-          <time datetime="{{ row.FIRST_POST_TIME_RFC3339 }}">
-            {{ row.FIRST_POST_TIME }}
-          </time>
         </span>
-        {% EVENT topiclist_row_topic_by_author_after %}
-        {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
-        &raquo; {{ lang('IN') }}
+  
+        <span>
+          <span class="mdl-chip__text">
+            <a href="{{ row.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">{{ lang('LAST_POST') }}</a>
+            {{ lang('POST_BY_AUTHOR') }}
+            {% EVENT viewforum_body_last_post_author_username_prepend %}
+            {{ row.LAST_POST_AUTHOR_FULL }}
+            {% EVENT viewforum_body_last_post_author_username_append %}
+            &raquo;
+            <time datetime="{{ row.LAST_POST_TIME_RFC3339 }}">
+              {{ row.LAST_POST_TIME }}
+            </time>
+          </span>
+        </span>
+  
+        {% EVENT topiclist_row_append %}
+        {% EVENT viewforum_body_topic_row_append %}
+      </div>
+  
+      {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
+      <div>
+        {{ lang('POSTED') }} {{ lang('IN') }}
         <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
-        {% endif %}
-      </span>
-
-      <span>
-        <span class="mdl-chip__text">
-          <a href="{{ row.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">{{ lang('LAST_POST') }}</a>
-          {{ lang('POST_BY_AUTHOR') }}
-          {% EVENT viewforum_body_last_post_author_username_prepend %}
-          {{ row.LAST_POST_AUTHOR_FULL }}
-          {% EVENT viewforum_body_last_post_author_username_append %}
-          &raquo;
-          <time datetime="{{ row.LAST_POST_TIME_RFC3339 }}">
-            {{ row.LAST_POST_TIME }}
-          </time>
-        </span>
-      </span>
-
-      {% EVENT topiclist_row_append %}
-      {% EVENT viewforum_body_topic_row_append %}
-    </div>
-
-    {% if row.S_POST_GLOBAL and FORUM_ID != row.FORUM_ID %}
-    <div>
-      {{ lang('POSTED') }} {{ lang('IN') }}
-      <a href="{{ row.U_VIEW_FORUM }}">{{ row.FORUM_NAME }}</a>
+      </div>
+      {% endif %}
     </div>
     {% endif %}
   </div>
-  {% endif %}
 </li>

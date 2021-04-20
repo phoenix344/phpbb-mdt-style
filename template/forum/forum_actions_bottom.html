@@ -1,9 +1,9 @@
 {% if S_DISPLAY_POST_INFO or pagination or TOTAL_POSTS or TOTAL_TOPICS %}
-<div class="pbb-forum-actions">
+<div class="mdt-actions mdt-forum-actions">
   {% if not S_IS_BOT and S_DISPLAY_POST_INFO %}
-  <div class="pbb-forum-buttons">
+  <div class="mdt-forum-buttons">
     {% EVENT viewforum_buttons_top_before %}
-    <a class="pbb-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
+    <a class="mdt-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
       {% if S_IS_LOCKED %}
       <span class="material-icons">lock</span>
       {{ lang('BUTTON_FORUM_LOCKED') }}
@@ -22,24 +22,24 @@
   </form>
   {% endif %}
   
-  <div class="pbb-forum-actions-controls">
+  <div class="mdt-forum-actions-controls">
     {% if S_IS_POSTABLE and rules|length %}
     <button id="forum-permissions" class="mdl-button mdl-button--icon" title="{{ lang('FORUM_PERMISSIONS') }}">
       <i class="material-icons">verified_user</i>
     </button>
-    <nav class="pbb-forum-permissions mdl-menu mdl-menu--bottom-right mdl-js-menu" for="forum-permissions">
-      <b class="pbb-menu__headline">{{ lang('FORUM_PERMISSIONS') }}</b>
+    <nav class="mdt-forum-permissions mdl-menu mdl-menu--bottom-right mdl-js-menu" for="forum-permissions">
+      <b class="mdt-menu__headline">{{ lang('FORUM_PERMISSIONS') }}</b>
       {% for rule in rules %}
-      <span class="pbb-menu__item-inactive">{{ rule.RULE }}</span>
+      <span class="mdt-menu__item-inactive">{{ rule.RULE }}</span>
       {% endfor %}
     </nav>
     {% endif %}
   </div>
 </div>
 
-<div class="pbb-forum-actions">
-  <div class="pbb-forum-actions-controls">
-    <div class="pbb-forum-pagination">
+<div class="mdt-actions mdt-forum-actions">
+  <div class="mdt-forum-actions-controls">
+    <div class="mdt-forum-pagination">
       {% if not S_IS_BOT and U_MARK_TOPICS and row %}
       <a href="{{ U_MARK_TOPICS }}" class="mark" accesskey="m" data-ajax="mark_topics_read">
         {{ lang('MARK_TOPICS_READ') }}
