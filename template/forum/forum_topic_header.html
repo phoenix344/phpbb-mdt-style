@@ -1,12 +1,12 @@
 {% import "macros/_typography.twig" as typo %}
 
-<div class="mdt-category">
+<div class="mdt-container">
   {% if S_DISPLAY_ACTIVE %}
-  {{ typo.categoryH3(lang('ACTIVE_TOPICS')) }}
+  {{ typo.secondaryTitle(lang('ACTIVE_TOPICS')) }}
   {% elseif row.S_TOPIC_TYPE_SWITCH and (row.S_POST_ANNOUNCE or row.S_POST_GLOBAL) %}
-  {{ typo.categoryH3(lang('ANNOUNCEMENTS')) }}
+  {{ typo.secondaryTitle(lang('ANNOUNCEMENTS')) }}
   {% else %}
-  {{ typo.categoryH3(lang('TOPICS')) }}
+  {{ typo.secondaryTitle(lang('TOPICS')) }}
   {% endif %}
-  <div class="mdt-category-content">
+  <div class="mdt-container-content">
     <ul class="mdt-list">

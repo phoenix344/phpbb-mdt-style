@@ -14,6 +14,26 @@
 </a>
 {% endmacro %}
 
+{# link with or without material design icon #}
+{% macro conditionalLink(condition, url, text, icon, cssClass, accessKey) %}
+{% if condition %}
+<a class="mdt-link{% if cssClass %} {{ cssClass }}{% endif %}" href="{{ url }}"{% if accessKey %} accesskey="{{ accessKey }}"{% endif %}>
+  {% if icon %}<i class="material-icons">{{ icon }}</i>{% endif %}
+  {{ text }}
+</a>
+{% endif %}
+{% endmacro %}
+
+{# link  with or without image #}
+{% macro conditionalLinkImg(condition, url, text, image, cssClass, accessKey) %}
+{% if condition %}
+<a{% if cssClass %} class="mdt-link{{ cssClass }}"{% endif %} href="{{ url }}"{% if accessKey %} accesskey="{{ accessKey }}"{% endif %}>
+  {% if image %}<img src="{{ image }}" alt="">{% endif %}
+  {{ text }}
+</a>
+{% endif %}
+{% endmacro %}
+
 {% macro jumpbox(btnTitle, forums, id, contentDirection) %}
 <div class="mdt-jumpbox">
   <button id="nav-jumpbox-{{ id }}" class="mdt-jumpbox-btn mdl-js-button mdl-js-ripple-effect">

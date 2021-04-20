@@ -1,0 +1,108 @@
+{% import "macros/_typography.twig" as typo %}
+{% import "macros/_nav.twig" as nav %}
+
+{% EVENT search_results_header_before %}
+
+<div class="mdt-actions">
+  <nav class="mdt-breadcrumb">
+    {{ nav.link(U_INDEX, lang('SITE_HOME'), 'home') }}
+    <i class="material-icons">keyboard_arrow_right</i>
+    {% if SEARCH_TOPIC %}
+    {{ nav.link(U_SEARCH_TOPIC, lang('RETURN_TO_TOPIC'), "", "mdt-actions-back mdt-link", "r") }}
+    {% else %}
+    {{ nav.link(U_SEARCH, lang('GO_TO_SEARCH_ADV'), "", "mdt-actions-back mdt-link", "r") }}
+    {% endif %}
+  </nav>
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__header', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>
+
+<div class="mdt-container">
+  {% if SEARCH_TITLE %}
+  {{ typo.primaryTitle(SEARCH_TITLE) }}
+  {% else %}
+  {{ typo.primaryTitle(SEARCH_MATCHES) }}
+  {% endif %}
+
+  {% if SEARCHED_QUERY or IGNORED_WORDS or PHRASE_SEARCH_DISABLED %}
+  <ul class="mdl-list">
+    {% if SEARCHED_QUERY %}
+    <li class="mdl-list__item">
+      <span class="mdt-search-query-content">
+        <b>{{ lang('SEARCHED_QUERY') }}{{ lang('COLON') }}</b>
+        <span class="mdl-chip">
+          <span class="mdl-chip__text">{{ SEARCHED_QUERY }}</span>
+        </span>
+      </span>
+    </li>
+    {% endif %}
+    {% if IGNORED_WORDS %}
+    <li class="mdt-search-query">
+      <span class="mdt-search-query-content">
+        <b>{{ lang('IGNORED_TERMS') }}{{ lang('COLON') }}</b>
+        <span class="mdl-chip">
+          <span class="mdl-chip__text">{{ IGNORED_WORDS }}</span>
+        </span>
+      </span>
+    </li>
+    {% endif %}
+    {% if PHRASE_SEARCH_DISABLED %}
+    <li class="mdt-search-query">
+      <b class="mdl-list__item-primary-content">
+        {{ lang('PHRASE_SEARCH_DISABLED') }}
+      </b>
+    </li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</div>
+
+<div class="mdt-actions">
+  {% if searchresults and (S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY) %}
+  <form method="post" action="{{ S_SEARCH_ACTION }}">
+    {{ include('display_options.html') }}
+  </form>
+  {% endif %}
+  {% if pagination %}
+  {{ include('pagination.html') }}
+  {% endif %}
+</div>
+
+<div class="mdt-result-container">
+  <ul class="mdt-list">
+    {% if S_SHOW_TOPICS %}
+    {{ include('search/search_topics.html') }}
+    {% else %}
+    {{ include('search/search_posts.html') }}
+    {% endif %}
+  </ul>
+</div>
+
+{% if PHRASE_SEARCH_DISABLED %}
+<p><strong>{{ lang('PHRASE_SEARCH_DISABLED') }}</strong></p>
+{% endif %}
+
+{% if pagination %}
+<div class="mdt-actions mdt-actions-trailing">
+  {{ include('pagination.html') }}
+</div>
+{% endif %}
+
+<div class="mdt-actions">
+  <nav class="mdt-breadcrumb">
+    {{ nav.link(U_INDEX, lang('SITE_HOME'), 'home') }}
+    <i class="material-icons">keyboard_arrow_right</i>
+    {% if SEARCH_TOPIC %}
+    {{ nav.link(U_SEARCH_TOPIC, lang('RETURN_TO_TOPIC'), "", "mdt-actions-back mdt-link", "r") }}
+    {% else %}
+    {{ nav.link(U_SEARCH, lang('GO_TO_SEARCH_ADV'), "", "mdt-actions-back mdt-link", "r") }}
+    {% endif %}
+  </nav>
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__footer', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>
+{% EVENT search_results_header_after %}

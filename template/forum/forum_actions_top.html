@@ -3,7 +3,7 @@
   {% if not S_IS_BOT and S_DISPLAY_POST_INFO %}
   <div class="mdt-forum-buttons">
     {% EVENT viewforum_buttons_top_before %}
-    <a class="mdt-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
+    <a class="mdt-topic-new mdl-js-ripple-effect" href="{{ U_POST_NEW_TOPIC }}">
       {% if S_IS_LOCKED %}
       <span class="material-icons">lock</span>
       {{ lang('BUTTON_FORUM_LOCKED') }}
@@ -16,9 +16,9 @@
   </div>
   {% endif %}
 
-  <div class="mdt-forum-actions-controls">
+  <div class="mdt-actions mdt-forum-actions-controls">
     {% if S_DISPLAY_SEARCHBOX %}
-    <form class="mdt-forum-search" method="get" id="forum-search" action="{{ S_SEARCHBOX_ACTION }}">
+    <form class="mdt-topic-search" method="get" id="forum-search" action="{{ S_SEARCHBOX_ACTION }}">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
         <label class="mdl-button mdl-js-button mdl-button--icon" for="search_keywords">
           <i class="material-icons">search</i>
@@ -31,7 +31,7 @@
       {{ S_SEARCH_LOCAL_HIDDEN_FIELDS }}
     </form>
 
-    <a class="mdt-forum-search-adv mdl-js-button" href="{{ U_SEARCH_FORUM }}" title="{{ lang('SEARCH_ADV') }}">
+    <a class="mdt-topic-search-adv mdl-js-button" href="{{ U_SEARCH_FORUM }}" title="{{ lang('SEARCH_ADV') }}">
       <span class="material-icons">settings</span>
     </a>
     {% endif %}

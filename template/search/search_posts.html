@@ -1,0 +1,52 @@
+{% if searchresults|length > 0 %}{% for result in searchresults %}
+{% EVENT search_results_post_before %}
+
+{% if result.S_IGNORE_POST %}
+<li class="mdl-list__item">
+  <span class="mdl-list__item-primary-content">{{ result.L_IGNORE_POST }}</span>
+</li>
+{% else %}
+
+<li class="mdt-result">
+  <section>
+    <header>
+      <h3><a href="{{ result.U_VIEW_POST }}">{{ result.POST_SUBJECT }}</a></h3>
+      <p>
+        {% EVENT search_results_postprofile_before %}
+        {{ lang('POST_BY_AUTHOR') }}
+        {% EVENT search_results_post_author_username_prepend %}
+        {{ result.POST_AUTHOR_FULL }}
+        {% EVENT search_results_post_author_username_append %}
+        &raquo;
+        <time>{{ result.POST_DATE }}</time>
+        <!-- EVENT search_results_postprofile_after -->
+      </p>
+    </header>
+    <p>{{ result.MESSAGE }}</p>
+    {% EVENT search_results_content_after %}
+  </section>
+  <aside class="mdt-data">
+    <data value="{{ result.TOPIC_REPLIES }}">{{ lang('REPLIES') }}</data>
+    <data value="{{ result.TOPIC_VIEWS }}">{{ lang('VIEWS') }}</data>
+  </aside>
+  <section class="mdt-addition mdt-flex">
+    <div class="mdt-structured-link">
+      {{ lang('FORUM') }}{{ lang('COLON') }}
+      <a href="{{ result.U_VIEW_FORUM }}">{{ result.FORUM_TITLE }}</a>
+    </div>
+    <div class="mdt-structured-link">
+      {{ lang('TOPIC') }}{{ lang('COLON') }}
+      <a href="{{ result.U_VIEW_TOPIC }}">{{ result.TOPIC_TITLE }}</a>
+    </div>
+    <!-- EVENT search_results_topic_title_after -->
+  </section>
+</li>
+
+{% EVENT search_results_post_after %}
+{% endif %}
+{% endfor %}{% else %}
+<li class="mdl-list__item">
+  <span class="mdl-list__item-primary-content">
+    {{ lang('NO_SEARCH_RESULTS') }}</span>
+</li>
+{% endif %}

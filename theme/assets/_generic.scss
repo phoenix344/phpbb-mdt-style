@@ -13,19 +13,36 @@ $breakpoint-large-desktops: 1200px;
 
 @keyframes text-accent-easing {
   0% { color: rgba(#{$color-accent}, 0.87); }
-  50% { color: rgba(#{$color-accent}, 0.74); }
+  50% { color: rgba(#{$color-accent}, 0.64); }
   100% { color: rgba(#{$color-accent}, 0.87); }
 }
 
-p:last-child {
-  margin-bottom: 0;
+p {
+  margin: 0;
+  + p {
+    margin-top: 16px;
+  }
 }
 
 time {
   color: rgba(var(--color-fg), 0.54);
 }
 
-.username, .mdt-link {
+.mdl-list__item-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  .material-icons {
+    font-size: 28px;
+  }
+  .mdt-img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.username, .username-coloured, .mdt-link {
   display: inline-flex;
   text-decoration: none;
   transition: color 0.25s ease-in-out;
@@ -37,18 +54,45 @@ time {
     padding-right: 4px;
     font-size: inherit;
     line-height: inherit;
+    vertical-align: middle;
   }
 }
 
-.mdt-container {
+.mdt-flex-wide {
   flex: 1;
 }
 
 .mdt-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin: 16px;
+  flex: 1;
+
+  &.mdt-actions-trailing {
+    justify-content: flex-end;
+  }
+
+  .mdt-actions {
+    flex-direction: row;
+    margin: 16px 0 0 0;
+  }
+}
+
+@media (min-width: $breakpoint-phones-landscape) {
+  .mdt-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .mdt-actions {
+      margin: 0;
+    }
+  }
+}
+
+.mdt-forum-pagination {
+  flex: 1;
+  align-items: center;
+  text-align: right;
 }
 
 .mdt-breadcrumb {
@@ -59,5 +103,28 @@ time {
     .material-icons {
       font-size: 20px;
     }
+  }
+}
+
+.mdt-form-fields {
+  padding: 16px;
+}
+
+.mdt-floatlabel-input {
+  @extend .mdl-textfield, .mdl-textfield--floating-label;
+}
+
+.mdt-textfield-description {
+  display: block;
+  margin-top: -16px;
+  padding-bottom: 16px;
+}
+
+.mdt-vertical-expandable {
+  > input[type="radio"] {
+    display: none;
+  }
+  > label {
+    cursor: pointer;
   }
 }

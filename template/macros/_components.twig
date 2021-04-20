@@ -1,0 +1,21 @@
+{# entries: Array<[ id:string, label:string, content:string, active:boolean ]> #}
+{% macro tabs(entries) %}
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+    {% for entry in entries %}
+      {% set id = entry[0] %}
+      {% set label = entry[1] %}
+      {% set active = entry[3] %}
+      <a href="#{{ id }}" class="mdl-tabs__tab{% if active %} is-active{% endif %}">{{ label }}</a>
+    {% endfor %}
+  </div>
+  {% for entry in entries %}
+    {% set id = entry[0] %}
+    {% set content = entry[2] %}
+    {% set active = entry[3] %}
+    <div class="mdl-tabs__panel{% if active %} is-active{% endif %}" id="{{ id }}">
+      {{ content }}
+    </div>
+  {% endfor %}
+</div>
+{% endmacro %}

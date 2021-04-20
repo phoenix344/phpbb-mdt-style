@@ -119,13 +119,13 @@
     --list-main-text-text-color: rgba(255, 255, 255, 0.87);
     --list-supporting-text-text-color: rgba(255, 255, 255, 0.54);
     --list-icon-color: rgb(117, 117, 117);
-    --list-avatar-color: black;
+    --list-avatar-color: white;
     /* ==========  Item ========== */
     --default-item-text-color: rgba(255, 255, 255, 0.87);
     --default-item-outline-color: rgb(189, 189, 189);
     --default-item-hover-bg-color: rgb(97, 97, 97);
-    --default-item-focus-bg-color: rgb(238, 238, 238);
-    --default-item-active-bg-color: rgb(224, 224, 224);
+    --default-item-focus-bg-color: rgb(117, 117, 117);
+    --default-item-active-bg-color: rgb(117, 117, 117);
     --default-item-divider-color: rgba(255, 255, 255, 0.12);
     --disabled-item-text-color: rgb(189, 189, 189);
     /* ==========  Dropdown menu ========== */
@@ -415,13 +415,13 @@
   --list-main-text-text-color: rgba(255, 255, 255, 0.87);
   --list-supporting-text-text-color: rgba(255, 255, 255, 0.54);
   --list-icon-color: rgb(117, 117, 117);
-  --list-avatar-color: black;
+  --list-avatar-color: white;
   /* ==========  Item ========== */
   --default-item-text-color: rgba(255, 255, 255, 0.87);
   --default-item-outline-color: rgb(189, 189, 189);
   --default-item-hover-bg-color: rgb(97, 97, 97);
-  --default-item-focus-bg-color: rgb(238, 238, 238);
-  --default-item-active-bg-color: rgb(224, 224, 224);
+  --default-item-focus-bg-color: rgb(117, 117, 117);
+  --default-item-active-bg-color: rgb(117, 117, 117);
   --default-item-divider-color: rgba(255, 255, 255, 0.12);
   --disabled-item-text-color: rgb(189, 189, 189);
   /* ==========  Dropdown menu ========== */

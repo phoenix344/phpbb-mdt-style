@@ -16,7 +16,7 @@
     {% set CONTENT_SUBFORUM = _STYLE_CHUNKS[2] == "subforum" %}
   {% endif %}
 
-  <div class="mdt-container mdt-forum-container{% if not row.LAST_POST_TIME %} mdt-forum-nocorner{% endif %}">
+  <div class="mdt-flex-wide mdt-forum-container{% if not row.LAST_POST_TIME %} mdt-forum-nocorner{% endif %}">
 
     {# if a custom forum image exist, it should be used #}
     {% if row.FORUM_IMAGE %}

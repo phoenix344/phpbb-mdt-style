@@ -1,0 +1,59 @@
+{% for result in searchresults %}
+{% EVENT search_results_topic_before %}
+<li class="mdl-list__item mdl-list__item--two-line">
+  <span class="mdl-list__item-primary-content">
+    <i class="material-icons mdl-list__item-avatar">person</i>
+    <a href="{{ result.U_VIEW_TOPIC }}">{{ result.TOPIC_TITLE }}</a>
+    <span class="mdl-list__item-sub-title">
+      {% EVENT topiclist_row_prepend %}
+
+      {{ nav.conditionalLink(
+          result.S_UNREAD_TOPIC and not S_IS_BOT,
+          result.U_NEWEST_POST,
+          lang('NEW_POST'), 'post_add') }}
+
+      {{ nav.conditionalLink(
+          result.S_TOPIC_UNAPPROVED or result.S_POSTS_UNAPPROVED,
+          result.U_MCP_QUEUE,
+          lang('TOPIC_UNAPPROVED'), 'approval') }}
+
+      {{ nav.conditionalLink(
+          result.S_TOPIC_DELETED,
+          result.U_MCP_QUEUE,
+          lang('TOPIC_DELETED'), 'delete_sweep') }}
+
+      {{ nav.conditionalLink(
+          result.S_TOPIC_REPORTED,
+          result.U_MCP_REPORT,
+          lang('TOPIC_REPORTED'), 'report') }}
+
+      {% EVENT topiclist_row_topic_title_after %}
+    </span>
+  </span>
+  <span class="mdl-list__item-secondary-content">
+    <span class="mdl-list__item-secondary-info">
+      {% if result.S_HAS_POLL %}
+      <i class="material-icons">insert_chart_outlined</i>
+      {% endif %}
+      {% if result.ATTACH_ICON_IMG %}
+      <i class="material-icons">attach_file</i>
+      {% endif %}
+      {% EVENT topiclist_row_topic_by_author_before %}
+      {{ lang('POST_BY_AUTHOR') }}
+      {% EVENT search_results_topic_author_username_prepend %}
+      {{ result.POST_AUTHOR_FULL }}
+      {% EVENT search_results_topic_author_username_append %}
+      &raquo;
+      <time datetime="{{ result.FIRST_POST_TIME_RFC3339 }}">
+        {{ result.FIRST_POST_TIME }}
+      </time>
+      &raquo;
+      {{ lang('IN') }}
+      <a href="{{ result.U_VIEW_FORUM }}">{{ result.FORUM_TITLE }}</a>
+      {% EVENT topiclist_row_topic_by_author_after %}
+    </span>
+    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+  </span>
+</li>
+{% EVENT search_results_topic_after %}
+{% endfor %}

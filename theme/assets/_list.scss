@@ -20,7 +20,14 @@
     grid-template-columns: 56px 1fr;
     align-items: center;
     height: auto;
-  }  
+  }
+
+  .mdt-list-text-body {
+    @extend .mdl-list__item-text-body;
+    grid-column: 2;
+    line-height: 18px;
+    font-size: 14px;
+  }
 }
 
 .mdt-list-highlight {

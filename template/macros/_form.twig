@@ -1,0 +1,22 @@
+{% macro floatLabelInput(type, name, label, description, error) %}
+<div class="mdt-floatlabel-input mdl-js-textfield">
+  <input class="mdl-textfield__input" type="{{ type ? type : 'text' }}" name="{{ name }}" id="mdt-{{ type }}-{{ name }}">
+  <label class="mdl-textfield__label" for="mdt-{{ type }}-{{ name }}">{{ label }}</label>
+  {% if error %}<span class="mdl-textfield__error">{{ error }}</span>{% endif %}
+</div>
+{% if description %}<small class="mdt-textfield-description">{{ description }}</small>{% endif %}
+{% endmacro %}
+
+{% macro radioInput(id, name, value, label, checked) %}
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="{{ id }}">
+  <input type="radio" id="{{ id }}" class="mdl-radio__button" name="{{ name }}" value="{{ value }}"{% if checked %} checked{% endif %}>
+  <span class="mdl-radio__label">{{ label }}</span>
+</label>
+{% endmacro %}
+
+{% macro switchInput(id, name, value, label, checked) %}
+<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="{{ id }}">
+  <input type="checkbox" id="{{ id }}" class="mdl-switch__input" name="{{ name }}" value="{{ value }}"{% if checked %} checked{% endif %}>
+  <span class="mdl-switch__label">{{ label }}</span>
+</label>
+{% endmacro %}

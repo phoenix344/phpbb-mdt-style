@@ -1,0 +1,76 @@
+.mdt-accordion {
+  margin: 16px auto;
+
+  .mdt-accordion-choice {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-template-areas: "name action"
+                         "panel panel";
+  }
+
+  label {
+    cursor: pointer;
+    background-color: hsl(12, 80%, 60%);
+    border-bottom: 2px solid #fff;
+    padding: 1em;
+    width: 100%;
+    font-weight: 400;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    z-index: 100;
+    color:white;
+
+    &:nth-child(odd) {
+      grid-area: name;
+      &::after  { 
+        content: "+";
+        color: white;
+        float:right;
+        font-size: 1.2em;
+        margin-top:0;
+     }
+    }
+    &:nth-child(even) {
+      grid-area: action;
+    }
+  }
+  .mdt-accordion-panel {
+    grid-area: panel;
+  }
+
+  > input[type="radio"] {
+    display:none;
+  }
+
+  .open:checked {
+    &~.mdt-accordion-panel {
+      height: auto;
+      padding: 2rem;
+      transition: 0.5s;
+    }
+    ~ label {
+      background-color: hsl(12, 80%, 50%);
+      &:nth-child(odd)::after {
+        content: "";
+      }
+      &.close::after {
+        content: "– ";
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+.mdt-accordion-panel {
+  margin: 0;
+  height: 0;
+  overflow:hidden;
+  background-color: hsla(12, 50%, 95%);
+  line-height: 1.5;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  transition: 0.5s;
+  p {
+    margin-top:0;
+  }
+}

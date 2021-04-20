@@ -15,20 +15,6 @@ $forum-corner-right: 220px;
   flex: 1;
 }
 
-.mdt-forum-header {
-  flex: 1;
-  padding: 16px;
-  > div {
-    margin-bottom: 16px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .mdt-category {
-    margin: 0;
-  }
-}
-
 .mdt-forum-image-container {
   @include shadow-4dp();
   position: relative;
@@ -70,21 +56,10 @@ $forum-corner-right: 220px;
 }
 
 .mdt-forum-headline {
+  @extend .mdt-container-headline;
   @include typo-headline;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  flex-flow: wrap;
   min-height: $forum-headline-height;
   margin-left: 12px;
-  a {
-    text-decoration: none;
-    color: $text-color-accent;
-    transition: color 0.25s ease-in-out;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 .mdt-forum-description {

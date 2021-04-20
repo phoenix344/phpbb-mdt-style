@@ -1,0 +1,160 @@
+.mdt-column-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mdt-result-container {
+  margin: 16px;
+}
+
+.mdt-result {
+  @include shadow-2dp;
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  padding: 16px;
+
+  background-color: var(--mdt-result-bg-color);
+
+  &:nth-child(odd) {
+    background-color: var(--mdt-result-alt-bg-color);
+  }
+
+  &:hover {
+    background-color: var(--mdt-result-hover-bg-color);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  section {
+    grid-column: 1/3;
+    &.mdt-addition {
+      grid-column: 1/5;
+    }
+    h3 {
+      font-size: 20px;
+      line-height: 24px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      > a {
+        @extend .mdt-link;
+      }
+    }
+  }
+
+  .mdt-full-size {
+    grid-column: 1/5;
+  }
+
+  .mdt-additional-info {
+    text-align: right;
+  }
+}
+
+.mdt-header-indent {
+  margin-bottom: 12px;
+}
+
+.mdt-header-horizontal {
+  display: flex;
+  align-items: center;
+  .mdt-paging {
+    .mdt-paging-span, .mdt-paging-link {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+    }
+  }
+  > img {
+    max-height: 24px;
+    margin-right: 12px;
+  }
+}
+
+.mdt-data {
+  grid-column: 3/5;
+  display: flex;
+  data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 16px;
+    color: rgba(var(--color-fg), 0.54);
+    &:last-child {
+      margin-right: 0;
+    }
+    &::before {
+      @include shadow-2dp;
+      content: attr(value);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: rgba(var(--color-fg), 0.87);
+    }
+  }
+}
+
+.mdt-flex {
+  display: flex;
+}
+
+.mdt-addition {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(var(--color-fg), 0.54);
+  > * {
+    margin-right: 16px;
+  }
+}
+
+.posthilit {
+  color: rgba(var(--color-accent-dark), 0.87);
+  font-weight: 400;
+}
+
+.mdt-structured-link {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+  margin-bottom: 4px;
+  color: rgba(var(--color-fg), 0.54);
+  &:last-child {
+    margin-bottom: 0;
+  }
+  a {
+    @extend .mdt-link;
+  }
+}
+
+.mdt-search-query-content {
+  @extend .mdl-list__item-primary-content;
+  b {
+    margin-right: 8px;
+  }
+}
+
+.mdt-search-info {
+  display: block;
+  // line-height: 16px;
+}
+
+.mdt-search-author {
+  @extend .mdt-search-info;
+  margin-bottom: 4px;
+}
+
+.mdt-search-addition {
+  display: flex;
+  span {
+    margin-right: 8px;
+  }
+}

@@ -1,5 +1,5 @@
-{% macro categoryH2(title, url) %}
-<div class="mdt-category-title">
+{% macro primaryTitle(title, url) %}
+<div class="mdt-container-title">
   <h2 class="mdl-card__title-text">
     {% if url %}
     <a href="{{ url }}">{{ title }}</a>
@@ -10,8 +10,8 @@
 </div>
 {% endmacro %}
 
-{% macro categoryH3(title, url) %}
-<div class="mdt-category-title">
+{% macro secondaryTitle(title, url) %}
+<div class="mdt-container-title">
   <h3 class="mdl-card__title-text">
     {% if url %}
     <a href="{{ url }}">{{ title }}</a>
@@ -22,14 +22,8 @@
 </div>
 {% endmacro %}
 
-{% macro categoryDesc(desc) %}
-{% if desc %}
-<div class="mdl-card__supporting-text">{{ desc }}</div>
-{% endif %}
-{% endmacro %}
-
-{% macro headline2(title, url) %}
-<h2 class="mdt-forum-headline">
+{% macro primaryHeadline(title, url) %}
+<h2 class="mdt-container-headline">
   {% if url %}
   <a href="{{ url }}">{{ title }}</a>
   {% else %}
@@ -38,12 +32,18 @@
 </h2>
 {% endmacro %}
 
-{% macro headline3(title, url) %}
-<h3 class="mdt-forum-headline">
+{% macro secondaryHeadline(title, url) %}
+<h3 class="mdt-container-headline">
   {% if url %}
   <a href="{{ url }}">{{ title }}</a>
   {% else %}
   {{ title }}
   {% endif %}
 </h3>
+{% endmacro %}
+
+{% macro supportText(desc) %}
+{% if desc %}
+<div class="mdl-card__supporting-text">{{ desc }}</div>
+{% endif %}
 {% endmacro %}

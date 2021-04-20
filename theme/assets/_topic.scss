@@ -1,0 +1,20 @@
+.mdt-topic-new {
+  @extend .mdl-button, .mdl-button--raised, .mdl-button--colored;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+
+.mdt-topic-search {
+  margin-right: 16px;
+  .mdl-textfield {
+    padding: 0;
+  }
+  .mdl-textfield--expandable .mdl-button--icon {
+    top: 0;
+  }
+}
+
+.mdt-topic-search-adv {
+  @extend .mdl-button, .mdl-button--icon;
+  margin-right: 16px;
+}

@@ -1,7 +1,7 @@
 {% import "macros/_typography.twig" as typo %}
 
-<section class="mdt-category">
-  {{ typo.categoryH2(row.FORUM_NAME, row.U_VIEWFORUM) }}
-  {{ typo.categoryDesc(row.FORUM_DESC) }}
-  <div class="mdt-category-content">
+<section class="mdt-container">
+  {{ typo.primaryTitle(row.FORUM_NAME, row.U_VIEWFORUM) }}
+  {{ typo.supportText(row.FORUM_DESC) }}
+  <div class="mdt-container-content">
     <ul class="mdt-list">
