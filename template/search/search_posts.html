@@ -7,7 +7,7 @@
 </li>
 {% else %}
 
-<li class="mdt-result">
+<li class="mdt-grid-list-item">
   <section>
     <header>
       <h3><a href="{{ result.U_VIEW_POST }}">{{ result.POST_SUBJECT }}</a></h3>
@@ -25,11 +25,11 @@
     <p>{{ result.MESSAGE }}</p>
     {% EVENT search_results_content_after %}
   </section>
-  <aside class="mdt-data">
+  <aside class="mdt-grid-list-data">
     <data value="{{ result.TOPIC_REPLIES }}">{{ lang('REPLIES') }}</data>
     <data value="{{ result.TOPIC_VIEWS }}">{{ lang('VIEWS') }}</data>
   </aside>
-  <section class="mdt-addition mdt-flex">
+  <section class="mdt-grid-list-addition mdt-flex">
     <div class="mdt-structured-link">
       {{ lang('FORUM') }}{{ lang('COLON') }}
       <a href="{{ result.U_VIEW_FORUM }}">{{ result.FORUM_TITLE }}</a>

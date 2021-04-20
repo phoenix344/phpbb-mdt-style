@@ -9,6 +9,15 @@ $material-design-icons-font-directory-path: "../fonts/";
 // Material UI Icons
 @import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
 
+// TODO: reorder CSS selectors and reduce overhead
+
+@import "mdt/variables";
+@import "mdt/general";
+@import "mdt/form";
+@import "mdt/grid";
+@import "mdt/nav";
+@import "mdt/pagination";
+
 @import "generic";
 @import "container";
 @import "list";
@@ -381,36 +390,6 @@ $profile-btn-font-size: 12px;
   &.mdt-topic-menu-expandable {
     max-width: 96px;
     width: auto;
-  }
-}
-
-.mdt-paging {
-  padding: 0;
-
-  .material-icons {
-    font-size: 18px;
-  }
-  .mdl-chip__text {
-    background-color: var(--mdt-result-bg-color);
-    border-radius: 16px;
-  }
-  .mdt-paging-link, .mdt-paging-span {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: inherit;
-    line-height: inherit;
-  }
-  .mdt-paging-span {
-    min-width: 32px;
-    height: 32px;
-    font-weight: 700;
-  }
-  .mdt-paging-link {
-    @extend .mdt-link, .mdl-button, .mdl-button--icon;
-    &:hover {
-      font-weight: 700;
-    }
   }
 }
 

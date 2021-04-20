@@ -1,0 +1,30 @@
+
+.mdt-paging {
+  padding: 0;
+
+  .material-icons {
+    font-size: 18px;
+  }
+  .mdl-chip__text {
+    background-color: var(--mdt-grid-list-item-bg-color);
+    border-radius: 16px;
+  }
+  .mdt-paging-link, .mdt-paging-span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  .mdt-paging-span {
+    min-width: 32px;
+    height: 32px;
+    font-weight: 700;
+  }
+  .mdt-paging-link {
+    @extend .mdt-link, .mdl-button, .mdl-button--icon;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}

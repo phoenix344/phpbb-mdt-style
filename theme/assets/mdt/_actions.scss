@@ -1,0 +1,27 @@
+
+.mdt-actions {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  flex: 1;
+
+  &.mdt-actions-trailing {
+    justify-content: flex-end;
+  }
+
+  .mdt-actions {
+    flex-direction: row;
+    margin: 16px 0 0 0;
+  }
+}
+
+@media (min-width: $breakpoint-phones-landscape) {
+  .mdt-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .mdt-actions {
+      margin: 0;
+    }
+  }
+}

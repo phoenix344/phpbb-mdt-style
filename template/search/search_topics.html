@@ -3,10 +3,10 @@
 {% if searchresults|length > 0 %}{% for result in searchresults %}
 {% EVENT search_results_topic_before %}
 
-<li class="mdt-result">
+<li class="mdt-grid-list-item">
   <section>
     <header class="mdt-header-indent">
-      <div class="mdt-header-horizontal">
+      <div class="mdt-grid-list-header-horiz">
         {% if result.TOPIC_ICON_IMG %}
         <img src="{{ T_ICONS_PATH }}{{ result.TOPIC_ICON_IMG }}" alt="">
         {% endif %}
@@ -53,18 +53,20 @@
       <time datetime="{{ result.LAST_POST_TIME_RFC3339 }}">{{ result.LAST_POST_TIME }}</time>
     </p>
   </section>
-  <aside class="mdt-data">
-    <data value="{{ result.TOPIC_REPLIES }}">{{ lang('REPLIES') }}</data>
-    <data value="{{ result.TOPIC_VIEWS }}">{{ lang('VIEWS') }}</data>
+  <aside class="mdt-grid-list-data">
+    <data value="{{ result.TOPIC_REPLIES }}" aria-label="{{ lang('REPLIES') }}{{ lang('COLON') }} {{ result.TOPIC_REPLIES }}">{{ lang('REPLIES') }}</data>
+    <data value="{{ result.TOPIC_VIEWS }}" aria-label="{{ lang('VIEWS') }}{{ lang('COLON') }} {{ result.TOPIC_VIEWS }}">{{ lang('VIEWS') }}</data>
   </aside>
+  {% EVENT topiclist_row_prepend %}
+
   {% set debug = false %}
   {% set isUnreadTopic = debug or result.S_UNREAD_TOPIC and not S_IS_BOT %}
   {% set isUnapproved = debug or result.S_TOPIC_UNAPPROVED or result.S_POSTS_UNAPPROVED %}
   {% set isDeleted = debug or result.S_TOPIC_DELETED %}
   {% set isReported = debug or result.S_TOPIC_REPORTED %}
-  {% EVENT topiclist_row_prepend %}
+
   {% if isUnreadTopic or isUnapproved or isDeleted or isReported %}
-  <section class="mdt-addition mdt-full-size">
+  <section class="mdt-grid-list-addition mdt-full-size">
     {{ nav.conditionalLink(
       isUnreadTopic,
       result.U_NEWEST_POST,

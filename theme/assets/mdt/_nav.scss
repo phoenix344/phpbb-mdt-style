@@ -1,0 +1,84 @@
+.username, .username-coloured, .mdt-link {
+  display: inline-flex;
+  text-decoration: none;
+  transition: color 0.25s ease-in-out;
+  color: rgba(#{$color-accent}, .87);
+  &:hover {
+    color: rgba(#{$color-accent}, 1);
+  }
+  .material-icons {
+    padding-right: 4px;
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: middle;
+  }
+}
+
+.mdt-structured-link {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+  margin-bottom: 4px;
+  color: rgba(var(--color-fg), 0.54);
+  &:last-child {
+    margin-bottom: 0;
+  }
+  a {
+    @extend .mdt-link;
+  }
+}
+
+.mdt-breadcrumb {
+  > * {
+    line-height: 20px;
+    vertical-align: middle;
+    white-space: nowrap;
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+}
+
+.mdt-jumpbox .mdl-menu__container {
+  margin-right: 16px;
+}
+
+.mdt-jumpbox-btn {
+  @extend .mdl-button, .mdl-button--raised;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.mdt-jumpbox-content {
+  @extend .mdl-menu;
+  max-height: $jumpbox-max-height;
+  overflow: auto;
+}
+
+[class^="mdt-jumpbox-spacer"] {
+  @extend .mdl-menu__item;
+  height: 32px;
+  line-height: 32px;
+}
+
+@for $index from 1 through 10 {
+  .mdt-jumpbox-ltr {
+    .mdt-jumpbox-spacer-#{$index} {
+      padding-left: ($index * 24px)
+    }
+  }
+  .mdt-jumpbox-rtl {
+    .mdt-jumpbox-spacer-#{$index} {
+      padding-right: ($index * 24px);
+    }
+  }
+}
+
+.mdt-jumpbox-category {
+  font-weight: 700;
+}
+
+.mdt-jumpbox-forum {
+  font-weight: 400;
+}

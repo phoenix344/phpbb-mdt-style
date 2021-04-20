@@ -47,13 +47,13 @@
         </select>
       </div>
 
-      <b>{{ lang('SEARCH_SUBFORUMS') }}</b>
+      <h4>{{ lang('SEARCH_SUBFORUMS') }}</h4>
       <p>
         {{ form.radioInput('search_child1', 'sc', '1', lang('YES'), true) }}
         {{ form.radioInput('search_child2', 'sc', '0', lang('NO'), false) }}
       </p>
 
-      <b>{{ lang('SEARCH_WITHIN') }}</b>
+      <h4>{{ lang('SEARCH_WITHIN') }}</h4>
       <p>
         {{ form.radioInput('sf1', 'sf', 'all', lang('SEARCH_TITLE_MSG'), true) }}<br>
         {{ form.radioInput('sf2', 'sf', 'msgonly', lang('SEARCH_MSG_ONLY'), false) }}<br>
@@ -61,14 +61,14 @@
         {{ form.radioInput('sf4', 'sf', 'firstpost', lang('SEARCH_FIRST_POST'), false) }}
       </p>
 
-      <b>{{ lang('SEARCH_SUBFORUMS') }}</b>
+      <h4>{{ lang('SEARCH_SUBFORUMS') }}</h4>
       <p>
         {{ S_SELECT_SORT_KEY }}
         {{ form.radioInput('show_results1', 'sr', 'posts', lang('POSTS'), true) }}
         {{ form.radioInput('show_results2', 'sr', 'topics', lang('TOPICS'), false) }}
       </p>
 
-      <b>{{ lang('RESULT_SORT') }}</b>
+      <h4>{{ lang('RESULT_SORT') }}</h4>
       <p>
         {{ S_SELECT_SORT_DAYS }}
         {{ form.radioInput('sa', 'sd', 'a', lang('SORT_ASCENDING'), false) }}
@@ -96,6 +96,9 @@
 
 {% EVENT search_body_recent_search_before %}
 {% if recentsearch %}
+
+{# TODO: recentsearch must be tested and styled #}
+
 <div class="forumbg forumbg-table">
 	<div class="inner">
 
