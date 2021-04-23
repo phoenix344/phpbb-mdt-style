@@ -20,12 +20,12 @@
 
 .mdt-subforum-chip {
   @extend .mdl-chip, .mdl-chip--contact;
-  @include shadow-2dp();
+  @include mdt-shadow-2dp();
   font-size: $chip-font-size;
   text-decoration: none;
   transition: 0.15s ease-in-out;
   &:hover {
-    @include shadow-3dp();
+    @include mdt-shadow-3dp();
     color: rgba(#{$color-accent}, .87);
   }
   &.mdt-subforum-highlight {

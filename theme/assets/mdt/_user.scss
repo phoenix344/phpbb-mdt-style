@@ -1,0 +1,34 @@
+.mdt-user {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  header, footer, figure {
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+.mdt-user-content {
+  grid-column: 1;
+  grid-row: 1/4;
+  margin: 0 16px 16px 0;
+}
+
+// .mdt-user-avatar {
+//   @include mdt-shadow-3dp();
+  
+//   background-color: var(--default-item-active-bg-color);
+//   border-radius: 10%;
+//   a {
+//     color: var(--primary-text-color);
+//     text-decoration: none;
+//   }
+//   .material-icons {
+//     display: block;
+//     font-size: 90px;
+//   }
+// }
+
+.mdt-user-info {
+  grid-column: 2/4;
+}

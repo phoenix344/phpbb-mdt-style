@@ -1,46 +1,32 @@
-<div class="mdt-forum">
-  <div class="mdt-forum-content">
+<div class="mdt-container">
+  <div class="mdt-container-title">
     {% EVENT viewtopic_topic_title_before %}
-    <h2>{% EVENT viewtopic_topic_title_prepend %}
+    <h2 class="mdl-card__title-text">
+      {% EVENT viewtopic_topic_title_prepend %}
       {{ TOPIC_TITLE }}
       {% EVENT viewtopic_topic_title_append %}
     </h2>
     {% EVENT viewtopic_topic_title_after %}
-
-    {% if FORUM_DESC or MODERATORS or U_MCP %}
-    <div>
-      {% if FORUM_DESC %}
-      <div>{{ FORUM_DESC }}</div>
-      {% endif %}
-
-      {% if MODERATORS %}
-      <p><strong>
-        {% if S_SINGLE_MODERATOR %}
-        {{ lang('MODERATOR') }}{{ lang('COLON') }}
-        {% else %}
-        {{ lang('MODERATORS') }}{{ lang('COLON') }}
-        {% endif %}
-      </strong> {{ MODERATORS }}</p>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    {% if S_FORUM_RULES %}
-    <div class="mdt-forum-rules">
-      {% if U_FORUM_RULES %}
-      <a id="forum-rules" class="mdl-button mdl-button--raised" rel="nofollow" target="_blank" href="{{ U_FORUM_RULES }}">
-        {{ lang('FORUM_RULES') }}
-      </a>
-      <div class="mdl-tooltip" for="forum-rules">
-        <div clas="mdl-tooltip__text">{{ FORUM_RULES }}</div>
-      </div>
-      {% else %}
-      <h4>{{ lang('FORUM_RULES') }}</h4>
-      <p>{{ FORUM_RULES }}</p>
-      {% endif %}
-    </div>
-    {% endif %}
   </div>
+  <ul class="mdl-list">
+    {% if FORUM_DESC %}
+    <li class="mdl-list__item">
+      <div class="mdt-search-query-content">{{ FORUM_DESC }}</div>
+    </li>
+    {% endif %}
+
+
+    {% if MODERATORS %}
+    <li class="mdl-list__item">
+      <span>{% if S_SINGLE_MODERATOR %}
+      {{ lang('MODERATOR') }}{{ lang('COLON') }}
+      {% else %}
+      {{ lang('MODERATORS') }}{{ lang('COLON') }}
+      {% endif %}
+      {{ MODERATORS }}</span>
+    </li>
+    {% endif %}
+  </ul>
 </div>
 
 {% include('topic/topic_actions_top.html') %}
@@ -51,3 +37,6 @@
   </div>
 </div>
 
+<ul class="mdt-list">
+  {% include('topic/topic_posts.html') %}
+</ul>

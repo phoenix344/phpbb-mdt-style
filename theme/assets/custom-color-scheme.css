@@ -14,7 +14,6 @@
     --color-bg-inverse: 255, 255, 255;
     --color-fg: 255, 255, 255;
     --color-fg-inverse: 0, 0, 0;
-    --shadow-override: 0, 0, 0;
     --background-color: rgb(var(--color-bg));
     --text-color: rgb(var(--color-fg));
     --text-color-inverse: rgb(var(--color-fg-inverse));
@@ -29,9 +28,10 @@
     --dialog-text-color: hsla(0, 0%, 100%, 0.87);
     --list-highlight-bg-color: rgba(var(--color-grey-900), 0.15);
 
-    --mdt-result-bg-color: rgb(var(--color-grey-900));
-    --mdt-result-alt-bg-color: rgb(var(--color-grey-800));
-    --mdt-result-hover-bg-color: rgb(var(--color-grey-700));
+    --mdt-shadow-color: var(--color-fg);
+    --mdt-grid-list-item-bg-color: rgb(var(--color-grey-900));
+    --mdt-grid-list-item-alt-bg-color: rgba(var(--color-grey-800), 0.55);
+    --mdt-grid-list-item-hover-bg-color: rgb(var(--color-grey-800));
   }
 }
 
@@ -50,7 +50,6 @@
     --color-bg-inverse: 0, 0, 0;
     --color-fg: 0, 0, 0;
     --color-fg-inverse: 255, 255, 255;
-    --shadow-override: 0, 0, 0;
     --background-color: rgb(var(--color-bg));
     --text-color: rgb(var(--color-fg));
     --text-color-inverse: rgb(var(--color-fg-inverse));
@@ -64,10 +63,11 @@
     --dialog-bg-color: #fff;
     --dialog-text-color: rgba(0, 0, 0, 0.87);
     --list-highlight-bg-color: rgb(255, 255, 255);
-
-    --mdt-result-bg-color: rgb(var(--color-grey-100));
-    --mdt-result-alt-bg-color: rgb(var(--color-grey-200));
-    --mdt-result-hover-bg-color: rgba(var(--color-grey-200), 0.55);
+    
+    --mdt-shadow-color: var(--color-fg);
+    --mdt-grid-list-item-bg-color: rgb(var(--color-grey-100));
+    --mdt-grid-list-item-alt-bg-color: rgb(var(--color-grey-200));
+    --mdt-grid-list-item-hover-bg-color: rgba(var(--color-grey-200), 0.55);
   }
 }
 
@@ -85,7 +85,6 @@
   --color-bg-inverse: 255, 255, 255;
   --color-fg: 255, 255, 255;
   --color-fg-inverse: 0, 0, 0;
-  --shadow-override: 0, 0, 0;
   --background-color: rgb(var(--color-bg));
   --text-color: rgb(var(--color-fg));
   --text-color-inverse: rgb(var(--color-fg-inverse));
@@ -99,10 +98,11 @@
   --dialog-bg-color: #212121;
   --dialog-text-color: hsla(0, 0%, 100%, 0.87);
   --list-highlight-bg-color: rgba(var(--color-grey-900), 0.15);
-
-  --mdt-result-bg-color: rgb(var(--color-grey-900));
-  --mdt-result-alt-bg-color: rgb(var(--color-grey-800));
-  --mdt-result-hover-bg-color: rgba(var(--color-grey-800), 0.55);
+  
+  --mdt-shadow-color: var(--color-fg);
+  --mdt-grid-list-item-bg-color: rgb(var(--color-grey-900));
+  --mdt-grid-list-item-alt-bg-color: rgba(var(--color-grey-800), 0.55);
+  --mdt-grid-list-item-hover-bg-color: rgb(var(--color-grey-800));
 }
 
 /**
@@ -119,7 +119,6 @@
   --color-bg-inverse: 0, 0, 0;
   --color-fg: 0, 0, 0;
   --color-fg-inverse: 255, 255, 255;
-  --shadow-override: 0, 0, 0;
   --background-color: rgb(var(--color-bg));
   --text-color: rgb(var(--color-fg));
   --text-color-inverse: rgb(var(--color-fg-inverse));
@@ -133,8 +132,9 @@
   --dialog-bg-color: #fff;
   --dialog-text-color: rgba(0, 0, 0, 0.87);
   --list-highlight-bg-color: rgb(255, 255, 255);
-
-  --mdt-result-bg-color: rgb(var(--color-grey-100));
-  --mdt-result-alt-bg-color: rgb(var(--color-grey-200));
-  --mdt-result-hover-bg-color: rgba(var(--color-grey-200), 0.55);
+  
+  --mdt-shadow-color: var(--color-fg);
+  --mdt-grid-list-item-bg-color: rgb(var(--color-grey-100));
+  --mdt-grid-list-item-alt-bg-color: rgb(var(--color-grey-200));
+  --mdt-grid-list-item-hover-bg-color: rgba(var(--color-grey-200), 0.55);
 }

@@ -59,3 +59,12 @@
   </nav>
 </div>
 {% endmacro %}
+
+{% macro contactLink(id, title, url) %}
+{% import 'macros/_icon.twig' as icon %}
+{% if url %}
+<a href="{{ url }}" title="{{ title }}" target="_blank">{{ icon.contactIcons(id) }}</a>
+{% else %}
+{{ icon.contactIcons(id) }}
+{% endif %}
+{% endmacro %}

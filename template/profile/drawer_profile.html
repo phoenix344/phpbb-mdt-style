@@ -3,9 +3,9 @@
   <div class="mdt-drawer-profile-content">
     <div class="mdt-drawer-profile-image">
       {% if CURRENT_USER_AVATAR %}
-      {{ CURRENT_USER_AVATAR }}
+      <figure class="mdt-user-avatar">{{ CURRENT_USER_AVATAR }}</figure>
       {% else %}
-      <img src="{{ T_THEME_PATH }}/images/no_avatar.gif" alt="" />
+      <img class="mdt-user-avatar" src="{{ T_THEME_PATH }}/images/no_avatar.gif" alt="" />
       {% endif %}
     </div>
     <div class="mdt-drawer-profile-typo">

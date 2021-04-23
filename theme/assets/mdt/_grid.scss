@@ -11,8 +11,9 @@
 
 .mdt-grid-list {
   margin: 16px;
+
   li {
-    @include shadow-2dp;
+    @include mdt-shadow-2dp;
     display: grid;
     grid-template-columns: 9fr 3fr;
     padding: 16px;
@@ -29,6 +30,10 @@
   
     &:last-child {
       margin-bottom: 0;
+    }
+
+    aside {
+      grid-column: 3/5;
     }
   
     section {
@@ -59,6 +64,10 @@
   }
 }
 
+.mdt-grid-post {
+  display: block;
+}
+
 .mdt-grid-list-header-horiz {
   display: flex;
   align-items: center;
@@ -76,7 +85,6 @@
 }
 
 .mdt-grid-list-data {
-  grid-column: 3/5;
   display: flex;
   data {
     display: flex;
@@ -88,7 +96,7 @@
       margin-right: 0;
     }
     &::before {
-      @include shadow-2dp;
+      @include mdt-shadow-2dp;
       content: attr(value);
       display: flex;
       align-items: center;

@@ -1,0 +1,19 @@
+{% macro contactIcons(id) %}
+{% set _id = id %}
+
+{% if id ends with 'email' %}
+{% set _id = 'mail' %}
+{% elseif id ends with 'website' %}
+{% set _id = 'new-tab' %}
+{% elseif id ends with 'facebook' %}
+{% set _id = 'facebook2' %}
+{% elseif id ends with 'twitter' %}
+{% set _id = 'twitter' %}
+{% elseif id ends with 'skype' %}
+{% set _id = 'skype' %}
+{% elseif id ends with 'youtube' %}
+{% set _id = 'youtube' %}
+{% endif %}
+
+<i class="icon-{{ _id }}"></i>
+{% endmacro %}

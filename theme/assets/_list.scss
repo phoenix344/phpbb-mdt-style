@@ -31,7 +31,7 @@
 }
 
 .mdt-list-highlight {
-  @include shadow-2dp();
+  @include mdt-shadow-2dp();
   transition: 0.1s ease-in-out;
   border-left: 4px solid rgba(var(--color-primary), 1);
   background-color: var(--list-highlight-bg-color);

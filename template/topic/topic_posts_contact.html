@@ -1,0 +1,23 @@
+{% import 'macros/_nav.twig' as nav %}
+
+{% if row.contact|length > 0 %}
+<span class="mdt-user-contact">
+  {% for item in row.contact %}
+  {% set REMAINDER = item.S_ROW_COUNT % 4 %}
+  {% set S_LAST_CELL = ((REMAINDER eq 3) or (item.S_LAST_ROW and item.S_NUM_ROWS < 4)) %}
+
+  {% EVENT viewtopic_body_item_icon_prepend %}
+  {{ nav.contactLink(item.ID, item.NAME, item.U_CONTACT) }}
+  {% EVENT viewtopic_body_item_icon_append %}
+
+{#<a href="{% if item.U_CONTACT %}{{ item.U_CONTACT }}{% else %}{{ row.U_POST_AUTHOR }}{% endif %}" title="{{ item.NAME }}"{% if S_LAST_CELL %} class="last-cell"{% endif %}{% if item.ID eq 'jabber' %} onclick="popup(this.href, 750, 320); return false;"{% endif %}>
+  <i class="icon-facebook2"></i>
+  <span class="item-icon {{ item.ID }}-icon">
+    {{ item.ID }}
+    {{ item.NAME }}
+  </span>
+  
+</a>#}
+{% endfor %}
+</span>
+{% endif %}

@@ -12,13 +12,20 @@ $material-design-icons-font-directory-path: "../fonts/";
 // TODO: reorder CSS selectors and reduce overhead
 
 @import "mdt/variables";
+@import "mdt/mixins";
 @import "mdt/general";
+@import "mdt/actions";
 @import "mdt/form";
 @import "mdt/grid";
 @import "mdt/nav";
+@import "mdt/menu";
 @import "mdt/pagination";
+@import "mdt/user";
 
-@import "generic";
+@import "mdt/board/post";
+
+@import "iconmoon";
+
 @import "container";
 @import "list";
 @import "search";
@@ -28,66 +35,6 @@ $material-design-icons-font-directory-path: "../fonts/";
 @import "forum";
 @import "subforum";
 @import "topic";
-
-// main elements
-html, body {
-  background-color: var(--background-color);
-}
-
-// MDL overrides
-
-.mdl-layout-title {
-  > a {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-
-.mdl-button {
-  text-decoration: none;
-}
-
-.mdl-list__item-avatar {
-  > img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-}
-
-@media (max-width: $grid-tablet-breakpoint) {
-  header .mdl-layout-title {
-    display: none;
-  }
-}
-
-.mdt-menu__headline {
-  @extend .mdl-menu__item--full-bleed-divider;
-  font-weight: 700;
-}
-
-.mdt-menu__headline, .mdt-menu__item-inactive {
-  @extend .mdl-menu__item;
-  cursor: default;
-
-  &:hover {
-    background-color: transparent;
-  }
-
-  &:focus {
-    outline: none;
-    background-color: transparent;
-  }
-
-  &:active {
-    background-color: transparent;
-  }
-}
-
-.mdt-menu__item-inactive {
-  line-height: 150%;
-  height: auto;
-}
 
 .mdt-forum-permissions {
   padding-top: 0;
@@ -167,7 +114,7 @@ html, body {
 .mdt-drawer-profile-image {
   margin-bottom: $card-vertical-padding;
   > img {
-    @include shadow-3dp();
+    @include mdt-shadow-3dp();
     border-radius: 10%;
   }
 }
@@ -285,45 +232,12 @@ $profile-btn-font-size: 12px;
 }
 
 .mdt-notification-highlight {
-  @include shadow-2dp();
+  @include mdt-shadow-2dp();
   background-color: transparent;
   transition: 0.1s ease-in-out;
   &:hover {
     border-left: 3px solid rgba(var(--color-accent), 1);
     background-color: transparent;
-  }
-}
-
-// toolbar
-
-.mdt-toolbar {
-  @extend .mdl-chip;
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
-
-.mdt-toolbar-toggle {
-  @extend .mdl-button, .mdl-button--icon;
-}
-
-.mdt-toolbar-content {
-  display: flex;
-  list-style: none;
-  line-height: 32px;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  max-width: 0;
-  overflow: hidden;
-  transition: 0.1s ease-in-out;
-  &.mdt-toolbar-expandable {
-    min-width: 96px;
-    max-width: 128px;
-    width: auto;
-  }
-  > li {
-    margin: 0 4px;
   }
 }
 

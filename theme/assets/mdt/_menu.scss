@@ -1,0 +1,30 @@
+.mdt-toolbar {
+  @extend .mdl-chip;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.mdt-toolbar-toggle {
+  @extend .mdl-button, .mdl-button--icon;
+}
+
+.mdt-toolbar-content {
+  display: flex;
+  list-style: none;
+  line-height: 32px;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: 0.1s ease-in-out;
+  &.mdt-toolbar-expandable {
+    min-width: 32px;
+    max-width: 128px;
+    width: auto;
+  }
+  > li {
+    margin: 0 4px;
+  }
+}

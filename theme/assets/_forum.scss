@@ -16,7 +16,7 @@ $forum-corner-right: 220px;
 }
 
 .mdt-forum-image-container {
-  @include shadow-4dp();
+  @include mdt-shadow-4dp();
   position: relative;
   max-width: $forum-image-width;
 }

@@ -3,7 +3,7 @@ $category-vertical-margin: 16px;
 
 .mdt-container {
   @extend .mdl-card;
-  @include shadow-3dp();
+  @include mdt-shadow-3dp();
   margin: $category-vertical-margin $category-horizontal-margin;
   width: auto;
   min-height: 0;
