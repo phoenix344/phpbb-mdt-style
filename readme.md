@@ -2,6 +2,8 @@
 
 **I screwed up your design pattern and I don't feel ashamed!**
 
+... maybe a little, because I was naive!
+
 As life goes, I inherited a forum and surprise! It was a phpBB. The look and feel of the forum is old and looks old regardless of the style decision. I wanted to migrate it to discourse, but my server said NOOOOOO. In addition, I catched a cold over Easter and couldn't celebrate with my family/friends. So... let's do this! Let's bring this old thing into a modern age!
 
 ## Internet Explorer
