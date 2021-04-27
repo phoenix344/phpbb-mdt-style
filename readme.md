@@ -2,7 +2,7 @@
 
 **IN DEVELOPMENT** WIP
 
-It's a mobile optimized style for phpBB. Completely untested in any browser, but Chrome and Firefox. I want to refuse to support IE11, but I have to admit: It's an easy task to convert the ES6 into ES2015 and it's easy to use autoprefixer and optimize CSS for IE11. The only thing that will not work are CSS variables. So yeah... let's bring this thing to life!
+It's a mobile optimized style for phpBB. Completely untested in any browser, but Chrome and Firefox. I want to refuse to support IE11, but I have to admit: It's an easy task to convert the ES6 into ES2015 and it's easy to use autoprefixer and optimize CSS for IE11. The only thing that will not work are CSS variables. Let's bring this thing to life!
 
 ## Todo
 
