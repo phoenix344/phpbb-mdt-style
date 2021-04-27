@@ -42,6 +42,8 @@ Unfortunately google gave it not much love and I made a bunch of overrides, but 
 
 Now I'm happy again. It looks even better than before! **I won't change again! NO! NO! NO!**
 
+**UPDATE** 😐 MDL is abandoned for [MDC](https://github.com/material-components/material-components-web/blob/master/docs/migrating-from-mdl.md) GODDAMNIT!!!!!!!!!!!!!
+
 ## Architecture
 
 
