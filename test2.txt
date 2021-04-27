@@ -1,5 +1,0 @@
-<!-- IF BLAH -->
-{S_YEAH}
-<!-- ELSE -->
-{L_BUH}
-<!-- ENDIF -->

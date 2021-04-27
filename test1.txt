@@ -1,5 +1,0 @@
-{% if BLAH %}
-{{ S_YEAH }}
-{% else %}
-{L_BUH}
-{% endif %}
