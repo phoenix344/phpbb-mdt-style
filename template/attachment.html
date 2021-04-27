@@ -13,21 +13,35 @@
 		</dl>
 		<!-- ENDIF -->
 
-		<!-- IF _file.S_IMAGE -->
-		<dl class="file">
-			<dt class="attach-image"><img src="{_file.U_INLINE_LINK}" class="postimage" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" onclick="viewableArea(this);" /></dt>
-			<!-- IF _file.COMMENT --><dd><em>{_file.COMMENT}</em></dd><!-- ENDIF -->
-			<dd>{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}</dd>
-		</dl>
-		<!-- ENDIF -->
+    {% if _file.S_IMAGE %}
+		<figure class="mdt-attachment-image">
+			<a href="{{_file.U_INLINE_LINK }}"{% if _file.COMMENT %} data-caption="{{ _file.COMMENT|e('html') }}"{% endif %}>
+        <img src="{{_file.U_INLINE_LINK }}" alt="{{ _file.DOWNLOAD_NAME }} ({{ _file.FILESIZE }} {{ _file.SIZE_LANG }}) {{ _file.L_DOWNLOAD_COUNT }}">
+      </a>
+			<figcaption>
+				{% if _file.COMMENT %}
+				<h5>{{ _file.COMMENT|e('html') }}</h5>
+        {% else %}
+        <div>{{ _file.DOWNLOAD_NAME }} ({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}</div>
+				{% endif %}
+        <div>
+          <a class="mdt-attachment-download" href="{{_file.U_INLINE_LINK }}" target="_blank" download="{{ _file.DOWNLOAD_NAME }}">{{ lang('ATTACHMENT_DOWNLOAD_IMAGE') }}</a>
+        </div>
+			</figcaption>
+		</figure>
+		{% endif %}
 
-		<!-- IF _file.S_FILE -->
-		<dl class="file">
-			<dt><!-- IF _file.UPLOAD_ICON -->{_file.UPLOAD_ICON} <!-- ENDIF --><a class="postlink" href="{_file.U_DOWNLOAD_LINK}">{_file.DOWNLOAD_NAME}</a></dt>
-			<!-- IF _file.COMMENT --><dd><em>{_file.COMMENT}</em></dd><!-- ENDIF -->
-			<dd>({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}</dd>
-		</dl>
-		<!-- ENDIF -->
+    {% if _file.S_FILE %}
+    <a class="mdt-attachment-file mdt-attachment-download" href="{{ _file.U_DOWNLOAD_LINK }}" download="{_file.DOWNLOAD_NAME}">
+      {% if _file.COMMENT %}
+      <span class="mdt-attachment-title">{{ _file.COMMENT|e('html') }}</span>
+      {% endif %}
+      <span>
+        <b>{{ _file.DOWNLOAD_NAME }}</b> ({_file.FILESIZE} {_file.SIZE_LANG})
+        {_file.L_DOWNLOAD_COUNT}
+      </span>
+    </a>
+    {% endif %}
 
 		<!-- EVENT attachment_file_append -->
 	<!-- ENDIF -->

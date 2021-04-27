@@ -1,10 +1,8 @@
-<!-- IF postrow.S_HAS_ATTACHMENTS -->
-<dl class="attachbox">
-  <dt>
-    {L_ATTACHMENTS}
-  </dt>
-  <!-- BEGIN attachment -->
-    <dd>{postrow.attachment.DISPLAY_ATTACHMENT}</dd>
-  <!-- END attachment -->
+{% if row.S_HAS_ATTACHMENTS %}
+<h4>{{ lang('ATTACHMENTS') }}</h4>
+<div class="mdt-grid-view mdt-grid-small">
+  {% for attach in attachment %}
+  {{ attach.DISPLAY_ATTACHMENT }}
+  {% endfor %}
 </dl>
-<!-- ENDIF -->
+{% endif %}

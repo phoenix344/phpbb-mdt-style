@@ -14721,6 +14721,164 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .material-icons.zoom_out_map:before {
     content: "\e56b"; }
 
+/*!
+ * baguetteBox.js
+ * @author  feimosi
+ * @version %%INJECT_VERSION%%
+ * @url https://github.com/feimosi/baguetteBox.js
+ */
+#baguetteBox-overlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000000;
+  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity .5s ease; }
+  #baguetteBox-overlay.visible {
+    opacity: 1; }
+  #baguetteBox-overlay .full-image {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center; }
+    #baguetteBox-overlay .full-image figure {
+      display: inline;
+      margin: 0;
+      height: 100%; }
+    #baguetteBox-overlay .full-image img {
+      display: inline-block;
+      width: auto;
+      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+      vertical-align: middle;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); }
+    #baguetteBox-overlay .full-image figcaption {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      line-height: 1.8;
+      white-space: normal;
+      color: #ccc;
+      background-color: #000;
+      background-color: rgba(0, 0, 0, 0.6);
+      font-family: sans-serif; }
+    #baguetteBox-overlay .full-image:before {
+      content: "";
+      display: inline-block;
+      height: 50%;
+      width: 1px;
+      margin-right: -1px; }
+
+#baguetteBox-slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  transition: left .4s ease, transform .4s ease; }
+  #baguetteBox-slider.bounce-from-right {
+    animation: bounceFromRight .4s ease-out; }
+  #baguetteBox-slider.bounce-from-left {
+    animation: bounceFromLeft .4s ease-out; }
+
+@keyframes bounceFromRight {
+  0% {
+    margin-left: 0; }
+  50% {
+    margin-left: -30px; }
+  100% {
+    margin-left: 0; } }
+
+@keyframes bounceFromLeft {
+  0% {
+    margin-left: 0; }
+  50% {
+    margin-left: 30px; }
+  100% {
+    margin-left: 0; } }
+
+.baguetteBox-button#next-button, .baguetteBox-button#previous-button {
+  top: 50%;
+  top: calc(50% - 30px);
+  width: 44px;
+  height: 60px; }
+
+.baguetteBox-button {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 15%;
+  background-color: #323232;
+  background-color: rgba(50, 50, 50, 0.5);
+  color: #ddd;
+  font: 1.6em sans-serif;
+  transition: background-color .4s ease; }
+  .baguetteBox-button:focus, .baguetteBox-button:hover {
+    background-color: rgba(50, 50, 50, 0.9); }
+  .baguetteBox-button#next-button {
+    right: 2%; }
+  .baguetteBox-button#previous-button {
+    left: 2%; }
+  .baguetteBox-button#close-button {
+    top: 20px;
+    right: 2%;
+    right: calc(2% + 6px);
+    width: 30px;
+    height: 30px; }
+  .baguetteBox-button svg {
+    position: absolute;
+    left: 0;
+    top: 0; }
+
+/*
+    Preloader
+    Borrowed from http://tobiasahlin.com/spinkit/
+*/
+.baguetteBox-spinner {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px; }
+
+.baguetteBox-double-bounce1,
+.baguetteBox-double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: .6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: bounce 2s infinite ease-in-out; }
+
+.baguetteBox-double-bounce2 {
+  animation-delay: -1s; }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
 @keyframes text-accent-easing {
   0% {
     color: rgba(var(--color-accent), 0.87); }
@@ -14903,14 +15061,14 @@ time {
   .mdt-grid-list-addition > * {
     margin-right: 16px; }
 
-.username, .username-coloured, .mdt-link, .mdt-grid-list li section h2 > a, .mdt-grid-list li section h3 > a, .mdt-structured-link a, .mdt-paging .mdt-paging-link, span.mdt-user-contact a {
+.username, .username-coloured, .mdt-link, .mdt-grid-list li section h2 > a, .mdt-grid-list li section h3 > a, .mdt-structured-link a, .mdt-paging .mdt-paging-link, span.mdt-user-contact a, .mdt-attachment-download {
   display: inline-flex;
   text-decoration: none;
   transition: color 0.25s ease-in-out;
   color: rgba(var(--color-accent), 0.87); }
-  .username:hover, .username-coloured:hover, .mdt-link:hover, .mdt-grid-list li section h2 > a:hover, .mdt-grid-list li section h3 > a:hover, .mdt-structured-link a:hover, .mdt-paging .mdt-paging-link:hover, span.mdt-user-contact a:hover {
+  .username:hover, .username-coloured:hover, .mdt-link:hover, .mdt-grid-list li section h2 > a:hover, .mdt-grid-list li section h3 > a:hover, .mdt-structured-link a:hover, .mdt-paging .mdt-paging-link:hover, span.mdt-user-contact a:hover, .mdt-attachment-download:hover {
     color: rgba(var(--color-accent), 1); }
-  .username .material-icons, .username-coloured .material-icons, .mdt-link .material-icons, .mdt-grid-list li section h2 > a .material-icons, .mdt-grid-list li section h3 > a .material-icons, .mdt-structured-link a .material-icons, .mdt-paging .mdt-paging-link .material-icons, span.mdt-user-contact a .material-icons {
+  .username .material-icons, .username-coloured .material-icons, .mdt-link .material-icons, .mdt-grid-list li section h2 > a .material-icons, .mdt-grid-list li section h3 > a .material-icons, .mdt-structured-link a .material-icons, .mdt-paging .mdt-paging-link .material-icons, span.mdt-user-contact a .material-icons, .mdt-attachment-download .material-icons {
     padding-right: 4px;
     font-size: inherit;
     line-height: inherit;
@@ -15031,7 +15189,7 @@ time {
   transition: 0.1s ease-in-out; }
   .mdt-toolbar-content.mdt-toolbar-expandable {
     min-width: 32px;
-    max-width: 128px;
+    max-width: 256px;
     width: auto; }
   .mdt-toolbar-content > li {
     margin: 0 4px; }
@@ -15080,6 +15238,10 @@ time {
   .mdt-post:nth-of-type(2n+1) {
     background-color: rgba(var(--color-bg-inverse), 0.075); }
   .mdt-post header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     order: 1;
     margin: 16px 16px 10px; }
     .mdt-post header h3 {
@@ -15092,6 +15254,19 @@ time {
   .mdt-post footer {
     order: 3;
     margin: 16px; }
+  .mdt-post .mdt-toolbar {
+    position: absolute;
+    right: 0;
+    background-color: rgba(var(--color-bg), 0.87); }
+    .mdt-post .mdt-toolbar .material-icons {
+      font-size: 20px; }
+
+.mdt-post-actions {
+  text-align: right; }
+  .mdt-post-actions a {
+    font-size: 24px; }
+    .mdt-post-actions a .material-icons {
+      font-size: inherit; }
 
 .mdt-user {
   display: grid;
@@ -15175,6 +15350,97 @@ span.mdt-user-contact a {
   flex-direction: column;
   margin: -16px 0 8px;
   grid-column: 2; }
+
+@media (max-width: 575px) {
+  .mdt-post .mdt-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; }
+    .mdt-post .mdt-user span {
+      padding-left: 16px;
+      padding-right: 16px;
+      text-align: center; }
+      .mdt-post .mdt-user span:last-child {
+        padding-bottom: 8px; }
+  .mdt-post .mdt-user-name {
+    flex-direction: column;
+    align-items: center;
+    border-bottom: none; }
+    .mdt-post .mdt-user-name .mdt-user-contact {
+      border-top: 1px solid rgba(var(--color-fg), 0.1);
+      padding-top: 8px;
+      margin-top: 8px; }
+  .mdt-post .mdt-user-avatar {
+    flex-direction: column;
+    margin: -16px 0 8px;
+    grid-column: 2; } }
+
+.mdt-grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  grid-auto-flow: dense;
+  gap: 16px;
+  margin-bottom: 32px; }
+
+.mdt-grid-view > * {
+  margin: 0;
+  grid-column: span 1; }
+  .mdt-grid-view > * .mdt-attachment-image {
+    width: auto;
+    margin: 0; }
+
+.mdt-attachment-image {
+  position: relative;
+  background-color: rgba(var(--color-bg-inverse), 0.15);
+  width: 256px;
+  margin: 0 16px 16px 0; }
+  .mdt-attachment-image img {
+    max-width: 100%;
+    object-fit: cover; }
+  .mdt-attachment-image figcaption {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 8px 16px;
+    background-color: rgba(var(--color-bg), 0.55); }
+    .mdt-attachment-image figcaption h5 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 24px; }
+
+.mdt-attachment-file {
+  box-shadow: 0 3px 4px 0 rgba(var(--mdt-shadow-color), 0.14), 0 3px 3px -2px rgba(var(--mdt-shadow-color), 0.2), 0 1px 8px 0 rgba(var(--mdt-shadow-color), 0.12);
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: rgba(var(--color-fg), 0.54);
+  transition: color 0.25s ease-in-out;
+  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 20px; }
+  .mdt-attachment-file:hover {
+    color: rgba(var(--color-fg), 0.54); }
+    .mdt-attachment-file:hover > .mdt-attachment-title {
+      color: rgba(var(--color-accent), 1); }
+  .mdt-attachment-file > .mdt-attachment-title {
+    font-size: 14px;
+    background-color: rgba(var(--color-bg-inverse), 0.05);
+    color: rgba(var(--color-accent), 0.87);
+    transition: color 0.25s ease-in-out; }
+  .mdt-attachment-file > span {
+    display: block;
+    padding: 4px 8px; }
+
+@media (min-width: 576px) {
+  .mdt-attachment-image {
+    min-height: 150px; }
+    .mdt-attachment-image figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+  .mdt-attachment-image {
+    width: 300px; } }
 
 @font-face {
   font-family: 'IcoMoon';

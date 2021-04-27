@@ -5,7 +5,7 @@
 
 const expandableClass = 'mdt-toolbar-expandable';
 const buttons = document.querySelectorAll('.mdt-toolbar-toggle');
-const activeMenus = new Set();
+const activeToolbar = new Set();
 buttons.forEach(button => {
   const menu = button.nextElementSibling;
   menu.addEventListener('click', (event) => {
@@ -17,14 +17,16 @@ buttons.forEach(button => {
       menu.classList.remove(expandableClass);
     } else {
       menu.classList.add(expandableClass);
-      activeMenus.add(menu);
+      activeToolbar.add([menu, button]);
+      button.setAttribute('hidden', true);
     }
   });
 });
 
 document.addEventListener('click', () => {
-  for (const menu of activeMenus.values()) {
+  for (const [menu, button] of activeToolbar.values()) {
     menu.classList.remove(expandableClass);
+    setTimeout(() => button.removeAttribute('hidden'), 50);
   }
-  activeMenus.clear();
+  activeToolbar.clear();
 });

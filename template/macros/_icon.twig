@@ -13,6 +13,8 @@
 {% set _id = 'skype' %}
 {% elseif id ends with 'youtube' %}
 {% set _id = 'youtube' %}
+{% elseif id ends with 'pm' %}
+{% set _id = 'bubbles3' %}
 {% endif %}
 
 <i class="icon-{{ _id }}"></i>

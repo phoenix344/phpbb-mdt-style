@@ -8,6 +8,7 @@ $material-design-icons-font-directory-path: "../fonts/";
 
 // Material UI Icons
 @import "../../node_modules/material-design-icons-iconfont/src/material-design-icons.scss";
+@import "../../node_modules/baguettebox.js/src/baguetteBox.scss";
 
 // TODO: reorder CSS selectors and reduce overhead
 
@@ -20,8 +21,8 @@ $material-design-icons-font-directory-path: "../fonts/";
 @import "mdt/nav";
 @import "mdt/menu";
 @import "mdt/pagination";
-@import "mdt/user";
 
+@import "mdt/board/user";
 @import "mdt/board/post";
 
 @import "iconmoon";

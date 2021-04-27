@@ -60,11 +60,19 @@
 </div>
 {% endmacro %}
 
-{% macro contactLink(id, title, url) %}
+{% macro contactLink(id, title, url, rowId) %}
 {% import 'macros/_icon.twig' as icon %}
+{% if rowId %}
+{% set _socialId = "social-" ~ id ~ "-" ~ rowId %}
+{% endif %}
 {% if url %}
-<a href="{{ url }}" title="{{ title }}" target="_blank">{{ icon.contactIcons(id) }}</a>
+<a{% if _socialId %} id="{{ _socialId }}"{% else %} title="{{ title }}"{% endif %} href="{{ url }}" target="_blank">{{ icon.contactIcons(id) }}</a>
 {% else %}
-{{ icon.contactIcons(id) }}
+<span{% if _socialId %} id="{{ _socialId }}"{% else %} title="{{ title }}"{% endif %}>{{ icon.contactIcons(id) }}</span>
+{% endif %}
+{% if _socialId %}
+<span class="mdl-tooltip" for="{{ _socialId }}">
+  <span class="mdl-tooltip__text">{{ title }}</span>
+</span>
 {% endif %}
 {% endmacro %}

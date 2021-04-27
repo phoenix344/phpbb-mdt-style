@@ -1,0 +1,68 @@
+{% set SHOW_POST_BUTTONS = (row.U_EDIT or row.U_DELETE or row.U_REPORT or row.U_WARN or row.U_INFO or row.U_QUOTE) %}
+{% EVENT viewtopic_body_post_buttons_list_before %}
+{% if not S_IS_BOT and SHOW_POST_BUTTONS %}
+<div class="mdt-toolbar">
+  <button class="mdt-toolbar-toggle mdl-js-button">
+    <i class="material-icons">more_horiz</i>
+  </button>
+  <nav class="mdt-toolbar-content mdt-post-actions">
+    {% EVENT viewtopic_body_post_buttons_before %}
+    {% if row.U_EDIT %}
+    <a id="postbtn-edit-{{ row.POST_ID }}" href="{{ row.U_EDIT }}" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">edit</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-edit-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_EDIT') }}</span>
+    </span>
+    {% endif %}
+    {% if row.U_DELETE %}
+    <a id="postbtn-delete-{{ row.POST_ID }}" href="{{ row.U_DELETE }}" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">delete</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-delete-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_DELETE') }}</span>
+    </span>
+    {% endif %}
+    {% if row.U_REPORT %}
+    <a id="postbtn-report-{{ row.POST_ID }}" href="{{ row.U_REPORT }}" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">report</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-report-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_REPORT') }}</span>
+    </span>
+    {% endif %}
+    {% if row.U_WARN %}
+    <a id="postbtn-warn-{{ row.POST_ID }}" href="{{ row.U_WARN }}" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">warning</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-warn-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_WARN') }}</span>
+    </span>
+    {% endif %}
+    {% if row.U_INFO %}
+    <a id="postbtn-info-{{ row.POST_ID }}" href="{{ row.U_INFO }}" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">policy</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-info-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_INFORMATION') }}</span>
+    </span>
+    {% endif %}
+    {% if row.U_QUOTE %}
+    <a id="postbtn-quote-{{ row.POST_ID }}" href="{{ row.U_QUOTE }}" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">format_quote</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-quote-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_QUOTE') }}</span>
+    </span>
+    {% endif %}
+    <a id="postbtn-share-{{ row.POST_ID }}" href="{{ row.U_MINI_POST }}" target="_blank" class="mdl-button mdl-button--icon mdl-js-button">
+      <i class="material-icons">share</i>
+    </a>
+    <span class="mdl-tooltip" for="postbtn-share-{{ row.POST_ID }}">
+      <span clas="mdl-tooltip__text">{{ lang('BUTTON_SHARE') }}</span>
+    </span>
+    {% EVENT viewtopic_body_post_buttons_after %}
+  </nav>
+</div>
+{% endif %}
+{% EVENT viewtopic_body_post_buttons_list_after %}

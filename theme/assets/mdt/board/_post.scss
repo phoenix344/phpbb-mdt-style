@@ -10,6 +10,10 @@
   }
 
   header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     order: 1;
     margin: 16px 16px 10px;
 
@@ -28,6 +32,25 @@
   footer {
     order: 3;
     margin: 16px;
+  }
+
+  .mdt-toolbar {
+    position: absolute;
+    right: 0;
+    background-color: rgba(var(--color-bg), 0.87);
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+}
+
+.mdt-post-actions {
+  text-align: right;
+  a {
+    font-size: 24px;
+    .material-icons {
+      font-size: inherit;
+    }
   }
 }
 
@@ -145,5 +168,129 @@ span.mdt-user-contact {
     flex-direction: column;
     margin: -16px 0 8px;
     grid-column: 2;
+  }
+}
+
+@media (max-width: $breakpoint-phones-landscape - 1) {
+  .mdt-post {
+    .mdt-user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+  
+      span {
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
+  
+        &:last-child {
+          padding-bottom: 8px;
+        }      
+      }
+    }
+  
+    .mdt-user-name {
+      flex-direction: column;
+      align-items: center;
+      border-bottom: none;
+      .mdt-user-contact {
+        border-top: 1px solid rgba(var(--color-fg), 0.1);
+        padding-top: 8px;
+        margin-top: 8px;
+      }
+    }
+  
+    .mdt-user-avatar {
+      flex-direction: column;
+      margin: -16px 0 8px;
+      grid-column: 2;
+    }
+  }
+}
+
+.mdt-grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  grid-auto-flow: dense;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.mdt-grid-view > * {
+  margin: 0;
+  grid-column: span 1;
+  .mdt-attachment-image {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.mdt-attachment-image {
+  position: relative;
+  background-color: rgba(var(--color-bg-inverse), 0.15);
+  width: 256px;
+  margin: 0 16px 16px 0;
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  figcaption {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 8px 16px;
+    background-color: rgba(var(--color-bg), 0.55);
+    h5 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+.mdt-attachment-download {
+  @extend .mdt-link;
+}
+
+.mdt-attachment-file {
+  @include mdt-shadow-3dp;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: rgba(var(--color-fg), .54);
+  transition: color 0.25s ease-in-out;
+  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 20px;
+  &:hover {
+    color: rgba(var(--color-fg), .54);
+    > .mdt-attachment-title {
+      color: rgba(#{$color-accent}, 1);
+    }
+  }
+  > .mdt-attachment-title {
+    font-size: 14px;
+    background-color: rgba(var(--color-bg-inverse), 0.05);
+    color: rgba(#{$color-accent}, .87);
+    transition: color 0.25s ease-in-out;
+  }
+  > span {
+    display: block;
+    padding: 4px 8px;
+  }
+}
+
+@media (min-width: $breakpoint-phones-landscape) {
+  .mdt-attachment-image {
+    min-height: 150px;
+    figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .mdt-attachment-image {
+    width: 300px;
   }
 }
