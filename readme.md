@@ -11,7 +11,7 @@ It's a mobile optimized style for phpBB. Completely untested in any browser, but
 ## Dependencies
 
 - (Development) Gulp + SCSS + Livereload
-- Twig Template Engine (no old-school phpbb template engine), I hope I can easily migrate to phpbb 4
+- Twig Template Engine (no old-school phpbb template engine)
 - [MDL](https://getmdl.io) (Material Design Lite) - unfortunately outdated for [MDC](https://github.com/material-components/material-components-web/blob/master/docs/migrating-from-mdl.md)
 - IconMoon Icons (free) - for social media icons and some other special use-cases
 - Material Icons - for default app functionality
