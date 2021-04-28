@@ -12,6 +12,23 @@
       </h3>
       <time datetime="{{ row.POST_DATE_RFC3339 }}">{{ row.POST_DATE }}</time>
     </div>
+
+    {# bumping a post. What is this? #}
+    {% if row.BUMPED_MESSAGE %}
+    <div class="notice"><br /><br />
+      {{ row.BUMPED_MESSAGE }}
+    </div>
+    {% endif %}
+    {% EVENT viewtopic_body_row_post_notices_after %}
+    {% if row.SIGNATURE %}
+    <div id="sig{{ row.POST_ID }}" class="signature">
+      {{ row.SIGNATURE }}
+    </div>
+    {% endif %}
+  
+    {% EVENT viewtopic_body_row_post_content_footer %}
+
+    {# toolbar with actions edit/quote/report, etc. #}
     {{ include('topic/topic_posts_actions.html') }}
   </header>
   <section>
@@ -72,7 +89,7 @@
     <span>{{ row.RANK_IMG }}</span>
     {% endif %}
     {% EVENT viewtopic_body_row_rank_after %}
-
+    {% EVENT viewtopic_body_row_post_details_after %}
   </aside>
 </li>
 {#

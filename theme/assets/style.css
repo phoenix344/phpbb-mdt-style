@@ -14951,24 +14951,6 @@ time {
   line-height: 150%;
   height: auto; }
 
-.mdt-actions {
-  display: flex;
-  flex-direction: column;
-  margin: 16px; }
-  .mdt-actions.mdt-actions-trailing {
-    justify-content: flex-end; }
-  .mdt-actions .mdt-actions {
-    flex-direction: row;
-    margin: 16px 0 0 0; }
-
-@media (min-width: 576px) {
-  .mdt-actions {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center; }
-    .mdt-actions .mdt-actions {
-      margin: 0; } }
-
 .mdt-form-fields {
   padding: 16px; }
 

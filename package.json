@@ -22,7 +22,7 @@
     "postcss": "^8.2.9"
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
-    "stylehacks": "^4.0.3"
+    "baguettebox.js": "^1.11.1",
+    "eslint": "^7.23.0"
   }
 }

@@ -399,6 +399,11 @@
     "async-settle" "^1.0.0"
     "now-and-later" "^2.0.0"
 
+"baguettebox.js@^1.11.1":
+  "integrity" "sha512-0HnUVs+xaqwQOVbfi0kwZnZ1fJNWE5vJLCoCAtgQBtPmOJa1fhN8gubaBFOBGDkQy/vz6PWSr7B3WilhQKjyeQ=="
+  "resolved" "https://registry.npmjs.org/baguettebox.js/-/baguettebox.js-1.11.1.tgz"
+  "version" "1.11.1"
+
 "balanced-match@^1.0.0":
   "integrity" "sha1-ibTRmasr7kneFk6gK4nORi1xt2c="
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz"
@@ -4489,7 +4494,7 @@
   "resolved" "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
   "version" "3.1.1"
 
-"stylehacks@^4.0.0", "stylehacks@^4.0.3":
+"stylehacks@^4.0.0":
   "integrity" "sha512-7GlLk9JwlElY4Y6a/rmbH2MhVlTyVmiJd1PfTCqFaIBEGMYNsrO/v3SeGTdhBThLg4Z+NbOk/qFMwCa+J+3p/g=="
   "resolved" "https://registry.npmjs.org/stylehacks/-/stylehacks-4.0.3.tgz"
   "version" "4.0.3"

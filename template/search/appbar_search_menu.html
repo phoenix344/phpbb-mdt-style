@@ -23,10 +23,10 @@
   <a class="mdl-navigation__link" href="{{ U_SEARCH_ACTIVE_TOPICS }}">{{ lang('SEARCH_ACTIVE_TOPICS') }}</a>
 </nav>
 
-<button id="appbar-search-btn" class="mdl-button mdl-js-button mdl-button--icon">
+<button id="appbar-quicklinks-btn" class="mdl-button mdl-js-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
-<nav class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="appbar-search-btn">
+<nav class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="appbar-quicklinks-btn">
   {% EVENT overall_header_searchbox_after %}
   <b class="mdt-menu__headline">{{ lang('QUICK_LINKS') }}</b>
   <a class="mdl-menu__item mdl-layout--small-screen-only" href="{{ U_SEARCH }}">{{ lang('SEARCH_ADV') }}</a>
@@ -39,6 +39,10 @@
   <a class="mdl-menu__item" href="{{ U_SEARCH_UNREAD }}">{{ lang('SEARCH_UNREAD') }}</a>
   {% endif %}
   <a class="mdl-menu__item" href="{{ U_SEARCH_UNANSWERED }}">{{ lang('SEARCH_UNANSWERED') }}</a>
+  <a class="mdl-menu__item" href="{{ U_FAQ }}">
+    <i class="material-icons">question_answer</i>
+    {{ lang('FAQ') }}
+  </a>
 </nav>
 {% endif %}
 

@@ -1,9 +1,6 @@
 {
-    "files.autoSave": "afterDelay",
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-    "editor.formatOnSave": true,
-    "eslint.format.enable": true,
-    "terminal.integrated.env.linux": {
-      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/snap/bin:~/md-theme.com/styles/mdt/.bin"
-    }
+  "files.autoSave": "afterDelay",
+  "editor.defaultFormatter": "vscode.typescript-language-features",
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
 }

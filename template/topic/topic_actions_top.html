@@ -1,9 +1,9 @@
-<div class="mdt-forum-actions">
+<div class="mdt-actions">
   {% EVENT viewtopic_buttons_top_before %}
 
   {% if not S_IS_BOT and S_DISPLAY_POST_INFO %}
   <div class="mdt-forum-buttons">
-    <a class="mdt-forum-new-topic mdl-js-ripple-effect" href="{{ U_POST_REPLY_TOPIC }}">
+    <a class="mdl-button mdl-button--raised mdl-button--primary mdl-js-button mdl-js-ripple-effect" href="{{ U_POST_REPLY_TOPIC }}">
       {% if S_IS_LOCKED %}
       <span class="material-icons">lock</span>
       {{ lang('BUTTON_TOPIC_LOCKED') }}
@@ -15,15 +15,15 @@
   </div>
   {% endif %}
 
-  {% EVENT viewtopic_buttons_top_after %}
-  {{ include('topic/topic_actions_toolbar.html') }}
-  {% EVENT viewtopic_dropdown_top_custom %}
+  <div class="mdt-actions">
+    {% EVENT viewtopic_buttons_top_after %}
+    {{ include('topic/topic_actions_toolbar.html') }}
+    {% EVENT viewtopic_dropdown_top_custom %}
 
-  <div class="mdt-forum-actions-controls">
     {% if S_DISPLAY_SEARCHBOX %}
     <form class="mdt-forum-search" method="get" id="forum-search" action="{{ S_SEARCHBOX_ACTION }}">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="search_keywords">
+        <label class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" for="search_keywords">
           <i class="material-icons">search</i>
         </label>
         <div class="mdl-textfield__expandable-holder">
@@ -34,7 +34,7 @@
       {{ S_SEARCH_LOCAL_HIDDEN_FIELDS }}
     </form>
 
-    <a class="mdt-forum-search-adv mdl-js-button" href="{{ U_SEARCH_FORUM }}" title="{{ lang('SEARCH_ADV') }}">
+    <a class="mdl-button mdl-button--icon mdl-js-button" href="{{ U_SEARCH_FORUM }}" title="{{ lang('SEARCH_ADV') }}">
       <span class="material-icons">settings</span>
     </a>
     {% endif %}
