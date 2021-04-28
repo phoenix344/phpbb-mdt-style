@@ -15,7 +15,8 @@
 - [ ] display_options.html
 - [ ] drafts.html
 - [ ] faq_body.html
-- [ ] ~~forumlist_body.html~~ (obsolete)
+- [x] ~~forumlist_body.html~~ (obsolete)
+  - [ ] cleanup
 - [ ] index_body.html
   - [ ] Twig
   - [x] `include('index/_index.html')`
@@ -51,8 +52,11 @@
 - [ ] memberlist_view.html
 - [ ] message_body.html
 - [x] ~~navbar_footer.html~~ (obsolete)
+  - [ ] cleanup
 - [x] ~~navbar_header.html~~ (obsolete)
+  - [ ] cleanup
 - [x] ~~notification_dropdown.html~~ (obsolete)
+  - [ ] cleanup
 - [ ] overall_footer.html
   - [ ] Twig
   - [x] include material.js and main.js scripts
@@ -152,9 +156,9 @@
 - [x] Page Header
   - [x] User Login
   - [x] Quick Links
-  - [x] FAQ
   - [x] Search Box
   - [x] Notification badge
+  - [ ] FAQ Link
 - Drawer not logged in
     - [ ] Login Form
 - Drawer logged in
