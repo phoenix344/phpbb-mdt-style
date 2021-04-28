@@ -4,29 +4,9 @@
 
 It's a mobile optimized style for phpBB. Completely untested in any browser, but Chrome and Firefox. I want to refuse to support IE11, but I have to admit: It's an easy task to convert the ES6 into ES2015 and it's easy to use autoprefixer and optimize CSS for IE11. The only thing that will not work are CSS variables. Let's bring this thing to life!
 
-## Todo
+## ToDos 
 
-- [x] Startpage view
-- [x] Drawer with notifications
-- [x] Login box (dialog)
-- [x] Appbar
-- [x] Posts Layout
-- [x] Attachments in Posts
-- [x] Dark/Light Mode Switch (proof of concept)
-- [x] CSS variables (proof of concept)
-- [x] Breadcrumb
-- [x] Jumpbox
-- [ ] Actionbars for posts, topics and other things I forgot
-- [ ] Write/edit posts
-- [ ] User Control Panel
-- [ ] Login/Registration/Lost Password Form (not in a dialog)
-- [ ] Various things I just forgot to mention
-- [ ] This
-- [ ] List
-- [ ] Will
-- [ ] Grow
-- [ ] I
-- [ ] Swear!
+[TODO List](TODO.md)
 
 ## Dependencies
 
