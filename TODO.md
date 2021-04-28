@@ -165,12 +165,12 @@
   - [x] User Details
   - [x] Notifications
 - [x] Forum Index
-  - [ ] cleanup
+  - [ ] polishing
 - [x] Forum view
-  - [ ] cleanup
+  - [ ] polishing
 - [x] Topic view
-  - [ ] cleanup
+  - [ ] polishing
 - [x] Posts view
-  - [ ] cleanup
+  - [ ] polishing
 - [ ] Write/Edit Post/Topic
 - [ ] 
