@@ -15,7 +15,7 @@
 - [ ] display_options.html
 - [ ] drafts.html
 - [ ] faq_body.html
-- [ ] forumlist_body.html (obsolete)
+- [ ] ~~forumlist_body.html~~ (obsolete)
 - [ ] index_body.html
   - [ ] Twig
   - [x] `include('index/_index.html')`
@@ -50,9 +50,9 @@
 - [ ] memberlist_team.html
 - [ ] memberlist_view.html
 - [ ] message_body.html
-- [x] navbar_footer.html (obsolete)
-- [x] navbar_header.html (obsolete)
-- [x] notification_dropdown.html (obsolete)
+- [x] ~~navbar_footer.html~~ (obsolete)
+- [x] ~~navbar_header.html~~ (obsolete)
+- [x] ~~notification_dropdown.html~~ (obsolete)
 - [ ] overall_footer.html
   - [ ] Twig
   - [x] include material.js and main.js scripts
