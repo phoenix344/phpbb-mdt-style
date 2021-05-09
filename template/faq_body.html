@@ -1,77 +1,41 @@
 <!-- INCLUDE overall_header.html -->
 
 {% import 'macros/components.twig' as cmp %}
+{% import 'macros/nav.twig' as nav %}
 
-{% set entries = [] %}
+<div class="mdt-actions">
+  {{ nav.link(U_INDEX, lang('RETURN_TO_INDEX'), "keyboard_arrow_left", "mdt-jumpbox-back mdt-link", "r") }}
+
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__header', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>
+
 {% for item in faq_block %}
-{% set active = true %}
-{% set id = 'f' ~ item.S_ROW_COUNT %}
-
-{% set content %}
-<div class="mdl-card" style="width: 100%;">
-  <div class="mdl-card__title">
-    <h3 class="mdl-card__title-text">{item.BLOCK_TITLE}</h3>
-  </div>
-  <div class="mdl-card__supporting-text">
-    {% for row in item.faq_row %}
-    <h3>{{ row.FAQ_QUESTION }}</h3>
-    <p>{{ row.FAQ_ANSWER }}</p>
-    {% endfor %}
+<div class="mdt-container">
+  <div class="mdl-card" style="width: 100%;">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{item.BLOCK_TITLE}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      {% set index = 0 %}
+      {% set expandableName = 'f' ~ item.S_ROW_COUNT %}
+      {% for row in item.faq_row %}
+        {% set id = expandableName ~ '-' ~ index %}
+        {% set index = index + 1 %}
+        {{ cmp.expandableSimple(id, row.FAQ_QUESTION, row.FAQ_ANSWER, false) }}
+      {% endfor %}
+    </div>
   </div>
 </div>
-{% endset %}
-
-{% set entries = entries|merge([[id, item.BLOCK_TITLE, content, active]]) %}
-{% set active = false %}
 {% endfor %}
 
-{{ cmp.tabs(entries) }}
+<div class="mdt-actions">
+  {{ nav.link(U_INDEX, lang('RETURN_TO_INDEX'), "keyboard_arrow_left", "mdt-jumpbox-back mdt-link", "r") }}
 
-{#<h2 class="faq-title">{L_FAQ_TITLE}</h2>
+  {% if S_DISPLAY_JUMPBOX %}
+  {{ nav.jumpbox(lang('JUMP_TO'), jumpbox_forums, '__footer', S_CONTENT_DIRECTION) }}
+	{% endif %}
+</div>
 
-
-<div class="panel bg1" id="faqlinks">
-	<div class="inner">
-		<div class="column1">
-		<!-- BEGIN faq_block -->
-			<!-- IF faq_block.SWITCH_COLUMN or (SWITCH_COLUMN_MANUALLY and faq_block.S_ROW_COUNT == 4) -->
-				</div>
-
-				<div class="column2">
-			<!-- ENDIF -->
-
-			<dl class="faq">
-				<dt><strong>{faq_block.BLOCK_TITLE}</strong></dt>
-				<!-- BEGIN faq_row -->
-					<dd><a href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></dd>
-				<!-- END faq_row -->
-			</dl>
-		<!-- END faq_block -->
-		</div>
-	</div>
-</div>#}
-
-<!-- BEGIN faq_block -->
-	<div class="panel <!-- IF faq_block.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
-		<div class="inner">
-
-		<div class="content">
-			<h2 class="faq-title">{faq_block.BLOCK_TITLE}</h2>
-			<!-- BEGIN faq_row -->
-				<dl class="faq">
-					<dt id="f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}"><strong>{faq_block.faq_row.FAQ_QUESTION}</strong></dt>
-					<dd>{faq_block.faq_row.FAQ_ANSWER}</dd>
-				</dl>
-				<a href="#faqlinks" class="top">
-					<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i><span>{L_BACK_TO_TOP}</span>
-				</a>
-				<!-- IF not faq_block.faq_row.S_LAST_ROW --><hr class="dashed" /><!-- ENDIF -->
-			<!-- END faq_row -->
-		</div>
-
-		</div>
-	</div>
-<!-- END faq_block -->
-
-<!-- INCLUDE jumpbox.html -->
 <!-- INCLUDE overall_footer.html -->

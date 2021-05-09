@@ -19,3 +19,32 @@
   {% endfor %}
 </div>
 {% endmacro %}
+
+{% macro expandableSimple(id, label, content, active) %}
+<div class="mdt-expandable">
+  <h3 class="mdt-expandable-title" tabindex="0" aria-expanded="{{ active ? 'true' : 'false' }}">
+    <i class="material-icons mdt-expandable-opened">expand_less</i>
+    <i class="material-icons mdt-expandable-closed">expand_more</i>
+    {{ label }}
+  </h3>
+  <div class="mdt-expandable-content">{{ content }}</div>
+</div>
+{% endmacro %}
+
+{% macro expandables(entries, expanderName, multipleExpand = false) %}
+  {% for entry in entries %}
+    {% set id = entry[0] %}
+    {% set label = entry[1] %}
+    {% set content = entry[2] %}
+    {% set active = entry[3] %}
+    <div class="mdt-expandable">
+      <input id="{{ id }}" name="{{ expanderName }}" type="{% if multipleExpand %}checkbox{% else %}radio{% endif %}"{% if active %} checked{% endif %}>
+      <label for="{{ id }}">
+        <i class="material-icons mdt-expandable-opened">expand_less</i>
+        <i class="material-icons mdt-expandable-closed">expand_more</i>
+        {{ label }}
+      </label>
+      <div class="mdt-expandable-content">{{ content }}</div>
+    </div>
+  {% endfor %}
+{% endmacro %}
